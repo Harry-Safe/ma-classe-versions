@@ -1,0 +1,22 @@
+{
+  "version": "4.16",
+  "date": "2026-11-04",
+  "titre": "Rituels, Journée et Préparer simplifiés, horloge unique",
+  "notes": [
+    "Rituels, Journée, Préparer, Rappels, calendrier, fractions, panneau Élèves et Résultats écrits en un seul endroit.",
+    "Une seule minuterie pour les tâches de fond ; page cachée non redessinée.",
+    "Deux éditions construites, 49 scénarios."
+  ],
+  "fichiers": {
+    "classe": {
+      "url": "stable/Ma classe.html",
+      "taille": 4275073,
+      "sha256": "e389d564ba97908ade14e496daa6ef97db851085e30429cd2b93d663756ca4b0"
+    },
+    "remplacant": {
+      "url": "stable/Ma classe - Remplaçant.html",
+      "taille": 4275045,
+      "sha256": "50b45a3e8779bab1cd4fd2716ebc9cdf1860ff33d99c29159268cc4494df81f2"
+    }
+  }
+}
