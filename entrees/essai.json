@@ -1,0 +1,23 @@
+{
+  "version": "4.17",
+  "date": "2026-11-04",
+  "titre": "mises à jour, thèmes simplifiés",
+  "notes": [
+    "Mises à jour (Réglages › Mises à jour) : Ma classe annonce une nouvelle version et l'installe en un clic, depuis le site public des mises à jour ou depuis un fichier (clé USB) ; fiche signée par l'auteur et fichier vérifié avant installation ; l'ancienne version est gardée dans le dossier « versions ».",
+    "Lecteur PDF : ouvert depuis le disque, il lit les PDF dans un fil à part (plus rapide) et ne note plus d'erreur « importScripts » dans le journal.",
+    "Code : thèmes, outils, monnaie et notice du remplaçant écrits en un seul endroit ; plus aucune fonction redéfinie par un autre module (5 couches restantes : 4 extensions et le mode léger).",
+    "Validation : deux éditions construites, 51 scénarios (dont 2 nouveaux)."
+  ],
+  "fichiers": {
+    "classe": {
+      "url": "essai/Ma classe.html",
+      "taille": 4278145,
+      "sha256": "803f52c9b844842d7aef65549f22aa9a2153ecd9dbcaaf3de053985ce418a9aa"
+    },
+    "remplacant": {
+      "url": "essai/Ma classe - Remplaçant.html",
+      "taille": 4278112,
+      "sha256": "20553b4b769b2088cd1b575a7ae2a6e2465a5c339b622a98c32013f4d13b50bf"
+    }
+  }
+}
