@@ -1,23 +1,25 @@
 {
-  "version": "4.17",
+  "version": "4.18",
   "date": "2026-11-04",
-  "titre": "mises à jour, thèmes simplifiés",
+  "titre": "nouvelle présentation, mode présentation des PDF, Word en pages",
   "notes": [
-    "Mises à jour (Réglages › Mises à jour) : Ma classe annonce une nouvelle version et l'installe en un clic, depuis le site public des mises à jour ou depuis un fichier (clé USB) ; fiche signée par l'auteur et fichier vérifié avant installation ; l'ancienne version est gardée dans le dossier « versions ».",
-    "Lecteur PDF : ouvert depuis le disque, il lit les PDF dans un fil à part (plus rapide) et ne note plus d'erreur « importScripts » dans le journal.",
-    "Code : thèmes, outils, monnaie et notice du remplaçant écrits en un seul endroit ; plus aucune fonction redéfinie par un autre module (5 couches restantes : 4 extensions et le mode léger).",
-    "Validation : deux éditions construites, 51 scénarios (dont 2 nouveaux)."
+    "Nouvelle présentation : surfaces claires et calmes, une seule couleur de sélection (bleu) ; le bandeau de la date devient des accès rapides en petites languettes en haut de l'écran (date, rappels, présents, cantine, documents, sites), l'heure et le « ! » d'un rappel du jour restent visibles ; la barre de droite se range pendant les tableaux et les rituels (languette « Menu » au bord droit, épingle pour la garder) ; dock des tableaux aux tuiles mates, épingle seule ; pictogrammes à la place des emojis dans la Journée, les onglets et les actions des tableaux.",
+    "Mode présentation des PDF : bouton « Présenter » ou F5, une page par écran, flèches, télécommande, clic, numéro de page, écran noir (B), pointeur (L), miniatures (M) ; Échap revient à la même page.",
+    "Word : affiché en pages A4 (celles de Word quand elles sont notées dans le fichier), « page n / N », télécommande ; bouton « Au tableau » pour envoyer le texte d'un Word ou d'un PDF dans Tableau › Lecture (couleurs, fluence), même ouvert hors du dossier.",
+    "Réglages en 8 rubriques avec un sommaire à gauche ; « Ce poste » dans « Dossier et sauvegardes » (deux ordinateurs du même type sont maintenant bien distingués).",
+    "Corrections : fenêtres opaques en mode léger avec la projection contrastée ; choix des outils et rouage lisibles ; noms d'onglets en double ; Tableau des nombres jusqu'à 59, 79 ou 99.",
+    "Validation : deux éditions construites, 54 scénarios (dont 3 nouveaux)."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 4278145,
-      "sha256": "803f52c9b844842d7aef65549f22aa9a2153ecd9dbcaaf3de053985ce418a9aa"
+      "taille": 4315945,
+      "sha256": "61ba7f1d955aa759813e5ce6e0eabab2ec5f0ed289b92035bc795e6199b3cd75"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 4278112,
-      "sha256": "20553b4b769b2088cd1b575a7ae2a6e2465a5c339b622a98c32013f4d13b50bf"
+      "taille": 4315902,
+      "sha256": "7c91c7ac17bca3bcda85baa1f76d9544fa404cb4f96ada4fbbc2210fd4422973"
     }
   }
 }
