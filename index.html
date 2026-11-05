@@ -5,4 +5,14 @@
 <body><h1>Ma classe – mises à jour</h1>
 <p>Ce site sert les mises à jour du logiciel de classe <b>Ma classe</b>, conçu par Franck VARAULT. Dans Ma classe : <b>Réglages › Mises à jour</b>.</p>
 <p>Les fichiers sont signés ; Ma classe refuse un fichier dont la signature ou l'empreinte ne correspond pas. Ce site ne contient aucune donnée d'élève.</p>
+<h2 id="appli">Application Windows</h2>
+<p id="appliLien">L'installateur de l'application « Ma classe » pour Windows sera proposé ici.</p>
+<p>Installation sans droits d'administrateur. L'installateur n'est pas signé par Microsoft : si Windows affiche « Windows a protégé votre ordinateur », choisir « Informations complémentaires » puis « Exécuter quand même ». Ensuite, l'application se met à jour d'elle-même (Réglages › Mises à jour).</p>
+<script>
+fetch("appli/latest.json", {cache:"no-store"}).then(r => r.ok ? r.json() : null).then(f => {
+  const u = f && f.platforms && f.platforms["windows-x86_64"] && f.platforms["windows-x86_64"].url; if (!u) return;
+  const p = document.getElementById("appliLien"); p.textContent = "";
+  const a = document.createElement("a"); a.href = u; a.textContent = "Télécharger Ma classe " + f.version + " pour Windows"; p.append(a);
+}).catch(() => {});
+</script>
 <p>© 2026 Franck VARAULT. Tous droits réservés.</p></body></html>

@@ -5,6 +5,7 @@ Aucune donnée d'élève : seulement les éditions construites, leurs empreintes
 
 - `entrees/<canal>.json` : version, date, nouveautés, empreinte SHA-256 de chaque fichier (écrit par `build/publier-version.py` du dépôt Ma classe) ;
 - `stable/`, `essai/` : les fichiers « Ma classe.html » et « Ma classe - Remplaçant.html » ;
+- `appli/` : l'application Windows (`latest.json` lu par l'application, installateur signé), écrit par `build/publier-appli.py` du dépôt Ma classe ;
 - à chaque envoi, `.github/workflows/publier.yml` vérifie les empreintes, signe la fiche (`outils/signer.py`, secret `MAJ_CLE_PRIVEE`) et publie `versions.json`.
 
 © 2026 Franck VARAULT. Tous droits réservés.
