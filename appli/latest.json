@@ -1,0 +1,11 @@
+{
+  "version": "4.18.0",
+  "notes": "Nouvelle présentation : surfaces claires et calmes, une seule couleur de sélection (bleu) ; le bandeau de la date devient des accès rapides en petites languettes en haut de l'écran (date, rappels, présents, cantine, documents, sites), l'heure et le « ! » d'un rappel du jour restent visibles ; la barre de droite se range pendant les tableaux et les rituels (languette « Menu » au bord droit, épingle pour la garder) ; dock des tableaux aux tuiles mates, épingle seule ; pictogrammes à la place des emojis dans la Journée, les onglets et les actions des tableaux.\nMode présentation des PDF : bouton « Présenter » ou F5, une page par écran, flèches, télécommande, clic, numéro de page, écran noir (B), pointeur (L), miniatures (M) ; Échap revient à la même page.\nWord : affiché en pages A4 (celles de Word quand elles sont notées dans le fichier), « page n / N », télécommande ; bouton « Au tableau » pour envoyer le texte d'un Word ou d'un PDF dans Tableau › Lecture (couleurs, fluence), même ouvert hors du dossier.\nRéglages en 8 rubriques avec un sommaire à gauche ; « Ce poste » dans « Dossier et sauvegardes » (deux ordinateurs du même type sont maintenant bien distingués).\nCorrections : fenêtres opaques en mode léger avec la projection contrastée ; choix des outils et rouage lisibles ; noms d'onglets en double ; Tableau des nombres jusqu'à 59, 79 ou 99.",
+  "pub_date": "2026-11-05T10:54:20Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "",
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/Ma-classe_4.18.0_x64-setup.exe"
+    }
+  }
+}
