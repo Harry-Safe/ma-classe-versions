@@ -32,6 +32,7 @@ def main():
     shutil.rmtree(SITE, ignore_errors=True); SITE.mkdir()
     for c in canaux: shutil.copytree(ICI / c, SITE / c)
     shutil.copyfile(ICI / "index.html", SITE / "index.html")
+    if (ICI / "appli").is_dir(): shutil.copytree(ICI / "appli", SITE / "appli")   # application Windows (latest.json + installateur signé)
     (SITE / "versions.json").write_text(json.dumps(fiche, ensure_ascii=False), encoding="utf-8")
     (SITE / ".nojekyll").write_text("")
     print("versions.json signé :", ", ".join(f"{c} {e['version']}" for c, e in canaux.items()))
