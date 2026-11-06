@@ -1,11 +1,11 @@
 {
-  "version": "5.0.0",
-  "notes": "Application Windows « Ma classe » (installateur sur le site des mises à jour, sans droits d'administrateur) : le dossier « Ma classe » choisi une fois est rebranché tout seul à chaque démarrage ; fenêtre agrandie, plein écran par la touche F ; sites dans une fenêtre de l'application ou dans le navigateur ; une seule Ma classe ouverte à la fois.\nMise à jour automatique de l'application : au démarrage puis une fois par jour ; la fiche et l'installateur passent par le réseau de Windows (comme le navigateur : proxy et certificats de l'école compris), l'application vérifie la signature puis installe et se relance. Message clair si le site est injoignable (la recherche restait bloquée sur « Recherche d'une nouvelle version… » en 4.18).\nApplication Windows : le chemin du dossier est retenu dans le profil de l'application (il survit aux redémarrages et aux mises à jour).\nRéglages › Mises à jour dans l'application : « application Windows » indiqué, choix des versions d'essai retiré.",
-  "pub_date": "2026-11-05T12:31:23Z",
+  "version": "5.0.2",
+  "notes": "Préparer : le bilan d'un jour (coches, notes) suit ses activités quand on en retire, déplace ou renomme une ; une journée commencée (et un jour passé qui a un bilan) garde son plan quand l'emploi du temps change ; « Reporter la suite » garde les activités en parallèle ; le cahier journal Word exporte les activités en parallèle (∥) et garde à la relecture documents joints, rituel rattaché et icône ; « Le jour » suit la semaine affichée ; « 1er » ; copie de l'emploi du temps vers les jours de classe seulement.\nDoubles créneaux : la journée reste rangée dans l'ordre des heures après « ∥+ » ou un échange par glisser-déposer (l'activité disparaissait en fin de Journée) ; les documents de l'activité en parallèle s'ouvrent depuis la Journée.\nTableaux : menu « Séances » par tableau et enregistrement en haut, comme les rituels ; Monnaie à l'échelle de la fenêtre.\nTableau avec lignages : le dock n'a que ses outils, Surligneur, Règle, Remplir, Gomme (la souris prend leur forme), avec une petite palette de couleurs au-dessus de l'outil pris ; Remplir colore seulement l'interligne cliqué, ou tout son carreau, et dans la marge seulement la marge ; ↶ annule la dernière action d'un outil, la corbeille rouge retire d'un clic tout ce que les outils ont ajouté ; « Tout effacer » en haut.\nNumération : manipulation toujours active ; outils du dock Faire un paquet, Casser, Sélectionner (retour au déplacement après un paquet ou une cassure, réglable ; cadre de sélection sur tout le tableau, terminé même lâché hors du tableau).\nÉchecs : l'onglet a l'icône d'une dame.\nApplication Windows : le choix « Versions proposées : d'essai » fonctionne (il était affiché sans effet).",
+  "pub_date": "2026-11-06T12:21:13Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/Ma-classe_5.0.0_x64-setup.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/Ma-classe_5.0.2_x64-setup.exe"
     }
   }
 }
