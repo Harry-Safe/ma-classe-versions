@@ -1,11 +1,11 @@
 {
-  "version": "5.0.2",
-  "notes": "Tableau avec lignages : le dock n'a plus que ses outils (Surligneur, Règle, Remplir, Gomme) ; une petite palette de couleurs s'ouvre au-dessus de l'outil pris (la règle change de couleur) ; Remplir colore seulement l'interligne cliqué, ou tout son carreau, et dans la marge seulement la marge ; ↶ annule la dernière action d'un outil, la corbeille rouge retire d'un clic tout ce que les outils ont ajouté (le modèle écrit reste).\nÉchecs : l'onglet a l'icône d'une dame.",
-  "pub_date": "2026-11-06T11:09:42Z",
+  "version": "5.0.3",
+  "notes": "Nouveau tableau Géométrie : points, segments, droites, cercles, carrés, rectangles et triangles ; quadrillage aimanté facultatif, règle et rapporteur déplaçables, rotation, couleurs, remplissage, annuler/rétablir et séances enregistrées.\nLecteur audio discret dans le menu de droite : fichiers locaux, liste de lecture conservée sur l'appareil, volume, position et répétition ; la lecture continue en changeant d'écran.\nTableau blanc : banque hors ligne de 278 mots illustrés, neuf thèmes et recherche ; ajout facultatif d'une étiquette ; étiquettes en script ou cursive, police modifiable individuellement.\nBulles déplaçables d'une ou deux lignes Seyès avec modèle cursif facultatif, modification et taille réglable ; remplacent le bouton Cursive du tableau blanc. Les anciens textes cursifs sont conservés.\nIllustrations OpenMoji CC BY-SA 4.0, auteurs et licence dans vendor/banque-cp.",
+  "pub_date": "2026-11-06T15:21:11Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.0.2_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.0.3_x64-setup-essai.exe"
     }
   }
 }
