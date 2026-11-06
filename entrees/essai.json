@@ -1,24 +1,22 @@
 {
-  "version": "5.0.1",
+  "version": "5.0.2",
   "date": "2026-11-06",
-  "titre": "version d'essai : Préparer, doubles créneaux, Tableaux",
+  "titre": "version d'essai : outils du tableau avec lignages",
   "notes": [
-    "Préparer : le bilan d'un jour (coches, notes) suit ses activités quand on en retire, déplace ou renomme une ; une journée commencée (et un jour passé qui a un bilan) garde son plan quand l'emploi du temps change ; « Reporter la suite » garde les activités en parallèle ; le cahier journal Word exporte les activités en parallèle (∥) et garde à la relecture documents joints, rituel rattaché et icône ; « Le jour » suit la semaine affichée ; « 1er » ; copie de l'emploi du temps vers les jours de classe seulement.",
-    "Doubles créneaux : la journée reste rangée dans l'ordre des heures après « ∥+ » ou un échange par glisser-déposer (l'activité disparaissait en fin de Journée) ; les documents de l'activité en parallèle s'ouvrent depuis la Journée.",
-    "Tableaux : menu « Séances » par tableau et enregistrement en haut, comme les rituels ; Tableau avec lignages : outils Surligneur, Règle, Remplir, Gomme (la souris prend leur forme) et « Tout effacer » ; Numération : manipulation toujours active, outils Faire un paquet, Casser, Sélectionner (retour au déplacement après un paquet ou une cassure, réglable) ; Monnaie à l'échelle de la fenêtre.",
-    "Application Windows : le choix « Versions proposées : d'essai » fonctionne (il était affiché sans effet).",
+    "Tableau avec lignages : le dock n'a plus que ses outils (Surligneur, Règle, Remplir, Gomme) ; une petite palette de couleurs s'ouvre au-dessus de l'outil pris (la règle change de couleur) ; Remplir colore seulement l'interligne cliqué, ou tout son carreau, et dans la marge seulement la marge ; ↶ annule la dernière action d'un outil, la corbeille rouge retire d'un clic tout ce que les outils ont ajouté (le modèle écrit reste).",
+    "Échecs : l'onglet a l'icône d'une dame.",
     "Validation : deux éditions construites, 57 scénarios."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 4360124,
-      "sha256": "87bb0af00893a8aa67ca91de1c9d797f9da291fd9d9b1f69553a7079ba56d590"
+      "taille": 4366567,
+      "sha256": "5269c2a318b45a2d46a5f9fd596adf92e9d1b52a67c6716050adb6f15e48b206"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 4360077,
-      "sha256": "6351fffb0cadaa5f2f25c29504440b72f38edd388fa4c70055da0b0a3e7f028e"
+      "taille": 4366520,
+      "sha256": "4cb8d7c796a7dd62a7c1aa34b36195dea910c32f433018bb91c0c5c389b778b3"
     }
   }
 }

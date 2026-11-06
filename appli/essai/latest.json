@@ -1,11 +1,11 @@
 {
-  "version": "5.0.1",
-  "notes": "Préparer : le bilan d'un jour (coches, notes) suit ses activités quand on en retire, déplace ou renomme une ; une journée commencée (et un jour passé qui a un bilan) garde son plan quand l'emploi du temps change ; « Reporter la suite » garde les activités en parallèle ; le cahier journal Word exporte les activités en parallèle (∥) et garde à la relecture documents joints, rituel rattaché et icône ; « Le jour » suit la semaine affichée ; « 1er » ; copie de l'emploi du temps vers les jours de classe seulement.\nDoubles créneaux : la journée reste rangée dans l'ordre des heures après « ∥+ » ou un échange par glisser-déposer (l'activité disparaissait en fin de Journée) ; les documents de l'activité en parallèle s'ouvrent depuis la Journée.\nTableaux : menu « Séances » par tableau et enregistrement en haut, comme les rituels ; Tableau avec lignages : outils Surligneur, Règle, Remplir, Gomme (la souris prend leur forme) et « Tout effacer » ; Numération : manipulation toujours active, outils Faire un paquet, Casser, Sélectionner (retour au déplacement après un paquet ou une cassure, réglable) ; Monnaie à l'échelle de la fenêtre.\nApplication Windows : le choix « Versions proposées : d'essai » fonctionne (il était affiché sans effet).",
-  "pub_date": "2026-11-06T07:28:43Z",
+  "version": "5.0.2",
+  "notes": "Tableau avec lignages : le dock n'a plus que ses outils (Surligneur, Règle, Remplir, Gomme) ; une petite palette de couleurs s'ouvre au-dessus de l'outil pris (la règle change de couleur) ; Remplir colore seulement l'interligne cliqué, ou tout son carreau, et dans la marge seulement la marge ; ↶ annule la dernière action d'un outil, la corbeille rouge retire d'un clic tout ce que les outils ont ajouté (le modèle écrit reste).\nÉchecs : l'onglet a l'icône d'une dame.",
+  "pub_date": "2026-11-06T11:09:42Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.0.1_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.0.2_x64-setup-essai.exe"
     }
   }
 }
