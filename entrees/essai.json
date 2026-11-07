@@ -1,24 +1,24 @@
 {
-  "version": "5.0.3",
-  "date": "2026-11-06",
-  "titre": "Essai : géométrie, audio et tableau blanc",
+  "version": "5.0.4",
+  "date": "2026-11-07",
+  "titre": "Essai : assistant de classe sans IA",
   "notes": [
-    "Nouveau tableau Géométrie : points, segments, droites, cercles, carrés, rectangles et triangles ; quadrillage aimanté facultatif, règle et rapporteur déplaçables, rotation, couleurs, remplissage, annuler/rétablir et séances enregistrées.",
-    "Lecteur audio discret dans le menu de droite : fichiers locaux, liste de lecture conservée sur l'appareil, volume, position et répétition ; la lecture continue en changeant d'écran.",
-    "Tableau blanc : banque hors ligne de 278 mots illustrés, neuf thèmes et recherche ; ajout facultatif d'une étiquette ; étiquettes en script ou cursive, police modifiable individuellement.",
-    "Bulles déplaçables d'une ou deux lignes Seyès avec modèle cursif facultatif, modification et taille réglable ; remplacent le bouton Cursive du tableau blanc. Les anciens textes cursifs sont conservés.",
-    "Illustrations OpenMoji CC BY-SA 4.0, auteurs et licence dans vendor/banque-cp."
+    "Assistant accessible depuis les accès rapides : trois conseils expliqués au maximum, sans interruption de la projection.",
+    "Appel à valider, rappels du jour, activités explicitement inachevées à examiner, bilan non renseigné, préparation du prochain jour de classe et vérification de ses documents joints.",
+    "Chaque conseil ouvre l’outil existant ; aucun bilan ni report n’est écrit automatiquement. Plus tard (15 minutes), masquer un type de conseil et réafficher les conseils.",
+    "Les notes, prénoms et résultats individuels ne sont jamais repris dans les conseils. En remplacement, seuls les rappels sont proposés.",
+    "Inclut tous les ajouts de l’essai 5.0.3 : géométrie, lecteur audio et tableau blanc enrichi."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5501376,
-      "sha256": "b5d96c6ab5e0e97d3990de36b7e6d0f1982a0d553ee718a7dee86f69b0552579"
+      "taille": 5516317,
+      "sha256": "50a9745c45d81e10f4c2666ae14fe62887b299d13bf430fb609c43e4b544988a"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5501329,
-      "sha256": "9816ec6848e4089542c7845df4e5ec3493e162a71ac8b0b6ebd70528cde46a06"
+      "taille": 5516270,
+      "sha256": "1f8d305ea2d65809fc289e72e18280e5e225c15f103e70c76092218f6c5ed836"
     }
   }
 }
