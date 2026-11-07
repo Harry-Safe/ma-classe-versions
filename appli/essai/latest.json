@@ -1,11 +1,11 @@
 {
-  "version": "5.0.3",
-  "notes": "Nouveau tableau Géométrie : points, segments, droites, cercles, carrés, rectangles et triangles ; quadrillage aimanté facultatif, règle et rapporteur déplaçables, rotation, couleurs, remplissage, annuler/rétablir et séances enregistrées.\nLecteur audio discret dans le menu de droite : fichiers locaux, liste de lecture conservée sur l'appareil, volume, position et répétition ; la lecture continue en changeant d'écran.\nTableau blanc : banque hors ligne de 278 mots illustrés, neuf thèmes et recherche ; ajout facultatif d'une étiquette ; étiquettes en script ou cursive, police modifiable individuellement.\nBulles déplaçables d'une ou deux lignes Seyès avec modèle cursif facultatif, modification et taille réglable ; remplacent le bouton Cursive du tableau blanc. Les anciens textes cursifs sont conservés.\nIllustrations OpenMoji CC BY-SA 4.0, auteurs et licence dans vendor/banque-cp.",
-  "pub_date": "2026-11-06T15:21:11Z",
+  "version": "5.0.4",
+  "notes": "Assistant accessible depuis les accès rapides : trois conseils expliqués au maximum, sans interruption de la projection.\nAppel à valider, rappels du jour, activités explicitement inachevées à examiner, bilan non renseigné, préparation du prochain jour de classe et vérification de ses documents joints.\nChaque conseil ouvre l’outil existant ; aucun bilan ni report n’est écrit automatiquement. Plus tard (15 minutes), masquer un type de conseil et réafficher les conseils.\nLes notes, prénoms et résultats individuels ne sont jamais repris dans les conseils. En remplacement, seuls les rappels sont proposés.\nInclut tous les ajouts de l’essai 5.0.3 : géométrie, lecteur audio et tableau blanc enrichi.",
+  "pub_date": "2026-11-07T09:45:46Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.0.3_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.0.4_x64-setup-essai.exe"
     }
   }
 }
