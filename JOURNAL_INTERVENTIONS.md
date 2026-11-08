@@ -7,7 +7,7 @@ Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne s
 - **Autorisation :** Franck : « Mets le en essai pour le gestionnaire. C'est le principe même d'avoir une fonction d'essai. Fais le toujours à l'avenir » (règle permanente pour le seul canal d'essai, consignée dans `AGENTS.md` du dépôt source).
 - **Contrôle préalable :** `main` public à `ed52b44` (stable 5.1.0, essai 5.0.4) ; source `claude/appli-applis` à `2314977` (version 5.1.1, suite 66/66), `main` source inchangé à `f7840dc`.
 - **Préparation :** branche `claude/essai-5.1.1` ; `publier-version.py --canal essai` (pages construites avec la configuration d'exemple) et `publier-appli.py --canal essai` (installateur 5.1.1 de `appli-paquets-essai`, action « Application Windows » `42495332745`). Diff limité à `essai/`, `entrees/essai.json`, `appli/essai/` : canal stable intact ; ancien installateur 5.0.4 retiré par le script.
-- **Livraison :** avance rapide de `main` depuis `ed52b44` ; signature et déploiement par l'action « Publier les mises à jour ».
+- **Livraison :** avance rapide de `main` `ed52b44..658975e`, sans forçage. Action « Publier les mises à jour » `42497035088` réussie : journal « versions.json signé : essai 5.1.1, stable 5.1.0 », « Ma-classe_5.1.1_x64-setup-essai.exe signé », déploiement GitHub Pages. Fichiers en ligne non relus directement (site hors de portée de cet environnement). **Publié sur le canal d'essai, pages et application Windows** ; stable inchangé.
 
 ## 2026-11-08 — Publication stable 5.1.0
 
