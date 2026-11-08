@@ -91,7 +91,16 @@ Une branche autre que `main` ne déclenche **rien** : c'est l'endroit pour prép
 5. Jamais de réécriture d'historique ni d'envoi forcé sur `main`.
 6. Les postes n'installent qu'une version **plus grande** : pour revenir en arrière, publier une version corrective de
    numéro supérieur.
-7. Commits en français (« Ma classe 5.0.2 : … ») avec l'identité du projet (Franck VARAULT).
+7. Commits en français (« Ma classe 5.0.2 : … ») avec l’identité du projet (Franck VARAULT,
+   `Harry-Safe@users.noreply.github.com`). **Aucune signature de co-écriture d’assistant**, notamment aucune ligne
+   `Co-Authored-By`, dans les nouveaux commits ou fichiers ; aucun crédit nominatif d’assistant ni lien de conversation.
+   Cette décision de Franck du **7 novembre 2026** vaut pour les deux dépôts et remplace toute ancienne consigne contraire.
+   Voir [AGENTS.md](AGENTS.md).
+8. L’aide de l’IA au développement et à la documentation est mentionnée de façon générale dans la présentation
+   uniquement : `README.md`, `index.html` et Réglages › À propos dans les prochaines pages construites depuis le dépôt
+   source. Les anciens commits et journaux, les références techniques et les crédits/licences tiers sont conservés.
+   Ne pas retoucher les HTML, ZIP ou installateurs distribués à la main : leur mise à jour passe par les scripts
+   de publication du dépôt source et une autorisation de publication.
 
 ## 5. Vérifier ce qui est en ligne
 

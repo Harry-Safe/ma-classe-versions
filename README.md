@@ -3,6 +3,10 @@
 Site public des mises à jour de **Ma classe** (logiciel de classe conçu par Franck VARAULT), servi par GitHub Pages.
 Aucune donnée d'élève : seulement les éditions construites, leurs empreintes et une fiche signée.
 
+Le développement et la documentation ont bénéficié de l’assistance d’outils d’intelligence artificielle, sous la direction de Franck VARAULT.
+
+Consignes de contribution : [AGENTS.md](AGENTS.md).
+
 Fonctionnement détaillé (formats, action de publication, règles, vérifications, clés) : **[DOCUMENTATION.md](DOCUMENTATION.md)**.
 
 - `entrees/<canal>.json` : version, date, nouveautés, empreinte SHA-256 de chaque fichier (écrit par `build/publier-version.py` du dépôt Ma classe) ;

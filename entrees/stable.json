@@ -1,27 +1,28 @@
 {
-  "version": "5.0.2",
-  "date": "2026-11-06",
-  "titre": "Préparer, doubles créneaux, Tableaux, canal d'essai de l'application",
+  "version": "5.1.0",
+  "date": "2026-11-08",
+  "titre": "Assistant visuel, géométrie et tableaux enrichis",
   "notes": [
-    "Préparer : le bilan d'un jour (coches, notes) suit ses activités quand on en retire, déplace ou renomme une ; une journée commencée (et un jour passé qui a un bilan) garde son plan quand l'emploi du temps change ; « Reporter la suite » garde les activités en parallèle ; le cahier journal Word exporte les activités en parallèle (∥) et garde à la relecture documents joints, rituel rattaché et icône ; « Le jour » suit la semaine affichée ; « 1er » ; copie de l'emploi du temps vers les jours de classe seulement.",
-    "Doubles créneaux : la journée reste rangée dans l'ordre des heures après « ∥+ » ou un échange par glisser-déposer (l'activité disparaissait en fin de Journée) ; les documents de l'activité en parallèle s'ouvrent depuis la Journée.",
-    "Tableaux : menu « Séances » par tableau et enregistrement en haut, comme les rituels ; Monnaie à l'échelle de la fenêtre.",
-    "Tableau avec lignages : le dock n'a que ses outils, Surligneur, Règle, Remplir, Gomme (la souris prend leur forme), avec une petite palette de couleurs au-dessus de l'outil pris ; Remplir colore seulement l'interligne cliqué, ou tout son carreau, et dans la marge seulement la marge ; ↶ annule la dernière action d'un outil, la corbeille rouge retire d'un clic tout ce que les outils ont ajouté ; « Tout effacer » en haut.",
-    "Numération : manipulation toujours active ; outils du dock Faire un paquet, Casser, Sélectionner (retour au déplacement après un paquet ou une cassure, réglable ; cadre de sélection sur tout le tableau, terminé même lâché hors du tableau).",
-    "Échecs : l'onglet a l'icône d'une dame.",
-    "Application Windows : le choix « Versions proposées : d'essai » fonctionne (il était affiché sans effet).",
-    "Validation : deux éditions construites, 57 scénarios."
+    "Assistant : une tête de robot au bord gauche ouvre une bulle au survol, au clic, au clavier ou au toucher ; recherche et 51 tutoriels visuels ciblés sur les fonctions, tableaux et outils. Retour à l’écran initial sans modifier les données de classe.",
+    "Conseils du jour : appel à valider, rappels, activités à reprendre, bilan et préparation à vérifier ; chaque proposition explique sa raison et laisse la décision à l’enseignant. Aucun résultat individuel affiché.",
+    "Géométrie : règle, équerre et compas transparents, crayon et stylo distincts, tracés guidés même commencés ailleurs, figures aux mesures précises, rotation par poignées et croix de retrait. Mesures, annotations et annulations conservées.",
+    "Gommes : effacement limité à la zone parcourue sur les figures, tracés et remplissages des lignages ; aperçu du diamètre sous la souris. Papier, modèles écrits et instruments préservés.",
+    "Tableau blanc : bulles d’écriture Seyès à saisie directe, banque hors ligne de 278 mots illustrés, étiquettes script ou cursives, flèches réglables et déplacement commun des objets sélectionnés. Les anciens supports restent lisibles.",
+    "Audio : lecteur discret dans le menu, fichiers et liste de lecture conservés sur le poste ; la lecture continue en changeant d’écran.",
+    "Appel : registre opaque et absences prévues par dates et demi-journées, motifs et corrections ; les statistiques excluent le futur.",
+    "Présentation : mention générale de l’aide de l’IA au développement et à la documentation ; aucune signature nominative d’assistant ajoutée.",
+    "Validation : deux éditions construites, 65 scénarios réussis, documentation et compatibilité des supports contrôlées."
   ],
   "fichiers": {
     "classe": {
       "url": "stable/Ma classe.html",
-      "taille": 4366567,
-      "sha256": "5269c2a318b45a2d46a5f9fd596adf92e9d1b52a67c6716050adb6f15e48b206"
+      "taille": 5628035,
+      "sha256": "7431805799011f92d2d607dbf3ab4c775e678b6e10d17808ea699ea100f4f081"
     },
     "remplacant": {
       "url": "stable/Ma classe - Remplaçant.html",
-      "taille": 4366520,
-      "sha256": "4cb8d7c796a7dd62a7c1aa34b36195dea910c32f433018bb91c0c5c389b778b3"
+      "taille": 5627988,
+      "sha256": "ef98adfa6f7630f1c5b246addde2cd52e31ea279a3f71fdddbf33026169c570a"
     }
   }
 }
