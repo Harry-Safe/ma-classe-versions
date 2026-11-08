@@ -3,7 +3,7 @@
 Site public des mises à jour de **Ma classe** (logiciel de classe conçu par Franck VARAULT), servi par GitHub Pages.
 Aucune donnée d'élève : seulement les éditions construites, leurs empreintes et une fiche signée.
 
-Le développement et la documentation ont bénéficié de l’assistance d’outils d’intelligence artificielle, sous la direction de Franck VARAULT.
+« Ma classe » est conçu et développé par Franck VARAULT, enseignant de CP : conception pédagogique, choix des fonctionnalités, architecture, tests en classe et validation de chaque version. Le code a été écrit avec l’aide d’assistants de programmation par IA, sous sa direction.
 
 Consignes de contribution : [AGENTS.md](AGENTS.md).
 

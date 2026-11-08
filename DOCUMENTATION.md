@@ -97,8 +97,9 @@ Une branche autre que `main` ne déclenche **rien** : c'est l'endroit pour prép
    Cette décision de Franck du **7 novembre 2026** vaut pour les deux dépôts et remplace toute ancienne consigne contraire.
    Voir [AGENTS.md](AGENTS.md).
 8. L’aide de l’IA au développement et à la documentation est mentionnée de façon générale dans la présentation
-   uniquement : `README.md`, `index.html` et Réglages › À propos dans les prochaines pages construites depuis le dépôt
-   source. Les anciens commits et journaux, les références techniques et les crédits/licences tiers sont conservés.
+   uniquement. Depuis le 8 novembre 2026, `index.html` et `README.md` portent la formulation de Franck (« Ma classe »
+   est conçu et développé par Franck VARAULT […] ; le code a été écrit avec l’aide d’assistants de programmation par IA,
+   sous sa direction) ; Réglages › À propos garde sa mention générale, que Franck ne veut pas modifier. Les anciens commits et journaux, les références techniques et les crédits/licences tiers sont conservés.
    Ne pas retoucher les HTML, ZIP ou installateurs distribués à la main : leur mise à jour passe par les scripts
    de publication du dépôt source et une autorisation de publication.
 

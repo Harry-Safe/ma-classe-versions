@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-08 — Formulation de l’aide de l’IA sur la page de présentation
+
+- **Autorisation :** Franck : « Ne touche pas au A propos dans l'application. La nouvelle formulation devra être simplement présente sur la page de présentation de l'appli. Vérifie le dépot puis publie dessus ».
+- **Contrôle préalable :** `main` public à `82c1d6c` (stable 5.1.0, essai 5.1.1) ; branches distantes relues (`claude/documentation`, `claude/essai-5.1.1`, `codex/publication-5.1`, toutes contenues dans main ou plus anciennes) ; aucune PR. Travaux locaux non partagés de l’autre intervenant (ancienne branche `codex/mentions-ia`) non observables, non touchés. Source `main` `f7840dc` inchangé.
+- **Réalisation :** phrase de présentation remplacée dans `index.html` (page publique, rédigée à la main selon `DOCUMENTATION.md`) et `README.md` ; règle 8 de `DOCUMENTATION.md` précisée. Aucune page d’édition, fiche, ZIP ni installateur touché ; canaux stable et essai inchangés.
+- **Validation :** diff limité à `index.html`, `README.md`, `DOCUMENTATION.md` et ce journal ; `git diff --check` propre ; page relue en HTML.
+- **Livraison :** avance rapide de `main` sans forçage ; l’action « Publier les mises à jour » redéploie le site.
+
 ## 2026-11-08 — Essai 5.1.1 sur le canal d'essai : panneau Applis
 
 - **Autorisation :** Franck : « Mets le en essai pour le gestionnaire. C'est le principe même d'avoir une fonction d'essai. Fais le toujours à l'avenir » (règle permanente pour le seul canal d'essai, consignée dans `AGENTS.md` du dépôt source).
