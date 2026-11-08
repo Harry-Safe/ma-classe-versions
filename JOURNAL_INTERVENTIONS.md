@@ -8,7 +8,7 @@ Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne s
 - **Contrôle préalable :** `main` public à `82c1d6c` (stable 5.1.0, essai 5.1.1) ; branches distantes relues (`claude/documentation`, `claude/essai-5.1.1`, `codex/publication-5.1`, toutes contenues dans main ou plus anciennes) ; aucune PR. Travaux locaux non partagés de l’autre intervenant (ancienne branche `codex/mentions-ia`) non observables, non touchés. Source `main` `f7840dc` inchangé.
 - **Réalisation :** phrase de présentation remplacée dans `index.html` (page publique, rédigée à la main selon `DOCUMENTATION.md`) et `README.md` ; règle 8 de `DOCUMENTATION.md` précisée. Aucune page d’édition, fiche, ZIP ni installateur touché ; canaux stable et essai inchangés.
 - **Validation :** diff limité à `index.html`, `README.md`, `DOCUMENTATION.md` et ce journal ; `git diff --check` propre ; page relue en HTML.
-- **Livraison :** avance rapide de `main` sans forçage ; l’action « Publier les mises à jour » redéploie le site.
+- **Livraison :** avance rapide de `main` `82c1d6c..519e8a3`, sans forçage. Action « Publier les mises à jour » `42511258825` réussie (déploiement GitHub Pages). Page en ligne non relue directement (site hors de portée de cet environnement). **Publié** ; canaux stable 5.1.0 et essai 5.1.1 inchangés.
 
 ## 2026-11-08 — Essai 5.1.1 sur le canal d'essai : panneau Applis
 
