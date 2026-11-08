@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-08 — Essai 5.1.1 sur le canal d'essai : panneau Applis
+
+- **Autorisation :** Franck : « Mets le en essai pour le gestionnaire. C'est le principe même d'avoir une fonction d'essai. Fais le toujours à l'avenir » (règle permanente pour le seul canal d'essai, consignée dans `AGENTS.md` du dépôt source).
+- **Contrôle préalable :** `main` public à `ed52b44` (stable 5.1.0, essai 5.0.4) ; source `claude/appli-applis` à `2314977` (version 5.1.1, suite 66/66), `main` source inchangé à `f7840dc`.
+- **Préparation :** branche `claude/essai-5.1.1` ; `publier-version.py --canal essai` (pages construites avec la configuration d'exemple) et `publier-appli.py --canal essai` (installateur 5.1.1 de `appli-paquets-essai`, action « Application Windows » `42495332745`). Diff limité à `essai/`, `entrees/essai.json`, `appli/essai/` : canal stable intact ; ancien installateur 5.0.4 retiré par le script.
+- **Livraison :** avance rapide de `main` depuis `ed52b44` ; signature et déploiement par l'action « Publier les mises à jour ».
+
 ## 2026-11-08 — Publication stable 5.1.0
 
 - **Autorisation :** Franck demande le passage sur main puis confirme la fin du lot de l’autre conversation et donne la main pour la réunion et la publication proposées. Distribution stable des pages et de l’application Windows après validation des deux lots. Aucun changement prévu du canal d’essai.

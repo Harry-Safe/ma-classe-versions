@@ -1,24 +1,25 @@
 {
-  "version": "5.0.4",
-  "date": "2026-11-07",
-  "titre": "Essai : assistant de classe sans IA",
+  "version": "5.1.1",
+  "date": "2026-11-08",
+  "titre": "Essai : panneau Applis (application Windows)",
   "notes": [
-    "Assistant accessible depuis les accès rapides : trois conseils expliqués au maximum, sans interruption de la projection.",
-    "Appel à valider, rappels du jour, activités explicitement inachevées à examiner, bilan non renseigné, préparation du prochain jour de classe et vérification de ses documents joints.",
-    "Chaque conseil ouvre l’outil existant ; aucun bilan ni report n’est écrit automatiquement. Plus tard (15 minutes), masquer un type de conseil et réafficher les conseils.",
-    "Les notes, prénoms et résultats individuels ne sont jamais repris dans les conseils. En remplacement, seuls les rappels sont proposés.",
-    "Inclut tous les ajouts de l’essai 5.0.3 : géométrie, lecteur audio et tableau blanc enrichi."
+    "Applis : nouveau bouton de la navigation, dans l’application Windows seulement. Panneau façon « Apps » avec recherche et onglets Applis, Outils, Sites web et Documents ; ouverture et fermeture animées.",
+    "Onglets réglables (code de protection) : chaque onglet s’allume ou s’éteint ; des dossiers de documents deviennent des onglets ; choix gardés dans le dossier de la classe.",
+    "Applis HTML rangées dans « Ma classe/Applis » : ajout d’un dossier ou d’une page, appli masquable, ouverture dans Ma classe avec retour, rechargement, bord à bord.",
+    "Enregistrement des applis dans « Applis/<appli>/donnees » (synchronisé par Google Drive) ; chaque appli n’accède qu’à ses propres données.",
+    "Inclut toutes les nouveautés de la 5.1.0.",
+    "Validation : deux éditions construites, 66 scénarios réussis, application Windows compilée."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5516317,
-      "sha256": "50a9745c45d81e10f4c2666ae14fe62887b299d13bf430fb609c43e4b544988a"
+      "taille": 5675485,
+      "sha256": "940ff955b43403af3dfd6c4894cd1b14e88f5d5afcdcf2e2f66ae8ccb51eccb9"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5516270,
-      "sha256": "1f8d305ea2d65809fc289e72e18280e5e225c15f103e70c76092218f6c5ed836"
+      "taille": 5675434,
+      "sha256": "5aa0936793199e2f562186462dc8db89e5a3074a57c39be10fd9a2ac27ca0ef7"
     }
   }
 }

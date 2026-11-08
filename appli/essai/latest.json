@@ -1,11 +1,11 @@
 {
-  "version": "5.0.4",
-  "notes": "Assistant accessible depuis les accès rapides : trois conseils expliqués au maximum, sans interruption de la projection.\nAppel à valider, rappels du jour, activités explicitement inachevées à examiner, bilan non renseigné, préparation du prochain jour de classe et vérification de ses documents joints.\nChaque conseil ouvre l’outil existant ; aucun bilan ni report n’est écrit automatiquement. Plus tard (15 minutes), masquer un type de conseil et réafficher les conseils.\nLes notes, prénoms et résultats individuels ne sont jamais repris dans les conseils. En remplacement, seuls les rappels sont proposés.\nInclut tous les ajouts de l’essai 5.0.3 : géométrie, lecteur audio et tableau blanc enrichi.",
-  "pub_date": "2026-11-07T09:45:46Z",
+  "version": "5.1.1",
+  "notes": "Applis : nouveau bouton de la navigation, dans l’application Windows seulement. Panneau façon « Apps » avec recherche et onglets Applis, Outils, Sites web et Documents ; ouverture et fermeture animées.\nOnglets réglables (code de protection) : chaque onglet s’allume ou s’éteint ; des dossiers de documents deviennent des onglets ; choix gardés dans le dossier de la classe.\nApplis HTML rangées dans « Ma classe/Applis » : ajout d’un dossier ou d’une page, appli masquable, ouverture dans Ma classe avec retour, rechargement, bord à bord.\nEnregistrement des applis dans « Applis/<appli>/donnees » (synchronisé par Google Drive) ; chaque appli n’accède qu’à ses propres données.\nInclut toutes les nouveautés de la 5.1.0.",
+  "pub_date": "2026-11-08T15:36:23Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.0.4_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.1.1_x64-setup-essai.exe"
     }
   }
 }
