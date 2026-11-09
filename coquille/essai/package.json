@@ -1,0 +1,12 @@
+{
+  "name": "ma-classe-appli",
+  "private": true,
+  "description": "Outils de construction de l'application de bureau Ma classe (Tauri)",
+  "scripts": {
+    "icones": "tauri icon icone.png",
+    "construire": "tauri build --bundles nsis"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "2.12.4"
+  }
+}

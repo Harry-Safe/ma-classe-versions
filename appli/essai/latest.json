@@ -1,7 +1,7 @@
 {
   "version": "5.1.3",
   "notes": "Tutoriels et visites : chaque étape affiche la page ou la fenêtre dont elle parle (Figures, banque d’images, bulle d’écriture, flèches, réglages, séances, « Prévoir une absence », « Reporter », alarmes, outils personnels…), puis la referme sans rien enregistrer.\nExemples montrés pendant le tutoriel (opération posée, figure, règle, bulle…), retirés à la fin ; les textes citent les boutons tels qu’ils s’affichent et disent clairement ce qui n’est pas ouvert.\nRituels : texte et commandes propres à chaque onglet ; la période suit le calendrier.\nVisite « Tirage, groupes et métiers » : elle n’attribue plus les métiers de la semaine ; les visites ne referment plus le minuteur ou les fenêtres déjà ouvertes.\nAprès un tutoriel : l’aperçu d’un autre jour, l’onglet des Rappels, l’écran de Résultats, la rubrique des Réglages et la sélection du tableau blanc reviennent comme avant.\nInclut toutes les nouveautés des essais 5.1.2 et 5.1.1 (panneau Applis de l’application Windows) et de la 5.1.0.",
-  "pub_date": "2026-11-09T14:47:17Z",
+  "pub_date": "2026-11-09T20:47:56Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
