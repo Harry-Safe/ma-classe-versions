@@ -1,11 +1,11 @@
 {
-  "version": "5.1.2",
-  "notes": "Tutoriels et visites guidées : chaque étape vise un repère stable de l’écran ; la bulle attend que l’élément soit affiché au lieu d’un délai fixe, et signale quand seule la zone qui le contient peut être montrée.\nCibles corrigées : compteur du chronomètre, piano de lecture, modèle d’écriture des lignages, « Garder et reprendre » propre à chaque rituel, bilan affiché le temps du tutoriel puis rétabli.\nVisites : les languettes des accès rapides sont de nouveau montrées ; en remplacement, plus de visites Préparer et Résultats ni d’étape « Autre jour » ; « Laisser un message » seulement en mode remplaçant.\nPréparer et fin de journée : un seul exemplaire du bilan et de la préparation dans la page, boutons branchés sur le bon écran.\nRituels : le minuteur du Flash Maths s’arrête en quittant les Rituels.\nInclut toutes les nouveautés de l’essai 5.1.1 (panneau Applis de l’application Windows) et de la 5.1.0.",
-  "pub_date": "2026-11-09T12:12:55Z",
+  "version": "5.1.3",
+  "notes": "Tutoriels et visites : chaque étape affiche la page ou la fenêtre dont elle parle (Figures, banque d’images, bulle d’écriture, flèches, réglages, séances, « Prévoir une absence », « Reporter », alarmes, outils personnels…), puis la referme sans rien enregistrer.\nExemples montrés pendant le tutoriel (opération posée, figure, règle, bulle…), retirés à la fin ; les textes citent les boutons tels qu’ils s’affichent et disent clairement ce qui n’est pas ouvert.\nRituels : texte et commandes propres à chaque onglet ; la période suit le calendrier.\nVisite « Tirage, groupes et métiers » : elle n’attribue plus les métiers de la semaine ; les visites ne referment plus le minuteur ou les fenêtres déjà ouvertes.\nAprès un tutoriel : l’aperçu d’un autre jour, l’onglet des Rappels, l’écran de Résultats, la rubrique des Réglages et la sélection du tableau blanc reviennent comme avant.\nInclut toutes les nouveautés des essais 5.1.2 et 5.1.1 (panneau Applis de l’application Windows) et de la 5.1.0.",
+  "pub_date": "2026-11-09T14:47:17Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.1.2_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.1.3_x64-setup-essai.exe"
     }
   }
 }

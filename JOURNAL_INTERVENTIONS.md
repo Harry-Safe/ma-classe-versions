@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-09 — Essai 5.1.3 sur le canal d'essai : des tutoriels qui montrent ce qu'ils décrivent
+
+- **Autorisation :** règle permanente de Franck pour le canal d'essai ; revue des tutoriels demandée par Franck (« vérifie les tutos pour que les pages mentionnées s'affichent et correspondent bien aux actions possibles »). Stable non concerné.
+- **Contrôle préalable :** `main` public à `8fb1507` (stable 5.1.0, essai 5.1.2) ; aucune PR. Source : `claude/appli-essai-tutoriels` `9a32b69` = essai 5.1.2 + revue des tutoriels (`claude/tutoriels-fiables` `f30a6fe`), version 5.1.3 ; `main` source inchangé à `40148d4`.
+- **Préparation :** branche `claude/essai-5.1.3` ; `publier-version.py --canal essai` (configuration d'exemple seule, listes d'élèves vides vérifiées) et `publier-appli.py --canal essai` (installateur 5.1.3 de `appli-paquets-essai`, action « Application Windows » `42634116629` réussie, blob `488256b9b536b77f7c5a07c2bc39a13250f771f7`). Diff limité à `essai/`, `entrees/essai.json`, `appli/essai/` ; installateur 5.1.2 retiré par le script ; stable intact.
+- **Validation source :** suite complète locale 66/66 « Tout est bon. » ; « Documentation de Ma classe » `42634116686` réussie ; « Validation de Ma classe » `42634116490` : premier passage en échec sur `assistant_bulle` (« page redimensionnée », échec intermittent connu), **réussie à la relance**.
+- **Livraison :** @@LIVRAISON@@
+
 ## 2026-11-09 — Essai 5.1.2 sur le canal d'essai : tutoriels fiables (phase 0 de l'assistant)
 
 - **Autorisation :** règle permanente de Franck pour le canal d'essai (« Fais le toujours à l'avenir », 8 novembre) ; Franck valide la phase 0 de l'assistant : « Oui faisons cela ». Stable non concerné.
