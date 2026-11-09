@@ -1,7 +1,8 @@
 """Fabrique l'installateur Windows d'un canal à partir de ce que ce dépôt publie déjà (action « Publier les mises à jour »).
 
 L'installateur contient exactement la page publiée sur le canal (<canal>/Ma classe.html, fiche entrees/<canal>.json)
-dans la coquille Tauri copiée du dépôt source (coquille/<canal>/, écrite par build/publier-appli.py de Ma classe).
+dans la coquille Tauri copiée du dépôt source (coquille/<canal>/, écrite par build/publier-appli.py de Ma classe, avec
+les chemins de ce dépôt-là : tauri/… et les quelques fichiers de la page que le code Rust intègre, comme src/applis/…).
 La fabrication se fait ici, sur un dépôt public, pour ne pas consommer les minutes GitHub du dépôt privé.
 
     python outils/fabriquer-appli.py <stable|essai> --plan       # faut-il fabriquer ? (sorties GitHub : fabriquer, cle, nom)
@@ -18,6 +19,7 @@ from pathlib import Path
 ICI = Path(__file__).resolve().parent.parent
 SOUS = {"stable": "", "essai": "essai/"}
 CONSTRUCTION = ICI / "construction"          # copie de travail de la coquille (ignorée par Git)
+TAURI = CONSTRUCTION / "tauri"
 PAQUET = ICI / "paquet"
 
 
@@ -43,7 +45,7 @@ def fiche(canal):
 def controler(canal, f):
     """La coquille existe ; la page publiée sur le canal est bien la version annoncée pour l'application."""
     coquille = ICI / "coquille" / canal
-    if not (coquille / "src-tauri" / "tauri.conf.json").exists():
+    if not (coquille / "tauri" / "src-tauri" / "tauri.conf.json").exists():
         sys.exit(f"{canal} : ni installateur dans appli/{SOUS[canal]} ni coquille dans coquille/{canal}/ (build/publier-appli.py)")
     entree = json.loads((ICI / "entrees" / f"{canal}.json").read_text(encoding="utf-8"))
     if trois(entree["version"]) != f["version"]:
@@ -80,19 +82,19 @@ def lancer(commande, dossier):
 
 
 def preparer(canal):
-    """construction/ = la coquille du canal, sa page en www/index.html, la version annoncée dans Tauri et Cargo."""
+    """construction/ = la coquille du canal, sa page en tauri/www/index.html, la version annoncée dans Tauri et Cargo."""
     f, nom = fiche(canal)
     if f is None: sys.exit(f"pas d'application sur le canal {canal}")
     coquille, page = controler(canal, f)
     v = f["version"]
     shutil.rmtree(CONSTRUCTION, ignore_errors=True)
     shutil.copytree(coquille, CONSTRUCTION)
-    (CONSTRUCTION / "www").mkdir(exist_ok=True)
-    (CONSTRUCTION / "www" / "index.html").write_bytes(page)
-    conf = CONSTRUCTION / "src-tauri" / "tauri.conf.json"
+    (TAURI / "www").mkdir(exist_ok=True)
+    (TAURI / "www" / "index.html").write_bytes(page)
+    conf = TAURI / "src-tauri" / "tauri.conf.json"
     c = json.loads(conf.read_text(encoding="utf-8")); c["version"] = v
     conf.write_text(json.dumps(c, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    cargo = CONSTRUCTION / "src-tauri" / "Cargo.toml"
+    cargo = TAURI / "src-tauri" / "Cargo.toml"
     cargo.write_text(re.sub(r'(?m)^version = "[^"]*"', f'version = "{v}"', cargo.read_text(encoding="utf-8"), count=1), encoding="utf-8")
     print(f"{canal} : construction/ prête pour {nom} (page {len(page) // 1024} Ko)")
 
@@ -100,9 +102,9 @@ def preparer(canal):
 def compiler(canal):
     f, nom = fiche(canal)
     v = f["version"]
-    lancer("npm install --no-audit --no-fund", CONSTRUCTION)
-    lancer("npx tauri build --bundles nsis", CONSTRUCTION)
-    faits = list((CONSTRUCTION / "src-tauri" / "target" / "release" / "bundle" / "nsis").glob(f"*_{v}_x64-setup.exe"))
+    lancer("npm install --no-audit --no-fund", TAURI)
+    lancer("npx tauri build --bundles nsis", TAURI)
+    faits = list((TAURI / "src-tauri" / "target" / "release" / "bundle" / "nsis").glob(f"*_{v}_x64-setup.exe"))
     if len(faits) != 1: sys.exit(f"installateur {v} introuvable après la fabrication : {faits}")
     shutil.rmtree(PAQUET, ignore_errors=True); PAQUET.mkdir()
     shutil.copyfile(faits[0], PAQUET / nom)

@@ -47,7 +47,7 @@ jobs:
       - if: steps.plan.outputs.fabriquer == 'oui' && steps.cache.outputs.cache-hit != 'true'
         uses: Swatinem/rust-cache@v2
         with:
-          workspaces: "construction/src-tauri -> target"
+          workspaces: "construction/tauri/src-tauri -> target"
           key: ${{ matrix.canal }}
       - name: Fabriquer l'installateur
         if: steps.plan.outputs.fabriquer == 'oui' && steps.cache.outputs.cache-hit != 'true'

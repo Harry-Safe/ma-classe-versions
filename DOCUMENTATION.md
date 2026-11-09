@@ -21,7 +21,7 @@ GitHub du dépôt. Seuls Franck (et les assistants qui travaillent avec lui, sur
 | `essai/…` | idem, `--canal essai` | pages d'essai |
 | `appli/latest.json` | `build/publier-appli.py` | application Windows publiée (fiche lue par l'application) |
 | `appli/essai/latest.json` | idem, `--canal essai` | application d'essai |
-| `coquille/stable/`, `coquille/essai/` | idem | coquille Tauri du canal (`package.json`, `src-tauri/` sans `target/`) : l'action en fait l'installateur |
+| `coquille/stable/`, `coquille/essai/` | idem | coquille Tauri du canal, avec les chemins du dépôt source : `tauri/package.json`, `tauri/src-tauri/` sans `target/`, et les fichiers de la page que le code Rust intègre (`src/applis/pont-applis.js`…) : l'action en fait l'installateur |
 | `appli/…/Ma-classe_<v>_x64-setup*.exe` | ancien fonctionnement (avant le 9 novembre 2026) | installateur fabriqué dans le dépôt privé ; s'il est présent, l'action le prend tel quel au lieu de fabriquer |
 | `index.html` | à la main | page publique : explication et lien vers l'installateur Windows (`#appli`) |
 | `outils/signer.py` | — | vérifie les fichiers annoncés, signe `versions.json` (Ed25519), prépare `_site/` |
