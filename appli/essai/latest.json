@@ -1,11 +1,11 @@
 {
-  "version": "5.1.1",
-  "notes": "Applis : nouveau bouton de la navigation, dans l’application Windows seulement. Panneau façon « Apps » avec recherche et onglets Applis, Outils, Sites web et Documents ; ouverture et fermeture animées.\nOnglets réglables (code de protection) : chaque onglet s’allume ou s’éteint ; des dossiers de documents deviennent des onglets ; choix gardés dans le dossier de la classe.\nApplis HTML rangées dans « Ma classe/Applis » : ajout d’un dossier ou d’une page, appli masquable, ouverture dans Ma classe avec retour, rechargement, bord à bord.\nEnregistrement des applis dans « Applis/<appli>/donnees » (synchronisé par Google Drive) ; chaque appli n’accède qu’à ses propres données.\nInclut toutes les nouveautés de la 5.1.0.",
-  "pub_date": "2026-11-08T15:36:23Z",
+  "version": "5.1.2",
+  "notes": "Tutoriels et visites guidées : chaque étape vise un repère stable de l’écran ; la bulle attend que l’élément soit affiché au lieu d’un délai fixe, et signale quand seule la zone qui le contient peut être montrée.\nCibles corrigées : compteur du chronomètre, piano de lecture, modèle d’écriture des lignages, « Garder et reprendre » propre à chaque rituel, bilan affiché le temps du tutoriel puis rétabli.\nVisites : les languettes des accès rapides sont de nouveau montrées ; en remplacement, plus de visites Préparer et Résultats ni d’étape « Autre jour » ; « Laisser un message » seulement en mode remplaçant.\nPréparer et fin de journée : un seul exemplaire du bilan et de la préparation dans la page, boutons branchés sur le bon écran.\nRituels : le minuteur du Flash Maths s’arrête en quittant les Rituels.\nInclut toutes les nouveautés de l’essai 5.1.1 (panneau Applis de l’application Windows) et de la 5.1.0.",
+  "pub_date": "2026-11-09T12:12:55Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.1.1_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.1.2_x64-setup-essai.exe"
     }
   }
 }

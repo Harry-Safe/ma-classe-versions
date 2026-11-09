@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-09 — Essai 5.1.2 sur le canal d'essai : tutoriels fiables (phase 0 de l'assistant)
+
+- **Autorisation :** règle permanente de Franck pour le canal d'essai (« Fais le toujours à l'avenir », 8 novembre) ; Franck valide la phase 0 de l'assistant : « Oui faisons cela ». Stable non concerné.
+- **Contrôle préalable :** `main` public à `0d2e354` (stable 5.1.0, essai 5.1.1) ; seule branche distante `main` ; aucune PR. Source : branche de réunion `claude/appli-essai-tutoriels` `ee1f036` = essai 5.1.1 (`claude/appli-applis`) + phase 0 (`claude/tutoriels-fiables` `df02932`), version 5.1.2 ; `main` source inchangé à `40148d4`.
+- **Préparation :** branche `claude/essai-5.1.2` ; `publier-version.py --canal essai` (pages construites avec la seule configuration d'exemple, listes d'élèves vides vérifiées) et `publier-appli.py --canal essai` (installateur 5.1.2 de `appli-paquets-essai` `36270fe`, action « Application Windows » `42612118367` réussie, blob `f122553dc3cc2be6c549ca377be1480562c6a071`). Diff limité à `essai/`, `entrees/essai.json`, `appli/essai/` : canal stable intact ; installateur 5.1.1 retiré par le script.
+- **Validation source :** suite complète 66/66 « Tout est bon. » en local ; « Validation de Ma classe » `42612118373` et « Documentation de Ma classe » `42612118297` réussies sur `ee1f036`.
+- **Livraison :** avance rapide de `main` vers `claude/essai-5.1.2`, sans forçage ; contrôle de l'action « Publier les mises à jour » dans l'entrée suivante.
+
 ## 2026-11-08 — Formulation de l’aide de l’IA sur la page de présentation
 
 - **Autorisation :** Franck : « Ne touche pas au A propos dans l'application. La nouvelle formulation devra être simplement présente sur la page de présentation de l'appli. Vérifie le dépot puis publie dessus ».
