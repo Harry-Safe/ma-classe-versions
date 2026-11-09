@@ -8,7 +8,7 @@ Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne s
 - **Contrôle préalable :** `main` public à `8fb1507` (stable 5.1.0, essai 5.1.2) ; aucune PR. Source : `claude/appli-essai-tutoriels` `9a32b69` = essai 5.1.2 + revue des tutoriels (`claude/tutoriels-fiables` `f30a6fe`), version 5.1.3 ; `main` source inchangé à `40148d4`.
 - **Préparation :** branche `claude/essai-5.1.3` ; `publier-version.py --canal essai` (configuration d'exemple seule, listes d'élèves vides vérifiées) et `publier-appli.py --canal essai` (installateur 5.1.3 de `appli-paquets-essai`, action « Application Windows » `42634116629` réussie, blob `488256b9b536b77f7c5a07c2bc39a13250f771f7`). Diff limité à `essai/`, `entrees/essai.json`, `appli/essai/` ; installateur 5.1.2 retiré par le script ; stable intact.
 - **Validation source :** suite complète locale 66/66 « Tout est bon. » ; « Documentation de Ma classe » `42634116686` réussie ; « Validation de Ma classe » `42634116490` : premier passage en échec sur `assistant_bulle` (« page redimensionnée », échec intermittent connu), **réussie à la relance**.
-- **Livraison :** @@LIVRAISON@@
+- **Livraison :** avance rapide de `main` `8fb1507..95eb48f`, sans forçage. Action « Publier les mises à jour » `42642374884` réussie : « versions.json signé : essai 5.1.3, stable 5.1.0 », « Ma-classe_5.1.3_x64-setup-essai.exe signé » ; déploiement `github-pages` de `95eb48f` à l'état `success`. Site servi non relu directement (hors de portée de cet environnement). **Publié sur le canal d'essai, pages et application Windows** ; stable inchangé.
 
 ## 2026-11-09 — Essai 5.1.2 sur le canal d'essai : tutoriels fiables (phase 0 de l'assistant)
 
