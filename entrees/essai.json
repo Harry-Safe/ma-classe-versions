@@ -1,25 +1,25 @@
 {
-  "version": "5.2.4",
+  "version": "5.2.5",
   "date": "2026-11-10",
-  "titre": "Essai : ↶ ↷ et corbeille rouge sur tous les tableaux",
+  "titre": "Essai : Store des applis",
   "notes": [
-    "Sur chaque tableau, en haut à droite (juste avant l’enregistrement de séance) : ↶ annule le dernier geste, ↷ le rétablit (aussi Ctrl+Z et Ctrl+Y), comme les boutons ronds de la Géométrie.",
-    "La corbeille rouge supprime tout ce qui est sur le tableau d’un clic, sans confirmation ; ↶ remet tout.",
-    "Les boutons « Tout effacer », « Tout retirer », « ↺ 0 », « ↺ Effacer » et « ✕ Flèches », le ↶ et la corbeille du dock des lignages et ceux de la palette de dessin sont retirés.",
-    "Un clic = un pas ; choisir une couleur d’outil ou un zoom n’en est pas un.",
-    "Bulle d’écriture : les premières lettres tapées aussitôt après le clic arrivent bien dans la bulle.",
-    "Inclut toutes les nouveautés des essais 5.2.3, 5.2.2, 5.2.1 et de la 5.2.0."
+    "Applis : nouvel onglet Store, en dernier, avec les applis publiées par l’auteur. Obtenir, Mettre à jour, Ouvrir et Supprimer en un clic, avec une barre de progression.",
+    "Catalogue signé par l’auteur, lu sur le site des mises à jour ; même canal que Ma classe (les versions d’essai d’une appli portent la marque « Essai »).",
+    "Installation vérifiée avant toute écriture (empreinte du paquet, chemins de chaque fichier) ; le dossier « donnees » d’une appli est toujours gardé, à la mise à jour comme à la suppression.",
+    "Une tuile de l’onglet Applis signale « Mise à jour » quand le Store propose une version plus récente.",
+    "Première appli au catalogue d’essai : « Essai du pont » (enregistrement dans le dossier de la classe et micro).",
+    "Reprend la 5.2.4."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5802554,
-      "sha256": "f541adbbace268adb5303367970b74caf1fafe122d034135094b22a87bdc149f"
+      "taille": 5822609,
+      "sha256": "e3492b493bfb4cc6b48d44c0bf85a86be31f16758018e9f913908ecef0ef1059"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5802495,
-      "sha256": "b6809de5deaf7a077f36e9238f7d57eb00372140ea1f77133cc3109dcbbb0468"
+      "taille": 5822549,
+      "sha256": "7f7e04001491dfbd5c802b8bd507e94c1610c15cd776b992c0ec2b0f51fce25b"
     }
   }
 }

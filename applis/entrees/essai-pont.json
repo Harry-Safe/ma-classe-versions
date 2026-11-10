@@ -1,0 +1,21 @@
+{
+ "id": "essai-pont",
+ "nom": "Essai du pont",
+ "description": "Vérifie l'enregistrement dans le dossier de la classe et le micro",
+ "couleur": "#2a8f51",
+ "icone": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5NiA5NiI+PHJlY3Qgd2lkdGg9Ijk2IiBoZWlnaHQ9Ijk2IiByeD0iMjIiIGZpbGw9IiMyYThmNTEiLz48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMzYgMjJ2MTRNNjAgMjJ2MTQiLz48cGF0aCBkPSJNMjggMzZoNDB2MTBhMjAgMjAgMCAwIDEtNDAgMHoiLz48cGF0aCBkPSJNNDggNjZ2MTAiLz48L2c+PC9zdmc+Cg==",
+ "canaux": {
+  "essai": {
+   "version": "1.0.0",
+   "date": "2026-11-10",
+   "notes": [
+    "Première version : compteur d'ouvertures et enregistrement de la voix dans « donnees »."
+   ],
+   "fichier": {
+    "url": "applis/paquets/essai-pont-1.0.0.zip",
+    "taille": 1878,
+    "sha256": "fde214fc43e5d6b1128d5aa98d6c93b0741557cc27e99e8ba5e2181d39d677cf"
+   }
+  }
+ }
+}

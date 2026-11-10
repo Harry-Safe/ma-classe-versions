@@ -1,5 +1,6 @@
-# Fabrique l'application Windows de chaque canal (si elle n'est pas déjà dans le dépôt), puis signe versions.json et
-# les installateurs, et publie le site des mises à jour de Ma classe (GitHub Pages).
+# Fabrique l'application Windows de chaque canal (si elle n'est pas déjà dans le dépôt), puis signe versions.json, le
+# catalogue du Store des applis (applis.json) et les installateurs, et publie le site des mises à jour de Ma classe
+# (GitHub Pages).
 # La fabrication se fait ici (dépôt public : minutes GitHub sans quota) à partir de la page publiée sur le canal et de
 # la coquille Tauri de coquille/<canal>/ ; une même fabrication est réutilisée tant que ni l'une ni l'autre ne change.
 # Branches claude/fabrication-* : fabrication seule, pour essayer une coquille ; rien n'est signé ni publié.
@@ -112,7 +113,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install cryptography
-      - name: Signer versions.json
+      - name: Signer versions.json et applis.json
         env:
           MAJ_CLE_PRIVEE: ${{ secrets.MAJ_CLE_PRIVEE }}
         run: python outils/signer.py

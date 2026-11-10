@@ -23,8 +23,10 @@ GitHub du dépôt. Seuls Franck (et les assistants qui travaillent avec lui, sur
 | `appli/essai/latest.json` | idem, `--canal essai` | application d'essai |
 | `coquille/stable/`, `coquille/essai/` | idem | coquille Tauri du canal, avec les chemins du dépôt source : `tauri/package.json`, `tauri/src-tauri/` sans `target/`, et les fichiers de la page que le code Rust intègre (`src/applis/pont-applis.js`…) : l'action en fait l'installateur |
 | `appli/…/Ma-classe_<v>_x64-setup*.exe` | ancien fonctionnement (avant le 9 novembre 2026) | installateur fabriqué dans le dépôt privé ; s'il est présent, l'action le prend tel quel au lieu de fabriquer |
+| `applis/entrees/<id>.json` | `build/publier-applis.py` (dépôt Ma classe) | une appli du **Store** : nom, description, couleur, icône intégrée, et pour chaque canal version, date, notes, paquet (adresse, taille, SHA-256) |
+| `applis/paquets/<id>-<version>.zip` | idem | paquet d'une appli (sans son dossier `donnees`) ; une version publiée ne change plus |
 | `index.html` | à la main | page publique : explication et lien vers l'installateur Windows (`#appli`) |
-| `outils/signer.py` | — | vérifie les fichiers annoncés, signe `versions.json` (Ed25519), prépare `_site/` |
+| `outils/signer.py` | — | vérifie les fichiers annoncés, signe `versions.json` et le catalogue du Store `applis.json` (Ed25519, même clé), prépare `_site/` |
 | `outils/fabriquer-appli.py` | — | fabrique l'installateur d'un canal (coquille + page publiée), le range dans `_site/appli/` |
 | `outils/signer-appli.py` | — | signe chaque installateur (Minisign, `@tauri-apps/cli` 2.12.4) et écrit la signature dans les `latest.json` de `_site/appli/` |
 | `.github/workflows/publier.yml` | — | action « Publier les mises à jour » |
@@ -59,6 +61,17 @@ telles quelles dans Réglages › Mises à jour, à écrire pour des enseignants
 La signature porte sur le **texte exact** de `contenu`. L'application refuse une fiche dont la signature ne correspond
 pas à sa clé publique, puis refuse un fichier dont la taille ou le SHA-256 diffèrent de la fiche. Un canal `stable` est
 obligatoire.
+
+### `applis.json` (catalogue du Store des applis, 10 novembre 2026)
+
+```json
+{"format": "ma-classe-applis", "contenu": "<texte JSON : {\"type\": \"applis\", \"applis\": [{\"id\", \"nom\", …, \"canaux\": {\"stable\": {…}, \"essai\": {…}}}]}>", "signature": "<Ed25519, base64>"}
+```
+
+Assemblé à partir de `applis/entrees/*.json`, signé avec la **même clé** que `versions.json` ; seuls les paquets annoncés
+sont copiés dans `_site/applis/paquets/`. L'onglet Store de Ma classe refuse un catalogue mal signé ou d'un autre `type`,
+puis un paquet dont la taille ou le SHA-256 diffèrent, ou qui contient un chemin dangereux. Détails côté application :
+`docs/APPLIS.md` § 5 du dépôt source. Le journal de l'action affiche « applis.json signé : … ».
 
 ### `appli/latest.json` et `appli/essai/latest.json`
 
@@ -103,7 +116,8 @@ seule la coquille s'ajoute au contenu public. Elle ne contient que la **clé pub
 
 1. **Publier seulement avec l'accord explicite de Franck**, pour le canal qu'il a demandé (« en essai » ≠ « publie »).
    Un envoi sur `main` **est** une publication.
-2. Un essai ne modifie **que** `essai/`, `entrees/essai.json`, `appli/essai/` et `coquille/essai/` ; vérifier le diff avant l'envoi
+2. Un essai ne modifie **que** `essai/`, `entrees/essai.json`, `appli/essai/`, `coquille/essai/` et, pour une appli du Store, la
+   partie `essai` de `applis/entrees/<id>.json` et ses paquets ; vérifier le diff avant l'envoi
    (`git diff --stat`) : le canal stable doit rester intact.
 3. Les pages publiées sont construites **sans aucune donnée de classe** (configuration d'exemple vide).
 4. Jamais de clé privée, de jeton, de prénom d'élève, de lien de conversation dans ce dépôt (il est public).

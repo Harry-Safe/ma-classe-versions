@@ -1,11 +1,11 @@
 {
-  "version": "5.2.4",
-  "notes": "Sur chaque tableau, en haut à droite (juste avant l’enregistrement de séance) : ↶ annule le dernier geste, ↷ le rétablit (aussi Ctrl+Z et Ctrl+Y), comme les boutons ronds de la Géométrie.\nLa corbeille rouge supprime tout ce qui est sur le tableau d’un clic, sans confirmation ; ↶ remet tout.\nLes boutons « Tout effacer », « Tout retirer », « ↺ 0 », « ↺ Effacer » et « ✕ Flèches », le ↶ et la corbeille du dock des lignages et ceux de la palette de dessin sont retirés.\nUn clic = un pas ; choisir une couleur d’outil ou un zoom n’en est pas un.\nBulle d’écriture : les premières lettres tapées aussitôt après le clic arrivent bien dans la bulle.\nInclut toutes les nouveautés des essais 5.2.3, 5.2.2, 5.2.1 et de la 5.2.0.",
-  "pub_date": "2026-11-10T20:24:55Z",
+  "version": "5.2.5",
+  "notes": "Applis : nouvel onglet Store, en dernier, avec les applis publiées par l’auteur. Obtenir, Mettre à jour, Ouvrir et Supprimer en un clic, avec une barre de progression.\nCatalogue signé par l’auteur, lu sur le site des mises à jour ; même canal que Ma classe (les versions d’essai d’une appli portent la marque « Essai »).\nInstallation vérifiée avant toute écriture (empreinte du paquet, chemins de chaque fichier) ; le dossier « donnees » d’une appli est toujours gardé, à la mise à jour comme à la suppression.\nUne tuile de l’onglet Applis signale « Mise à jour » quand le Store propose une version plus récente.\nPremière appli au catalogue d’essai : « Essai du pont » (enregistrement dans le dossier de la classe et micro).\nReprend la 5.2.4.",
+  "pub_date": "2026-11-10T21:21:40Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.4_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.5_x64-setup-essai.exe"
     }
   }
 }
