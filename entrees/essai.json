@@ -1,24 +1,25 @@
 {
-  "version": "5.2.3",
+  "version": "5.2.4",
   "date": "2026-11-10",
-  "titre": "Essai : plus de messages en bandeau noir",
+  "titre": "Essai : ↶ ↷ et corbeille rouge sur tous les tableaux",
   "notes": [
-    "Les messages d’information en bandeau noir ne s’affichent plus, nulle part dans Ma classe ; seuls les avertissements (bandeau orangé : erreur, fichier illisible, action impossible) restent.",
-    "Tableau blanc et Numération : Ctrl+Z remet ce qui vient d’être retiré (Suppr, croix d’une bulle ou d’un objet) ; en Géométrie, Ctrl+Z annule la dernière action.",
-    "Préparer : le bouton « Annuler » du haut et Ctrl+Z remplacent le message qui suivait chaque geste. Résultats : Ctrl+Z dans la case remet une remarque supprimée.",
-    "Une nouvelle version de Ma classe est annoncée par un conseil de l’assistant ; le mode léger reste proposé dans les Réglages (« Conseillé ici »).",
-    "Inclut toutes les nouveautés de l’essai 5.2.2 (tableaux), de l’essai 5.2.1 et de la 5.2.0."
+    "Sur chaque tableau, en haut à droite (juste avant l’enregistrement de séance) : ↶ annule le dernier geste, ↷ le rétablit (aussi Ctrl+Z et Ctrl+Y), comme les boutons ronds de la Géométrie.",
+    "La corbeille rouge supprime tout ce qui est sur le tableau d’un clic, sans confirmation ; ↶ remet tout.",
+    "Les boutons « Tout effacer », « Tout retirer », « ↺ 0 », « ↺ Effacer » et « ✕ Flèches », le ↶ et la corbeille du dock des lignages et ceux de la palette de dessin sont retirés.",
+    "Un clic = un pas ; choisir une couleur d’outil ou un zoom n’en est pas un.",
+    "Bulle d’écriture : les premières lettres tapées aussitôt après le clic arrivent bien dans la bulle.",
+    "Inclut toutes les nouveautés des essais 5.2.3, 5.2.2, 5.2.1 et de la 5.2.0."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5794454,
-      "sha256": "427ecfbae7a2297d034ea092f93fabacac7b9f4347f6d288e25ff502eed29e64"
+      "taille": 5802554,
+      "sha256": "f541adbbace268adb5303367970b74caf1fafe122d034135094b22a87bdc149f"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5794395,
-      "sha256": "082afcce17007389562490717dbcf2ebf85035cea8ad57b8cc4b6e1322fc0619"
+      "taille": 5802495,
+      "sha256": "b6809de5deaf7a077f36e9238f7d57eb00372140ea1f77133cc3109dcbbb0468"
     }
   }
 }
