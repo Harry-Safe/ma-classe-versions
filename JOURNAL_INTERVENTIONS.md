@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-10 — Essai 5.2.4 sur le canal d'essai (pages et application) : ↶ ↷ et corbeille rouge sur tous les tableaux
+
+- **Autorisation :** règle permanente de Franck pour le canal d'essai ; demande du jour : « je veux les boutons retour et l'autre sur tous les tableaux avec un icone corbeille rouge pour tout supprimer (sans message de confirmation). Enlève également les boutons "tout supprimer" de tous les tableaux ». Stable non concerné (reste en 5.2.0).
+- **Contrôle préalable :** `main` public à `9c9b6f3` (stable 5.2.0, essai 5.2.3) ; aucune PR ouverte. Source : `Ma-classe` `claude/tableaux-selection-instruments` `62113c8` (5.2.4 = 5.2.3 + ↶ ↷ et corbeille), suite complète locale 67/67 ; `main` source inchangé à `163717e`.
+- **Préparation :** branche `claude/essai-5.2.4` ; `publier-version.py --canal essai` puis `publier-appli.py --canal essai` (configuration d'exemple seule). Diff : `essai/`, `entrees/essai.json`, `appli/essai/latest.json` ; stable intact.
+- **Livraison :** avance rapide de `main` `9c9b6f3..6783d2c`, sans forçage. Action « Publier les mises à jour » `42895071494` réussie : installateur d'essai **fabriqué ici** (`Ma-classe_5.2.4_x64-setup-essai.exe`, 2 959 Ko), « versions.json signé : essai 5.2.4, stable 5.2.0 » ; déploiement `github-pages` `7693417527` de `6783d2c` réussi. Site servi non relu directement. **Publié sur le canal d'essai, pages et application Windows.**
+
 ## 2026-11-10 — Essai 5.2.3 sur le canal d'essai (pages et application) : plus de messages en bandeau noir
 
 - **Autorisation :** règle permanente de Franck pour le canal d'essai ; demande du jour : « Je ne veux plus de ces messages […] tous ces messages qui apparaissent dans des bandeaux noirs ». Stable non concerné (reste en 5.2.0).
