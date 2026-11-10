@@ -1,26 +1,26 @@
 {
-  "version": "5.1.3",
-  "date": "2026-11-09",
-  "titre": "Essai : des tutoriels qui montrent ce qu’ils décrivent",
+  "version": "5.1.4",
+  "date": "2026-11-10",
+  "titre": "Essai : emploi du temps plus sûr (lot 1)",
   "notes": [
-    "Tutoriels et visites : chaque étape affiche la page ou la fenêtre dont elle parle (Figures, banque d’images, bulle d’écriture, flèches, réglages, séances, « Prévoir une absence », « Reporter », alarmes, outils personnels…), puis la referme sans rien enregistrer.",
-    "Exemples montrés pendant le tutoriel (opération posée, figure, règle, bulle…), retirés à la fin ; les textes citent les boutons tels qu’ils s’affichent et disent clairement ce qui n’est pas ouvert.",
-    "Rituels : texte et commandes propres à chaque onglet ; la période suit le calendrier.",
-    "Visite « Tirage, groupes et métiers » : elle n’attribue plus les métiers de la semaine ; les visites ne referment plus le minuteur ou les fenêtres déjà ouvertes.",
-    "Après un tutoriel : l’aperçu d’un autre jour, l’onglet des Rappels, l’écran de Résultats, la rubrique des Réglages et la sélection du tableau blanc reviennent comme avant.",
-    "Inclut toutes les nouveautés des essais 5.1.2 et 5.1.1 (panneau Applis de l’application Windows) et de la 5.1.0.",
-    "Validation : deux éditions construites, 66 scénarios réussis, dont le parcours strict des tutoriels (libellés cités visibles, édition remplaçant comprise) ; application Windows compilée."
+    "Bilan de la journée : chaque activité a son identifiant ; avec deux activités de même nom (deux « Maths »), la coche et la note restent sur la bonne activité quand on échange leurs horaires ou qu’on en retire une. Les bilans déjà écrits se relisent comme avant.",
+    "Activité choisie à la main dans la Journée : elle reste l’activité en cours quand on retire ou déplace une activité du jour dans Préparer.",
+    "Fichier Excel de l’emploi du temps : il ne remplace plus en silence ce qui a été changé dans Préparer › Emploi du temps ; Ma classe demande quelle version garder (« Garder la version de Ma classe », « Prendre le fichier Excel », « Plus tard »).",
+    "Préparer : bouton « Annuler » (et Ctrl+Z) pour revenir sur les 20 derniers changements de l’emploi du temps et des jours préparés ; « Annuler » aussi dans le message qui suit un changement.",
+    "Inclut toutes les nouveautés de l’essai 5.1.3 (tutoriels qui montrent ce qu’ils décrivent), des essais 5.1.2 et 5.1.1 (panneau Applis de l’application Windows) et de la 5.1.0.",
+    "Validation : deux éditions construites, 67 scénarios réussis.",
+    "Publiée pour la page « Ma classe.html » ; l’installateur d’essai de l’application Windows reste en 5.1.3 pour l’instant."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5711598,
-      "sha256": "73dc4511fe158a3600d55091aae4062e70de5d3c59e379ae8818f7bf04e926d4"
+      "taille": 5730933,
+      "sha256": "9f41bd2c7baf049d73b1c4c40376b09d7f8f764746677fd480c5fd38601971ac"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5711541,
-      "sha256": "9f51a3a6b4b73c371aa04b52d48b4f5e2560ed15a19f3dfb59941abab3b207c5"
+      "taille": 5730876,
+      "sha256": "4543745c8765409d1bc6c52ca87dea5293c8f5df95e0756c9be2d4fe73964c80"
     }
   }
 }
