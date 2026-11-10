@@ -1,5 +1,6 @@
 _site/
 # fabrication de l’application Windows (outils/fabriquer-appli.py)
-construction/
-paquet/
-paquets/
+/construction/
+/paquet/
+/paquets/
+# (à la racine seulement : applis/paquets/ contient les paquets du Store, publiés)
