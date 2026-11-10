@@ -1,11 +1,11 @@
 {
-  "version": "5.2.0",
-  "notes": "Application Windows : panneau Applis (vos applis HTML, outils, sites et documents) avec une recherche mot par mot, dans n’importe quel ordre et sans accents.\nAssistant : chaque étape des tutoriels et des visites montre la page ou la fenêtre dont elle parle ; au survol d’un écran, la bulle propose les tutoriels de cet écran ; il reconnaît le panneau Applis et l’appli affichée.\nConseils : les documents joints d’aujourd’hui sont vérifiés tant que la classe n’est pas finie, avant ceux du prochain jour.\nEmploi du temps : chaque activité a son identifiant (bilan juste même avec deux activités de même nom) ; le fichier Excel ne remplace plus en silence ce qui a été changé dans Préparer ; « Annuler » (et Ctrl+Z) dans Préparer.\nNumération : couleur de chaque rang, 2ᵉ couleur du 5 + 5 et fond des boîtes ; forme du sélecteur (forme libre, rectangle, ovale) ; zoom des éléments de 50 % à 300 %, indépendant du niveau.\nApplication Windows : désormais fabriquée et signée par le site des mises à jour.\nReprend les essais 5.1.1 à 5.1.6.",
-  "pub_date": "2026-11-10T12:40:55Z",
+  "version": "5.2.1",
+  "notes": "Numération : « Faire un paquet » a lui aussi sa palette de formes au-dessus de l’outil (forme libre, rectangle, ovale) ; un rectangle autour de 10 éléments suffit pour faire le paquet.\nNumération : bouton « Formes et couleurs » directement dans la barre du tableau (représentation, jetons, couleur de chaque élément).\nNumération : trois nouvelles représentations — bûchettes en fagots (élastique de couleur), boulier (perles 5 + 5), monnaie (pièces de 1 €, billets de 10 € et de 100 €, liasse de 1 000 €).\nInclut toutes les nouveautés de la 5.2.0.",
+  "pub_date": "2026-11-10T14:20:55Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.0_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.1_x64-setup-essai.exe"
     }
   }
 }
