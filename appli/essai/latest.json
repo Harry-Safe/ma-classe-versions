@@ -1,11 +1,11 @@
 {
-  "version": "5.2.6",
-  "notes": "Emploi du temps : le code est rangé en parties plus petites (le modèle, le fichier Excel, sa section des Réglages, la lecture des classeurs) ; toutes les modifications de l’emploi du temps et des jours préparés passent par un seul point, que la Journée, Préparer, le calendrier, le minuteur et les Réglages suivent d’eux-mêmes. Rien ne change à l’écran : c’est la base des prochains lots (fichier Excel à la demande, grille horaire, périodes).\nLe plan du jour est gardé en mémoire entre deux rafraîchissements de la Journée.\nTypes d’activités : un type retiré du fichier Excel ne reste plus proposé jusqu’au redémarrage.\nInclut toutes les nouveautés de l’essai 5.2.5 (Store des applis) et de la 5.2.4.",
-  "pub_date": "2026-11-10T21:56:59Z",
+  "version": "5.2.7",
+  "notes": "L’emploi du temps se modifie dans Ma classe, qui en est la seule référence : le fichier Excel n’est plus relu tout seul, et la question « quelle version garder ? » disparaît.\nPréparer › Emploi du temps : « Importer depuis Excel… » lit le fichier du dossier ou un autre, puis montre les changements jour par jour (activités ajoutées, retirées, modifiées) ; rien ne change avant « Appliquer », et « Annuler » en haut de Préparer défait l’import.\nUne grille d’emploi du temps s’importe aussi : jours en colonnes, horaires dans la première colonne, cases fusionnées, case à deux horaires, titres en capitales remis en minuscules.\nÀ l’import, une activité retrouvée garde sa description, ses documents joints et son rituel rattaché ; une matière devinée d’après le nom est signalée, à confirmer d’un clic. « Éducation musicale » est reconnue.\n« Exporter vers Excel » écrit l’emploi du temps de Ma classe dans le dossier de la classe (reglages), au format du modèle, colonnes des niveaux comprises ; un fichier modifié à côté n’est remplacé qu’après accord. Réglages › La classe : « Télécharger une copie ».\nUn conseil de l’assistant prévient ceux qui modifiaient l’emploi du temps dans Excel, jusqu’au premier import ou export.\nInclut toutes les nouveautés de l’essai 5.2.6 (emploi du temps réorganisé, Store des applis).",
+  "pub_date": "2026-11-10T23:30:31Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.6_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.7_x64-setup-essai.exe"
     }
   }
 }

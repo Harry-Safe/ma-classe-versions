@@ -1,24 +1,27 @@
 {
-  "version": "5.2.6",
-  "date": "2026-11-10",
-  "titre": "Essai : emploi du temps réorganisé (lot 2), sans changement à l’écran",
+  "version": "5.2.7",
+  "date": "2026-11-11",
+  "titre": "Essai : emploi du temps, Excel à la demande (lot 3)",
   "notes": [
-    "Emploi du temps : le code est rangé en parties plus petites (le modèle, le fichier Excel, sa section des Réglages, la lecture des classeurs) ; toutes les modifications de l’emploi du temps et des jours préparés passent par un seul point, que la Journée, Préparer, le calendrier, le minuteur et les Réglages suivent d’eux-mêmes. Rien ne change à l’écran : c’est la base des prochains lots (fichier Excel à la demande, grille horaire, périodes).",
-    "Le plan du jour est gardé en mémoire entre deux rafraîchissements de la Journée.",
-    "Types d’activités : un type retiré du fichier Excel ne reste plus proposé jusqu’au redémarrage.",
-    "Inclut toutes les nouveautés de l’essai 5.2.5 (Store des applis) et de la 5.2.4.",
-    "Validation : deux éditions construites, 68 scénarios réussis ; écrans de l’emploi du temps comparés à ceux de la 5.2.4."
+    "L’emploi du temps se modifie dans Ma classe, qui en est la seule référence : le fichier Excel n’est plus relu tout seul, et la question « quelle version garder ? » disparaît.",
+    "Préparer › Emploi du temps : « Importer depuis Excel… » lit le fichier du dossier ou un autre, puis montre les changements jour par jour (activités ajoutées, retirées, modifiées) ; rien ne change avant « Appliquer », et « Annuler » en haut de Préparer défait l’import.",
+    "Une grille d’emploi du temps s’importe aussi : jours en colonnes, horaires dans la première colonne, cases fusionnées, case à deux horaires, titres en capitales remis en minuscules.",
+    "À l’import, une activité retrouvée garde sa description, ses documents joints et son rituel rattaché ; une matière devinée d’après le nom est signalée, à confirmer d’un clic. « Éducation musicale » est reconnue.",
+    "« Exporter vers Excel » écrit l’emploi du temps de Ma classe dans le dossier de la classe (reglages), au format du modèle, colonnes des niveaux comprises ; un fichier modifié à côté n’est remplacé qu’après accord. Réglages › La classe : « Télécharger une copie ».",
+    "Un conseil de l’assistant prévient ceux qui modifiaient l’emploi du temps dans Excel, jusqu’au premier import ou export.",
+    "Inclut toutes les nouveautés de l’essai 5.2.6 (emploi du temps réorganisé, Store des applis).",
+    "Validation : deux éditions construites, 69 scénarios réussis."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5828156,
-      "sha256": "4d7c2873d9640f7ee758ab1be5971096de0a173d50881a9aeaa226106a5d7725"
+      "taille": 5851057,
+      "sha256": "9131803e222adb3a4acb6d7893b10ec34cf1a5075e1fe090e7c17989cf3113d0"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5828096,
-      "sha256": "6dd556154734dfcb7e67dae68933b2e24f1b44afa3b9f29a85836f6631787033"
+      "taille": 5850997,
+      "sha256": "8a488dc2fdf8adb6acc48bf759a4f1d3011c4355d13d1afde8d0c0f17780e3ce"
     }
   }
 }
