@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-10 — Essai 5.2.1 sur le canal d'essai (pages et application) : Numération, formes du paquet et nouvelles représentations
+
+- **Autorisation :** règle permanente de Franck pour le canal d'essai ; demande du jour sur la Numération (formes de « Faire un paquet », bouton « Formes et couleurs », nouvelles représentations). Stable non concerné (reste en 5.2.0).
+- **Contrôle préalable :** `main` public à `02b0ca5` (stable et essai 5.2.0) ; aucune PR. Source : `Ma-classe` `claude/numeration-formes-representations` `cea7e83` (5.2.1 = 5.2.0 + Numération), suite complète locale 67/67 ; `main` source inchangé à `163717e`.
+- **Préparation :** branche `claude/essai-5.2.1` ; `publier-version.py --canal essai` puis `publier-appli.py --canal essai` (configuration d'exemple seule, aucun prénom dans `essai/`). Diff : `essai/`, `entrees/essai.json`, `appli/essai/latest.json` ; stable intact.
+- **Livraison :** avance rapide de `main` `02b0ca5..f10df8f`, sans forçage. Action « Publier les mises à jour » `42833187033` réussie : installateur d'essai **fabriqué ici** (`Ma-classe_5.2.1_x64-setup-essai.exe`, 2 947 Ko), « versions.json signé : essai 5.2.1, stable 5.2.0 », installateurs signés ; déploiement `github-pages` `7684681673` de `f10df8f` réussi. Site servi non relu directement. **Publié sur le canal d'essai, pages et application Windows.**
+
 ## 2026-11-10 — Publication stable 5.2.0 (et essai 5.2.0), application Windows fabriquée ici
 
 - **Autorisation :** Franck : « Push sur main quand t'as fini (j'ai ajouter des crédits actions sur Github au besoin) », puis, à la question sur la publication stable : « Main et stable 5.2.0 ».
