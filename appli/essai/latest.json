@@ -1,11 +1,11 @@
 {
-  "version": "5.2.5",
-  "notes": "Applis : nouvel onglet Store, en dernier, avec les applis publiées par l’auteur. Obtenir, Mettre à jour, Ouvrir et Supprimer en un clic, avec une barre de progression.\nCatalogue signé par l’auteur, lu sur le site des mises à jour ; même canal que Ma classe (les versions d’essai d’une appli portent la marque « Essai »).\nInstallation vérifiée avant toute écriture (empreinte du paquet, chemins de chaque fichier) ; le dossier « donnees » d’une appli est toujours gardé, à la mise à jour comme à la suppression.\nUne tuile de l’onglet Applis signale « Mise à jour » quand le Store propose une version plus récente.\nPremière appli au catalogue d’essai : « Essai du pont » (enregistrement dans le dossier de la classe et micro).\nReprend la 5.2.4.",
-  "pub_date": "2026-11-10T21:21:40Z",
+  "version": "5.2.6",
+  "notes": "Emploi du temps : le code est rangé en parties plus petites (le modèle, le fichier Excel, sa section des Réglages, la lecture des classeurs) ; toutes les modifications de l’emploi du temps et des jours préparés passent par un seul point, que la Journée, Préparer, le calendrier, le minuteur et les Réglages suivent d’eux-mêmes. Rien ne change à l’écran : c’est la base des prochains lots (fichier Excel à la demande, grille horaire, périodes).\nLe plan du jour est gardé en mémoire entre deux rafraîchissements de la Journée.\nTypes d’activités : un type retiré du fichier Excel ne reste plus proposé jusqu’au redémarrage.\nInclut toutes les nouveautés de l’essai 5.2.5 (Store des applis) et de la 5.2.4.",
+  "pub_date": "2026-11-10T21:56:59Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.5_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.6_x64-setup-essai.exe"
     }
   }
 }

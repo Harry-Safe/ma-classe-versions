@@ -1,25 +1,24 @@
 {
-  "version": "5.2.5",
+  "version": "5.2.6",
   "date": "2026-11-10",
-  "titre": "Essai : Store des applis",
+  "titre": "Essai : emploi du temps réorganisé (lot 2), sans changement à l’écran",
   "notes": [
-    "Applis : nouvel onglet Store, en dernier, avec les applis publiées par l’auteur. Obtenir, Mettre à jour, Ouvrir et Supprimer en un clic, avec une barre de progression.",
-    "Catalogue signé par l’auteur, lu sur le site des mises à jour ; même canal que Ma classe (les versions d’essai d’une appli portent la marque « Essai »).",
-    "Installation vérifiée avant toute écriture (empreinte du paquet, chemins de chaque fichier) ; le dossier « donnees » d’une appli est toujours gardé, à la mise à jour comme à la suppression.",
-    "Une tuile de l’onglet Applis signale « Mise à jour » quand le Store propose une version plus récente.",
-    "Première appli au catalogue d’essai : « Essai du pont » (enregistrement dans le dossier de la classe et micro).",
-    "Reprend la 5.2.4."
+    "Emploi du temps : le code est rangé en parties plus petites (le modèle, le fichier Excel, sa section des Réglages, la lecture des classeurs) ; toutes les modifications de l’emploi du temps et des jours préparés passent par un seul point, que la Journée, Préparer, le calendrier, le minuteur et les Réglages suivent d’eux-mêmes. Rien ne change à l’écran : c’est la base des prochains lots (fichier Excel à la demande, grille horaire, périodes).",
+    "Le plan du jour est gardé en mémoire entre deux rafraîchissements de la Journée.",
+    "Types d’activités : un type retiré du fichier Excel ne reste plus proposé jusqu’au redémarrage.",
+    "Inclut toutes les nouveautés de l’essai 5.2.5 (Store des applis) et de la 5.2.4.",
+    "Validation : deux éditions construites, 68 scénarios réussis ; écrans de l’emploi du temps comparés à ceux de la 5.2.4."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5822609,
-      "sha256": "e3492b493bfb4cc6b48d44c0bf85a86be31f16758018e9f913908ecef0ef1059"
+      "taille": 5828156,
+      "sha256": "4d7c2873d9640f7ee758ab1be5971096de0a173d50881a9aeaa226106a5d7725"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5822549,
-      "sha256": "7f7e04001491dfbd5c802b8bd507e94c1610c15cd776b992c0ec2b0f51fce25b"
+      "taille": 5828096,
+      "sha256": "6dd556154734dfcb7e67dae68933b2e24f1b44afa3b9f29a85836f6631787033"
     }
   }
 }
