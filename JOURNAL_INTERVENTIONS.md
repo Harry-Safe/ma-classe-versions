@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-10 — Essai 5.2.3 sur le canal d'essai (pages et application) : plus de messages en bandeau noir
+
+- **Autorisation :** règle permanente de Franck pour le canal d'essai ; demande du jour : « Je ne veux plus de ces messages […] tous ces messages qui apparaissent dans des bandeaux noirs ». Stable non concerné (reste en 5.2.0).
+- **Contrôle préalable :** `main` public à `9b763b4` (stable 5.2.0, essai 5.2.2) ; aucune PR. Source : `Ma-classe` `claude/tableaux-selection-instruments` `3befc6d` (5.2.3 = 5.2.2 + messages), suite complète locale 67/67 ; `main` source inchangé à `163717e`.
+- **Préparation :** branche `claude/essai-5.2.3` ; `publier-version.py --canal essai` puis `publier-appli.py --canal essai` (configuration d'exemple seule). Diff : `essai/`, `entrees/essai.json`, `appli/essai/latest.json` ; stable intact.
+- **Livraison :** avance rapide de `main` `9b763b4..25a1bfb`, sans forçage. Action « Publier les mises à jour » `42877496409` réussie : installateur d'essai **fabriqué ici** (`Ma-classe_5.2.3_x64-setup-essai.exe`, 2 957 Ko), « versions.json signé : essai 5.2.3, stable 5.2.0 » ; déploiement `github-pages` `7691034657` de `25a1bfb` réussi. Site servi non relu directement. **Publié sur le canal d'essai, pages et application Windows.**
+
 ## 2026-11-10 — Essai 5.2.2 sur le canal d'essai (pages et application) : tableaux, sélection sans outil, instruments, bulles et flèches
 
 - **Autorisation :** règle permanente de Franck pour le canal d'essai ; demande du jour sur les tableaux (Géométrie : instruments toujours saisissables, palettes de longueur et d'écartement, Crayon unique, zoom ; Numération, Tableau blanc et Géométrie : sélection sans outil ; Tableau blanc : bulles lignées en fenêtres, flèches à la Word ; tutoriels). Stable non concerné (reste en 5.2.0).
