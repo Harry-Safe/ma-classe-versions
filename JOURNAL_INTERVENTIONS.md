@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-10 — Publication stable 5.2.0 (et essai 5.2.0), application Windows fabriquée ici
+
+- **Autorisation :** Franck : « Push sur main quand t'as fini (j'ai ajouter des crédits actions sur Github au besoin) », puis, à la question sur la publication stable : « Main et stable 5.2.0 ».
+- **Contrôle préalable :** `main` public à `43e6740` (stable 5.1.0, essai 5.1.5) ; aucune PR. Source : `Ma-classe` `main` `87036b1` (5.2.0 = essais 5.1.1 à 5.1.6), « Validation de Ma classe » `42817799496` **réussie** sur ce commit (67 scénarios, « Tout est bon. »), « Documentation de Ma classe » `42817799570` réussie.
+- **Préparation :** branche `claude/stable-5.2.0` ; `publier-version.py` puis `publier-appli.py` pour le canal stable, puis les deux avec `--canal essai` (pages construites avec la configuration d’exemple seule, aucun prénom dans `stable/` ni `essai/`). Diff : `stable/`, `essai/`, `entrees/stable.json`, `entrees/essai.json`, `appli/latest.json`, `appli/essai/latest.json`, nouvelle `coquille/stable/` ; ancien installateur stable 5.1.0 retiré par le script.
+- **Livraison :** avance rapide de `main` `43e6740..ae847ff`, sans forçage. Action « Publier les mises à jour » `42821224978` réussie : installateurs **fabriqués ici** — essai `Ma-classe_5.2.0_x64-setup-essai.exe` (2 945 Ko) et stable `Ma-classe_5.2.0_x64-setup.exe` (2 945 Ko) ; « versions.json signé : essai 5.2.0, stable 5.2.0 » ; les deux installateurs signés ; déploiement `github-pages` `7682972868` de `ae847ff` à l’état `success`. Site servi non relu directement (adresse hors de portée de cet environnement). **Publié : stable et essai en 5.2.0, pages et application Windows.**
+
 ## 2026-11-10 — Fabrication par ce dépôt passée sur `main`, et essai 5.1.5 (pages et application Windows) : lot A, recherche et assistant
 
 - **Autorisation :** Franck : « Oui, option 2 puis 5.1.4 en essai » (fabrication de l’application par ce dépôt sur `main`, puis publication de l’essai ; le numéro est devenu 5.1.5 car 5.1.4 venait d’être publié pour les pages). Règle permanente du canal d’essai. Stable non concerné.
