@@ -1,28 +1,24 @@
 {
-  "version": "5.2.2",
+  "version": "5.2.3",
   "date": "2026-11-10",
-  "titre": "Essai : tableaux, sélection sans outil, instruments toujours en main, bulles et flèches",
+  "titre": "Essai : plus de messages en bandeau noir",
   "notes": [
-    "Numération, Tableau blanc et Géométrie : on sélectionne sans outil — un clic sur un élément, un clic maintenu dans le vide pour une zone, un clic maintenu sur la sélection pour la déplacer ; Suppr la retire (avec « Annuler »), Échap la vide. L’outil « Sélectionner » quitte les docks ; la forme de la zone (rectangle, ovale, forme libre) se règle dans les Réglages de la Numération.",
-    "Numération : le bouton « Formes et couleurs » est mis en valeur par un dégradé doux.",
-    "Géométrie : règle, équerre et compas se prennent toujours, même crayon ou gomme en main — tout leur dessin les déplace, leurs ronds de côté les tournent (plus de prise centrale) ; un trait en cours n’emporte jamais l’instrument.",
-    "Géométrie : règle et équerre de 10, 15 ou 20 cm, graduées de 0,5 en 0,5 cm ; compas à l’écartement de 1 à 10 cm (par demi-centimètre), qui règle aussi le compas sélectionné.",
-    "Géométrie : un seul Crayon, avec sa palette (gris crayonné d’abord, couleurs, épaisseur) ; le Stylo est retiré. Zoom du tableau dans le dock (50 % à 300 %).",
-    "Tableau blanc : « Bulle d’écriture » ouvre aussitôt une petite fenêtre lignée, prête à écrire ; plusieurs bulles, réglure et niveau comme le tableau avec lignages, croix discrète pour la fermer.",
-    "Tableau blanc : les flèches se tracent à la souris comme dans un traitement de texte ; poignées d’extrémité, poignée jaune de courbure ou de coude, et plus aucune empreinte de l’ancienne forme pendant le geste.",
-    "Tutoriels et visite du tableau mis à jour.",
-    "Inclut toutes les nouveautés de l’essai 5.2.1 et de la 5.2.0."
+    "Les messages d’information en bandeau noir ne s’affichent plus, nulle part dans Ma classe ; seuls les avertissements (bandeau orangé : erreur, fichier illisible, action impossible) restent.",
+    "Tableau blanc et Numération : Ctrl+Z remet ce qui vient d’être retiré (Suppr, croix d’une bulle ou d’un objet) ; en Géométrie, Ctrl+Z annule la dernière action.",
+    "Préparer : le bouton « Annuler » du haut et Ctrl+Z remplacent le message qui suivait chaque geste. Résultats : Ctrl+Z dans la case remet une remarque supprimée.",
+    "Une nouvelle version de Ma classe est annoncée par un conseil de l’assistant ; le mode léger reste proposé dans les Réglages (« Conseillé ici »).",
+    "Inclut toutes les nouveautés de l’essai 5.2.2 (tableaux), de l’essai 5.2.1 et de la 5.2.0."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5793630,
-      "sha256": "cd5c6d1c72fcb8a128a25319c44c5289d2cd48007b1ca507ffc65df1dc8e314a"
+      "taille": 5794454,
+      "sha256": "427ecfbae7a2297d034ea092f93fabacac7b9f4347f6d288e25ff502eed29e64"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5793573,
-      "sha256": "223f07a32ac770d5898652a39f19de5f97e814cb509b952bf25785ea70776e37"
+      "taille": 5794395,
+      "sha256": "082afcce17007389562490717dbcf2ebf85035cea8ad57b8cc4b6e1322fc0619"
     }
   }
 }
