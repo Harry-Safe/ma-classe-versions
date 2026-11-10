@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-10 — Fabrication par ce dépôt passée sur `main`, et essai 5.1.5 (pages et application Windows) : lot A, recherche et assistant
+
+- **Autorisation :** Franck : « Oui, option 2 puis 5.1.4 en essai » (fabrication de l’application par ce dépôt sur `main`, puis publication de l’essai ; le numéro est devenu 5.1.5 car 5.1.4 venait d’être publié pour les pages). Règle permanente du canal d’essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `b879ddb` (stable 5.1.0, essai 5.1.4 pages, application d’essai 5.1.3) ; branche `claude/fabrication-publique` `87ce819` partie de `35edc86`, donc plus en avance rapide : réunie à `main` sur `claude/essai-5.1.5` (conflit seulement dans ce journal, les deux entrées gardées). Aucune PR. Source : `Ma-classe` `claude/lot-a-recherche` `739d978` = essai 5.1.3 + fabrication publique + essai 5.1.4 (lot 1 de l’emploi du temps) + lot A, version 5.1.5 ; `main` source inchangé à `40148d4`.
+- **Préparation :** `publier-version.py --canal essai` puis `publier-appli.py --canal essai` (nouveau script du 9 novembre), pages construites avec la configuration d’exemple seule (aucun prénom dans `essai/`). Diff : `essai/`, `entrees/essai.json`, `appli/essai/latest.json` (5.1.5) ; coquille `coquille/essai/` identique à celle de la fusion ; `stable/`, `entrees/stable.json`, `appli/latest.json` et l’installateur 5.1.0 intacts.
+- **Livraison :** avance rapide de `main` `b879ddb..ed49822`, sans forçage. Action « Publier les mises à jour » `42809981245` réussie : « Application Windows (essai) » **fabriquée ici** (`ma-classe v5.1.5`, `Ma-classe_5.1.5_x64-setup-essai.exe`, 2 943 Ko, 6 min 13 s) ; stable « déjà dans le dépôt » (20 s) ; « versions.json signé : essai 5.1.5, stable 5.1.0 », installateurs signés (stable 5.1.0, essai 5.1.5) ; déploiement `github-pages` `7681288007` de `ed49822` à l’état `success`. Site servi non relu directement (adresse hors de portée de cet environnement). **Publié sur le canal d’essai, pages et application Windows.**
+- **Suite :** les publications d’essai suivantes passent par ce chemin ; une publication stable fabriquera aussi son installateur ici. Syllamons et Vocabulaire ont encore l’ancien schéma.
+
 ## 2026-11-10 — Essai 5.1.4 sur le canal d'essai (pages) : emploi du temps plus sûr
 
 - **Autorisation :** règle permanente de Franck pour le canal d'essai ; Franck : « Lance le premier lot » (lot 1 du plan de l'emploi du temps). Stable non concerné.
