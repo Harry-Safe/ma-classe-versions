@@ -1,26 +1,27 @@
 {
-  "version": "5.1.4",
+  "version": "5.1.5",
   "date": "2026-11-10",
-  "titre": "Essai : emploi du temps plus sûr (lot 1)",
+  "titre": "Essai : trouver et être aidé au bon endroit (lot A)",
   "notes": [
-    "Bilan de la journée : chaque activité a son identifiant ; avec deux activités de même nom (deux « Maths »), la coche et la note restent sur la bonne activité quand on échange leurs horaires ou qu’on en retire une. Les bilans déjà écrits se relisent comme avant.",
-    "Activité choisie à la main dans la Journée : elle reste l’activité en cours quand on retire ou déplace une activité du jour dans Préparer.",
-    "Fichier Excel de l’emploi du temps : il ne remplace plus en silence ce qui a été changé dans Préparer › Emploi du temps ; Ma classe demande quelle version garder (« Garder la version de Ma classe », « Prendre le fichier Excel », « Plus tard »).",
-    "Préparer : bouton « Annuler » (et Ctrl+Z) pour revenir sur les 20 derniers changements de l’emploi du temps et des jours préparés ; « Annuler » aussi dans le message qui suit un changement.",
-    "Inclut toutes les nouveautés de l’essai 5.1.3 (tutoriels qui montrent ce qu’ils décrivent), des essais 5.1.2 et 5.1.1 (panneau Applis de l’application Windows) et de la 5.1.0.",
-    "Validation : deux éditions construites, 67 scénarios réussis.",
-    "Publiée pour la page « Ma classe.html » ; l’installateur d’essai de l’application Windows reste en 5.1.3 pour l’instant."
+    "Applis : la recherche se fait mot par mot, dans n’importe quel ordre et sans accents (« jeu sons » trouve « Jeu des sons ») ; ce qui est trouvé dans le nom passe avant ce qui l’est seulement dans la description, et Entrée ouvre ce premier résultat.",
+    "Assistant : il reconnaît le panneau Applis et l’appli affichée (il annonçait « Journée »).",
+    "Assistant : au survol d’un autre écran que la Journée (tableau, rituel, Préparer, fenêtre d’outil…), la bulle s’ouvre sur les tutoriels de cet écran ; sur la Journée, et juste après l’action d’un conseil, elle garde le dernier onglet choisi.",
+    "Conseils : les pièces jointes d’aujourd’hui sont vérifiées tant que la classe n’est pas finie, avant celles du prochain jour de classe.",
+    "Mode léger : le message renvoie à « Réglages › Apparence › Affichage ».",
+    "Application Windows d’essai : fabriquée désormais par le site des mises à jour ; elle rattrape la page (5.1.5).",
+    "Inclut toutes les nouveautés de l’essai 5.1.4 (emploi du temps plus sûr : identifiants des activités, garde du fichier Excel, « Annuler »), de l’essai 5.1.3 (tutoriels qui montrent ce qu’ils décrivent), des essais 5.1.2 et 5.1.1 (panneau Applis) et de la 5.1.0.",
+    "Validation : deux éditions construites, 67 scénarios réussis (l’un, intermittent, à la relance)."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5730933,
-      "sha256": "9f41bd2c7baf049d73b1c4c40376b09d7f8f764746677fd480c5fd38601971ac"
+      "taille": 5733720,
+      "sha256": "24c00f1b0ff46ba4420dff24ec220cbdf8c0bc29728ca78a5aa41dd237fb5f40"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5730876,
-      "sha256": "4543745c8765409d1bc6c52ca87dea5293c8f5df95e0756c9be2d4fe73964c80"
+      "taille": 5733663,
+      "sha256": "e86bc5aa3ac4535b3789b424af7fe546c3bea2dc229262df47a745f2fee68609"
     }
   }
 }

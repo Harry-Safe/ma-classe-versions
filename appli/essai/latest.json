@@ -1,11 +1,11 @@
 {
-  "version": "5.1.3",
-  "notes": "Tutoriels et visites : chaque étape affiche la page ou la fenêtre dont elle parle (Figures, banque d’images, bulle d’écriture, flèches, réglages, séances, « Prévoir une absence », « Reporter », alarmes, outils personnels…), puis la referme sans rien enregistrer.\nExemples montrés pendant le tutoriel (opération posée, figure, règle, bulle…), retirés à la fin ; les textes citent les boutons tels qu’ils s’affichent et disent clairement ce qui n’est pas ouvert.\nRituels : texte et commandes propres à chaque onglet ; la période suit le calendrier.\nVisite « Tirage, groupes et métiers » : elle n’attribue plus les métiers de la semaine ; les visites ne referment plus le minuteur ou les fenêtres déjà ouvertes.\nAprès un tutoriel : l’aperçu d’un autre jour, l’onglet des Rappels, l’écran de Résultats, la rubrique des Réglages et la sélection du tableau blanc reviennent comme avant.\nInclut toutes les nouveautés des essais 5.1.2 et 5.1.1 (panneau Applis de l’application Windows) et de la 5.1.0.",
-  "pub_date": "2026-11-09T20:55:33Z",
+  "version": "5.1.5",
+  "notes": "Applis : la recherche se fait mot par mot, dans n’importe quel ordre et sans accents (« jeu sons » trouve « Jeu des sons ») ; ce qui est trouvé dans le nom passe avant ce qui l’est seulement dans la description, et Entrée ouvre ce premier résultat.\nAssistant : il reconnaît le panneau Applis et l’appli affichée (il annonçait « Journée »).\nAssistant : au survol d’un autre écran que la Journée (tableau, rituel, Préparer, fenêtre d’outil…), la bulle s’ouvre sur les tutoriels de cet écran ; sur la Journée, et juste après l’action d’un conseil, elle garde le dernier onglet choisi.\nConseils : les pièces jointes d’aujourd’hui sont vérifiées tant que la classe n’est pas finie, avant celles du prochain jour de classe.\nMode léger : le message renvoie à « Réglages › Apparence › Affichage ».\nApplication Windows d’essai : fabriquée désormais par le site des mises à jour ; elle rattrape la page (5.1.5).\nInclut toutes les nouveautés de l’essai 5.1.4 (emploi du temps plus sûr : identifiants des activités, garde du fichier Excel, « Annuler »), de l’essai 5.1.3 (tutoriels qui montrent ce qu’ils décrivent), des essais 5.1.2 et 5.1.1 (panneau Applis) et de la 5.1.0.",
+  "pub_date": "2026-11-10T11:44:40Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.1.3_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.1.5_x64-setup-essai.exe"
     }
   }
 }
