@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-10 — Essai 5.2.6 sur le canal d'essai (pages et application) : emploi du temps réorganisé (lot 2)
+
+- **Autorisation :** Franck : « Fais le lot 2 » ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `c2ca859` (stable 5.2.0, essai 5.2.5 du Store des applis, publié à 22 h 33 par une autre session : publication attendue jusqu'à son journal) ; la publication stable 5.2.4 annoncée par le `main` source `70fc2a8` n'y est toujours pas. Source : `Ma-classe` `claude/appli-essai-edt2` `0395776` (5.2.6 = essai 5.2.5 + lot 2 `claude/edt-lot2-structure`), suite complète locale 68/68.
+- **Préparation :** branche `claude/essai-5.2.6` ; `publier-version.py --canal essai` puis `publier-appli.py --canal essai` (configuration d'exemple seule, listes d'élèves vides vérifiées). Diff : `essai/`, `entrees/essai.json`, `appli/essai/latest.json` ; `stable/`, `entrees/stable.json`, `appli/latest.json` et `applis/` intacts (catalogue du Store inchangé).
+- **Livraison :** avance rapide de `main` `c2ca859..e0505b3`, sans forçage. Action « Publier les mises à jour » `42909955594` réussie : installateur d'essai **fabriqué ici** (`Ma-classe_5.2.6_x64-setup-essai.exe`, 2 965 Ko), « versions.json signé : essai 5.2.6, stable 5.2.0 », « applis.json signé : essai-pont 1.0.0 (essai) » ; déploiement `github-pages` de `e0505b3`. Site servi non relu directement. **Publié sur le canal d'essai, pages et application Windows.**
+
 ## 2026-11-10 — Essai 5.2.5 sur le canal d'essai (pages et application) et Store des applis
 
 - **Autorisation :** Franck : « Développe ce store » ; règle permanente du canal d'essai. Le Store est public pour commencer (question du chiffrement restée ouverte).
