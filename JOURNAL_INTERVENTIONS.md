@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-10 — Essai 5.2.2 sur le canal d'essai (pages et application) : tableaux, sélection sans outil, instruments, bulles et flèches
+
+- **Autorisation :** règle permanente de Franck pour le canal d'essai ; demande du jour sur les tableaux (Géométrie : instruments toujours saisissables, palettes de longueur et d'écartement, Crayon unique, zoom ; Numération, Tableau blanc et Géométrie : sélection sans outil ; Tableau blanc : bulles lignées en fenêtres, flèches à la Word ; tutoriels). Stable non concerné (reste en 5.2.0).
+- **Contrôle préalable :** `main` public à `2b49a1d` (stable 5.2.0, essai 5.2.1) ; aucune PR. Source : `Ma-classe` `claude/tableaux-selection-instruments` `90e8cb6` (5.2.2 = 5.2.1 + tableaux) ; `main` source inchangé à `163717e`.
+- **Préparation :** branche `claude/essai-5.2.2` ; `publier-version.py --canal essai` puis `publier-appli.py --canal essai` (configuration d'exemple seule, aucun prénom dans `essai/`). Diff : `essai/`, `entrees/essai.json`, `appli/essai/latest.json` ; coquille inchangée ; stable intact.
+- **Livraison :** avance rapide de `main` `2b49a1d..5032c51`, sans forçage. Action « Publier les mises à jour » `42863390524` réussie : installateur d'essai **fabriqué ici** (`Ma-classe_5.2.2_x64-setup-essai.exe`, 2 956 Ko), « versions.json signé : essai 5.2.2, stable 5.2.0 » ; déploiement `github-pages` `7689077342` de `5032c51` réussi. Site servi non relu directement. **Publié sur le canal d'essai, pages et application Windows.**
+
 ## 2026-11-10 — Essai 5.2.1 sur le canal d'essai (pages et application) : Numération, formes du paquet et nouvelles représentations
 
 - **Autorisation :** règle permanente de Franck pour le canal d'essai ; demande du jour sur la Numération (formes de « Faire un paquet », bouton « Formes et couleurs », nouvelles représentations). Stable non concerné (reste en 5.2.0).
