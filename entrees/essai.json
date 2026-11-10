@@ -1,27 +1,27 @@
 {
-  "version": "5.1.5",
+  "version": "5.2.0",
   "date": "2026-11-10",
-  "titre": "Essai : trouver et être aidé au bon endroit (lot A)",
+  "titre": "Applis, tutoriels qui montrent, emploi du temps plus sûr, Numération en couleurs",
   "notes": [
-    "Applis : la recherche se fait mot par mot, dans n’importe quel ordre et sans accents (« jeu sons » trouve « Jeu des sons ») ; ce qui est trouvé dans le nom passe avant ce qui l’est seulement dans la description, et Entrée ouvre ce premier résultat.",
-    "Assistant : il reconnaît le panneau Applis et l’appli affichée (il annonçait « Journée »).",
-    "Assistant : au survol d’un autre écran que la Journée (tableau, rituel, Préparer, fenêtre d’outil…), la bulle s’ouvre sur les tutoriels de cet écran ; sur la Journée, et juste après l’action d’un conseil, elle garde le dernier onglet choisi.",
-    "Conseils : les pièces jointes d’aujourd’hui sont vérifiées tant que la classe n’est pas finie, avant celles du prochain jour de classe.",
-    "Mode léger : le message renvoie à « Réglages › Apparence › Affichage ».",
-    "Application Windows d’essai : fabriquée désormais par le site des mises à jour ; elle rattrape la page (5.1.5).",
-    "Inclut toutes les nouveautés de l’essai 5.1.4 (emploi du temps plus sûr : identifiants des activités, garde du fichier Excel, « Annuler »), de l’essai 5.1.3 (tutoriels qui montrent ce qu’ils décrivent), des essais 5.1.2 et 5.1.1 (panneau Applis) et de la 5.1.0.",
-    "Validation : deux éditions construites, 67 scénarios réussis (l’un, intermittent, à la relance)."
+    "Application Windows : panneau Applis (vos applis HTML, outils, sites et documents) avec une recherche mot par mot, dans n’importe quel ordre et sans accents.",
+    "Assistant : chaque étape des tutoriels et des visites montre la page ou la fenêtre dont elle parle ; au survol d’un écran, la bulle propose les tutoriels de cet écran ; il reconnaît le panneau Applis et l’appli affichée.",
+    "Conseils : les documents joints d’aujourd’hui sont vérifiés tant que la classe n’est pas finie, avant ceux du prochain jour.",
+    "Emploi du temps : chaque activité a son identifiant (bilan juste même avec deux activités de même nom) ; le fichier Excel ne remplace plus en silence ce qui a été changé dans Préparer ; « Annuler » (et Ctrl+Z) dans Préparer.",
+    "Numération : couleur de chaque rang, 2ᵉ couleur du 5 + 5 et fond des boîtes ; forme du sélecteur (forme libre, rectangle, ovale) ; zoom des éléments de 50 % à 300 %, indépendant du niveau.",
+    "Application Windows : désormais fabriquée et signée par le site des mises à jour.",
+    "Reprend les essais 5.1.1 à 5.1.6.",
+    "Validation : deux éditions construites, 67 scénarios réussis."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5733720,
-      "sha256": "24c00f1b0ff46ba4420dff24ec220cbdf8c0bc29728ca78a5aa41dd237fb5f40"
+      "taille": 5745526,
+      "sha256": "673013e638c927f504d4788dca3bf435617c248991813379a1c8d685121277f0"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5733663,
-      "sha256": "e86bc5aa3ac4535b3789b424af7fe546c3bea2dc229262df47a745f2fee68609"
+      "taille": 5745469,
+      "sha256": "008a7a106902b7d8fd3e62f7f8cbe0ee9f900c558ba372959c6f5f6585c1aaf8"
     }
   }
 }

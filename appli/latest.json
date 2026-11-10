@@ -1,11 +1,11 @@
 {
-  "version": "5.1.0",
-  "notes": "Assistant : une tête de robot au bord gauche ouvre une bulle au survol, au clic, au clavier ou au toucher ; recherche et 51 tutoriels visuels ciblés sur les fonctions, tableaux et outils. Retour à l’écran initial sans modifier les données de classe.\nConseils du jour : appel à valider, rappels, activités à reprendre, bilan et préparation à vérifier ; chaque proposition explique sa raison et laisse la décision à l’enseignant. Aucun résultat individuel affiché.\nGéométrie : règle, équerre et compas transparents, crayon et stylo distincts, tracés guidés même commencés ailleurs, figures aux mesures précises, rotation par poignées et croix de retrait. Mesures, annotations et annulations conservées.\nGommes : effacement limité à la zone parcourue sur les figures, tracés et remplissages des lignages ; aperçu du diamètre sous la souris. Papier, modèles écrits et instruments préservés.\nTableau blanc : bulles d’écriture Seyès à saisie directe, banque hors ligne de 278 mots illustrés, étiquettes script ou cursives, flèches réglables et déplacement commun des objets sélectionnés. Les anciens supports restent lisibles.\nAudio : lecteur discret dans le menu, fichiers et liste de lecture conservés sur le poste ; la lecture continue en changeant d’écran.\nAppel : registre opaque et absences prévues par dates et demi-journées, motifs et corrections ; les statistiques excluent le futur.\nPrésentation : mention générale de l’aide de l’IA au développement et à la documentation ; aucune signature nominative d’assistant ajoutée.",
-  "pub_date": "2026-11-08T14:19:27Z",
+  "version": "5.2.0",
+  "notes": "Application Windows : panneau Applis (vos applis HTML, outils, sites et documents) avec une recherche mot par mot, dans n’importe quel ordre et sans accents.\nAssistant : chaque étape des tutoriels et des visites montre la page ou la fenêtre dont elle parle ; au survol d’un écran, la bulle propose les tutoriels de cet écran ; il reconnaît le panneau Applis et l’appli affichée.\nConseils : les documents joints d’aujourd’hui sont vérifiés tant que la classe n’est pas finie, avant ceux du prochain jour.\nEmploi du temps : chaque activité a son identifiant (bilan juste même avec deux activités de même nom) ; le fichier Excel ne remplace plus en silence ce qui a été changé dans Préparer ; « Annuler » (et Ctrl+Z) dans Préparer.\nNumération : couleur de chaque rang, 2ᵉ couleur du 5 + 5 et fond des boîtes ; forme du sélecteur (forme libre, rectangle, ovale) ; zoom des éléments de 50 % à 300 %, indépendant du niveau.\nApplication Windows : désormais fabriquée et signée par le site des mises à jour.\nReprend les essais 5.1.1 à 5.1.6.",
+  "pub_date": "2026-11-10T12:40:55Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/Ma-classe_5.1.0_x64-setup.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/Ma-classe_5.2.0_x64-setup.exe"
     }
   }
 }

@@ -1,28 +1,27 @@
 {
-  "version": "5.1.0",
-  "date": "2026-11-08",
-  "titre": "Assistant visuel, géométrie et tableaux enrichis",
+  "version": "5.2.0",
+  "date": "2026-11-10",
+  "titre": "Applis, tutoriels qui montrent, emploi du temps plus sûr, Numération en couleurs",
   "notes": [
-    "Assistant : une tête de robot au bord gauche ouvre une bulle au survol, au clic, au clavier ou au toucher ; recherche et 51 tutoriels visuels ciblés sur les fonctions, tableaux et outils. Retour à l’écran initial sans modifier les données de classe.",
-    "Conseils du jour : appel à valider, rappels, activités à reprendre, bilan et préparation à vérifier ; chaque proposition explique sa raison et laisse la décision à l’enseignant. Aucun résultat individuel affiché.",
-    "Géométrie : règle, équerre et compas transparents, crayon et stylo distincts, tracés guidés même commencés ailleurs, figures aux mesures précises, rotation par poignées et croix de retrait. Mesures, annotations et annulations conservées.",
-    "Gommes : effacement limité à la zone parcourue sur les figures, tracés et remplissages des lignages ; aperçu du diamètre sous la souris. Papier, modèles écrits et instruments préservés.",
-    "Tableau blanc : bulles d’écriture Seyès à saisie directe, banque hors ligne de 278 mots illustrés, étiquettes script ou cursives, flèches réglables et déplacement commun des objets sélectionnés. Les anciens supports restent lisibles.",
-    "Audio : lecteur discret dans le menu, fichiers et liste de lecture conservés sur le poste ; la lecture continue en changeant d’écran.",
-    "Appel : registre opaque et absences prévues par dates et demi-journées, motifs et corrections ; les statistiques excluent le futur.",
-    "Présentation : mention générale de l’aide de l’IA au développement et à la documentation ; aucune signature nominative d’assistant ajoutée.",
-    "Validation : deux éditions construites, 65 scénarios réussis, documentation et compatibilité des supports contrôlées."
+    "Application Windows : panneau Applis (vos applis HTML, outils, sites et documents) avec une recherche mot par mot, dans n’importe quel ordre et sans accents.",
+    "Assistant : chaque étape des tutoriels et des visites montre la page ou la fenêtre dont elle parle ; au survol d’un écran, la bulle propose les tutoriels de cet écran ; il reconnaît le panneau Applis et l’appli affichée.",
+    "Conseils : les documents joints d’aujourd’hui sont vérifiés tant que la classe n’est pas finie, avant ceux du prochain jour.",
+    "Emploi du temps : chaque activité a son identifiant (bilan juste même avec deux activités de même nom) ; le fichier Excel ne remplace plus en silence ce qui a été changé dans Préparer ; « Annuler » (et Ctrl+Z) dans Préparer.",
+    "Numération : couleur de chaque rang, 2ᵉ couleur du 5 + 5 et fond des boîtes ; forme du sélecteur (forme libre, rectangle, ovale) ; zoom des éléments de 50 % à 300 %, indépendant du niveau.",
+    "Application Windows : désormais fabriquée et signée par le site des mises à jour.",
+    "Reprend les essais 5.1.1 à 5.1.6.",
+    "Validation : deux éditions construites, 67 scénarios réussis."
   ],
   "fichiers": {
     "classe": {
       "url": "stable/Ma classe.html",
-      "taille": 5628035,
-      "sha256": "7431805799011f92d2d607dbf3ab4c775e678b6e10d17808ea699ea100f4f081"
+      "taille": 5745526,
+      "sha256": "673013e638c927f504d4788dca3bf435617c248991813379a1c8d685121277f0"
     },
     "remplacant": {
       "url": "stable/Ma classe - Remplaçant.html",
-      "taille": 5627988,
-      "sha256": "ef98adfa6f7630f1c5b246addde2cd52e31ea279a3f71fdddbf33026169c570a"
+      "taille": 5745469,
+      "sha256": "008a7a106902b7d8fd3e62f7f8cbe0ee9f900c558ba372959c6f5f6585c1aaf8"
     }
   }
 }
