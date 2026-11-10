@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-10 — Essai 5.1.4 sur le canal d'essai (pages) : emploi du temps plus sûr
+
+- **Autorisation :** règle permanente de Franck pour le canal d'essai ; Franck : « Lance le premier lot » (lot 1 du plan de l'emploi du temps). Stable non concerné.
+- **Contrôle préalable :** `main` public à `35edc86` (stable 5.1.0, essai 5.1.3) ; branches distantes relues, aucune PR. Source : `claude/appli-essai-edt` = essai 5.1.3 + lot 1 (`claude/edt-lot1-fiabilite`), version 5.1.4 ; `main` source inchangé à `40148d4`.
+- **Préparation :** branche `claude/essai-5.1.4` ; `publier-version.py --canal essai` seulement (pages construites avec la configuration d'exemple, listes d'élèves vides vérifiées). Diff limité à `essai/` et `entrees/essai.json` ; `stable/`, `entrees/stable.json` et `appli/` intacts.
+- **Validation source :** suite complète locale 66/67, `applis` (fermeture animée) réussi deux fois à la relance isolée ; documentation cohérente.
+- **Livraison :** avance rapide de `main` `35edc86..fd99120`, sans forçage. Action « Publier les mises à jour » `42801886243` réussie : « versions.json signé : essai 5.1.4, stable 5.1.0 » ; installateurs inchangés re-signés (stable 5.1.0, essai 5.1.3) ; déploiement `github-pages` de `fd99120`. Site servi non relu directement. **Publié sur le canal d'essai pour les pages** ; l'application Windows d'essai reste en 5.1.3 (fabrication en attente de la décision de Franck sur `claude/fabrication-publique`).
+
 ## 2026-11-09 — Essai 5.1.3 sur le canal d'essai : des tutoriels qui montrent ce qu'ils décrivent
 
 - **Autorisation :** règle permanente de Franck pour le canal d'essai ; revue des tutoriels demandée par Franck (« vérifie les tutos pour que les pages mentionnées s'affichent et correspondent bien aux actions possibles »). Stable non concerné.
