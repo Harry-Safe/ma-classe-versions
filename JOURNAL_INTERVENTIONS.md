@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-11 — Essai 5.2.13 sur le canal d'essai (pages et application) : emploi du temps, horaires officiels à la demande, impression, semaines A et B en option
+
+- **Autorisation :** Franck : « Fais les vérifications horaires en fonction des niveaux, mais (D4) n'affiche l'écart horaire qu'à la demande. L'alternance semaines A/B doit être une option (désactivée par défaut). » ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `3bc67e0` (stable 5.2.0, essai 5.2.12 ; EVAR 1.0.0 publiée en essai par une autre conversation, sans rapport). Source : `Ma-classe` branche `essai` `f3b88df` (5.2.12 + documentation du Store + lot 6 de l'emploi du temps), suite complète locale 73/73, « Tout est bon. ».
+- **Préparation :** branche `claude/essai-5.2.13` ; `publier-version.py --canal essai` (garde : branche `essai` poussée et à jour, numéro supérieur, commit de l'essai 5.2.12 contenu) puis `publier-appli.py --canal essai` (configuration d'exemple seule ; aucun prénom de la classe dans les pages). Diff : `essai/`, `entrees/essai.json`, `entrees/essai.source`, `appli/essai/latest.json` ; `stable/` et `entrees/stable.json` inchangés ; coquille inchangée.
+- **Livraison :** avance rapide de `main` `3bc67e0..6ae1c4e`, sans forçage. Action « Publier les mises à jour » `43031003028` réussie : installateur d'essai fabriqué ici (`Ma-classe_5.2.13_x64-setup-essai.exe`, 3 003 Ko), « versions.json signé : essai 5.2.13, stable 5.2.0 ».
+
 ## 2026-11-11 — Store : EVAR 1.0.0 sur le canal d'essai
 
 - **Autorisation :** Franck : « Publie dans le store » (appli EVAR, vie affective et relationnelle) ; règle permanente du canal d'essai. Stable non concerné.
