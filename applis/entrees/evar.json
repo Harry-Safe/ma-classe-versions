@@ -1,0 +1,22 @@
+{
+ "id": "evar",
+ "nom": "EVAR",
+ "description": "Vie affective et relationnelle : séances, diaporamas et fiches du CP au CM2",
+ "couleur": "#B5476B",
+ "icone": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5NiA5NiIgd2lkdGg9Ijk2IiBoZWlnaHQ9Ijk2Ij4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNENDY4OEMiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOUMzNTU4Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB4PSIyIiB5PSIyIiB3aWR0aD0iOTIiIGhlaWdodD0iOTIiIHJ4PSIyMiIgZmlsbD0idXJsKCNnKSIvPgogIDxyZWN0IHg9IjIiIHk9IjIiIHdpZHRoPSI5MiIgaGVpZ2h0PSI0NiIgcng9IjIyIiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9Ii4xMCIvPgogIDxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI0LjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CiAgICA8Y2lyY2xlIGN4PSIzMCIgY3k9IjM4IiByPSI4LjUiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjM4Ii8+CiAgICA8Y2lyY2xlIGN4PSI2NiIgY3k9IjM4IiByPSI4LjUiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjM4Ii8+CiAgICA8cGF0aCBkPSJNMTQgNzYgYzAtMTIgNy0xOSAxNi0xOSBjNSAwIDkgMiAxMiA2Ii8+CiAgICA8cGF0aCBkPSJNODIgNzYgYzAtMTItNy0xOS0xNi0xOSBjLTUgMC05IDItMTIgNiIvPgogIDwvZz4KICA8cGF0aCBkPSJNNDggNTggYy00LTYtMTQtNC0xNCAzIGMwIDYgOCAxMSAxNCAxNSBjNi00IDE0LTkgMTQtMTUgYzAtNy0xMC05LTE0LTMgeiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4K",
+ "canaux": {
+  "essai": {
+   "version": "1.0.0",
+   "date": "2026-11-11",
+   "notes": [
+    "Première version : CP, CE1, CE2 et CM2 (trois séances par niveau, diaporamas, fiches PDF), objectifs du CM1."
+   ],
+   "fichier": {
+    "url": "applis/paquets/evar-1.0.0.zip",
+    "taille": 9496175,
+    "sha256": "da5fb7f204908c903799906631cf82058e8d0851550697ddcc4079fc511ea810"
+   },
+   "source": "applis-classe@becb103"
+  }
+ }
+}
