@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-11 — Essai 5.2.10 sur le canal d'essai (pages et application) : emploi du temps, périodes particulières (lot 5)
+
+- **Autorisation :** Franck : « Pour D3 : de base un emploi du temps pour l'année avec des périodes particulières. » ; travail en autonomie jusqu'au résultat final ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `689bb44` (stable 5.2.0, essai 5.2.9) ; aucune autre publication depuis. Source : `Ma-classe` `claude/appli-essai-edt6` `4105e09` (essai 5.2.9 + lot 5), suite complète locale 71/71, « Tout est bon. ».
+- **Préparation :** branche `claude/essai-5.2.10` ; `publier-version.py --canal essai` puis `publier-appli.py --canal essai` (configuration d'exemple seule ; aucun prénom de la classe dans les pages). Diff : `essai/`, `entrees/essai.json`, `appli/essai/latest.json` ; `stable/`, `entrees/stable.json`, `appli/stable/` inchangés. Numéro 5.2.10 : comparaisons de versions numériques (gestionnaire de mises à jour, programme d'installation).
+- **Livraison :** avance rapide de `main` `689bb44..47094f0`, sans forçage. Action « Publier les mises à jour » `43008900660` réussie : installateur d'essai fabriqué ici (`Ma-classe_5.2.10_x64-setup-essai.exe`, 2 984 Ko), « versions.json signé : essai 5.2.10, stable 5.2.0 », « applis.json signé : essai-pont 1.0.0 (essai) » ; déploiement `github-pages` réussi. Site servi non relu directement (réseau de la session).
+
 ## 2026-11-11 — Essai 5.2.9 sur le canal d'essai (pages et application) : emploi du temps, la grille seule
 
 - **Autorisation :** Franck, après l'essai 5.2.8 : « On ne garde que la vue grille qui est plus moderne. » ; travail en autonomie jusqu'au résultat final ; règle permanente du canal d'essai. Stable non concerné.
