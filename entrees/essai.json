@@ -1,27 +1,24 @@
 {
-  "version": "5.2.17",
+  "version": "5.2.18",
   "date": "2026-11-11",
-  "titre": "Essai : Style « verre » : barre transparente, dock de navigation, thème en fond d’écran",
+  "titre": "Essai : Échap, raccourcis, robot qui ne cache plus rien, Rétablir dans Préparer",
   "notes": [
-    "Nouveau style « verre », dans l’esprit du Mac. Le thème devient un fond d’écran : de grands dégradés à ses couleurs, avec ses formes (feuilles, flocons, fleurs…) en grand. Tout le reste est posé dessus.",
-    "Barre de menus transparente et plus fine (37 pixels au lieu de 50 en 1080p) : le texte est posé sur le fond d’écran, l’onglet affiché est une capsule de verre.",
-    "Navigation en dock de verre, à droite : des tuiles colorées, le nom au survol, un point pour l’écran affiché et les fenêtres ouvertes. Elle prend moins de largeur.",
-    "Cartes de l’Accueil et cadres des écrans en verre dépoli : le fond se devine. Les feuilles de travail (tableau, lignages, textes) restent opaques.",
-    "Tableaux : l’enregistrement et l’écrou du choix des onglets rejoignent « Séances » dans la barre, comme pour les rituels ; sur le tableau il ne reste que ↶ ↷ et la corbeille.",
-    "Dock des tableaux : même épinglé, il survole le tableau sans réduire sa zone utile.",
-    "Assistant remis au goût du jour : bulle et tête de robot en verre, choix en pilules, cartes claires.",
-    "Mode léger et projection contrastée : verres opaques, sans flou."
+    "Échap ferme la fenêtre du dessus (Outils, Élèves, Rappels, Réglages…), une à la fois ; le focus revient au bouton qui l’avait ouverte.",
+    "Nouveaux raccourcis : E pour Préparer, S pour Résultats, G pour Réglages. La touche s’affiche à côté du nom, au survol de la navigation, et l’aide des Réglages les présente en tableau.",
+    "Le robot de l’assistant ne cache plus rien dans Préparer et Résultats : leur cadre commence à sa droite.",
+    "Préparer : « Rétablir » à côté d’« Annuler » (aussi Ctrl+Y), en deux boutons ronds comme sur les tableaux.",
+    "Emploi du temps : le trait de l’heure passe derrière les activités et ne barre plus leur titre."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5978061,
-      "sha256": "bc5b8809c22240f920b3bc9702964429ce1f1af57364cdd1f83f2295484c0046"
+      "taille": 5985836,
+      "sha256": "d4c584d93de378fe628789587b152124b459f0e0decdd26fcd62f6010a8d2611"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5978001,
-      "sha256": "a994ae3592a929a41d91d3af3c2ee7d680253242c0441ad1dd5df84224316ca8"
+      "taille": 5985776,
+      "sha256": "e3ca7a333fce631c24195ab3dd7befd81ea00b3504fcf2355db491a4c2c3a095"
     }
   }
 }
