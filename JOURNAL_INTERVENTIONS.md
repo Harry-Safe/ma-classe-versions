@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-11 — Essai 5.2.14 sur le canal d'essai (pages et application) : Accueil, les outils de la classe en widgets
+
+- **Autorisation :** Franck : « Prends connaissance de la dernière version et ajoute le lot 2 » ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `619e9f5` (essai 5.2.13 de Ma classe ; Échecs 1.0.0 publiée en essai dans le Store juste avant, par une autre conversation). Source : `Ma-classe` `essai` `a0a2606` (essai 5.2.13 + `claude/accueil-widgets-lot2`), numérotée par `build/numeroter-essai.py`, suite complète locale 73/73, « Tout est bon. ».
+- **Préparation :** `publier-version.py --canal essai` (garde passée : `essai` à jour et poussée, 5.2.13 publiée contenue) puis `publier-appli.py --canal essai` ; diff : `essai/`, `entrees/essai.json`, `entrees/essai.source` (`a0a2606`), `appli/essai/latest.json` ; stable et coquille inchangés.
+- **Livraison :** avance rapide de `main` `619e9f5..114b78e`, sans forçage. Action « Publier les mises à jour » `43040494823` réussie (installateur `Ma-classe_5.2.14_x64-setup-essai.exe`, 3 007 Ko ; « versions.json signé : essai 5.2.14, stable 5.2.0 ») ; déploiement `github-pages` réussi. Site servi non relu directement (réseau de la session limité).
+
 ## 2026-11-11 — Store : Échecs 1.0.0 sur le canal d'essai
 
 - **Autorisation :** Franck : « Prends le tableau "échecs" et mets en en appli pour le dépot » ; règle permanente du canal d'essai (publication en essai sans redemander). Stable non concerné.
