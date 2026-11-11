@@ -1,25 +1,27 @@
 {
-  "version": "5.2.16",
+  "version": "5.2.17",
   "date": "2026-11-11",
-  "titre": "Essai : Barre de menus en haut de l’écran, façon Mac ; les Échecs quittent les Tableaux",
+  "titre": "Essai : Style « verre » : barre transparente, dock de navigation, thème en fond d’écran",
   "notes": [
-    "Barre de menus en haut de l’écran, inspirée de celle du Mac : toujours visible, elle remplace les languettes « Accès rapides ». À droite, les accès rapides en icônes (rappels, présents, cantine, documents, sites), la date (« Jeu. 5 nov. ») et l’heure ; la pastille « en ce moment → ensuite » s’y range aussi.",
-    "Tableaux : les onglets passent dans la barre, avec une icône et un nom court (Blanc, Lignages, Numération, Opérations, Géométrie, Lecture), suivis du menu « Séances ». Les options du tableau tiennent sur une ligne fine juste dessous, et ↶ ↷, la corbeille et l’enregistrement sont au bout de cette ligne, en haut à droite de chaque tableau. Le tableau gagne environ 70 pixels de hauteur en 1080p.",
-    "Rituels : mêmes onglets dans la barre, avec le menu « Séances », l’enregistrement et le choix des rituels.",
-    "Quand la place manque (beaucoup de rituels affichés, long nom d’activité), la barre se resserre toute seule : noms courts, puis seul l’onglet affiché garde son nom (les autres montrent leur icône, le nom au survol).",
-    "Préparer et Résultats gardent leurs onglets dans l’écran, un peu plus haut qu’avant.",
-    "Les Échecs quittent les Tableaux : la fonction a rejoint une appli du Store. Il reste six tableaux ; un réglage resté sur les Échecs rouvre le Tableau blanc. Le tutoriel des échecs disparaît de l’assistant (51 tutoriels)."
+    "Nouveau style « verre », dans l’esprit du Mac. Le thème devient un fond d’écran : de grands dégradés à ses couleurs, avec ses formes (feuilles, flocons, fleurs…) en grand. Tout le reste est posé dessus.",
+    "Barre de menus transparente et plus fine (37 pixels au lieu de 50 en 1080p) : le texte est posé sur le fond d’écran, l’onglet affiché est une capsule de verre.",
+    "Navigation en dock de verre, à droite : des tuiles colorées, le nom au survol, un point pour l’écran affiché et les fenêtres ouvertes. Elle prend moins de largeur.",
+    "Cartes de l’Accueil et cadres des écrans en verre dépoli : le fond se devine. Les feuilles de travail (tableau, lignages, textes) restent opaques.",
+    "Tableaux : l’enregistrement et l’écrou du choix des onglets rejoignent « Séances » dans la barre, comme pour les rituels ; sur le tableau il ne reste que ↶ ↷ et la corbeille.",
+    "Dock des tableaux : même épinglé, il survole le tableau sans réduire sa zone utile.",
+    "Assistant remis au goût du jour : bulle et tête de robot en verre, choix en pilules, cartes claires.",
+    "Mode léger et projection contrastée : verres opaques, sans flou."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5967226,
-      "sha256": "6d099f94597b67a3382294d8f96faa2d2a9f5bdac9732175d2d5b8ebbf82ff52"
+      "taille": 5978061,
+      "sha256": "bc5b8809c22240f920b3bc9702964429ce1f1af57364cdd1f83f2295484c0046"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5967166,
-      "sha256": "501063fabd3a32ac19949387ef7c0421f5e7fdde45d913637c0ef572ddb33cb9"
+      "taille": 5978001,
+      "sha256": "a994ae3592a929a41d91d3af3c2ee7d680253242c0441ad1dd5df84224316ca8"
     }
   }
 }
