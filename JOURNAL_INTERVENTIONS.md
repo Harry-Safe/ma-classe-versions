@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-11 — Store : Dizaines et unités 1.0.0 sur le canal d'essai
+
+- **Autorisation :** Franck : « Transforme la diapo en application de store pour Ma Classe pour travailler sur dizaines et unités » ; règle permanente du canal d'essai (publication en essai sans redemander). Stable non concerné.
+- **Contrôle préalable :** `main` public à `93eeb93` (essai 5.2.17 de Ma classe publié par une autre conversation ; catalogue : Échecs, Essai du pont, EVAR 1.0.0 en essai ; pas d'entrée `dizaines-unites`). Source : `Applis-classe` `main` à `eaefed3` (poussé ; branche `claude/dizaines-unites`), 254 contrôles Chromium sans erreur (voir `JOURNAL.md` d'Applis-classe).
+- **Préparation :** `python outils/publier.py dizaines-unites ../ma-classe-versions` (canal essai) : 4 fichiers, paquet `applis/paquets/dizaines-unites-1.0.0.zip` de 62 Ko, SHA-256 `0c90ac84…`, `source` `applis-classe@eaefed3`. Diff limité à `applis/entrees/dizaines-unites.json` et au paquet.
+- **Livraison :** avance rapide de `main` `93eeb93..96835ab`, sans forçage. Action « Publier les mises à jour » `43086398988` réussie : « versions.json signé : essai 5.2.17, stable 5.2.0 », « applis.json signé : dizaines-unites 1.0.0 (essai), echecs 1.0.0 (essai), essai-pont 1.0.0 (essai), evar 1.0.0 (essai) » ; déploiement `github-pages` `7719444144` : `success`. Site servi non relu directement (réseau de la session).
+
 ## 2026-11-11 — Essai 5.2.17 sur le canal d'essai (pages et application) : style « verre »
 
 - **Autorisation :** Franck, après la maquette : « Au top ! Plusieurs choses à ajouter […] » (enregistrement et écrou à côté de « Séances », dock des tableaux qui survole, assistant modernisé) ; règle permanente du canal d'essai. Stable non concerné.
