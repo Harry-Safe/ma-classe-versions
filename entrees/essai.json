@@ -1,24 +1,25 @@
 {
-  "version": "5.2.15",
+  "version": "5.2.16",
   "date": "2026-11-11",
-  "titre": "Essai : Le jour et l'Accueil harmonisés avec la grille",
+  "titre": "Essai : Barre de menus en haut de l’écran, façon Mac ; les Échecs quittent les Tableaux",
   "notes": [
-    "« Le jour » (Préparer) prend les cartes de l'emploi du temps : couleur de la matière, horaire à côté du titre, pauses en bandes rayées. Chaque activité montre sa description (ce qui se fait d'habitude) ; on y écrit la « Séance du jour » et le « Matériel », et les « Documents joints » (Consignes, Document, Site) ont des pictogrammes dessinés.",
-    "Un clic sur une activité du jour ouvre le même panneau que dans l'emploi du temps (titre, matière, horaires, description, lieu, séance du jour…), qui remplace les petites zones cliquables ; l'heure se glisse toujours pour déplacer l'activité. Une activité ajoutée s'ouvre aussitôt dans ce panneau.",
-    "Dans La semaine, le panneau d'une activité permet aussi d'écrire sa séance du jour ; les boutons des jours et la légende ont des pictogrammes dessinés.",
-    "Sur l'Accueil, le widget « Journée » a les mêmes cartes : couleur de la matière, horaire à côté du titre, pauses rayées, activité en cours entourée.",
-    "Un seul vocabulaire partout : « Description », « Séance du jour », « Matériel », « Documents joints » (aussi dans le cahier journal Word)."
+    "Barre de menus en haut de l’écran, inspirée de celle du Mac : toujours visible, elle remplace les languettes « Accès rapides ». À droite, les accès rapides en icônes (rappels, présents, cantine, documents, sites), la date (« Jeu. 5 nov. ») et l’heure ; la pastille « en ce moment → ensuite » s’y range aussi.",
+    "Tableaux : les onglets passent dans la barre, avec une icône et un nom court (Blanc, Lignages, Numération, Opérations, Géométrie, Lecture), suivis du menu « Séances ». Les options du tableau tiennent sur une ligne fine juste dessous, et ↶ ↷, la corbeille et l’enregistrement sont au bout de cette ligne, en haut à droite de chaque tableau. Le tableau gagne environ 70 pixels de hauteur en 1080p.",
+    "Rituels : mêmes onglets dans la barre, avec le menu « Séances », l’enregistrement et le choix des rituels.",
+    "Quand la place manque (beaucoup de rituels affichés, long nom d’activité), la barre se resserre toute seule : noms courts, puis seul l’onglet affiché garde son nom (les autres montrent leur icône, le nom au survol).",
+    "Préparer et Résultats gardent leurs onglets dans l’écran, un peu plus haut qu’avant.",
+    "Les Échecs quittent les Tableaux : la fonction a rejoint une appli du Store. Il reste six tableaux ; un réglage resté sur les Échecs rouvre le Tableau blanc. Le tutoriel des échecs disparaît de l’assistant (51 tutoriels)."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6021538,
-      "sha256": "2b24cdb9b63ea0cf9fd4a9c3b74599210700ff06277ac8da4884679099687223"
+      "taille": 5967226,
+      "sha256": "6d099f94597b67a3382294d8f96faa2d2a9f5bdac9732175d2d5b8ebbf82ff52"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6021478,
-      "sha256": "9d6d05e5457ff6e41d80db2c608ebd95727d7b1aaf664c416fb229b09dca13d4"
+      "taille": 5967166,
+      "sha256": "501063fabd3a32ac19949387ef7c0421f5e7fdde45d913637c0ef572ddb33cb9"
     }
   }
 }
