@@ -1,11 +1,11 @@
 {
-  "version": "5.2.9",
-  "notes": "Préparer › Emploi du temps et La semaine n’ont plus que la grille horaire : la vue en liste et le bouton « Liste » sont retirés. « Le jour » garde sa liste.\nTous les gestes de la liste se font dans la grille : une activité lâchée sur une autre échange avec elle (d’un jour à l’autre aussi : les deux changent de jour, un seul « Annuler ») ; lâchée sur son tiers droit, elle a lieu en même temps (∥ ; un niveau chacun en cours double). L’activité visée est cerclée pendant le geste.\n« + » en haut de chaque jour ajoute une activité après la dernière ; « ∥ En même temps » dans le panneau ajoute une activité au même moment ; la puce « → matière » reste sur les rituels.\nInclut toutes les nouveautés des essais 5.2.7 et 5.2.8.",
-  "pub_date": "2026-11-11T10:33:38Z",
+  "version": "5.2.10",
+  "notes": "Un seul emploi du temps pour l’année, et des périodes particulières par-dessus, créées dans Ma classe sans passer par Excel : sous le titre de l’emploi du temps, « Période particulière » ouvre une fenêtre (nom, du… au…, un jour ou tous les jours, quelques activités ou toute la journée).\nLa période s’affiche seule dans la grille : les activités de l’année restent en fond, pâles ; un clic sur l’une d’elles la remplace pendant la période (son titre est prêt à être réécrit), un clic dans un moment libre en ajoute une. Glisser, tirer le bord bas et le panneau marchent comme pour l’année. « Toute l’année » revient à l’emploi du temps habituel.\nPendant ses dates, la Journée suit la période ; après sa date de fin, elle disparaît seule de la barre (elle reste dans l’export Excel, feuille « Variantes »). Ses activités sont marquées dans La semaine, et une étiquette la signale en haut du jour et dans le calendrier.\nModifier, retirer : boutons de la barre ; tout s’annule avec « Annuler ». Une journée déjà commencée garde son déroulé.\nInclut toutes les nouveautés des essais 5.2.7 à 5.2.9.",
+  "pub_date": "2026-11-11T11:04:23Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.9_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.10_x64-setup-essai.exe"
     }
   }
 }

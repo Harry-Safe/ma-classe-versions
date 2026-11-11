@@ -1,24 +1,25 @@
 {
-  "version": "5.2.9",
+  "version": "5.2.10",
   "date": "2026-11-11",
-  "titre": "Essai : emploi du temps, la grille seule",
+  "titre": "Essai : emploi du temps, périodes particulières (lot 5)",
   "notes": [
-    "Préparer › Emploi du temps et La semaine n’ont plus que la grille horaire : la vue en liste et le bouton « Liste » sont retirés. « Le jour » garde sa liste.",
-    "Tous les gestes de la liste se font dans la grille : une activité lâchée sur une autre échange avec elle (d’un jour à l’autre aussi : les deux changent de jour, un seul « Annuler ») ; lâchée sur son tiers droit, elle a lieu en même temps (∥ ; un niveau chacun en cours double). L’activité visée est cerclée pendant le geste.",
-    "« + » en haut de chaque jour ajoute une activité après la dernière ; « ∥ En même temps » dans le panneau ajoute une activité au même moment ; la puce « → matière » reste sur les rituels.",
-    "Inclut toutes les nouveautés des essais 5.2.7 et 5.2.8.",
-    "Validation : deux éditions construites, suite complète 70 scénarios, « Tout est bon. »."
+    "Un seul emploi du temps pour l’année, et des périodes particulières par-dessus, créées dans Ma classe sans passer par Excel : sous le titre de l’emploi du temps, « Période particulière » ouvre une fenêtre (nom, du… au…, un jour ou tous les jours, quelques activités ou toute la journée).",
+    "La période s’affiche seule dans la grille : les activités de l’année restent en fond, pâles ; un clic sur l’une d’elles la remplace pendant la période (son titre est prêt à être réécrit), un clic dans un moment libre en ajoute une. Glisser, tirer le bord bas et le panneau marchent comme pour l’année. « Toute l’année » revient à l’emploi du temps habituel.",
+    "Pendant ses dates, la Journée suit la période ; après sa date de fin, elle disparaît seule de la barre (elle reste dans l’export Excel, feuille « Variantes »). Ses activités sont marquées dans La semaine, et une étiquette la signale en haut du jour et dans le calendrier.",
+    "Modifier, retirer : boutons de la barre ; tout s’annule avec « Annuler ». Une journée déjà commencée garde son déroulé.",
+    "Inclut toutes les nouveautés des essais 5.2.7 à 5.2.9.",
+    "Validation : deux éditions construites, suite complète 71 scénarios, « Tout est bon. »."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5888929,
-      "sha256": "fc36c78beceafa8c9d368815ddd78e6c31c46cc18e457aff880f69b9741fd683"
+      "taille": 5907904,
+      "sha256": "76fedfbf5a81b0e42736daea7b63e14a3c6f87867f73e93a01b244b6da497200"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5888869,
-      "sha256": "cf14b25a1b9d37d5cc199f15182987b94df83ae0e1d980eb4f8991418d08598a"
+      "taille": 5907844,
+      "sha256": "820cc1cfdc0845ad262170f4e1fb55ff9f5769087b558719193d5953285e3aaa"
     }
   }
 }
