@@ -1,11 +1,11 @@
 {
-  "version": "5.2.12",
-  "notes": "Emploi du temps : une période particulière terminée reste modifiable. Elle ne s’applique plus aux journées de classe, et le bouton « Terminées (n) » de la barre la remontre pour l’ouvrir, la modifier ou la retirer ; les jours passés qui ont un bilan gardent le plan suivi.\nRéunit tout le travail en cours : l’essai 5.2.11 (l’Accueil à widgets, plus de barre du bas, avec les essais 5.2.7 à 5.2.10) et des entrées de journal restées sur d’autres branches. Le Store et le menu Applis (avec la recherche) restent dans l’application Windows.",
-  "pub_date": "2026-11-11T11:51:13Z",
+  "version": "5.2.13",
+  "notes": "Emploi du temps : sous la grille, le volume horaire de chaque matière ; « Total » ouvre le détail. Le bouton « Horaires officiels » compare, seulement quand on le demande, au temps prévu pour le niveau : grille du cycle 2 de l’arrêté du 12 juin 2026 pour le CP (sciences et technologie 1 h 10, histoire, géographie, EMC 1 h 20), du cycle 2 de 2015 pour les CE1 et CE2 jusqu’en 2026-2027, du cycle 3 pour les CM. Les récréations, comprises dans les 24 heures, sont réparties sur les domaines. En cours double, une ligne par niveau. Les cibles se modifient dans le détail et se rétablissent d’un clic.\nSemaines A et B, une option désactivée par défaut (Réglages › La classe › Emploi du temps et Excel) : une activité peut changer une semaine sur deux (histoire en semaine A, géographie en semaine B). Les vacances ne comptent pas ; La semaine affiche « Semaine A » ou « Semaine B ».\nImprimer l’emploi du temps : une page A4 paysage, « Affichage de classe » (titres et pictogrammes, en grand) ou « Détaillée » (descriptions, lieu, semaine B, périodes particulières, pour un remplaçant), sur papier ou en PDF.\nLieu et intervenant d’une activité (gymnase, AESH…), dans le panneau de la grille ; ils s’affichent sur l’Accueil.\nAccueil : un bouton lance le minuteur jusqu’à la fin de l’activité ; en option (désactivée par défaut), la barre de temps et la carte « En ce moment » s’allument doucement quelques minutes avant la fin, avec un son doux si on le souhaite.",
+  "pub_date": "2026-11-11T13:38:33Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.12_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.13_x64-setup-essai.exe"
     }
   }
 }

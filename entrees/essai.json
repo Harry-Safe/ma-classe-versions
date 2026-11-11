@@ -1,22 +1,24 @@
 {
-  "version": "5.2.12",
+  "version": "5.2.13",
   "date": "2026-11-11",
-  "titre": "Essai : périodes terminées modifiables ; tout le travail réuni",
+  "titre": "Essai : Emploi du temps : horaires officiels à la demande, impression, semaines A et B en option",
   "notes": [
-    "Emploi du temps : une période particulière terminée reste modifiable. Elle ne s’applique plus aux journées de classe, et le bouton « Terminées (n) » de la barre la remontre pour l’ouvrir, la modifier ou la retirer ; les jours passés qui ont un bilan gardent le plan suivi.",
-    "Réunit tout le travail en cours : l’essai 5.2.11 (l’Accueil à widgets, plus de barre du bas, avec les essais 5.2.7 à 5.2.10) et des entrées de journal restées sur d’autres branches. Le Store et le menu Applis (avec la recherche) restent dans l’application Windows.",
-    "Validation : deux éditions construites, suite complète 72 scénarios, « Tout est bon. » (même code, au numéro près)."
+    "Emploi du temps : sous la grille, le volume horaire de chaque matière ; « Total » ouvre le détail. Le bouton « Horaires officiels » compare, seulement quand on le demande, au temps prévu pour le niveau : grille du cycle 2 de l’arrêté du 12 juin 2026 pour le CP (sciences et technologie 1 h 10, histoire, géographie, EMC 1 h 20), du cycle 2 de 2015 pour les CE1 et CE2 jusqu’en 2026-2027, du cycle 3 pour les CM. Les récréations, comprises dans les 24 heures, sont réparties sur les domaines. En cours double, une ligne par niveau. Les cibles se modifient dans le détail et se rétablissent d’un clic.",
+    "Semaines A et B, une option désactivée par défaut (Réglages › La classe › Emploi du temps et Excel) : une activité peut changer une semaine sur deux (histoire en semaine A, géographie en semaine B). Les vacances ne comptent pas ; La semaine affiche « Semaine A » ou « Semaine B ».",
+    "Imprimer l’emploi du temps : une page A4 paysage, « Affichage de classe » (titres et pictogrammes, en grand) ou « Détaillée » (descriptions, lieu, semaine B, périodes particulières, pour un remplaçant), sur papier ou en PDF.",
+    "Lieu et intervenant d’une activité (gymnase, AESH…), dans le panneau de la grille ; ils s’affichent sur l’Accueil.",
+    "Accueil : un bouton lance le minuteur jusqu’à la fin de l’activité ; en option (désactivée par défaut), la barre de temps et la carte « En ce moment » s’allument doucement quelques minutes avant la fin, avec un son doux si on le souhaite."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5949956,
-      "sha256": "5909e705006f594c748a570268180cebae1e773ee01cdc8fbb27bfb01588a22e"
+      "taille": 5988038,
+      "sha256": "75608d1be646e26883dbe182edee0b7a49795c8524a7bea3b33c1667c739d11f"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5949896,
-      "sha256": "140c39eea3d6300dbb3623c53b76a888d03f7143d180b02da4aadc8d482a03b2"
+      "taille": 5987978,
+      "sha256": "fc800a6a4cf73ce6f4fb5c4915a1b092657aaf8fbb8211983845667c89a1587c"
     }
   }
 }
