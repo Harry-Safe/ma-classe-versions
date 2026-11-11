@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-11 — Store : Échecs 1.0.0 sur le canal d'essai
+
+- **Autorisation :** Franck : « Prends le tableau "échecs" et mets en en appli pour le dépot » ; règle permanente du canal d'essai (publication en essai sans redemander). Stable non concerné.
+- **Contrôle préalable :** `main` public à `54ade0e` (stable 5.2.0, essai 5.2.13 ; catalogue : « Essai du pont » et EVAR 1.0.0 en essai, pas d'entrée `echecs`). Source : `Applis-classe` `main` à `d048cb8` (poussé ; branche `claude/echecs`), contrôles Chromium sans erreur (voir `JOURNAL.md` d'Applis-classe).
+- **Préparation :** `python outils/publier.py echecs ../ma-classe-versions` (canal essai) : 4 fichiers, paquet `applis/paquets/echecs-1.0.0.zip` de 64 Ko, SHA-256 `5a5caf4c…`, `source` `applis-classe@d048cb8`. Diff limité à `applis/entrees/echecs.json` et au paquet.
+- **Livraison :** avance rapide de `main` `54ade0e..61eadfe`, sans forçage. Action « Publier les mises à jour » `43037303067` réussie : « versions.json signé : essai 5.2.13, stable 5.2.0 », « applis.json signé : echecs 1.0.0 (essai), essai-pont 1.0.0 (essai), evar 1.0.0 (essai) » ; déploiement `github-pages` `7712519135` : `success`. Site servi non relu directement (réseau de la session).
+
 ## 2026-11-11 — Essai 5.2.13 sur le canal d'essai (pages et application) : emploi du temps, horaires officiels à la demande, impression, semaines A et B en option
 
 - **Autorisation :** Franck : « Fais les vérifications horaires en fonction des niveaux, mais (D4) n'affiche l'écart horaire qu'à la demande. L'alternance semaines A/B doit être une option (désactivée par défaut). » ; règle permanente du canal d'essai. Stable non concerné.
