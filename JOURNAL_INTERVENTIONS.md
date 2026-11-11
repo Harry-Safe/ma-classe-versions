@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-11 — Essai 5.2.17 sur le canal d'essai (pages et application) : style « verre »
+
+- **Autorisation :** Franck, après la maquette : « Au top ! Plusieurs choses à ajouter […] » (enregistrement et écrou à côté de « Séances », dock des tableaux qui survole, assistant modernisé) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `a1e34b4` (essai 5.2.16, source `c1b0a42`). Source : `Ma-classe` `essai` `ab916bf` (essai 5.2.16 + `claude/verre-liquide-maquette`), numérotée par `build/numeroter-essai.py`, suite complète locale 74/74, « Tout est bon. ».
+- **Préparation :** `publier-version.py --canal essai` (garde passée) puis `publier-appli.py --canal essai` ; diff : `essai/` (deux pages), `entrees/essai.json`, `entrees/essai.source` (`ab916bf`), `appli/essai/latest.json` ; stable et coquille inchangés.
+- **Livraison :** avance rapide de `main` `a1e34b4..93eeb93`, sans forçage. Action « Publier les mises à jour » `43085906861` réussie (« versions.json signé : essai 5.2.17, stable 5.2.0 », « Ma-classe_5.2.17_x64-setup-essai.exe signé »). Un envoi d'une autre intervention (`96835ab`, Store) a suivi : son déploiement, qui reprend ce contenu, était en cours à la rédaction. Site servi non relu directement (réseau de la session limité).
+
 ## 2026-11-11 — Essai 5.2.16 sur le canal d'essai (pages et application) : barre de menus en haut de l'écran ; les Échecs quittent les Tableaux
 
 - **Autorisation :** Franck : « Je voudrais revoir l'ergonomie dans l'application Ma Classe, notamment en s'inspirant de la barre d'option de Mac […] », puis « Tu enlèveras les échecs des tableaux. La fonction a rejoint une appli dans le store. » ; règle permanente du canal d'essai. Stable non concerné.
