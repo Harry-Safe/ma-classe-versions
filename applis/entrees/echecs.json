@@ -1,0 +1,25 @@
+{
+ "id": "echecs",
+ "nom": "Échecs",
+ "description": "Apprendre les échecs pas à pas : une pièce à la fois, des étoiles à ramasser, puis la partie contre un camarade ou le robot",
+ "couleur": "#4f7a35",
+ "icone": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZWNoZWNzRm9uZCIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM4NmIzNWUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNGI3NjMxIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIzIiBmaWxsPSJ1cmwoI2VjaGVjc0ZvbmQpIi8+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTYgMTMpIHNjYWxlKC42OCkiPgogICAgPHJlY3QgeD0iMTgiIHk9IjgwIiB3aWR0aD0iNjQiIGhlaWdodD0iMTIiIHJ4PSI2IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9Ii4zOCIvPgogICAgPHBhdGggZD0iTTcxIDc4SDMwYy0xLTEyIDUtMjAgMTQtMjgtNiAxLTExIDQtMTUgNy00IDMtOSAxLTEwLTMtMS0zIDEtNiA0LTkgNi02IDExLTEyIDE0LTE5bDEtOSA2IDZjMy0xIDYtMSA5IDAgMTQgNCAyMiAxNyAyMiAzMiAwIDktMiAxNi00IDIzeiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIuNiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogICAgPGNpcmNsZSBjeD0iNDEiIGN5PSIzMyIgcj0iMy40IiBmaWxsPSIjNWQ4YTNkIi8+CiAgICA8cGF0aCBkPSJNNTggMzBjNSA2IDggMTQgOCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNGI3NjMxIiBzdHJva2Utb3BhY2l0eT0iLjM4IiBzdHJva2Utd2lkdGg9IjMuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPC9nPgo8L3N2Zz4K",
+ "canaux": {
+  "essai": {
+   "version": "1.0.0",
+   "date": "2026-11-11",
+   "notes": [
+    "Première version : le tableau « Échecs » de Ma classe devient une appli.",
+    "Jouer ou composer ses propres situations (pièces, étoiles à ramasser), et les garder dans la liste.",
+    "Règles à activer une à une, robot à cinq niveaux, flèches et cases colorées au clic droit.",
+    "Parties, réglages et situations enregistrés dans le dossier de la classe."
+   ],
+   "fichier": {
+    "url": "applis/paquets/echecs-1.0.0.zip",
+    "taille": 65899,
+    "sha256": "5a5caf4c032ee64656f55f92e6c50d6199a4009ed549a7c4f79c6ca6ae6e1e69"
+   },
+   "source": "applis-classe@d048cb8"
+  }
+ }
+}
