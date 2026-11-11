@@ -1,24 +1,24 @@
 {
-  "version": "5.2.14",
+  "version": "5.2.15",
   "date": "2026-11-11",
-  "titre": "Essai : Accueil : les outils de la classe en widgets",
+  "titre": "Essai : Le jour et l'Accueil harmonisés avec la grille",
   "notes": [
-    "Six nouveaux widgets pour l’Accueil, rangés sous « Outils de la classe » dans « Ajouter un widget » : Raccourcis (vos applis et vos sites, Solaire, Maths en CP…, à un clic), Post-it (une note écrite directement sur l’Accueil, en quatre couleurs), Minuteur (démarrer, mettre en pause ; en taille moyenne, 1, 3, 5, 10 minutes ou jusqu’à la fin de l’activité), Tirage au sort (le même tirage équitable que le panneau Élèves), Métiers de la semaine (absents barrés, remplaçants du jour) et Rappels du jour (l’alarme qui sonne passe en rouge).",
-    "La fenêtre « Ajouter un widget » présente les onze widgets sur deux colonnes, en deux groupes : « La journée » et « Outils de la classe ».",
-    "« En ce moment » en taille moyenne : les boutons tiennent sur une ligne, le texte de l’activité n’est plus coupé.",
-    "Écran « Applis », onglet Sites web : le pictogramme d’un site sans couleur n’est plus rempli de noir.",
-    "Validation : deux éditions construites, suite complète 73 scénarios, « Tout est bon. »."
+    "« Le jour » (Préparer) prend les cartes de l'emploi du temps : couleur de la matière, horaire à côté du titre, pauses en bandes rayées. Chaque activité montre sa description (ce qui se fait d'habitude) ; on y écrit la « Séance du jour » et le « Matériel », et les « Documents joints » (Consignes, Document, Site) ont des pictogrammes dessinés.",
+    "Un clic sur une activité du jour ouvre le même panneau que dans l'emploi du temps (titre, matière, horaires, description, lieu, séance du jour…), qui remplace les petites zones cliquables ; l'heure se glisse toujours pour déplacer l'activité. Une activité ajoutée s'ouvre aussitôt dans ce panneau.",
+    "Dans La semaine, le panneau d'une activité permet aussi d'écrire sa séance du jour ; les boutons des jours et la légende ont des pictogrammes dessinés.",
+    "Sur l'Accueil, le widget « Journée » a les mêmes cartes : couleur de la matière, horaire à côté du titre, pauses rayées, activité en cours entourée.",
+    "Un seul vocabulaire partout : « Description », « Séance du jour », « Matériel », « Documents joints » (aussi dans le cahier journal Word)."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6010741,
-      "sha256": "2777a67c32481a59131b495a7760bb629ccb0507b453e860517f015f37af93db"
+      "taille": 6021538,
+      "sha256": "2b24cdb9b63ea0cf9fd4a9c3b74599210700ff06277ac8da4884679099687223"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6010681,
-      "sha256": "894301900caaa0719e9b6a01ad489277a4dadc3b464f04eba5512ac2e222bedb"
+      "taille": 6021478,
+      "sha256": "9d6d05e5457ff6e41d80db2c608ebd95727d7b1aaf664c416fb229b09dca13d4"
     }
   }
 }

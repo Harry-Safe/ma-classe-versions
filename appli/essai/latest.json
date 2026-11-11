@@ -1,11 +1,11 @@
 {
-  "version": "5.2.14",
-  "notes": "Six nouveaux widgets pour l’Accueil, rangés sous « Outils de la classe » dans « Ajouter un widget » : Raccourcis (vos applis et vos sites, Solaire, Maths en CP…, à un clic), Post-it (une note écrite directement sur l’Accueil, en quatre couleurs), Minuteur (démarrer, mettre en pause ; en taille moyenne, 1, 3, 5, 10 minutes ou jusqu’à la fin de l’activité), Tirage au sort (le même tirage équitable que le panneau Élèves), Métiers de la semaine (absents barrés, remplaçants du jour) et Rappels du jour (l’alarme qui sonne passe en rouge).\nLa fenêtre « Ajouter un widget » présente les onze widgets sur deux colonnes, en deux groupes : « La journée » et « Outils de la classe ».\n« En ce moment » en taille moyenne : les boutons tiennent sur une ligne, le texte de l’activité n’est plus coupé.\nÉcran « Applis », onglet Sites web : le pictogramme d’un site sans couleur n’est plus rempli de noir.",
-  "pub_date": "2026-11-11T14:38:47Z",
+  "version": "5.2.15",
+  "notes": "« Le jour » (Préparer) prend les cartes de l'emploi du temps : couleur de la matière, horaire à côté du titre, pauses en bandes rayées. Chaque activité montre sa description (ce qui se fait d'habitude) ; on y écrit la « Séance du jour » et le « Matériel », et les « Documents joints » (Consignes, Document, Site) ont des pictogrammes dessinés.\nUn clic sur une activité du jour ouvre le même panneau que dans l'emploi du temps (titre, matière, horaires, description, lieu, séance du jour…), qui remplace les petites zones cliquables ; l'heure se glisse toujours pour déplacer l'activité. Une activité ajoutée s'ouvre aussitôt dans ce panneau.\nDans La semaine, le panneau d'une activité permet aussi d'écrire sa séance du jour ; les boutons des jours et la légende ont des pictogrammes dessinés.\nSur l'Accueil, le widget « Journée » a les mêmes cartes : couleur de la matière, horaire à côté du titre, pauses rayées, activité en cours entourée.\nUn seul vocabulaire partout : « Description », « Séance du jour », « Matériel », « Documents joints » (aussi dans le cahier journal Word).",
+  "pub_date": "2026-11-11T15:12:55Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.14_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.15_x64-setup-essai.exe"
     }
   }
 }
