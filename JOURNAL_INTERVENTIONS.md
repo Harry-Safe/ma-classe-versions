@@ -7,7 +7,7 @@ Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne s
 - **Autorisation :** Franck : « Publie dans le store » (appli EVAR, vie affective et relationnelle) ; règle permanente du canal d'essai. Stable non concerné.
 - **Contrôle préalable :** `main` public à `e2bbbed` ; catalogue : « Essai du pont » 1.0.0 (essai) seule, pas d'entrée `evar`. Source : `Applis-classe` `main` à `becb103` (poussé ; branche `claude/evar`), contrôles Chromium sans erreur (voir `JOURNAL.md` d'Applis-classe).
 - **Préparation :** branche `claude/store-evar` ; `python outils/publier.py evar ../ma-classe-versions` (canal essai) : 108 fichiers, paquet `applis/paquets/evar-1.0.0.zip` de 9 274 Ko, SHA-256 `da5fb7f2…`, `source` `applis-classe@becb103`. Diff limité à `applis/entrees/evar.json` et au paquet.
-- **Livraison :** avance rapide de `main`, sans forçage ; action « Publier les mises à jour » et déploiement : voir l'entrée suivante, ajoutée après l'action.
+- **Livraison :** avance rapide de `main` `e2bbbed..5b34962`, sans forçage. Action « Publier les mises à jour » `43026110003` réussie : « versions.json signé : essai 5.2.12, stable 5.2.0 », « applis.json signé : essai-pont 1.0.0 (essai), evar 1.0.0 (essai) » ; déploiement `github-pages` `7710879479` : `success`. Site servi non relu directement (réseau de la session).
 
 ## 2026-11-11 — Sources des applis du Store : dépôt privé `Applis-classe` (documentation)
 
