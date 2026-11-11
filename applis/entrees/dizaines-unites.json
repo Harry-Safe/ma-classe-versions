@@ -1,0 +1,25 @@
+{
+ "id": "dizaines-unites",
+ "nom": "Dizaines et unités",
+ "description": "Distinguer dizaines et unités jusqu'à 99 : sept activités flash au tableau ou seul à l'ordinateur, avec cubes, bûchettes ou euros",
+ "couleur": "#6a4fc2",
+ "icone": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZGl6YWluZXNGb25kIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzkzN2FlMyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM1YTNmYjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiByeD0iMjMiIGZpbGw9InVybCgjZGl6YWluZXNGb25kKSIvPgogIDxyZWN0IHg9IjI1IiB5PSIxNCIgd2lkdGg9IjE3IiBoZWlnaHQ9IjcyIiByeD0iMy41IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9Ii4zOCIvPgogIDxnIGZpbGw9IiNmZmYiPgogICAgPHJlY3QgeD0iMjcuNSIgeT0iMTYuNSIgd2lkdGg9IjEyIiBoZWlnaHQ9IjExIiByeD0iMiIvPjxyZWN0IHg9IjI3LjUiIHk9IjMwLjUiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMSIgcng9IjIiLz4KICAgIDxyZWN0IHg9IjI3LjUiIHk9IjQ0LjUiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMSIgcng9IjIiLz48cmVjdCB4PSIyNy41IiB5PSI1OC41IiB3aWR0aD0iMTIiIGhlaWdodD0iMTEiIHJ4PSIyIi8+CiAgICA8cmVjdCB4PSIyNy41IiB5PSI3Mi41IiB3aWR0aD0iMTIiIGhlaWdodD0iMTEiIHJ4PSIyIi8+CiAgICA8cmVjdCB4PSI1NCIgeT0iNjkiIHdpZHRoPSIxNSIgaGVpZ2h0PSIxNSIgcng9IjMiLz48cmVjdCB4PSI3MiIgeT0iNjkiIHdpZHRoPSIxNSIgaGVpZ2h0PSIxNSIgcng9IjMiLz4KICA8L2c+CiAgPHJlY3QgeD0iNTQiIHk9IjUxIiB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIHJ4PSIzIiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9Ii4zOCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIuNCIvPgo8L3N2Zz4K",
+ "canaux": {
+  "essai": {
+   "version": "1.0.0",
+   "date": "2026-11-11",
+   "notes": [
+    "Première version : le diaporama « Dizaines et unités » devient une appli.",
+    "Huit écrans : Je me rappelle, Dizaine ou unité ?, Le chiffre montré, Photo flash, Les jumeaux, Vrai ou faux ?, Trop d'unités !, Qui suis-je ?",
+    "Questions tirées au hasard, nombres jusqu'à 59 ou 99, matériel au choix (cubes, bûchettes, euros) ; « Rejouer » redonne la même série.",
+    "Mode Classe : projeté, réponse sur l'ardoise, Espace ou télécommande pour montrer la réponse. Mode Seul : l'élève clique ou tape le nombre, question lue à voix haute, étoiles à la fin."
+   ],
+   "fichier": {
+    "url": "applis/paquets/dizaines-unites-1.0.0.zip",
+    "taille": 64460,
+    "sha256": "0c90ac8491bbd0f033cde9746c882e5da7aa9fdcbb6cb41b47a6f68235a159e4"
+   },
+   "source": "applis-classe@eaefed3"
+  }
+ }
+}
