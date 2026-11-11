@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-11 — Essai 5.2.16 sur le canal d'essai (pages et application) : barre de menus en haut de l'écran ; les Échecs quittent les Tableaux
+
+- **Autorisation :** Franck : « Je voudrais revoir l'ergonomie dans l'application Ma Classe, notamment en s'inspirant de la barre d'option de Mac […] », puis « Tu enlèveras les échecs des tableaux. La fonction a rejoint une appli dans le store. » ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `b3a9537` (essai 5.2.15 de Ma classe, source `13db222`). Source : `Ma-classe` `essai` `c1b0a42` (essai 5.2.15 + `claude/barre-de-menus`), numérotée par `build/numeroter-essai.py`, suite complète locale 74/74, « Tout est bon. ».
+- **Préparation :** `publier-version.py --canal essai` (garde passée : `essai` à jour et poussée, 5.2.15 publiée contenue) puis `publier-appli.py --canal essai` ; diff : `essai/` (deux pages), `entrees/essai.json`, `entrees/essai.source` (`c1b0a42`), `appli/essai/latest.json` ; stable et coquille inchangés.
+- **Livraison :** avance rapide de `main` `b3a9537..7d0cc03`, sans forçage. Action « Publier les mises à jour » `43053235094` réussie (« essai · windows-x86_64 : Ma-classe_5.2.16_x64-setup-essai.exe signé » ; stable 5.2.0 inchangé) ; déploiement `github-pages` réussi (`7d0cc03`). Site servi non relu directement (réseau de la session limité).
+
 ## 2026-11-11 — Essai 5.2.15 sur le canal d'essai (pages et application) : Le jour et l'Accueil harmonisés avec la grille
 
 - **Autorisation :** Franck : « Le jour n'a pas la même présentation/nomenclature que le reste. Idem pour le widget de l'accueil », puis, sur maquettes, « A · Liste harmonisée » et « Oui, comme la maquette » ; règle permanente du canal d'essai. Stable non concerné.
