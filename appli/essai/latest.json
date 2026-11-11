@@ -1,11 +1,11 @@
 {
-  "version": "5.2.11",
-  "notes": "L’onglet « Journée » devient l’Accueil : une grille où se posent des widgets de tailles fixes (petit, moyen, grand), comme l’écran d’accueil d’un iPad. Au départ, l’Accueil ressemble à l’ancienne Journée : « En ce moment », « Ensuite » et « Journée » (le cahier journal du jour).\nDeux nouveaux widgets : une Horloge à aiguilles qui suit l’heure (petite aiguille rouge, grande aiguille bleue) et la Date (jour, date ; en moyen, hier et demain pour le rituel du matin).\n« Modifier l’accueil » (petit bouton en bas à droite) : glisser un widget pour le déplacer (il pousse les autres s’il le faut, ou reprend sa place s’il n’y en a pas), choisir Petit, Moyen ou Grand, retirer un widget, en ajouter, revenir à la disposition de départ. La disposition est gardée dans le dossier de la classe. Rien ne se modifie en dehors de ce mode, ni en remplacement.\nEn taille moyenne, le widget « Journée » fait défiler la liste jusqu’à l’activité en cours.\nPlus de barre en bas de l’écran : pendant la classe, une petite pastille à gauche de l’heure rappelle l’activité en cours et la suivante, avec le temps écoulé ; un clic ramène à l’Accueil.\nUn jour sans classe, le titre « Prochain jour de classe : … » n’est plus caché par les boutons « Autre jour », « Rapport du jour », « Semaine ».\nInclut toutes les nouveautés de l’essai 5.2.10 (emploi du temps : la grille seule, périodes particulières).",
-  "pub_date": "2026-11-11T11:30:17Z",
+  "version": "5.2.12",
+  "notes": "Emploi du temps : une période particulière terminée reste modifiable. Elle ne s’applique plus aux journées de classe, et le bouton « Terminées (n) » de la barre la remontre pour l’ouvrir, la modifier ou la retirer ; les jours passés qui ont un bilan gardent le plan suivi.\nRéunit tout le travail en cours : l’essai 5.2.11 (l’Accueil à widgets, plus de barre du bas, avec les essais 5.2.7 à 5.2.10) et des entrées de journal restées sur d’autres branches. Le Store et le menu Applis (avec la recherche) restent dans l’application Windows.",
+  "pub_date": "2026-11-11T11:51:13Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.11_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.12_x64-setup-essai.exe"
     }
   }
 }
