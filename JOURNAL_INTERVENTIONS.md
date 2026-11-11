@@ -2,6 +2,12 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-11 — Sources des applis du Store : dépôt privé `Applis-classe` (documentation)
+
+- **Demande :** Franck a créé le dépôt privé `Harry-Safe/Applis-classe` pour ses applis (« Paramètre-le ») ; ce dépôt-ci reste la vitrine publique du Store.
+- **Réalisation :** `DOCUMENTATION.md` : `applis/entrees/<id>.json` est écrit par `outils/publier.py` d'`Applis-classe` (référence, avec garde ; les entrées notent désormais le commit source dans `source`, champ ignoré par Ma classe). Aucune publication : catalogue inchangé (« Essai du pont » 1.0.0, paquet identique à celui fabriqué depuis `Applis-classe`).
+- **Livraison :** commit de documentation sur `main` (`[skip ci]`, rien à signer).
+
 ## 2026-11-11 — Essai 5.2.12 sur le canal d'essai (pages et application) : périodes terminées modifiables ; tout le travail réuni
 
 - **Autorisation :** Franck : « tout ce qui a été fait ou enregistré dans l'appli doit pouvoir être modifié » et « Harmonise » ; règle permanente du canal d'essai. Stable non concerné.

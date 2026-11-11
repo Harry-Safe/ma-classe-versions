@@ -23,7 +23,7 @@ GitHub du dépôt. Seuls Franck (et les assistants qui travaillent avec lui, sur
 | `appli/essai/latest.json` | idem, `--canal essai` | application d'essai |
 | `coquille/stable/`, `coquille/essai/` | idem | coquille Tauri du canal, avec les chemins du dépôt source : `tauri/package.json`, `tauri/src-tauri/` sans `target/`, et les fichiers de la page que le code Rust intègre (`src/applis/pont-applis.js`…) : l'action en fait l'installateur |
 | `appli/…/Ma-classe_<v>_x64-setup*.exe` | ancien fonctionnement (avant le 9 novembre 2026) | installateur fabriqué dans le dépôt privé ; s'il est présent, l'action le prend tel quel au lieu de fabriquer |
-| `applis/entrees/<id>.json` | `build/publier-applis.py` (dépôt Ma classe) | une appli du **Store** : nom, description, couleur, icône intégrée, et pour chaque canal version, date, notes, paquet (adresse, taille, SHA-256) |
+| `applis/entrees/<id>.json` | `outils/publier.py` du dépôt privé `Applis-classe` (référence, avec garde ; ou `build/publier-applis.py` du dépôt Ma classe) | une appli du **Store** : nom, description, couleur, icône intégrée, et pour chaque canal version, date, notes, paquet (adresse, taille, SHA-256) |
 | `applis/paquets/<id>-<version>.zip` | idem | paquet d'une appli (sans son dossier `donnees`) ; une version publiée ne change plus |
 | `index.html` | à la main | page publique : explication et lien vers l'installateur Windows (`#appli`) |
 | `outils/signer.py` | — | vérifie les fichiers annoncés, signe `versions.json` et le catalogue du Store `applis.json` (Ed25519, même clé), prépare `_site/` |
