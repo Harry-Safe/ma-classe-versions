@@ -1,24 +1,24 @@
 {
-  "version": "5.2.13",
+  "version": "5.2.14",
   "date": "2026-11-11",
-  "titre": "Essai : Emploi du temps : horaires officiels à la demande, impression, semaines A et B en option",
+  "titre": "Essai : Accueil : les outils de la classe en widgets",
   "notes": [
-    "Emploi du temps : sous la grille, le volume horaire de chaque matière ; « Total » ouvre le détail. Le bouton « Horaires officiels » compare, seulement quand on le demande, au temps prévu pour le niveau : grille du cycle 2 de l’arrêté du 12 juin 2026 pour le CP (sciences et technologie 1 h 10, histoire, géographie, EMC 1 h 20), du cycle 2 de 2015 pour les CE1 et CE2 jusqu’en 2026-2027, du cycle 3 pour les CM. Les récréations, comprises dans les 24 heures, sont réparties sur les domaines. En cours double, une ligne par niveau. Les cibles se modifient dans le détail et se rétablissent d’un clic.",
-    "Semaines A et B, une option désactivée par défaut (Réglages › La classe › Emploi du temps et Excel) : une activité peut changer une semaine sur deux (histoire en semaine A, géographie en semaine B). Les vacances ne comptent pas ; La semaine affiche « Semaine A » ou « Semaine B ».",
-    "Imprimer l’emploi du temps : une page A4 paysage, « Affichage de classe » (titres et pictogrammes, en grand) ou « Détaillée » (descriptions, lieu, semaine B, périodes particulières, pour un remplaçant), sur papier ou en PDF.",
-    "Lieu et intervenant d’une activité (gymnase, AESH…), dans le panneau de la grille ; ils s’affichent sur l’Accueil.",
-    "Accueil : un bouton lance le minuteur jusqu’à la fin de l’activité ; en option (désactivée par défaut), la barre de temps et la carte « En ce moment » s’allument doucement quelques minutes avant la fin, avec un son doux si on le souhaite."
+    "Six nouveaux widgets pour l’Accueil, rangés sous « Outils de la classe » dans « Ajouter un widget » : Raccourcis (vos applis et vos sites, Solaire, Maths en CP…, à un clic), Post-it (une note écrite directement sur l’Accueil, en quatre couleurs), Minuteur (démarrer, mettre en pause ; en taille moyenne, 1, 3, 5, 10 minutes ou jusqu’à la fin de l’activité), Tirage au sort (le même tirage équitable que le panneau Élèves), Métiers de la semaine (absents barrés, remplaçants du jour) et Rappels du jour (l’alarme qui sonne passe en rouge).",
+    "La fenêtre « Ajouter un widget » présente les onze widgets sur deux colonnes, en deux groupes : « La journée » et « Outils de la classe ».",
+    "« En ce moment » en taille moyenne : les boutons tiennent sur une ligne, le texte de l’activité n’est plus coupé.",
+    "Écran « Applis », onglet Sites web : le pictogramme d’un site sans couleur n’est plus rempli de noir.",
+    "Validation : deux éditions construites, suite complète 73 scénarios, « Tout est bon. »."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5988038,
-      "sha256": "75608d1be646e26883dbe182edee0b7a49795c8524a7bea3b33c1667c739d11f"
+      "taille": 6010741,
+      "sha256": "2777a67c32481a59131b495a7760bb629ccb0507b453e860517f015f37af93db"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5987978,
-      "sha256": "fc800a6a4cf73ce6f4fb5c4915a1b092657aaf8fbb8211983845667c89a1587c"
+      "taille": 6010681,
+      "sha256": "894301900caaa0719e9b6a01ad489277a4dadc3b464f04eba5512ac2e222bedb"
     }
   }
 }
