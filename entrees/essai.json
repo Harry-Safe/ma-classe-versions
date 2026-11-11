@@ -1,27 +1,25 @@
 {
-  "version": "5.2.7",
+  "version": "5.2.8",
   "date": "2026-11-11",
-  "titre": "Essai : emploi du temps, Excel à la demande (lot 3)",
+  "titre": "Essai : emploi du temps en grille horaire (lot 4)",
   "notes": [
-    "L’emploi du temps se modifie dans Ma classe, qui en est la seule référence : le fichier Excel n’est plus relu tout seul, et la question « quelle version garder ? » disparaît.",
-    "Préparer › Emploi du temps : « Importer depuis Excel… » lit le fichier du dossier ou un autre, puis montre les changements jour par jour (activités ajoutées, retirées, modifiées) ; rien ne change avant « Appliquer », et « Annuler » en haut de Préparer défait l’import.",
-    "Une grille d’emploi du temps s’importe aussi : jours en colonnes, horaires dans la première colonne, cases fusionnées, case à deux horaires, titres en capitales remis en minuscules.",
-    "À l’import, une activité retrouvée garde sa description, ses documents joints et son rituel rattaché ; une matière devinée d’après le nom est signalée, à confirmer d’un clic. « Éducation musicale » est reconnue.",
-    "« Exporter vers Excel » écrit l’emploi du temps de Ma classe dans le dossier de la classe (reglages), au format du modèle, colonnes des niveaux comprises ; un fichier modifié à côté n’est remplacé qu’après accord. Réglages › La classe : « Télécharger une copie ».",
-    "Un conseil de l’assistant prévient ceux qui modifiaient l’emploi du temps dans Excel, jusqu’au premier import ou export.",
-    "Inclut toutes les nouveautés de l’essai 5.2.6 (emploi du temps réorganisé, Store des applis).",
-    "Validation : deux éditions construites, 69 scénarios réussis."
+    "Préparer › Emploi du temps et La semaine s’ouvrent en grille horaire : un même axe des heures pour tous les jours (14 h du lundi en face de 14 h du mardi), une hauteur selon la durée, les récréations et la pause méridienne en bandes qui traversent la semaine, le jour courant en couleur avec le trait « maintenant ». Le bouton « Liste » rend l’affichage en colonnes ; le choix est retenu.",
+    "Glisser une activité la déplace par pas de 5 minutes, ou vers un autre jour ; tirer son bord bas change sa durée, et « Décaler la suite » fait glisser les activités qui suivent. Un moment déjà occupé s’affiche en rouge et l’activité reprend sa place.",
+    "Un clic sur une activité ouvre son panneau : titre, matière (ou une nouvelle matière, avec sa couleur et son icône), horaires, niveau, description, documents joints, rituel rattaché, Scinder, Fusionner avec la suivante, Retirer. Un clic dans un créneau vide crée une activité.",
+    "En cours double, chaque jour a une voie par niveau. Chaque geste s’annule avec « Annuler ».",
+    "Inclut toutes les nouveautés de l’essai 5.2.7 (Excel à la demande, Store des applis).",
+    "Validation : deux éditions construites, 70 scénarios réussis."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5851057,
-      "sha256": "9131803e222adb3a4acb6d7893b10ec34cf1a5075e1fe090e7c17989cf3113d0"
+      "taille": 5896723,
+      "sha256": "848463da749796f0d2c8fba2a37e2b014712ec06bfbd5eb0c34600b22d06c0c2"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5850997,
-      "sha256": "8a488dc2fdf8adb6acc48bf759a4f1d3011c4355d13d1afde8d0c0f17780e3ce"
+      "taille": 5896663,
+      "sha256": "59a07d5b98fd23e052d9df88d7cbbc9aa44abfc7431d7dd05bdb5b2de6b96e68"
     }
   }
 }
