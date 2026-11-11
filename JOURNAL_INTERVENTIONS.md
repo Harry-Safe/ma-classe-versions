@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-11 — Essai 5.2.11 sur le canal d'essai (pages et application) : l'Accueil à widgets, plus de barre du bas
+
+- **Autorisation :** Franck : « Je partage ta vision des widgets, prépare un essai » ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `b3a3df6` (stable 5.2.0, essai 5.2.10 publié à 12 h 04 par une autre session) ; aucune autre publication depuis. Source : `Ma-classe` `claude/appli-essai-accueil` `ad057d3` (essai 5.2.10 + Accueil à widgets `claude/accueil-widgets`), suite complète locale 72/72, « Tout est bon. ».
+- **Préparation :** branche `claude/essai-5.2.11` ; `publier-version.py --canal essai` puis `publier-appli.py --canal essai` (configuration d'exemple seule, listes d'élèves vides). Diff : `essai/`, `entrees/essai.json`, `appli/essai/latest.json` ; `stable/`, `entrees/stable.json`, `appli/latest.json` inchangés ; coquille inchangée.
+- **Livraison :** avance rapide de `main` `b3a3df6..fc76910`, sans forçage. Action « Publier les mises à jour » `43012500127` réussie : installateur d'essai fabriqué ici (`Ma-classe_5.2.11_x64-setup-essai.exe`, 2 992 Ko), « versions.json signé : essai 5.2.11, stable 5.2.0 », « applis.json signé : essai-pont 1.0.0 (essai) » ; déploiement `github-pages` réussi. Site servi non relu directement (réseau de la session limité).
+
 ## 2026-11-11 — Essai 5.2.10 sur le canal d'essai (pages et application) : emploi du temps, périodes particulières (lot 5)
 
 - **Autorisation :** Franck : « Pour D3 : de base un emploi du temps pour l'année avec des périodes particulières. » ; travail en autonomie jusqu'au résultat final ; règle permanente du canal d'essai. Stable non concerné.
