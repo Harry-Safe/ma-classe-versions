@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-11 — Essai 5.2.18 sur le canal d'essai (pages et application) : Échap, raccourcis, robot qui ne cache plus rien, Rétablir dans Préparer
+
+- **Autorisation :** Franck : « fais le lot a » (lot A de l'audit d'ergonomie) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `ba204a9` (essai 5.2.17, source `ab916bf` ; Store : Dizaines et unités en essai). Source : `Ma-classe` `essai` `4ce8f46` (5.2.17 + `claude/audit-ergonomie` + `claude/lot-a-ergonomie`), numérotée par `build/numeroter-essai.py`, suite complète locale 75/75, « Tout est bon. ».
+- **Préparation :** `publier-version.py --canal essai` (garde passée) puis `publier-appli.py --canal essai` (configuration d'exemple seule) ; diff : `essai/` (deux pages), `entrees/essai.json`, `entrees/essai.source` (`4ce8f46`), `appli/essai/latest.json` ; stable, coquille stable et catalogue des applis inchangés.
+- **Livraison :** avance rapide de `main` `ba204a9..22da284`, sans forçage. Action « Publier les mises à jour » `43102115039` réussie (« versions.json signé : essai 5.2.18, stable 5.2.0 », « Ma-classe_5.2.18_x64-setup-essai.exe signé »). Site servi non relu directement.
+
 ## 2026-11-11 — Store : Dizaines et unités 1.0.0 sur le canal d'essai
 
 - **Autorisation :** Franck : « Transforme la diapo en application de store pour Ma Classe pour travailler sur dizaines et unités » ; règle permanente du canal d'essai (publication en essai sans redemander). Stable non concerné.
