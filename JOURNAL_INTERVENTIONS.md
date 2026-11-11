@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-11 — Essai 5.2.8 sur le canal d'essai (pages et application) : emploi du temps en grille horaire (lot 4)
+
+- **Autorisation :** Franck : « Fais le lot 4 », puis maquette validée (« Oui, on code ») et décision D2 (bascule, grille par défaut) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `c911a4d` (stable 5.2.0, essai 5.2.7) ; aucune autre publication depuis. Source : `Ma-classe` `claude/appli-essai-edt4` (essai 5.2.7 + lot 4), suite complète locale 70/70, « Tout est bon. ».
+- **Préparation :** branche `claude/essai-5.2.8` ; `publier-version.py --canal essai` puis `publier-appli.py --canal essai` (configuration d'exemple seule). Diff : `essai/`, `entrees/essai.json`, `appli/essai/latest.json` ; `stable/`, `entrees/stable.json`, `appli/stable/` inchangés.
+- **Livraison :** avance rapide de `main` `c911a4d..89514e9`, sans forçage. Action « Publier les mises à jour » `42993828520` réussie : installateur d'essai fabriqué ici (`Ma-classe_5.2.8_x64-setup-essai.exe`, 2 982 Ko), « versions.json signé : essai 5.2.8, stable 5.2.0 », « applis.json signé : essai-pont 1.0.0 (essai) » ; déploiement `github-pages` réussi. Site servi non relu directement (réseau de la session).
+
 ## 2026-11-11 — Essai 5.2.7 sur le canal d'essai (pages et application) : emploi du temps, Excel à la demande (lot 3)
 
 - **Autorisation :** règle permanente du canal d'essai ; Franck a laissé la session travailler seule (« Je vais devoir te laisser travailler seul et ne pourrais être là que pour le résultat final »). Stable non concerné.
