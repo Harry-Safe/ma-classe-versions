@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-11 — Essai 5.2.12 sur le canal d'essai (pages et application) : périodes terminées modifiables ; tout le travail réuni
+
+- **Autorisation :** Franck : « tout ce qui a été fait ou enregistré dans l'appli doit pouvoir être modifié » et « Harmonise » ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `da0731e` (stable 5.2.0, essai 5.2.11 publié par la conversation de l'Accueil). Source : `Ma-classe` `claude/essai-harmonise-5.2.11` (5.2.11 publiée + périodes terminées modifiables + entrées de journal d'autres branches), suite complète locale 72/72, « Tout est bon. ». La 5.2.11 publiée est contenue dans cette version : rien de publié n'est perdu.
+- **Préparation :** branche `claude/essai-5.2.12` ; `publier-version.py --canal essai` puis `publier-appli.py --canal essai` (configuration d'exemple seule ; aucun prénom de la classe dans les pages). Diff : `essai/`, `entrees/essai.json`, `appli/essai/latest.json` ; `stable/`, `entrees/stable.json`, `appli/stable/` inchangés.
+- **Livraison :** avance rapide de `main` `da0731e..b794090`, sans forçage. Action « Publier les mises à jour » `43015373582` réussie : installateur d'essai fabriqué ici (`Ma-classe_5.2.12_x64-setup-essai.exe`, 2 994 Ko), « versions.json signé : essai 5.2.12, stable 5.2.0 », « applis.json signé : essai-pont 1.0.0 (essai) » ; déploiement `github-pages` réussi. Site servi non relu directement (réseau de la session).
+
 ## 2026-11-11 — Essai 5.2.11 sur le canal d'essai (pages et application) : l'Accueil à widgets, plus de barre du bas
 
 - **Autorisation :** Franck : « Je partage ta vision des widgets, prépare un essai » ; règle permanente du canal d'essai. Stable non concerné.
