@@ -1,25 +1,27 @@
 {
-  "version": "5.2.10",
+  "version": "5.2.11",
   "date": "2026-11-11",
-  "titre": "Essai : emploi du temps, périodes particulières (lot 5)",
+  "titre": "Essai : l’Accueil à widgets, plus de barre du bas",
   "notes": [
-    "Un seul emploi du temps pour l’année, et des périodes particulières par-dessus, créées dans Ma classe sans passer par Excel : sous le titre de l’emploi du temps, « Période particulière » ouvre une fenêtre (nom, du… au…, un jour ou tous les jours, quelques activités ou toute la journée).",
-    "La période s’affiche seule dans la grille : les activités de l’année restent en fond, pâles ; un clic sur l’une d’elles la remplace pendant la période (son titre est prêt à être réécrit), un clic dans un moment libre en ajoute une. Glisser, tirer le bord bas et le panneau marchent comme pour l’année. « Toute l’année » revient à l’emploi du temps habituel.",
-    "Pendant ses dates, la Journée suit la période ; après sa date de fin, elle disparaît seule de la barre (elle reste dans l’export Excel, feuille « Variantes »). Ses activités sont marquées dans La semaine, et une étiquette la signale en haut du jour et dans le calendrier.",
-    "Modifier, retirer : boutons de la barre ; tout s’annule avec « Annuler ». Une journée déjà commencée garde son déroulé.",
-    "Inclut toutes les nouveautés des essais 5.2.7 à 5.2.9.",
-    "Validation : deux éditions construites, suite complète 71 scénarios, « Tout est bon. »."
+    "L’onglet « Journée » devient l’Accueil : une grille où se posent des widgets de tailles fixes (petit, moyen, grand), comme l’écran d’accueil d’un iPad. Au départ, l’Accueil ressemble à l’ancienne Journée : « En ce moment », « Ensuite » et « Journée » (le cahier journal du jour).",
+    "Deux nouveaux widgets : une Horloge à aiguilles qui suit l’heure (petite aiguille rouge, grande aiguille bleue) et la Date (jour, date ; en moyen, hier et demain pour le rituel du matin).",
+    "« Modifier l’accueil » (petit bouton en bas à droite) : glisser un widget pour le déplacer (il pousse les autres s’il le faut, ou reprend sa place s’il n’y en a pas), choisir Petit, Moyen ou Grand, retirer un widget, en ajouter, revenir à la disposition de départ. La disposition est gardée dans le dossier de la classe. Rien ne se modifie en dehors de ce mode, ni en remplacement.",
+    "En taille moyenne, le widget « Journée » fait défiler la liste jusqu’à l’activité en cours.",
+    "Plus de barre en bas de l’écran : pendant la classe, une petite pastille à gauche de l’heure rappelle l’activité en cours et la suivante, avec le temps écoulé ; un clic ramène à l’Accueil.",
+    "Un jour sans classe, le titre « Prochain jour de classe : … » n’est plus caché par les boutons « Autre jour », « Rapport du jour », « Semaine ».",
+    "Inclut toutes les nouveautés de l’essai 5.2.10 (emploi du temps : la grille seule, périodes particulières).",
+    "Validation : deux éditions construites, 72 scénarios réussis."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5907904,
-      "sha256": "76fedfbf5a81b0e42736daea7b63e14a3c6f87867f73e93a01b244b6da497200"
+      "taille": 5948202,
+      "sha256": "f41247b68d90c43bcc60e35e70d3b896f3c0a193a87c22d5e968eee7ccdf8f98"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5907844,
-      "sha256": "820cc1cfdc0845ad262170f4e1fb55ff9f5769087b558719193d5953285e3aaa"
+      "taille": 5948142,
+      "sha256": "ce23b8bfa502d87bdd22348772a0a802a11ace55b6bbe28e5ea64b16e21ab2dd"
     }
   }
 }
