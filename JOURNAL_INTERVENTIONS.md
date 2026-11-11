@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-11 — Essai 5.2.15 sur le canal d'essai (pages et application) : Le jour et l'Accueil harmonisés avec la grille
+
+- **Autorisation :** Franck : « Le jour n'a pas la même présentation/nomenclature que le reste. Idem pour le widget de l'accueil », puis, sur maquettes, « A · Liste harmonisée » et « Oui, comme la maquette » ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `3b9ff19` (stable 5.2.0, essai 5.2.14 publié par la conversation de l'Accueil pendant notre suite de tests). Source : `Ma-classe` branche `essai` `13db222` (5.2.14 + harmonisation, réunion refaite sur la 5.2.14), suite complète locale 74/74, « Tout est bon. ».
+- **Préparation :** branche `claude/essai-5.2.15` ; `publier-version.py --canal essai` (garde : `essai` poussée et à jour, numéro supérieur, commit de l'essai 5.2.14 `a0a2606` contenu) puis `publier-appli.py --canal essai` (configuration d'exemple seule ; aucun prénom de la classe). Diff : `essai/`, `entrees/essai.json`, `entrees/essai.source`, `appli/essai/latest.json` ; `stable/` inchangé ; coquille inchangée.
+- **Livraison :** avance rapide de `main` `3b9ff19..c2bdb68`, sans forçage. Action « Publier les mises à jour » `43046123116` réussie : installateur d'essai fabriqué ici (`Ma-classe_5.2.15_x64-setup-essai.exe`), « versions.json signé : essai 5.2.15, stable 5.2.0 ».
+
 ## 2026-11-11 — Essai 5.2.14 sur le canal d'essai (pages et application) : Accueil, les outils de la classe en widgets
 
 - **Autorisation :** Franck : « Prends connaissance de la dernière version et ajoute le lot 2 » ; règle permanente du canal d'essai. Stable non concerné.
