@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-13 — Essai 5.2.29 sur le canal d'essai (pages et application) : Accueil, widgets de tous niveaux
+
+- **Autorisation :** Franck : « Fais les lots 1 et 2 » (widgets de l'Accueil utiles jusqu'au CM2) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `3fd107c` (journal de l'essai 5.2.28). Source : `Ma-classe` `essai` `0e49999` (5.2.28 + `claude/accueil-widgets-niveaux`), numérotée par `build/numeroter-essai.py` ; suite complète locale sur l'essai réuni : 84 verts sur 84.
+- **Préparation :** `publier-version.py --canal essai` (garde passée) puis `publier-appli.py --canal essai` ; diff : `essai/` (deux pages), `entrees/essai.json`, `entrees/essai.source` (`0e49999`), `appli/essai/latest.json` ; stable, coquille stable et catalogue des applis inchangés.
+- **Livraison :** avance rapide de `main` `3fd107c..4726223`, sans forçage. Action « Publier les mises à jour » `43331081410` réussie (« versions.json signé : essai 5.2.29, stable 5.2.0 », `Ma-classe_5.2.29_x64-setup-essai.exe`).
+- **À vérifier sur le PC :** les cinq nouveaux widgets au vidéoprojecteur (lisibilité du calcul mental en petite taille).
+
 ## 2026-11-12 — Essai 5.2.28 sur le canal d'essai (pages et application) : l'assistant s'occupe de la fin de semaine, de la fin de période et de l'entretien
 
 - **Autorisation :** Franck : « Fais le lot 6 » (audit de l'assistant) ; règle permanente du canal d'essai. Stable non concerné.
