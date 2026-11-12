@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-12 — Essais 5.2.20 et 5.2.21 sur le canal d'essai (pages et application) : boutons et champs harmonisés, onglets de Préparer et des Résultats dans la barre de menus ; pastilles sans objet estompées
+
+- **Autorisation :** Franck : « Fait le lot c » (lot C de l'audit d'ergonomie) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `c248ded` (essai 5.2.19, source `2d5f282`). Sources : `Ma-classe` `essai` `77c0256` (5.2.19 + `claude/lot-c-composants`), puis `daf8a5a` (correctif de la même branche), numérotées par `build/numeroter-essai.py` ; suite complète locale 77 sur 77 pour chacun.
+- **Préparation :** `publier-version.py --canal essai` (garde passée) puis `publier-appli.py --canal essai` (configuration d'exemple seule), deux fois ; diff : `essai/` (deux pages, identiques aux pages testées), `entrees/essai.json`, `entrees/essai.source`, `appli/essai/latest.json`.
+- **Livraison :** avances rapides de `main` `c248ded..58817a9` puis `..9516adb`, sans forçage. Actions « Publier les mises à jour » `43215310646` et `43220490730` réussies (« versions.json signé : essai 5.2.20, stable 5.2.0 », puis « essai 5.2.21 » ; `Ma-classe_5.2.20_x64-setup-essai.exe` et `Ma-classe_5.2.21_x64-setup-essai.exe` signés). La 5.2.20 rendait une case désactivée mais cochée comme une pastille allumée (Préparer › Cartes) : la 5.2.21 la corrige une demi-heure plus tard.
+
 ## 2026-11-12 — Essai 5.2.19 sur le canal d'essai (pages et application) : fenêtres plus lisibles, barre de menus et navigation plus faciles à viser
 
 - **Autorisation :** Franck : « Fais le lot b » (lot B de l'audit d'ergonomie) ; règle permanente du canal d'essai. Stable non concerné.
