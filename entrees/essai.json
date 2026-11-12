@@ -1,23 +1,24 @@
 {
-  "version": "5.2.27",
+  "version": "5.2.28",
   "date": "2026-11-12",
-  "titre": "Essai : Classe de démonstration et tutoriels où l'on fait le geste",
+  "titre": "Essai : L'assistant s'occupe de la fin de semaine, de la fin de période et de l'entretien",
   "notes": [
-    "Classe de démonstration : dans l’assistant, onglet « Apprendre », le bouton « Classe de démonstration » ouvre une classe fictive de huit élèves (Alice, Bruno, Chloé…), un lundi à 10 h 40, où l’on peut tout essayer : faire l’appel, valider la cantine, tirer au sort, laisser l’assistant attribuer les métiers… Vos clics sont réels, mais rien n’est enregistré : ni dans votre dossier, ni sur ce poste. Votre classe reste ouverte dessous, intacte ; « Quitter » y ramène.",
-    "« Voir la fin de journée » (ruban de la démonstration) : la même journée à 16 h 45, avec un bilan à finir et deux activités à reprendre, pour essayer « Tout est fait », « Reporter la suite… » et le rapport du jour.",
-    "Des tutoriels où l’on fait le geste : dans la classe de démonstration, sept étapes de cinq tutoriels (appel, cantine, tirage au sort, minuteur, actions de l’assistant) disent « À vous » : la zone à cliquer est dégagée, le tutoriel attend que le geste soit fait et le confirme. « Fais-le pour moi » le fait à votre place.",
-    "Dans votre vraie classe, rien ne change : un tutoriel ne clique toujours rien. Les étapes qui s’essaient proposent « Essayer en démonstration », qui ouvre la classe fictive sur ce tutoriel."
+    "L’assistant s’occupe de l’entretien : si la dernière sauvegarde du dossier a plus de sept jours (Ma classe restée ouverte toute la semaine, ou sauvegarde qui a échoué), une carte propose « Sauvegarder maintenant ». Si des erreurs ont été notées sur ce poste, « Copier le journal » le met dans le presse-papiers, prêt à coller dans un message.",
+    "Fin de semaine : le dernier jour de classe fini et son bilan complet, l’assistant propose d’écrire le rapport de la semaine dans le dossier « rapports ». Si vous tenez un cahier journal dans Word, il propose aussi de créer celui de la semaine suivante, rempli de ce qui est préparé (Annuler le retire tant qu’il n’a pas été modifié).",
+    "Fin de période : dans les cinq derniers jours de classe avant des vacances, si vous utilisez Résultats, une carte rappelle les bilans du livret à finir, les informations du LSU qui manquent et les compétences de la période jamais évaluées. C’est un rappel : rien n’est écrit à votre place, aucun prénom n’y figure.",
+    "Application Windows : quand une appli installée depuis le Store a une nouvelle version, l’assistant propose de la mettre à jour (code demandé, données de l’appli gardées).",
+    "Dans « Ce que l’assistant peut faire… », une action qui ne fait que rappeler se règle sur « Désactivée » ou « Signaler » ; la sauvegarde et le rapport de la semaine peuvent aussi être « Automatique »."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6187311,
-      "sha256": "8bf8a816d109bfbe085423c9d3432c61627793f49245d8e854fa832eed588f28"
+      "taille": 6203065,
+      "sha256": "513a3d1b8c07eb67d98bb1ce56d2386b809c8e9923b0879b0cb57286b66f352b"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6187311,
-      "sha256": "8bf8a816d109bfbe085423c9d3432c61627793f49245d8e854fa832eed588f28"
+      "taille": 6203065,
+      "sha256": "513a3d1b8c07eb67d98bb1ce56d2386b809c8e9923b0879b0cb57286b66f352b"
     }
   }
 }
