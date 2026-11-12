@@ -1,22 +1,23 @@
 {
-  "version": "5.2.26",
+  "version": "5.2.27",
   "date": "2026-11-12",
-  "titre": "Essai : Recherche dans Ma classe (Ctrl K) et vingt nouveaux tutoriels",
+  "titre": "Essai : Classe de démonstration et tutoriels où l'on fait le geste",
   "notes": [
-    "Chercher dans Ma classe : le champ de l’assistant trouve maintenant les écrans, les outils, les réglages, les sites et les actions, en plus des tutoriels. Tapez « plan », « sauvegarde », « cantine »… : un clic sur un résultat (ou Entrée pour le premier) y mène directement. Ctrl K ouvre cette recherche depuis n’importe quel écran. Même règle que dans Explorer : mot par mot, sans tenir compte des accents ni de l’ordre.",
-    "Vingt nouveaux tutoriels (71 en tout) pour les écrans qui n’en avaient pas : les huit outils de Préparer (modèles d’écriture, graphisme, conjugaison, horloges, cartes, compteurs, plan de classe, structure d’école), les fiches de préparation, les appréciations et le livret, les bilans et le classeur Excel, la fluence de lecture, quatre rubriques des Réglages (thème, dossier et sauvegardes, classe et code, remplaçant), les rapports du jour et de la semaine, la cantine à l’avance et son historique, Explorer, et les actions de l’assistant.",
-    "Chaque outil de Préparer propose désormais son tutoriel sous « Cet écran »."
+    "Classe de démonstration : dans l’assistant, onglet « Apprendre », le bouton « Classe de démonstration » ouvre une classe fictive de huit élèves (Alice, Bruno, Chloé…), un lundi à 10 h 40, où l’on peut tout essayer : faire l’appel, valider la cantine, tirer au sort, laisser l’assistant attribuer les métiers… Vos clics sont réels, mais rien n’est enregistré : ni dans votre dossier, ni sur ce poste. Votre classe reste ouverte dessous, intacte ; « Quitter » y ramène.",
+    "« Voir la fin de journée » (ruban de la démonstration) : la même journée à 16 h 45, avec un bilan à finir et deux activités à reprendre, pour essayer « Tout est fait », « Reporter la suite… » et le rapport du jour.",
+    "Des tutoriels où l’on fait le geste : dans la classe de démonstration, sept étapes de cinq tutoriels (appel, cantine, tirage au sort, minuteur, actions de l’assistant) disent « À vous » : la zone à cliquer est dégagée, le tutoriel attend que le geste soit fait et le confirme. « Fais-le pour moi » le fait à votre place.",
+    "Dans votre vraie classe, rien ne change : un tutoriel ne clique toujours rien. Les étapes qui s’essaient proposent « Essayer en démonstration », qui ouvre la classe fictive sur ce tutoriel."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6167660,
-      "sha256": "feae3b87eda0ae96932b436fb4a15ad741a8cb2cc52a9cd6e6ef0737b65acc69"
+      "taille": 6187311,
+      "sha256": "8bf8a816d109bfbe085423c9d3432c61627793f49245d8e854fa832eed588f28"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6167660,
-      "sha256": "feae3b87eda0ae96932b436fb4a15ad741a8cb2cc52a9cd6e6ef0737b65acc69"
+      "taille": 6187311,
+      "sha256": "8bf8a816d109bfbe085423c9d3432c61627793f49245d8e854fa832eed588f28"
     }
   }
 }
