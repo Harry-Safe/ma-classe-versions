@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-12 — Essai 5.2.22 sur le canal d'essai (pages et application) : lecteur PDF, séances liées, Explorer, une seule page pour le remplaçant, calendrier 2027-2028
+
+- **Autorisation :** Franck : « Finis avec le dernier lot » (lot D de l'audit d'ergonomie) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `1c6ff42` (journal des essais 5.2.20 et 5.2.21). Source : `Ma-classe` `essai` `85f99f1` (5.2.21 + cadrage + `claude/lot-d`), numérotée par `build/numeroter-essai.py` ; suite complète locale 77 sur 78, le 78e (`tableaux_traces`) corrigé dans le scénario seul et vert 2 fois sur 2 (page inchangée).
+- **Préparation :** `publier-version.py --canal essai` (garde passée) puis `publier-appli.py --canal essai` (configuration d'exemple seule) ; diff : `essai/` (deux pages, **identiques** : depuis cette version, la classe et le remplaçant utilisent la même page ; le nom « Ma classe - Remplaçant.html » est gardé pour les mises à jour des anciennes copies du remplaçant, que ce nom fait démarrer en édition remplaçant), `entrees/essai.json`, `entrees/essai.source`, `appli/essai/latest.json`.
+- **Livraison :** avance rapide de `main` `1c6ff42..3174442`, sans forçage. Action « Publier les mises à jour » `43235550605` réussie (« versions.json signé : essai 5.2.22, stable 5.2.0 », `Ma-classe_5.2.22_x64-setup-essai.exe` signé).
+
 ## 2026-11-12 — Essais 5.2.20 et 5.2.21 sur le canal d'essai (pages et application) : boutons et champs harmonisés, onglets de Préparer et des Résultats dans la barre de menus ; pastilles sans objet estompées
 
 - **Autorisation :** Franck : « Fait le lot c » (lot C de l'audit d'ergonomie) ; règle permanente du canal d'essai. Stable non concerné.
