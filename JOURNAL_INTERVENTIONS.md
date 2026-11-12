@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-12 — Essai 5.2.28 sur le canal d'essai (pages et application) : l'assistant s'occupe de la fin de semaine, de la fin de période et de l'entretien
+
+- **Autorisation :** Franck : « Fais le lot 6 » (audit de l'assistant) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `eac37c2` (journal de l'essai 5.2.27, source `cf0fe1a`). Source : `Ma-classe` `essai` `85bf16c` (5.2.27 + `claude/assistant-lot-6`), numérotée par `build/numeroter-essai.py` ; suite complète locale 84 verts sur 84 sur la branche de travail (`436ce6c`), scénarios rapides relancés sur l'essai numéroté.
+- **Préparation :** `publier-version.py --canal essai` (garde passée) puis `publier-appli.py --canal essai` (configuration d'exemple seule) ; diff : `essai/` (deux pages, identiques), `entrees/essai.json`, `entrees/essai.source` (`85bf16c`), `appli/essai/latest.json` ; stable, coquille stable et catalogue des applis inchangés.
+- **Livraison :** avance rapide de `main` `eac37c2..4d29bb4`, sans forçage. Action « Publier les mises à jour » `43320918571` réussie (« versions.json signé : essai 5.2.28, stable 5.2.0 », `Ma-classe_5.2.28_x64-setup-essai.exe` signé).
+- **À vérifier sur le PC :** la carte « Applis à mettre à jour » (testée avec un catalogue simulé dans le navigateur).
+
 ## 2026-11-12 — Essai 5.2.27 sur le canal d'essai (pages et application) : classe de démonstration et tutoriels où l'on fait le geste
 
 - **Autorisation :** Franck : « Fais le lot 5 » (audit de l'assistant) ; règle permanente du canal d'essai. Stable non concerné.
