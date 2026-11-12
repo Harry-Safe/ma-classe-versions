@@ -1,24 +1,25 @@
 {
-  "version": "5.2.18",
-  "date": "2026-11-11",
-  "titre": "Essai : Échap, raccourcis, robot qui ne cache plus rien, Rétablir dans Préparer",
+  "version": "5.2.19",
+  "date": "2026-11-12",
+  "titre": "Essai : Fenêtres plus lisibles, barre de menus et navigation plus faciles à viser",
   "notes": [
-    "Échap ferme la fenêtre du dessus (Outils, Élèves, Rappels, Réglages…), une à la fois ; le focus revient au bouton qui l’avait ouverte.",
-    "Nouveaux raccourcis : E pour Préparer, S pour Résultats, G pour Réglages. La touche s’affiche à côté du nom, au survol de la navigation, et l’aide des Réglages les présente en tableau.",
-    "Le robot de l’assistant ne cache plus rien dans Préparer et Résultats : leur cadre commence à sa droite.",
-    "Préparer : « Rétablir » à côté d’« Annuler » (aussi Ctrl+Y), en deux boutons ronds comme sur les tableaux.",
-    "Emploi du temps : le trait de l’heure passe derrière les activités et ne barre plus leur titre."
+    "Fenêtres plus lisibles (Outils, Élèves, Appel, Rappels, Réglages…) : elles prennent le même verre dense que l’assistant ; ce qui passe derrière ne gêne plus la lecture.",
+    "Barre de menus : les icônes se visent plus facilement (zone de clic élargie, jusqu’au bord haut de l’écran) ; avec un thème sombre (nuit étoilée…), le texte de la barre passe en clair.",
+    "Navigation épinglée : le nom de chaque rubrique s’affiche sous sa tuile.",
+    "Boutons des fenêtres harmonisés : agrandir et fermer partout ; le réglage des Outils et « Détacher » du minuteur passent à gauche du titre.",
+    "Nom des boutons sans texte (œil, dé, cadenas…) : une étiquette bien lisible apparaît au survol ou au clavier.",
+    "Activités passées de l’Accueil plus lisibles ; un seul style de contour pour le bouton sélectionné au clavier ; nouvelle icône pour ajouter des fichiers audio."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 5985836,
-      "sha256": "d4c584d93de378fe628789587b152124b459f0e0decdd26fcd62f6010a8d2611"
+      "taille": 6001924,
+      "sha256": "1ae3cee1ac07b599781fc6e01aef870f471661be8dbb7dd742113f66032d2470"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 5985776,
-      "sha256": "e3ca7a333fce631c24195ab3dd7befd81ea00b3504fcf2355db491a4c2c3a095"
+      "taille": 6001864,
+      "sha256": "61a59df16f173f177e54e3bab1bd5d19f5311f7dcbefc3ebf31d13745eb2b66a"
     }
   }
 }

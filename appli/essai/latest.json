@@ -1,11 +1,11 @@
 {
-  "version": "5.2.18",
-  "notes": "Échap ferme la fenêtre du dessus (Outils, Élèves, Rappels, Réglages…), une à la fois ; le focus revient au bouton qui l’avait ouverte.\nNouveaux raccourcis : E pour Préparer, S pour Résultats, G pour Réglages. La touche s’affiche à côté du nom, au survol de la navigation, et l’aide des Réglages les présente en tableau.\nLe robot de l’assistant ne cache plus rien dans Préparer et Résultats : leur cadre commence à sa droite.\nPréparer : « Rétablir » à côté d’« Annuler » (aussi Ctrl+Y), en deux boutons ronds comme sur les tableaux.\nEmploi du temps : le trait de l’heure passe derrière les activités et ne barre plus leur titre.",
-  "pub_date": "2026-11-11T21:19:48Z",
+  "version": "5.2.19",
+  "notes": "Fenêtres plus lisibles (Outils, Élèves, Appel, Rappels, Réglages…) : elles prennent le même verre dense que l’assistant ; ce qui passe derrière ne gêne plus la lecture.\nBarre de menus : les icônes se visent plus facilement (zone de clic élargie, jusqu’au bord haut de l’écran) ; avec un thème sombre (nuit étoilée…), le texte de la barre passe en clair.\nNavigation épinglée : le nom de chaque rubrique s’affiche sous sa tuile.\nBoutons des fenêtres harmonisés : agrandir et fermer partout ; le réglage des Outils et « Détacher » du minuteur passent à gauche du titre.\nNom des boutons sans texte (œil, dé, cadenas…) : une étiquette bien lisible apparaît au survol ou au clavier.\nActivités passées de l’Accueil plus lisibles ; un seul style de contour pour le bouton sélectionné au clavier ; nouvelle icône pour ajouter des fichiers audio.",
+  "pub_date": "2026-11-12T07:32:07Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.18_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.19_x64-setup-essai.exe"
     }
   }
 }
