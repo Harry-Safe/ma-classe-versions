@@ -1,11 +1,11 @@
 {
-  "version": "5.2.25",
-  "notes": "L’assistant agit, sur votre clic : ses cartes proposent maintenant de faire, et plus seulement d’ouvrir. « Tout est fait » note faites les activités sans bilan ; « Reporter la suite… » montre où irait chaque activité à reprendre (prochain créneau de la même matière) avant d’écrire ; « Valider les repas » valide la cantine une fois l’appel du matin fait ; « Attribuer les métiers » lance la rotation de la semaine ; « Écrire le rapport » range le rapport du jour quand le bilan est complet. Un second bouton ouvre toujours l’écran concerné pour vérifier ou détailler.\n« Ce que j’ai fait aujourd’hui » : chaque action est notée sous les conseils, avec un bouton « Annuler ». Aucun prénom n’y figure.\nSous « Le point du jour », les gestes de l’activité en cours : le minuteur jusqu’à sa fin et ce qui lui est joint (consignes, documents, site, séance, fiche), depuis n’importe quel écran.\n« Ce que l’assistant peut faire… » (au pied des conseils, protégé par le code) : chaque action se règle sur « Désactivée », « Proposer » (au départ) ou, pour les métiers et le rapport du jour seulement, « Automatique ». Une action faite seule est notée et signalée par la pastille du robot. L’appel n’est jamais validé à votre place.",
-  "pub_date": "2026-11-12T18:40:29Z",
+  "version": "5.2.26",
+  "notes": "Chercher dans Ma classe : le champ de l’assistant trouve maintenant les écrans, les outils, les réglages, les sites et les actions, en plus des tutoriels. Tapez « plan », « sauvegarde », « cantine »… : un clic sur un résultat (ou Entrée pour le premier) y mène directement. Ctrl K ouvre cette recherche depuis n’importe quel écran. Même règle que dans Explorer : mot par mot, sans tenir compte des accents ni de l’ordre.\nVingt nouveaux tutoriels (71 en tout) pour les écrans qui n’en avaient pas : les huit outils de Préparer (modèles d’écriture, graphisme, conjugaison, horloges, cartes, compteurs, plan de classe, structure d’école), les fiches de préparation, les appréciations et le livret, les bilans et le classeur Excel, la fluence de lecture, quatre rubriques des Réglages (thème, dossier et sauvegardes, classe et code, remplaçant), les rapports du jour et de la semaine, la cantine à l’avance et son historique, Explorer, et les actions de l’assistant.\nChaque outil de Préparer propose désormais son tutoriel sous « Cet écran ».",
+  "pub_date": "2026-11-12T20:17:29Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.25_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.26_x64-setup-essai.exe"
     }
   }
 }

@@ -2,6 +2,12 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-12 — Essai 5.2.26 sur le canal d'essai (pages et application) : recherche dans Ma classe (Ctrl K) et vingt nouveaux tutoriels
+
+- **Autorisation :** Franck : « Fais les lots 3 et 4 » (audit de l'assistant) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `cbe4390` (journal de l'essai 5.2.25, source `870963c`). Source : `Ma-classe` `essai` `b4b11c6` (5.2.25 + `claude/assistant-lots-3-4`), numérotée par `build/numeroter-essai.py` ; suite complète locale 81 verts sur 82 sur la branche de travail, le 82e (`assistant_sonde`) adapté dans le scénario seul et vert sur la même page ; après numérotation, `mises_a_jour`, `chargement`, `assistant_recherche`, `assistant_sonde` et `applis` verts.
+- **Préparation :** `publier-version.py --canal essai` (garde passée) puis `publier-appli.py --canal essai` (configuration d'exemple seule) ; diff : `essai/` (deux pages, identiques), `entrees/essai.json`, `entrees/essai.source` (`b4b11c6`), `appli/essai/latest.json` ; stable, coquille stable et catalogue des applis inchangés.
+
 ## 2026-11-12 — Essai 5.2.25 sur le canal d'essai (pages et application) : l'assistant agit (bilan, reports, cantine, métiers, rapport)
 
 - **Autorisation :** Franck : « Prends en compte les derniers changements opérés et fais le lot 2 » (audit de l'assistant) ; règle permanente du canal d'essai. Stable non concerné.
