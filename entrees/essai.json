@@ -1,23 +1,23 @@
 {
-  "version": "5.2.23",
+  "version": "5.2.24",
   "date": "2026-11-12",
-  "titre": "Essai : Assistant : point du jour, pastille et sonde",
+  "titre": "Essai : Fiches de préparation : En ce moment et Consignes lisent la fiche",
   "notes": [
-    "Assistant, le point du jour : en tête des conseils, ce qui compte maintenant — l’activité en cours et le temps qui reste (ou le prochain jour de classe), la semaine A ou B et les périodes particulières, les activités avec un lieu ou un intervenant, l’appel du matin et de l’après-midi, la cantine, les documents joints et les rappels. Des nombres, jamais un prénom.",
-    "Une pastille sur le robot dit combien de conseils importants attendent (appel, rappels, documents, reprises, bilan, nouvelle version), même assistant fermé ; le même nombre s’affiche sur l’onglet « Conseils ». Ni son ni ouverture automatique.",
-    "Tous les conseils : au-delà de trois, « Voir les autres » les montre. « Masquer ce conseil » tient désormais aussi pour la nouvelle version et l’emploi du temps Excel.",
-    "L’assistant reconnaît un site intégré, l’écran d’autonomie et chaque outil de Préparer : il ne propose plus les tutoriels de la journée à leur place."
+    "Fiches de préparation : dans Préparer › Journée, à côté de « Le jour », « La semaine » et « Emploi du temps », un nouvel écran garde une fiche par séance : objectif, matériel, phases (durée, modalité, ce que je fais, consigne des élèves), différenciation, bilan. Chaque fiche s’imprime ou s’enregistre en PDF, se duplique, se lie à une activité (depuis la fiche, ou par « Joindre › Fiche » sur l’activité).",
+    "« En ce moment » lit la fiche de l’activité en cours : objectif, bande des phases, phase en cours d’après l’heure (ou choisie d’un clic) avec ce qu’il reste, ce que je fais et la consigne ; un bouton ouvre la fiche entière, un autre lance le minuteur de la phase.",
+    "« Consignes » lit la même fiche : la consigne de la phase en cours s’affiche en grand, on passe d’une phase à l’autre, et la consigne corrigée à l’écran est enregistrée dans la fiche. Sans fiche, rien ne change.",
+    "« Ensuite » rappelle le matériel à sortir pour l’activité suivante."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6049251,
-      "sha256": "0d7a4856d7e775a7f09f6c677a8e9b6f50a262d1642598e7513ed3e8273a0866"
+      "taille": 6103522,
+      "sha256": "ebe7b223af9b329d94c235a92c371e0d49274bdbcf990da3c38fb4b95d4dd167"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6049251,
-      "sha256": "0d7a4856d7e775a7f09f6c677a8e9b6f50a262d1642598e7513ed3e8273a0866"
+      "taille": 6103522,
+      "sha256": "ebe7b223af9b329d94c235a92c371e0d49274bdbcf990da3c38fb4b95d4dd167"
     }
   }
 }

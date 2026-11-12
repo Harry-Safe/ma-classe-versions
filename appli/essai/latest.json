@@ -1,11 +1,11 @@
 {
-  "version": "5.2.23",
-  "notes": "Assistant, le point du jour : en tête des conseils, ce qui compte maintenant — l’activité en cours et le temps qui reste (ou le prochain jour de classe), la semaine A ou B et les périodes particulières, les activités avec un lieu ou un intervenant, l’appel du matin et de l’après-midi, la cantine, les documents joints et les rappels. Des nombres, jamais un prénom.\nUne pastille sur le robot dit combien de conseils importants attendent (appel, rappels, documents, reprises, bilan, nouvelle version), même assistant fermé ; le même nombre s’affiche sur l’onglet « Conseils ». Ni son ni ouverture automatique.\nTous les conseils : au-delà de trois, « Voir les autres » les montre. « Masquer ce conseil » tient désormais aussi pour la nouvelle version et l’emploi du temps Excel.\nL’assistant reconnaît un site intégré, l’écran d’autonomie et chaque outil de Préparer : il ne propose plus les tutoriels de la journée à leur place.",
-  "pub_date": "2026-11-12T16:30:58Z",
+  "version": "5.2.24",
+  "notes": "Fiches de préparation : dans Préparer › Journée, à côté de « Le jour », « La semaine » et « Emploi du temps », un nouvel écran garde une fiche par séance : objectif, matériel, phases (durée, modalité, ce que je fais, consigne des élèves), différenciation, bilan. Chaque fiche s’imprime ou s’enregistre en PDF, se duplique, se lie à une activité (depuis la fiche, ou par « Joindre › Fiche » sur l’activité).\n« En ce moment » lit la fiche de l’activité en cours : objectif, bande des phases, phase en cours d’après l’heure (ou choisie d’un clic) avec ce qu’il reste, ce que je fais et la consigne ; un bouton ouvre la fiche entière, un autre lance le minuteur de la phase.\n« Consignes » lit la même fiche : la consigne de la phase en cours s’affiche en grand, on passe d’une phase à l’autre, et la consigne corrigée à l’écran est enregistrée dans la fiche. Sans fiche, rien ne change.\n« Ensuite » rappelle le matériel à sortir pour l’activité suivante.",
+  "pub_date": "2026-11-12T17:22:33Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.23_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.24_x64-setup-essai.exe"
     }
   }
 }
