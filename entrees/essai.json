@@ -1,25 +1,24 @@
 {
-  "version": "5.2.19",
+  "version": "5.2.20",
   "date": "2026-11-12",
-  "titre": "Essai : Fenêtres plus lisibles, barre de menus et navigation plus faciles à viser",
+  "titre": "Essai : Boutons et champs harmonisés, onglets de Préparer et des Résultats dans la barre de menus",
   "notes": [
-    "Fenêtres plus lisibles (Outils, Élèves, Appel, Rappels, Réglages…) : elles prennent le même verre dense que l’assistant ; ce qui passe derrière ne gêne plus la lecture.",
-    "Barre de menus : les icônes se visent plus facilement (zone de clic élargie, jusqu’au bord haut de l’écran) ; avec un thème sombre (nuit étoilée…), le texte de la barre passe en clair.",
-    "Navigation épinglée : le nom de chaque rubrique s’affiche sous sa tuile.",
-    "Boutons des fenêtres harmonisés : agrandir et fermer partout ; le réglage des Outils et « Détacher » du minuteur passent à gauche du titre.",
-    "Nom des boutons sans texte (œil, dé, cadenas…) : une étiquette bien lisible apparaît au survol ou au clavier.",
-    "Activités passées de l’Accueil plus lisibles ; un seul style de contour pour le bouton sélectionné au clavier ; nouvelle icône pour ajouter des fichiers audio."
+    "Onglets de Préparer et des Résultats dans la barre de menus, comme ceux des Tableaux et des Rituels : l’écran gagne une ligne de hauteur ; quand la place manque, les noms se raccourcissent (« Journée », « Écriture », « Plan », « École »).",
+    "Mêmes boutons, mêmes champs partout : trois tailles de bouton (petite, courante, grande pour ce que l’on touche au tableau), un seul style de champ et de liste déroulante ; dans Préparer, les cases à cocher deviennent des pastilles à allumer, comme dans les Tableaux.",
+    "Plus lisible sur un petit écran (portable 1366 × 768) : plus aucun texte sous 13 px, notamment dans l’emploi du temps ; petits boutons plus faciles à viser.",
+    "Pictogrammes dessinés à la place des émojis dans les boutons (Imprimer, Au hasard, Alarmes, Notes…) : même trait partout, quelle que soit la machine.",
+    "Opérations : le bandeau d’options tient sur deux lignes au lieu de trois. Pastilles de couleur de Compteurs et de Graphisme : leur nom s’affiche au survol."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6001924,
-      "sha256": "1ae3cee1ac07b599781fc6e01aef870f471661be8dbb7dd742113f66032d2470"
+      "taille": 6011032,
+      "sha256": "aae5129a2a82f20e378cd113bdb32b957f6fbabaabd184e69dde760cc7a94531"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6001864,
-      "sha256": "61a59df16f173f177e54e3bab1bd5d19f5311f7dcbefc3ebf31d13745eb2b66a"
+      "taille": 6010972,
+      "sha256": "a91bdb60c9a32db1eb322900b5cc622adca112e22dbe18f10c5ab3b46cfd97a9"
     }
   }
 }
