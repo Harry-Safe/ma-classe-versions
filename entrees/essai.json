@@ -1,24 +1,20 @@
 {
-  "version": "5.2.20",
+  "version": "5.2.21",
   "date": "2026-11-12",
-  "titre": "Essai : Boutons et champs harmonisés, onglets de Préparer et des Résultats dans la barre de menus",
+  "titre": "Essai : Pastilles sans objet estompées",
   "notes": [
-    "Onglets de Préparer et des Résultats dans la barre de menus, comme ceux des Tableaux et des Rituels : l’écran gagne une ligne de hauteur ; quand la place manque, les noms se raccourcissent (« Journée », « Écriture », « Plan », « École »).",
-    "Mêmes boutons, mêmes champs partout : trois tailles de bouton (petite, courante, grande pour ce que l’on touche au tableau), un seul style de champ et de liste déroulante ; dans Préparer, les cases à cocher deviennent des pastilles à allumer, comme dans les Tableaux.",
-    "Plus lisible sur un petit écran (portable 1366 × 768) : plus aucun texte sous 13 px, notamment dans l’emploi du temps ; petits boutons plus faciles à viser.",
-    "Pictogrammes dessinés à la place des émojis dans les boutons (Imprimer, Au hasard, Alarmes, Notes…) : même trait partout, quelle que soit la machine.",
-    "Opérations : le bandeau d’options tient sur deux lignes au lieu de trois. Pastilles de couleur de Compteurs et de Graphisme : leur nom s’affiche au survol."
+    "Pastilles sans objet (par exemple « nommer » quand la couche de la carte est éteinte) : à nouveau estompées, comme les anciennes cases grisées ; elles ne ressemblent plus à une option allumée."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6011032,
-      "sha256": "aae5129a2a82f20e378cd113bdb32b957f6fbabaabd184e69dde760cc7a94531"
+      "taille": 6011814,
+      "sha256": "0eac661b4f312845839511a2fb4ad4cfbba4fc52721884f4696fcdeffa122b6d"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6010972,
-      "sha256": "a91bdb60c9a32db1eb322900b5cc622adca112e22dbe18f10c5ab3b46cfd97a9"
+      "taille": 6011754,
+      "sha256": "99ee900a8ea6eaa0b0e3941681aacbd8bff75d31e418ff9b4b3ab2d72cf4e55b"
     }
   }
 }

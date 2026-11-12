@@ -1,11 +1,11 @@
 {
-  "version": "5.2.20",
-  "notes": "Onglets de Préparer et des Résultats dans la barre de menus, comme ceux des Tableaux et des Rituels : l’écran gagne une ligne de hauteur ; quand la place manque, les noms se raccourcissent (« Journée », « Écriture », « Plan », « École »).\nMêmes boutons, mêmes champs partout : trois tailles de bouton (petite, courante, grande pour ce que l’on touche au tableau), un seul style de champ et de liste déroulante ; dans Préparer, les cases à cocher deviennent des pastilles à allumer, comme dans les Tableaux.\nPlus lisible sur un petit écran (portable 1366 × 768) : plus aucun texte sous 13 px, notamment dans l’emploi du temps ; petits boutons plus faciles à viser.\nPictogrammes dessinés à la place des émojis dans les boutons (Imprimer, Au hasard, Alarmes, Notes…) : même trait partout, quelle que soit la machine.\nOpérations : le bandeau d’options tient sur deux lignes au lieu de trois. Pastilles de couleur de Compteurs et de Graphisme : leur nom s’affiche au survol.",
-  "pub_date": "2026-11-12T12:09:03Z",
+  "version": "5.2.21",
+  "notes": "Pastilles sans objet (par exemple « nommer » quand la couche de la carte est éteinte) : à nouveau estompées, comme les anciennes cases grisées ; elles ne ressemblent plus à une option allumée.",
+  "pub_date": "2026-11-12T12:43:11Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.20_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.21_x64-setup-essai.exe"
     }
   }
 }
