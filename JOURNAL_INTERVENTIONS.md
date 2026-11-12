@@ -2,6 +2,12 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-12 — Essai 5.2.23 sur le canal d'essai (pages et application) : assistant, point du jour, pastille du robot et sonde
+
+- **Autorisation :** Franck : « Je te donne mon accord, effectue les lots 0 et 1 » (audit de l'assistant) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `10771ee` (journal de l'essai 5.2.22, source `85f99f1`). Source : `Ma-classe` `essai` `96e875a` (5.2.22 + `claude/assistant-lots-0-1`), numérotée par `build/numeroter-essai.py` ; suite complète locale 79 sur 79 sur la branche de travail, « Tout est bon. » ; après numérotation, `mises_a_jour`, `chargement` et `assistant_sonde` verts.
+- **Préparation :** `publier-version.py --canal essai` (garde passée) puis `publier-appli.py --canal essai` (configuration d'exemple seule) ; diff : `essai/` (deux pages, identiques), `entrees/essai.json`, `entrees/essai.source` (`96e875a`), `appli/essai/latest.json` ; stable, coquille stable et catalogue des applis inchangés.
+
 ## 2026-11-12 — Essai 5.2.22 sur le canal d'essai (pages et application) : lecteur PDF, séances liées, Explorer, une seule page pour le remplaçant, calendrier 2027-2028
 
 - **Autorisation :** Franck : « Finis avec le dernier lot » (lot D de l'audit d'ergonomie) ; règle permanente du canal d'essai. Stable non concerné.

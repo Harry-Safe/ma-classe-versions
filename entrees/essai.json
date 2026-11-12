@@ -1,27 +1,23 @@
 {
-  "version": "5.2.22",
+  "version": "5.2.23",
   "date": "2026-11-12",
-  "titre": "Essai : Lecteur PDF, séances liées, Explorer, une seule page pour le remplaçant, calendrier 2027-2028",
+  "titre": "Essai : Assistant : point du jour, pastille et sonde",
   "notes": [
-    "Lecteur PDF : un document zoomé, même en paysage, se parcourt jusqu’à ses deux bords et se fait glisser à la main ; la position reste au même endroit quand on zoome.",
-    "Tableau de numération : après avoir sélectionné des éléments, « Faire un paquet » ou « Casser » agit tout de suite sur eux.",
-    "Séances liées : dans Préparer (le jour ou l’emploi du temps), « Joindre › Séance » lie un tableau ou des rituels enregistrés à une activité ; sur l’Accueil, « En ce moment » l’ouvre d’un clic, telle qu’elle a été préparée.",
-    "Widget « Journée » : un bouton au bout de chaque activité qui a des pièces jointes ouvre la liste de ses documents, consignes, sites et séances, au-dessous ou au-dessus selon la place.",
-    "« Applis » devient « Explorer », présent partout ; hors de l’application Windows, sans les applis ni le Store. Dans la version web et la version remplaçant, le plein écran prend la place du lecteur de musique.",
-    "Une seule page pour la classe et le remplaçant : plus de fichier à part. Sur une page sans classe, « Je suis remplaçant·e » propose de remplacer dans la classe ou d’utiliser la page pour ses remplacements (données à part) ; retour possible dans Réglages › À propos.",
-    "Calendrier 2027-2028 (zone B, jours fériés d’Alsace-Moselle) : il prend le relais tout seul le 1er août 2027, dans un fichier à part.",
-    "Boutons sans texte (✕, ✎, flèches) dessinés comme les autres pictogrammes ; derniers émojis retirés des commandes."
+    "Assistant, le point du jour : en tête des conseils, ce qui compte maintenant — l’activité en cours et le temps qui reste (ou le prochain jour de classe), la semaine A ou B et les périodes particulières, les activités avec un lieu ou un intervenant, l’appel du matin et de l’après-midi, la cantine, les documents joints et les rappels. Des nombres, jamais un prénom.",
+    "Une pastille sur le robot dit combien de conseils importants attendent (appel, rappels, documents, reprises, bilan, nouvelle version), même assistant fermé ; le même nombre s’affiche sur l’onglet « Conseils ». Ni son ni ouverture automatique.",
+    "Tous les conseils : au-delà de trois, « Voir les autres » les montre. « Masquer ce conseil » tient désormais aussi pour la nouvelle version et l’emploi du temps Excel.",
+    "L’assistant reconnaît un site intégré, l’écran d’autonomie et chaque outil de Préparer : il ne propose plus les tutoriels de la journée à leur place."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6038330,
-      "sha256": "77b5d0999fc5a02399c85b09fbabb78e43f1eed7b5272e7a486993ca0d577309"
+      "taille": 6049251,
+      "sha256": "0d7a4856d7e775a7f09f6c677a8e9b6f50a262d1642598e7513ed3e8273a0866"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6038330,
-      "sha256": "77b5d0999fc5a02399c85b09fbabb78e43f1eed7b5272e7a486993ca0d577309"
+      "taille": 6049251,
+      "sha256": "0d7a4856d7e775a7f09f6c677a8e9b6f50a262d1642598e7513ed3e8273a0866"
     }
   }
 }
