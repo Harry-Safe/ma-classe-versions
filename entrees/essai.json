@@ -1,20 +1,27 @@
 {
-  "version": "5.2.21",
+  "version": "5.2.22",
   "date": "2026-11-12",
-  "titre": "Essai : Pastilles sans objet estompées",
+  "titre": "Essai : Lecteur PDF, séances liées, Explorer, une seule page pour le remplaçant, calendrier 2027-2028",
   "notes": [
-    "Pastilles sans objet (par exemple « nommer » quand la couche de la carte est éteinte) : à nouveau estompées, comme les anciennes cases grisées ; elles ne ressemblent plus à une option allumée."
+    "Lecteur PDF : un document zoomé, même en paysage, se parcourt jusqu’à ses deux bords et se fait glisser à la main ; la position reste au même endroit quand on zoome.",
+    "Tableau de numération : après avoir sélectionné des éléments, « Faire un paquet » ou « Casser » agit tout de suite sur eux.",
+    "Séances liées : dans Préparer (le jour ou l’emploi du temps), « Joindre › Séance » lie un tableau ou des rituels enregistrés à une activité ; sur l’Accueil, « En ce moment » l’ouvre d’un clic, telle qu’elle a été préparée.",
+    "Widget « Journée » : un bouton au bout de chaque activité qui a des pièces jointes ouvre la liste de ses documents, consignes, sites et séances, au-dessous ou au-dessus selon la place.",
+    "« Applis » devient « Explorer », présent partout ; hors de l’application Windows, sans les applis ni le Store. Dans la version web et la version remplaçant, le plein écran prend la place du lecteur de musique.",
+    "Une seule page pour la classe et le remplaçant : plus de fichier à part. Sur une page sans classe, « Je suis remplaçant·e » propose de remplacer dans la classe ou d’utiliser la page pour ses remplacements (données à part) ; retour possible dans Réglages › À propos.",
+    "Calendrier 2027-2028 (zone B, jours fériés d’Alsace-Moselle) : il prend le relais tout seul le 1er août 2027, dans un fichier à part.",
+    "Boutons sans texte (✕, ✎, flèches) dessinés comme les autres pictogrammes ; derniers émojis retirés des commandes."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6011814,
-      "sha256": "0eac661b4f312845839511a2fb4ad4cfbba4fc52721884f4696fcdeffa122b6d"
+      "taille": 6038330,
+      "sha256": "77b5d0999fc5a02399c85b09fbabb78e43f1eed7b5272e7a486993ca0d577309"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6011754,
-      "sha256": "99ee900a8ea6eaa0b0e3941681aacbd8bff75d31e418ff9b4b3ab2d72cf4e55b"
+      "taille": 6038330,
+      "sha256": "77b5d0999fc5a02399c85b09fbabb78e43f1eed7b5272e7a486993ca0d577309"
     }
   }
 }

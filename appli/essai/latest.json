@@ -1,11 +1,11 @@
 {
-  "version": "5.2.21",
-  "notes": "Pastilles sans objet (par exemple « nommer » quand la couche de la carte est éteinte) : à nouveau estompées, comme les anciennes cases grisées ; elles ne ressemblent plus à une option allumée.",
-  "pub_date": "2026-11-12T12:43:11Z",
+  "version": "5.2.22",
+  "notes": "Lecteur PDF : un document zoomé, même en paysage, se parcourt jusqu’à ses deux bords et se fait glisser à la main ; la position reste au même endroit quand on zoome.\nTableau de numération : après avoir sélectionné des éléments, « Faire un paquet » ou « Casser » agit tout de suite sur eux.\nSéances liées : dans Préparer (le jour ou l’emploi du temps), « Joindre › Séance » lie un tableau ou des rituels enregistrés à une activité ; sur l’Accueil, « En ce moment » l’ouvre d’un clic, telle qu’elle a été préparée.\nWidget « Journée » : un bouton au bout de chaque activité qui a des pièces jointes ouvre la liste de ses documents, consignes, sites et séances, au-dessous ou au-dessus selon la place.\n« Applis » devient « Explorer », présent partout ; hors de l’application Windows, sans les applis ni le Store. Dans la version web et la version remplaçant, le plein écran prend la place du lecteur de musique.\nUne seule page pour la classe et le remplaçant : plus de fichier à part. Sur une page sans classe, « Je suis remplaçant·e » propose de remplacer dans la classe ou d’utiliser la page pour ses remplacements (données à part) ; retour possible dans Réglages › À propos.\nCalendrier 2027-2028 (zone B, jours fériés d’Alsace-Moselle) : il prend le relais tout seul le 1er août 2027, dans un fichier à part.\nBoutons sans texte (✕, ✎, flèches) dessinés comme les autres pictogrammes ; derniers émojis retirés des commandes.",
+  "pub_date": "2026-11-12T14:16:47Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.21_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.22_x64-setup-essai.exe"
     }
   }
 }
