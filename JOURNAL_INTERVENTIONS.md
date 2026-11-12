@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-12 — Essai 5.2.24 sur le canal d'essai (pages et application) : fiches de préparation ; « En ce moment » et « Consignes » lisent la fiche
+
+- **Autorisation :** Franck, 12 novembre, 16 h 58 : « Je veux que le widget En ce moment ainsi que Consigne change. Les deux doivent désormais partager la même chose : une fiche de préparation simplifiée. » ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `a7cec66` (journal de l'essai 5.2.23, source `96e875a`). Source : `Ma-classe` `essai` `f3de8d3` (5.2.23 + `claude/fiches-preparation` + le commit de journal de l'essai 5.2.23), numérotée par `build/numeroter-essai.py` ; suite complète locale sur l'essai numéroté : 79 verts sur les 79 lancés, le 80e (`fiches_preparation`, coupé par la limite de temps de la suite) vert 2 fois sur 2 seul, sur la même page.
+- **Préparation :** `publier-version.py --canal essai` (garde passée) puis `publier-appli.py --canal essai` (configuration d'exemple seule) ; diff : `essai/` (deux pages, identiques entre elles et à la page testée, même empreinte), `entrees/essai.json`, `entrees/essai.source` (`f3de8d3`), `appli/essai/latest.json` ; stable, coquille et catalogue des applis inchangés.
+- **Livraison :** avance rapide de `main` `a7cec66..e3d3761`, sans forçage. Action « Publier les mises à jour » `43268821796` réussie (« versions.json signé : essai 5.2.24, stable 5.2.0 », `Ma-classe_5.2.24_x64-setup-essai.exe` signé ; stable `Ma-classe_5.2.0_x64-setup.exe` inchangé).
+
 ## 2026-11-12 — Essai 5.2.23 sur le canal d'essai (pages et application) : assistant, point du jour, pastille du robot et sonde
 
 - **Autorisation :** Franck : « Je te donne mon accord, effectue les lots 0 et 1 » (audit de l'assistant) ; règle permanente du canal d'essai. Stable non concerné.
