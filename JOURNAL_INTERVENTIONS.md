@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-12 — Essai 5.2.19 sur le canal d'essai (pages et application) : fenêtres plus lisibles, barre de menus et navigation plus faciles à viser
+
+- **Autorisation :** Franck : « Fais le lot b » (lot B de l'audit d'ergonomie) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `96bc6b0` (essai 5.2.18, source `4ce8f46`). Source : `Ma-classe` `essai` `a0ac92d` (5.2.18 + documentation harmonisée + `claude/lot-b-verre`), numérotée par `build/numeroter-essai.py`, suite complète locale 76/76, « Tout est bon. ».
+- **Préparation :** `publier-version.py --canal essai` (garde passée) puis `publier-appli.py --canal essai` (configuration d'exemple seule) ; diff : `essai/` (deux pages), `entrees/essai.json`, `entrees/essai.source` (`a0ac92d`), `appli/essai/latest.json` ; stable, coquille stable et catalogue des applis inchangés.
+- **Livraison :** avance rapide de `main` `96bc6b0..db6c04c`, sans forçage. Action « Publier les mises à jour » `43175996612` réussie (« versions.json signé : essai 5.2.19, stable 5.2.0 », « Ma-classe_5.2.19_x64-setup-essai.exe signé »). Site servi non relu directement.
+
 ## 2026-11-11 — Essai 5.2.18 sur le canal d'essai (pages et application) : Échap, raccourcis, robot qui ne cache plus rien, Rétablir dans Préparer
 
 - **Autorisation :** Franck : « fais le lot a » (lot A de l'audit d'ergonomie) ; règle permanente du canal d'essai. Stable non concerné.
