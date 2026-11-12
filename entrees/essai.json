@@ -1,24 +1,24 @@
 {
-  "version": "5.2.28",
-  "date": "2026-11-12",
-  "titre": "Essai : L'assistant s'occupe de la fin de semaine, de la fin de période et de l'entretien",
+  "version": "5.2.29",
+  "date": "2026-11-13",
+  "titre": "Essai : Accueil : widgets de tous niveaux",
   "notes": [
-    "L’assistant s’occupe de l’entretien : si la dernière sauvegarde du dossier a plus de sept jours (Ma classe restée ouverte toute la semaine, ou sauvegarde qui a échoué), une carte propose « Sauvegarder maintenant ». Si des erreurs ont été notées sur ce poste, « Copier le journal » le met dans le presse-papiers, prêt à coller dans un message.",
-    "Fin de semaine : le dernier jour de classe fini et son bilan complet, l’assistant propose d’écrire le rapport de la semaine dans le dossier « rapports ». Si vous tenez un cahier journal dans Word, il propose aussi de créer celui de la semaine suivante, rempli de ce qui est préparé (Annuler le retire tant qu’il n’a pas été modifié).",
-    "Fin de période : dans les cinq derniers jours de classe avant des vacances, si vous utilisez Résultats, une carte rappelle les bilans du livret à finir, les informations du LSU qui manquent et les compétences de la période jamais évaluées. C’est un rappel : rien n’est écrit à votre place, aucun prénom n’y figure.",
-    "Application Windows : quand une appli installée depuis le Store a une nouvelle version, l’assistant propose de la mettre à jour (code demandé, données de l’appli gardées).",
-    "Dans « Ce que l’assistant peut faire… », une action qui ne fait que rappeler se règle sur « Désactivée » ou « Signaler » ; la sauvegarde et le rapport de la semaine peuvent aussi être « Automatique »."
+    "Cinq nouveaux widgets sur l’Accueil, utiles de la GS au CM2, dans deux nouveaux groupes de la fenêtre « Ajouter un widget ».",
+    "Nombre du jour et Calcul mental : le même nombre et la même série que l’onglet Rituels, au niveau et à la période réglés (pastille « CM2 · P2 »). Un clic sur une question montre la réponse ; « Autre nombre », « Tout montrer » et « Nouvelle série » d’un clic.",
+    "Devoirs : ce qu’il y a à faire pour le prochain jour de classe (‹ › pour un autre jour, ✎ pour écrire, une ligne par devoir). Le remplaçant peut aussi les noter.",
+    "J’ai fini : le plan de travail affiché pour les élèves qui ont terminé, écrit par vous (en lecture seule en remplacement).",
+    "Agenda de la classe : les prochains événements du calendrier et les jours d’école avant les vacances ; un clic ouvre le calendrier."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6203065,
-      "sha256": "513a3d1b8c07eb67d98bb1ce56d2386b809c8e9923b0879b0cb57286b66f352b"
+      "taille": 6223376,
+      "sha256": "c7211e710f9a97e0e27204c6564aca79ddb6f9cb59a4c37e2310edfab183aac3"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6203065,
-      "sha256": "513a3d1b8c07eb67d98bb1ce56d2386b809c8e9923b0879b0cb57286b66f352b"
+      "taille": 6223376,
+      "sha256": "c7211e710f9a97e0e27204c6564aca79ddb6f9cb59a4c37e2310edfab183aac3"
     }
   }
 }

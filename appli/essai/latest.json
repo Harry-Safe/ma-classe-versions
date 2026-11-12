@@ -1,11 +1,11 @@
 {
-  "version": "5.2.28",
-  "notes": "L’assistant s’occupe de l’entretien : si la dernière sauvegarde du dossier a plus de sept jours (Ma classe restée ouverte toute la semaine, ou sauvegarde qui a échoué), une carte propose « Sauvegarder maintenant ». Si des erreurs ont été notées sur ce poste, « Copier le journal » le met dans le presse-papiers, prêt à coller dans un message.\nFin de semaine : le dernier jour de classe fini et son bilan complet, l’assistant propose d’écrire le rapport de la semaine dans le dossier « rapports ». Si vous tenez un cahier journal dans Word, il propose aussi de créer celui de la semaine suivante, rempli de ce qui est préparé (Annuler le retire tant qu’il n’a pas été modifié).\nFin de période : dans les cinq derniers jours de classe avant des vacances, si vous utilisez Résultats, une carte rappelle les bilans du livret à finir, les informations du LSU qui manquent et les compétences de la période jamais évaluées. C’est un rappel : rien n’est écrit à votre place, aucun prénom n’y figure.\nApplication Windows : quand une appli installée depuis le Store a une nouvelle version, l’assistant propose de la mettre à jour (code demandé, données de l’appli gardées).\nDans « Ce que l’assistant peut faire… », une action qui ne fait que rappeler se règle sur « Désactivée » ou « Signaler » ; la sauvegarde et le rapport de la semaine peuvent aussi être « Automatique ».",
-  "pub_date": "2026-11-12T22:32:53Z",
+  "version": "5.2.29",
+  "notes": "Cinq nouveaux widgets sur l’Accueil, utiles de la GS au CM2, dans deux nouveaux groupes de la fenêtre « Ajouter un widget ».\nNombre du jour et Calcul mental : le même nombre et la même série que l’onglet Rituels, au niveau et à la période réglés (pastille « CM2 · P2 »). Un clic sur une question montre la réponse ; « Autre nombre », « Tout montrer » et « Nouvelle série » d’un clic.\nDevoirs : ce qu’il y a à faire pour le prochain jour de classe (‹ › pour un autre jour, ✎ pour écrire, une ligne par devoir). Le remplaçant peut aussi les noter.\nJ’ai fini : le plan de travail affiché pour les élèves qui ont terminé, écrit par vous (en lecture seule en remplacement).\nAgenda de la classe : les prochains événements du calendrier et les jours d’école avant les vacances ; un clic ouvre le calendrier.",
+  "pub_date": "2026-11-12T23:42:11Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.28_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.29_x64-setup-essai.exe"
     }
   }
 }
