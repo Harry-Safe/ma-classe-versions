@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-12 — Essai 5.2.27 sur le canal d'essai (pages et application) : classe de démonstration et tutoriels où l'on fait le geste
+
+- **Autorisation :** Franck : « Fais le lot 5 » (audit de l'assistant) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `1f8418b` (journal de l'essai 5.2.26, source `b4b11c6`). Source : `Ma-classe` `essai` `cf0fe1a` (5.2.26 + `claude/assistant-lot-5`), numérotée par `build/numeroter-essai.py` ; suite complète locale 83 verts sur 83 sur la branche de travail (`8284288`), scénarios rapides relancés sur l'essai numéroté.
+- **Préparation :** `publier-version.py --canal essai` (garde passée) puis `publier-appli.py --canal essai` (configuration d'exemple seule) ; diff : `essai/` (deux pages, identiques), `entrees/essai.json`, `entrees/essai.source` (`cf0fe1a`), `appli/essai/latest.json` ; stable, coquille stable et catalogue des applis inchangés.
+- **Livraison :** avance rapide de `main` `1f8418b..2626c79`, sans forçage. Action « Publier les mises à jour » `43310288322` réussie (« versions.json signé : essai 5.2.27, stable 5.2.0 », `Ma-classe_5.2.27_x64-setup-essai.exe` signé).
+- **À vérifier sur le PC :** la classe de démonstration s'ouvre dans un cadre ; elle n'a été testée que dans le navigateur, pas dans l'application Windows.
+
 ## 2026-11-12 — Essai 5.2.26 sur le canal d'essai (pages et application) : recherche dans Ma classe (Ctrl K) et vingt nouveaux tutoriels
 
 - **Autorisation :** Franck : « Fais les lots 3 et 4 » (audit de l'assistant) ; règle permanente du canal d'essai. Stable non concerné.
