@@ -1,23 +1,23 @@
 {
-  "version": "5.2.24",
+  "version": "5.2.25",
   "date": "2026-11-12",
-  "titre": "Essai : Fiches de préparation : En ce moment et Consignes lisent la fiche",
+  "titre": "Essai : L'assistant agit : bilan, reports, cantine, métiers, rapport",
   "notes": [
-    "Fiches de préparation : dans Préparer › Journée, à côté de « Le jour », « La semaine » et « Emploi du temps », un nouvel écran garde une fiche par séance : objectif, matériel, phases (durée, modalité, ce que je fais, consigne des élèves), différenciation, bilan. Chaque fiche s’imprime ou s’enregistre en PDF, se duplique, se lie à une activité (depuis la fiche, ou par « Joindre › Fiche » sur l’activité).",
-    "« En ce moment » lit la fiche de l’activité en cours : objectif, bande des phases, phase en cours d’après l’heure (ou choisie d’un clic) avec ce qu’il reste, ce que je fais et la consigne ; un bouton ouvre la fiche entière, un autre lance le minuteur de la phase.",
-    "« Consignes » lit la même fiche : la consigne de la phase en cours s’affiche en grand, on passe d’une phase à l’autre, et la consigne corrigée à l’écran est enregistrée dans la fiche. Sans fiche, rien ne change.",
-    "« Ensuite » rappelle le matériel à sortir pour l’activité suivante."
+    "L’assistant agit, sur votre clic : ses cartes proposent maintenant de faire, et plus seulement d’ouvrir. « Tout est fait » note faites les activités sans bilan ; « Reporter la suite… » montre où irait chaque activité à reprendre (prochain créneau de la même matière) avant d’écrire ; « Valider les repas » valide la cantine une fois l’appel du matin fait ; « Attribuer les métiers » lance la rotation de la semaine ; « Écrire le rapport » range le rapport du jour quand le bilan est complet. Un second bouton ouvre toujours l’écran concerné pour vérifier ou détailler.",
+    "« Ce que j’ai fait aujourd’hui » : chaque action est notée sous les conseils, avec un bouton « Annuler ». Aucun prénom n’y figure.",
+    "Sous « Le point du jour », les gestes de l’activité en cours : le minuteur jusqu’à sa fin et ce qui lui est joint (consignes, documents, site, séance, fiche), depuis n’importe quel écran.",
+    "« Ce que l’assistant peut faire… » (au pied des conseils, protégé par le code) : chaque action se règle sur « Désactivée », « Proposer » (au départ) ou, pour les métiers et le rapport du jour seulement, « Automatique ». Une action faite seule est notée et signalée par la pastille du robot. L’appel n’est jamais validé à votre place."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6103522,
-      "sha256": "ebe7b223af9b329d94c235a92c371e0d49274bdbcf990da3c38fb4b95d4dd167"
+      "taille": 6131558,
+      "sha256": "14015a90054797f16db8d8498a8027137bdc333652e6516e6aabf3fa6dfd94cc"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6103522,
-      "sha256": "ebe7b223af9b329d94c235a92c371e0d49274bdbcf990da3c38fb4b95d4dd167"
+      "taille": 6131558,
+      "sha256": "14015a90054797f16db8d8498a8027137bdc333652e6516e6aabf3fa6dfd94cc"
     }
   }
 }

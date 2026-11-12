@@ -1,11 +1,11 @@
 {
-  "version": "5.2.24",
-  "notes": "Fiches de préparation : dans Préparer › Journée, à côté de « Le jour », « La semaine » et « Emploi du temps », un nouvel écran garde une fiche par séance : objectif, matériel, phases (durée, modalité, ce que je fais, consigne des élèves), différenciation, bilan. Chaque fiche s’imprime ou s’enregistre en PDF, se duplique, se lie à une activité (depuis la fiche, ou par « Joindre › Fiche » sur l’activité).\n« En ce moment » lit la fiche de l’activité en cours : objectif, bande des phases, phase en cours d’après l’heure (ou choisie d’un clic) avec ce qu’il reste, ce que je fais et la consigne ; un bouton ouvre la fiche entière, un autre lance le minuteur de la phase.\n« Consignes » lit la même fiche : la consigne de la phase en cours s’affiche en grand, on passe d’une phase à l’autre, et la consigne corrigée à l’écran est enregistrée dans la fiche. Sans fiche, rien ne change.\n« Ensuite » rappelle le matériel à sortir pour l’activité suivante.",
-  "pub_date": "2026-11-12T17:22:33Z",
+  "version": "5.2.25",
+  "notes": "L’assistant agit, sur votre clic : ses cartes proposent maintenant de faire, et plus seulement d’ouvrir. « Tout est fait » note faites les activités sans bilan ; « Reporter la suite… » montre où irait chaque activité à reprendre (prochain créneau de la même matière) avant d’écrire ; « Valider les repas » valide la cantine une fois l’appel du matin fait ; « Attribuer les métiers » lance la rotation de la semaine ; « Écrire le rapport » range le rapport du jour quand le bilan est complet. Un second bouton ouvre toujours l’écran concerné pour vérifier ou détailler.\n« Ce que j’ai fait aujourd’hui » : chaque action est notée sous les conseils, avec un bouton « Annuler ». Aucun prénom n’y figure.\nSous « Le point du jour », les gestes de l’activité en cours : le minuteur jusqu’à sa fin et ce qui lui est joint (consignes, documents, site, séance, fiche), depuis n’importe quel écran.\n« Ce que l’assistant peut faire… » (au pied des conseils, protégé par le code) : chaque action se règle sur « Désactivée », « Proposer » (au départ) ou, pour les métiers et le rapport du jour seulement, « Automatique ». Une action faite seule est notée et signalée par la pastille du robot. L’appel n’est jamais validé à votre place.",
+  "pub_date": "2026-11-12T18:40:29Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.24_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.25_x64-setup-essai.exe"
     }
   }
 }

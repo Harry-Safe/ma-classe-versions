@@ -2,6 +2,12 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-12 — Essai 5.2.25 sur le canal d'essai (pages et application) : l'assistant agit (bilan, reports, cantine, métiers, rapport)
+
+- **Autorisation :** Franck : « Prends en compte les derniers changements opérés et fais le lot 2 » (audit de l'assistant) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `0317943` (journal de l'essai 5.2.24, source `f3de8d3`). Source : `Ma-classe` `essai` `870963c` (5.2.24 + `claude/assistant-lot-2`), numérotée par `build/numeroter-essai.py` ; suite complète locale 81 sur 81 sur la branche de travail, « Tout est bon. » ; après numérotation, `mises_a_jour`, `chargement`, `assistant_actions` et `assistant` verts.
+- **Préparation :** `publier-version.py --canal essai` (garde passée) puis `publier-appli.py --canal essai` (configuration d'exemple seule) ; diff : `essai/` (deux pages, identiques), `entrees/essai.json`, `entrees/essai.source` (`870963c`), `appli/essai/latest.json` ; stable, coquille stable et catalogue des applis inchangés.
+
 ## 2026-11-12 — Essai 5.2.24 sur le canal d'essai (pages et application) : fiches de préparation ; « En ce moment » et « Consignes » lisent la fiche
 
 - **Autorisation :** Franck, 12 novembre, 16 h 58 : « Je veux que le widget En ce moment ainsi que Consigne change. Les deux doivent désormais partager la même chose : une fiche de préparation simplifiée. » ; règle permanente du canal d'essai. Stable non concerné.
