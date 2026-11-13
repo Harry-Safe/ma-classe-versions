@@ -71,8 +71,11 @@ fn retenir(app: &AppHandle, chemin: &str) -> Result<(), String> {
 }
 
 /// Le chemin demandé par la page, s'il est dans le dossier retenu ; sinon une erreur (rien n'est fait).
+/// « E: » seul (la page retire la barre finale : dossier retenu à la racine d'une clé USB) vaut « E:/ ».
 fn permis(app: &AppHandle, chemin: &str) -> Result<PathBuf, String> {
-    chemins::dans_racine(&racine(app)?, Path::new(chemin))
+    let lecteur = chemin.len() == 2 && chemin.ends_with(':') && chemin.as_bytes()[0].is_ascii_alphabetic();
+    let c = if lecteur { format!("{chemin}/") } else { chemin.to_string() };
+    chemins::dans_racine(&racine(app)?, Path::new(&c))
 }
 
 /// Contenu d'un dossier (noms et nature).
