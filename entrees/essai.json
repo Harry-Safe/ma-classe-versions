@@ -1,28 +1,20 @@
 {
-  "version": "5.2.31",
+  "version": "5.2.32",
   "date": "2026-11-13",
-  "titre": "Essai : Accueil : mot et phrase du jour, ce jour-là, carte et œuvre",
+  "titre": "Essai : Billets sans la mention SPECIMEN",
   "notes": [
-    "Deux nouveaux widgets pour l'Accueil, dans « Rituels de tous niveaux » : Mot du jour et Phrase du jour. Ce sont les mêmes que dans l'onglet Rituels : ce que vous écrivez d'un côté apparaît de l'autre.",
-    "Mot du jour : le mot en grand avec le défi de votre niveau ; ✎ pour l'écrire (la phrase reste) ; « Piocher » propose un mot de la Lecture flash ; en grande taille, il s'affiche aussi en cursive sur Seyès.",
-    "Phrase du jour : chaque mot se touche. Au CP, un clic numérote les mots pour les compter ; au CE1 et au CE2, verbe puis sujet ; au CM1 et au CM2, aussi le complément. « Effacer » retire tout. Au CP, « Déchiffrable » montre l'analyse des sons étudiés.",
-    "Le remplaçant peut écrire le mot et la phrase du jour.",
-    "Nouveau groupe de widgets « Culture et découverte », pour la GS au CM2.",
-    "« Ce jour-là » : un fait marquant pour chaque jour de l'année et « il y a combien d'années » ; un clic montre le calcul",
-    "« Où est-ce ? » : une carte avec un lieu à trouver (continents, pays, régions, villes, fleuves… selon le niveau) ; un",
-    "« Œuvre du jour » : une peinture, une sculpture, un monument ou une musique, avec deux questions pour la classe. Vous",
-    "Le contenu reste le même toute la journée ; « Autre » en propose un autre."
+    "Monnaie : les billets n’affichent plus la mention SPECIMEN, puisqu’ils servent seulement à l’affichage au tableau pour les élèves. Le billet de 10 € reste net et opaque."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6300098,
-      "sha256": "b2aff8451f9c4bb99fb4e62509676c734a58655a63c1be29c4726af679565d18"
+      "taille": 6272231,
+      "sha256": "f41fa4f9d88eb131c46de7dda2d2cc33a4530cc47fc83016b89bcd87330053a4"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6300098,
-      "sha256": "b2aff8451f9c4bb99fb4e62509676c734a58655a63c1be29c4726af679565d18"
+      "taille": 6272231,
+      "sha256": "f41fa4f9d88eb131c46de7dda2d2cc33a4530cc47fc83016b89bcd87330053a4"
     }
   }
 }

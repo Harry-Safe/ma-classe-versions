@@ -1,11 +1,11 @@
 {
-  "version": "5.2.31",
-  "notes": "Deux nouveaux widgets pour l'Accueil, dans « Rituels de tous niveaux » : Mot du jour et Phrase du jour. Ce sont les mêmes que dans l'onglet Rituels : ce que vous écrivez d'un côté apparaît de l'autre.\nMot du jour : le mot en grand avec le défi de votre niveau ; ✎ pour l'écrire (la phrase reste) ; « Piocher » propose un mot de la Lecture flash ; en grande taille, il s'affiche aussi en cursive sur Seyès.\nPhrase du jour : chaque mot se touche. Au CP, un clic numérote les mots pour les compter ; au CE1 et au CE2, verbe puis sujet ; au CM1 et au CM2, aussi le complément. « Effacer » retire tout. Au CP, « Déchiffrable » montre l'analyse des sons étudiés.\nLe remplaçant peut écrire le mot et la phrase du jour.\nNouveau groupe de widgets « Culture et découverte », pour la GS au CM2.\n« Ce jour-là » : un fait marquant pour chaque jour de l'année et « il y a combien d'années » ; un clic montre le calcul\n« Où est-ce ? » : une carte avec un lieu à trouver (continents, pays, régions, villes, fleuves… selon le niveau) ; un\n« Œuvre du jour » : une peinture, une sculpture, un monument ou une musique, avec deux questions pour la classe. Vous\nLe contenu reste le même toute la journée ; « Autre » en propose un autre.",
-  "pub_date": "2026-11-13T07:22:14Z",
+  "version": "5.2.32",
+  "notes": "Monnaie : les billets n’affichent plus la mention SPECIMEN, puisqu’ils servent seulement à l’affichage au tableau pour les élèves. Le billet de 10 € reste net et opaque.",
+  "pub_date": "2026-11-13T07:57:12Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.31_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.32_x64-setup-essai.exe"
     }
   }
 }
