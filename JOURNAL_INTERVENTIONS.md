@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-13 — Essai 5.2.31 sur le canal d'essai (pages et application) : Accueil, mot et phrase du jour, ce jour-là, carte et œuvre
+
+- **Autorisation :** Franck : « Lance les deux lots en parallèle » (lots 3 et 4 des widgets de l'Accueil) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `96cd9df` (journal de l'essai 5.2.30). Source : `Ma-classe` `essai` `8e9cddc` (5.2.30 + `claude/accueil-widgets-lot3` + `claude/accueil-widgets-lot4`), numérotée par `build/numeroter-essai.py` ; suite complète locale 87 verts sur 88, le test en échec (attente trop courte sous charge) vert seul et rendu plus patient, voir le journal du dépôt source.
+- **Préparation :** `publier-version.py --canal essai` (garde passée) puis `publier-appli.py --canal essai` ; diff : `essai/` (deux pages), `entrees/essai.json`, `entrees/essai.source` (`8e9cddc`), `appli/essai/latest.json` ; stable, coquille stable et catalogue des applis inchangés.
+- **Livraison :** avance rapide de `main` `96cd9df..5d64b0a`, sans forçage. Action « Publier les mises à jour » `43385277864` réussie (« versions.json signé : essai 5.2.31, stable 5.2.0 », `Ma-classe_5.2.31_x64-setup-essai.exe`).
+- **À vérifier sur le PC :** lisibilité au vidéoprojecteur de la phrase analysée et de la carte.
+
 ## 2026-11-13 — Essai 5.2.30 sur le canal d'essai (pages et application) : outils plus légers et plus justes
 
 - **Autorisation :** Franck : « Fais ça, lance les en parallèle chacune sur sa branche. On garde le lot 5 pour la fin. » (lots 1 à 3 de l'audit des outils) ; règle permanente du canal d'essai. Stable non concerné.
