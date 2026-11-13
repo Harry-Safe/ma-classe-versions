@@ -1,24 +1,33 @@
 {
-  "version": "5.2.29",
+  "version": "5.2.30",
   "date": "2026-11-13",
-  "titre": "Essai : Accueil : widgets de tous niveaux",
+  "titre": "Essai : Outils plus légers et plus justes (audit des outils, lots 1 à 3)",
   "notes": [
-    "Cinq nouveaux widgets sur l’Accueil, utiles de la GS au CM2, dans deux nouveaux groupes de la fenêtre « Ajouter un widget ».",
-    "Nombre du jour et Calcul mental : le même nombre et la même série que l’onglet Rituels, au niveau et à la période réglés (pastille « CM2 · P2 »). Un clic sur une question montre la réponse ; « Autre nombre », « Tout montrer » et « Nouvelle série » d’un clic.",
-    "Devoirs : ce qu’il y a à faire pour le prochain jour de classe (‹ › pour un autre jour, ✎ pour écrire, une ligne par devoir). Le remplaçant peut aussi les noter.",
-    "J’ai fini : le plan de travail affiché pour les élèves qui ont terminé, écrit par vous (en lecture seule en remplacement).",
-    "Agenda de la classe : les prochains événements du calendrier et les jours d’école avant les vacances ; un clic ouvre le calendrier."
+    "Sur un ordinateur ancien, l'Accueil ne travaille plus pour rien : la barre « Encore … minutes » (et le filet de la barre de menus) avance sans animation permanente, ce qui supprime une soixantaine de recalculs d'affichage par seconde.",
+    "Le reflet de lumière qui suit la souris sur les fenêtres ne s'active plus en mode léger ni avec « animations réduites », et coûte environ cinq fois moins de calcul quand il est actif.",
+    "Le chronomètre et le minuteur ne réécrivent leur affichage que lorsqu'il change ; le minuteur ne touche plus à la barre quand sa fenêtre est fermée.",
+    "Le thermomètre n'enregistre sa valeur qu'une fois le geste terminé, au lieu de chaque cran.",
+    "Le minuteur descend maintenant jusqu'à 30 secondes : nouveau bouton « 30 s » en tête des durées, et « − 1 » s'arrête à 30 s.",
+    "Horloge : le CP travaille les heures entières (aiguilles jusqu'à 12 ; « Au hasard » et « À placer » tirent une heure entière), avec une case « demi-heures » pour les élèves avancés ; le CE1 travaille les demi-heures et les quarts d'heure sur 24 heures ; le CE2 lit à la minute et calcule des durées. Lecture du programme à confirmer par Franck.",
+    "Horloge : plus de « midi moins le quart du matin » ni de « minuit moins le quart du soir ».",
+    "Tableau des nombres : le choix « ≤ 100 » affiche 100 (dès 1 : dix lignes complètes ; dès 0 : 100 seul sur sa ligne).",
+    "Droite graduée : après un zoom, la liste montre toujours le vrai pas (2,5 ; 0,2 ; 0,05…) et on peut zoomer encore jusqu'à 0,001 ; quand le début vaut 0, le trait part de 0.",
+    "Tableau de conversion : les grands nombres s'écrivent avec l'espace des milliers (1 500 g, 2 000 kg).",
+    "Balance, mode Égalités : « Égalité : les deux côtés valent autant » et « plus grand / plus petit » au lieu de la masse.",
+    "Les nombres de 1 000 et plus s'écrivent correctement en lettres (thermomètre personnalisé).",
+    "Espace démarre ou arrête la fenêtre du dessus parmi le minuteur, le chronomètre et le flash de la table de multiplication.",
+    "Monnaie : les images des billets portent maintenant la mention SPECIMEN en diagonale et sont moins définies (72 points par pouce au plus), comme le demande la Banque centrale européenne pour une page publiée ; le billet de 10 € n’est plus transparent (son grand « 10 » paraissait vert sur le tapis) et retrouve ses couleurs. Les pièces ne changent pas."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6223376,
-      "sha256": "c7211e710f9a97e0e27204c6564aca79ddb6f9cb59a4c37e2310edfab183aac3"
+      "taille": 6175752,
+      "sha256": "6aa0c2387ada711bca0a4b6bff320f3658015fdf37319339633eb22c074c356d"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6223376,
-      "sha256": "c7211e710f9a97e0e27204c6564aca79ddb6f9cb59a4c37e2310edfab183aac3"
+      "taille": 6175752,
+      "sha256": "6aa0c2387ada711bca0a4b6bff320f3658015fdf37319339633eb22c074c356d"
     }
   }
 }
