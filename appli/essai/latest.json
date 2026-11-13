@@ -1,7 +1,7 @@
 {
   "version": "5.2.33",
   "notes": "Sécurité : un document Word envoyé par un collègue ne peut plus glisser de code dans Ma classe par ses couleurs, son surlignage, ses tailles ou ses cellules fusionnées. Les vraies couleurs et le surlignage s'affichent comme avant (les teintes foncées de Word aussi, désormais).\nSécurité : une séance de tableau ou un fichier « .tableau.json » modifié en dehors de Ma classe est refusé avec un message, au lieu d'être ouvert. Vos séances s'ouvrent comme avant, avec tous leurs textes.\nSécurité : la vignette d'un tableau dans les Documents n'affiche qu'une image intégrée, et une image d'un tableau ne peut plus charger une adresse extérieure.\nSécurité : un plan de classe ouvert depuis un fichier est recopié champ par champ ; seuls les meubles, règles et réglages connus sont gardés.\nDonnées personnelles : trois exemples des textes d'aide ne citent plus ni ville ni prénom.",
-  "pub_date": "2026-11-13T13:27:07Z",
+  "pub_date": "2026-11-13T14:39:51Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",

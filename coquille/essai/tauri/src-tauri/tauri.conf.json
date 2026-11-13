@@ -21,7 +21,23 @@
       }
     ],
     "security": {
-      "csp": null
+      "csp": {
+        "default-src": "'self'",
+        "script-src": "'self'",
+        "style-src": "'self' 'unsafe-inline'",
+        "img-src": "'self' data: blob:",
+        "font-src": "'self' data:",
+        "media-src": "'self' data: blob:",
+        "connect-src": "'self' ipc: http://ipc.localhost https://harry-safe.github.io data: blob:",
+        "worker-src": "'self' blob:",
+        "frame-src": "'self' blob: https: http: appli:",
+        "object-src": "'none'",
+        "base-uri": "'self'",
+        "form-action": "'self'"
+      },
+      "dangerousDisableAssetCspModification": [
+        "style-src"
+      ]
     }
   },
   "bundle": {
