@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-13 — Essai 5.2.32 sur le canal d'essai (pages et application) : billets sans la mention SPECIMEN
+
+- **Autorisation :** Franck : « Pas de mention spécimen, car c'est pour afficher au tableau seulement, pour des enfants. » ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `2589475` (journal de l'essai 5.2.31). Source : `Ma-classe` `essai` `e833c82` (5.2.31 + `claude/billets-sans-specimen`), numérotée par `build/numeroter-essai.py` ; suite complète locale 88 verts sur 88.
+- **Préparation :** `publier-version.py --canal essai` (garde passée, configuration d'exemple seule) puis `publier-appli.py --canal essai` ; diff : `essai/` (deux pages), `entrees/essai.json`, `entrees/essai.source` (`e833c82`), `appli/essai/latest.json` ; stable, coquille stable et catalogue inchangés.
+- **Livraison :** avance rapide de `main` `2589475..b9fad11`, sans forçage. Action « Publier les mises à jour » `43389457124` réussie (« versions.json signé : essai 5.2.32, stable 5.2.0 »).
+
 ## 2026-11-13 — Essai 5.2.31 sur le canal d'essai (pages et application) : Accueil, mot et phrase du jour, ce jour-là, carte et œuvre
 
 - **Autorisation :** Franck : « Lance les deux lots en parallèle » (lots 3 et 4 des widgets de l'Accueil) ; règle permanente du canal d'essai. Stable non concerné.
