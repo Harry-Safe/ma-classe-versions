@@ -116,6 +116,11 @@ par `npm ci --ignore-scripts` (le `package-lock.json` de la coquille, copié par
 `cargo --locked` (son `Cargo.lock`, dont `fabriquer-appli.py` reporte le numéro de version). Une coquille publiée
 avant ce lot n'a pas de `package-lock.json` : `npm install`, avec un avertissement.
 
+**Changement de la clé des installateurs** (décision de Franck) : la version qui apporte la nouvelle `CLE_MAJ` est encore
+signée avec l'ancienne clé, que vérifient les applications installées ; le contrôle de `signer-appli.py` la refuserait.
+Pendant ce passage seulement, écrire l'**ancienne clé publique** (texte base64 de `CLE_MAJ`) dans
+`outils/cle-precedente.txt`, puis retirer ce fichier une fois le secret changé.
+
 ## 3 bis. Pourquoi l'installateur est fabriqué ici
 
 Décision de Franck du **9 novembre 2026** : les minutes GitHub du dépôt privé `Ma-classe` sont limitées, celles d'un

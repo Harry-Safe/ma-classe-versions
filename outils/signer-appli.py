@@ -51,6 +51,21 @@ def cle_application(canal):
     return m.group(1)
 
 
+def cles_acceptees(canal):
+    """CLE_MAJ de la coquille, plus, pendant un changement de clé seulement, l'ancienne clé publique (celle des
+    applications déjà installées, qui vérifient la mise à jour) écrite dans outils/cle-precedente.txt."""
+    f = ICI / "outils" / "cle-precedente.txt"
+    return [cle_application(canal)] + ([f.read_text(encoding="utf-8").strip()] if f.exists() else [])
+
+
+def verifier_une(exe, signature, cles, version):
+    erreur = None
+    for cle in cles:
+        try: return verifier(exe, signature, cle, version)
+        except ValueError as e: erreur = erreur or e
+    raise erreur
+
+
 def verifier(exe, signature, cle, version):
     """Même contrôle que l'application : minisign (Ed25519 ; « ED » = empreinte BLAKE2b-512 du fichier), puis
     signature du commentaire de confiance, qui doit nommer ce fichier ; version du nom = version annoncée."""
@@ -75,7 +90,7 @@ def verifier(exe, signature, cle, version):
     if not m or m.group(1) != version: raise ValueError(f"version du fichier signé ({m and m.group(1)}) différente de {version}")
 
 
-def signer(fiche, tauri, env, cle, ecrire=True):
+def signer(fiche, tauri, env, cles, ecrire=True):
     f = json.loads(fiche.read_text(encoding="utf-8"))
     for nom, p in f["platforms"].items():
         exe = fiche.parent / p["url"].rsplit("/", 1)[-1]
@@ -83,7 +98,7 @@ def signer(fiche, tauri, env, cle, ecrire=True):
         subprocess.run([tauri, "signer", "sign", str(exe)], check=True, env=env)
         sigf = exe.parent / (exe.name + ".sig")
         signature = sigf.read_text(encoding="utf-8").strip()
-        try: verifier(exe, signature, cle, f["version"])
+        try: verifier_une(exe, signature, cles, f["version"])
         except ValueError as e: sys.exit(f"{exe.name} : {e} : rien n'est publié")
         print(f"{fiche.parent.name} · {nom} : {exe.name} signé, signature vérifiée comme dans l'application")
         if ecrire: p["signature"] = signature
@@ -104,13 +119,13 @@ def a_blanc(tauri):
         env = {**os.environ, "TAURI_SIGNING_PRIVATE_KEY": k.read_text(encoding="utf-8").strip(), "TAURI_SIGNING_PRIVATE_KEY_PASSWORD": ""}
         jetable = (Path(t) / "jetable.key.pub").read_text(encoding="utf-8").strip()
         for fiche, canal in fiches():
-            signer(fiche, tauri, env, jetable, ecrire=False)
+            signer(fiche, tauri, env, [jetable], ecrire=False)
             f = json.loads(fiche.read_text(encoding="utf-8"))
             for p in f["platforms"].values():
                 exe = fiche.parent / p["url"].rsplit("/", 1)[-1]
                 subprocess.run([tauri, "signer", "sign", str(exe)], check=True, env=env, capture_output=True)
                 sigf = exe.parent / (exe.name + ".sig")
-                try: verifier(exe, sigf.read_text(encoding="utf-8"), cle_application(canal), f["version"])
+                try: verifier_une(exe, sigf.read_text(encoding="utf-8"), cles_acceptees(canal), f["version"])
                 except ValueError: print(f"{canal} : clé jetable bien refusée par la clé de l'application")
                 else: sys.exit(f"{canal} : une signature de clé jetable passe le contrôle : contrôle défaillant")
                 finally: sigf.unlink()
@@ -123,7 +138,7 @@ def main():
     if not fiches(): return print("pas d'application à signer")
     if not os.environ.get("TAURI_SIGNING_PRIVATE_KEY"): sys.exit("secret TAURI_SIGNING_PRIVATE_KEY absent : l'application ne peut pas être publiée")
     env = {**os.environ, "TAURI_SIGNING_PRIVATE_KEY_PASSWORD": ""}
-    for fiche, canal in fiches(): signer(fiche, tauri, env, cle_application(canal))
+    for fiche, canal in fiches(): signer(fiche, tauri, env, cles_acceptees(canal))
 
 
 if __name__ == "__main__":
