@@ -2,6 +2,15 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-13 — Essai 5.2.35 sur le canal d'essai (pages et application) : sécurité de l'application Windows
+
+- **Autorisation :** Franck : « Corrigé ce qu'il faut et fait le lot b » (lot B de l'audit de sécurité) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `1800ffc` (journal de l'essai 5.2.34) ; aucune pull request. Source : `Ma-classe` `essai` `994ac0b` (5.2.34 + `claude/lot-b-application`, réunie avec la 5.2.34 publiée entre-temps), numérotée par `build/numeroter-essai.py` ; suite complète locale 90 verts sur 90 ; coquille compilée pour Windows au préalable par la branche de fabrication seule `claude/fabrication-lot-b-2` (action `43458300778`, rien de signé ni publié).
+- **Préparation :** `publier-version.py --canal essai` puis `publier-appli.py --canal essai` ; diff : `essai/` (deux pages), `entrees/essai.json`, `entrees/essai.source` (`994ac0b`), `appli/essai/latest.json`, coquille d'essai (`lib.rs`, `tauri.conf.json`, `chemins.rs` nouveau).
+- **Livraison :** avance rapide de `main` `1800ffc..b239835`, sans forçage. Action « Publier les mises à jour » `43464627231` réussie (« versions.json signé : essai 5.2.35, stable 5.2.0 », `Ma-classe_5.2.35_x64-setup-essai.exe` fabriqué et signé, pages déployées).
+- **Reste :** branches `claude/fabrication-lot-b` et `claude/fabrication-lot-b-2` (fabrication seule) non supprimées, l'accès en écriture le refusant ; sans effet sur les publications.
+- **À vérifier sur le PC :** après la mise à jour, l'application s'ouvre sur le dossier « Ma classe » sans le redemander ; PDF, Word, images, Accueil et applis du Store fonctionnent ; un site extérieur s'ouvre toujours dans sa fenêtre.
+
 ## 2026-11-13 — Essai 5.2.34 sur le canal d'essai (pages et application) : applis du Store, dossier retrouvé
 
 - **Autorisation :** Franck, en classe, après « Dossier « Ma classe » introuvable » à l'ouverture d'une appli du Store : « Oui rapidement s'il te plait » (correctif en essai) ; règle permanente du canal d'essai. Stable non concerné.
