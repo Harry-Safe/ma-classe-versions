@@ -1,22 +1,20 @@
 {
-  "version": "5.2.37",
+  "version": "5.2.38",
   "date": "2026-11-13",
-  "titre": "Essai : Remise en ordre et fiabilité",
+  "titre": "Essai : Micro et caméra des anciens sites",
   "notes": [
-    "Réglages › Journal des erreurs : un fichier illisible du dossier « Ma classe » ou une copie impossible dans le dossier (cahier journal, notice du remplaçant, séances) y est maintenant noté, au lieu de passer inaperçu.",
-    "Store des applis : l'appli technique « Essai du pont » n'est plus proposée.",
-    "Fiabilité : tout le programme fonctionne désormais en « mode strict », qui signale une erreur au lieu de l'ignorer."
+    "Sites, sécurité : le micro et la caméra sont refusés à tous les sites tant que vous ne les avez pas permis, y compris aux sites enregistrés avant le 5 novembre (bouton 🎤 dans Réglages › Sites)."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6281566,
-      "sha256": "aaad49a1a765bf9ebaa716c132cd59888c213577957e47a684acb030aa93d99e"
+      "taille": 6281672,
+      "sha256": "5c90eccd47632b60ed81807d581a66edc3d5d8dd9278f916954f5e53107984dc"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6281566,
-      "sha256": "aaad49a1a765bf9ebaa716c132cd59888c213577957e47a684acb030aa93d99e"
+      "taille": 6281672,
+      "sha256": "5c90eccd47632b60ed81807d581a66edc3d5d8dd9278f916954f5e53107984dc"
     }
   }
 }

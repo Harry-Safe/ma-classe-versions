@@ -1,11 +1,11 @@
 {
-  "version": "5.2.37",
-  "notes": "Réglages › Journal des erreurs : un fichier illisible du dossier « Ma classe » ou une copie impossible dans le dossier (cahier journal, notice du remplaçant, séances) y est maintenant noté, au lieu de passer inaperçu.\nStore des applis : l'appli technique « Essai du pont » n'est plus proposée.\nFiabilité : tout le programme fonctionne désormais en « mode strict », qui signale une erreur au lieu de l'ignorer.",
-  "pub_date": "2026-11-13T20:42:36Z",
+  "version": "5.2.38",
+  "notes": "Sites, sécurité : le micro et la caméra sont refusés à tous les sites tant que vous ne les avez pas permis, y compris aux sites enregistrés avant le 5 novembre (bouton 🎤 dans Réglages › Sites).",
+  "pub_date": "2026-11-13T21:54:40Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.37_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.38_x64-setup-essai.exe"
     }
   }
 }
