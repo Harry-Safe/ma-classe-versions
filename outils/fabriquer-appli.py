@@ -96,14 +96,23 @@ def preparer(canal):
     conf.write_text(json.dumps(c, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     cargo = TAURI / "src-tauri" / "Cargo.toml"
     cargo.write_text(re.sub(r'(?m)^version = "[^"]*"', f'version = "{v}"', cargo.read_text(encoding="utf-8"), count=1), encoding="utf-8")
+    verrou = TAURI / "src-tauri" / "Cargo.lock"     # même numéro dans Cargo.lock : la compilation se fait avec --locked
+    nom = re.search(r'(?m)^name = "([^"]+)"', cargo.read_text(encoding="utf-8")).group(1)
+    t, n = re.subn(rf'(\[\[package\]\]\nname = "{re.escape(nom)}"\nversion = )"[^"]*"', rf'\g<1>"{v}"', verrou.read_text(encoding="utf-8"), count=1)
+    if n != 1: sys.exit(f"{canal} : paquet {nom} introuvable dans Cargo.lock")
+    verrou.write_text(t, encoding="utf-8")
     print(f"{canal} : construction/ prête pour {nom} (page {len(page) // 1024} Ko)")
 
 
 def compiler(canal):
     f, nom = fiche(canal)
     v = f["version"]
-    lancer("npm install --no-audit --no-fund", TAURI)
-    lancer("npx tauri build --bundles nsis", TAURI)
+    # dépendances fixées (lot C de l'audit de sécurité) : npm ci depuis package-lock.json (versions et empreintes), sans
+    # scripts d'installation ; cargo --locked : rien d'autre que Cargo.lock. Une coquille publiée avant le lot C n'a pas
+    # de package-lock.json : npm install, comme avant (stable 5.2.0, déjà fabriquée et gardée en cache).
+    if (TAURI / "package-lock.json").exists(): lancer("npm ci --ignore-scripts --no-audit --no-fund", TAURI)
+    else: print("::warning::coquille sans package-lock.json : npm install sans empreintes"); lancer("npm install --no-audit --no-fund", TAURI)
+    lancer("npx tauri build --bundles nsis -- --locked", TAURI)
     faits = list((TAURI / "src-tauri" / "target" / "release" / "bundle" / "nsis").glob(f"*_{v}_x64-setup.exe"))
     if len(faits) != 1: sys.exit(f"installateur {v} introuvable après la fabrication : {faits}")
     shutil.rmtree(PAQUET, ignore_errors=True); PAQUET.mkdir()
