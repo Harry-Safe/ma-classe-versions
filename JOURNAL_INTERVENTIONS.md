@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-13 — Essai 5.2.30 sur le canal d'essai (pages et application) : outils plus légers et plus justes
+
+- **Autorisation :** Franck : « Fais ça, lance les en parallèle chacune sur sa branche. On garde le lot 5 pour la fin. » (lots 1 à 3 de l'audit des outils) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `01a5db6` (journal de l'essai 5.2.29). Source : `Ma-classe` `essai` `435eecb` (5.2.29 + audit des outils + `claude/outils-lot1-vieux-pc`, `claude/outils-lot2-exactitude`, `claude/outils-lot3-billets`), numérotée par `build/numeroter-essai.py` ; suite complète locale 86 verts sur 86.
+- **Préparation :** `publier-version.py --canal essai` (garde passée, configuration d'exemple seule) puis `publier-appli.py --canal essai` ; diff : `essai/` (deux pages), `entrees/essai.json`, `entrees/essai.source` (`435eecb`), `appli/essai/latest.json` ; stable, coquille stable et catalogue inchangés.
+- **Livraison :** avance rapide de `main` `01a5db6..0f89144`, sans forçage. Action « Publier les mises à jour » `43378928960` : installateurs fabriqués, mais déploiement des pages refusé par GitHub (« Fetching artifact metadata failed », puis, à la relance du seul travail, « Multiple artifacts named github-pages ») ; nouveau lancement manuel `43379463463` : même refus ; troisième lancement `43379811497`, deux minutes plus tard : réussi (« versions.json signé : essai 5.2.30, stable 5.2.0 », `Ma-classe_5.2.30_x64-setup-essai.exe`). Aucun fichier retouché entre les lancements.
+- **À vérifier sur le PC :** fluidité de l'Accueil et des fenêtres sur le PC de classe (gain mesuré seulement en simulation) ; billets marqués SPECIMEN dans la Monnaie et la numération des Tableaux.
+
 ## 2026-11-13 — Essai 5.2.29 sur le canal d'essai (pages et application) : Accueil, widgets de tous niveaux
 
 - **Autorisation :** Franck : « Fais les lots 1 et 2 » (widgets de l'Accueil utiles jusqu'au CM2) ; règle permanente du canal d'essai. Stable non concerné.
