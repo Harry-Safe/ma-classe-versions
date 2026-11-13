@@ -1,20 +1,23 @@
 {
-  "version": "5.2.34",
+  "version": "5.2.35",
   "date": "2026-11-13",
-  "titre": "Essai : Applis du Store : dossier retrouvé",
+  "titre": "Essai : Sécurité : application Windows",
   "notes": [
-    "Application Windows : une appli téléchargée dans le Store ne s'ouvre plus sur « Dossier « Ma classe » introuvable » sur un PC équipé avant novembre ; l'application retrouve seule le dossier de la classe au démarrage."
+    "Application Windows, sécurité : l'application ne lit, n'écrit et ne supprime plus rien en dehors de votre dossier « Ma classe ». Même un document piégé ne pourrait pas toucher au reste de l'ordinateur.",
+    "Application Windows, sécurité : un code glissé dans un document ne s'exécute plus, et l'application ne joint plus d'autre site que celui des mises à jour.",
+    "Application Windows : une mise à jour ne peut plus remplacer l'application par une version plus ancienne.",
+    "Application Windows : sur un ordinateur équipé dès les premières versions, le dossier retrouvé au démarrage n'est gardé que s'il s'agit bien d'un dossier « Ma classe » ; sinon, l'accueil propose de le choisir une fois."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6278985,
-      "sha256": "fe5497dc6b3c4e9ac22e43444715b313a275b6c97024579149d05b9e2182288b"
+      "taille": 6278760,
+      "sha256": "04bdc5ecd80f6f46c05f700133ebcc7c592641032bc8afb18caa78e9b9e910bf"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6278985,
-      "sha256": "fe5497dc6b3c4e9ac22e43444715b313a275b6c97024579149d05b9e2182288b"
+      "taille": 6278760,
+      "sha256": "04bdc5ecd80f6f46c05f700133ebcc7c592641032bc8afb18caa78e9b9e910bf"
     }
   }
 }

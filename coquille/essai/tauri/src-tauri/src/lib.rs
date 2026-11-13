@@ -17,10 +17,15 @@
 //!    que chaque appli ne lit et n'écrit que par le pont, pour elle seule (module Applis de la page).
 //! Les fenêtres de sites n'ont accès à aucune de ces commandes (capabilities/default.json : « main » seule) ; les
 //! applis, d'une autre origine (appli.localhost) et dans un cadre « sandbox », non plus.
+//! Depuis le 13 novembre 2026 (lot B de l'audit de sécurité), les commandes de fichiers n'agissent que DANS le dossier
+//! retenu (src/chemins.rs) : même un code glissé dans la page ne pourrait rien toucher d'autre sur l'ordinateur ; le
+//! dossier lui-même n'est jamais supprimé ni recréé, et un installateur plus ancien que l'application est refusé.
+
+mod chemins;
 
 use percent_encoding::percent_decode_str;
 use serde::Serialize;
-use std::{fs, io::ErrorKind, path::{Path, PathBuf}, time::UNIX_EPOCH};
+use std::{fs, io::ErrorKind, path::{Path, PathBuf}, sync::Mutex, time::UNIX_EPOCH};
 use tauri::{
     ipc::{InvokeBody, Request, Response},
     AppHandle, Manager, Url, WebviewUrl, WebviewWindow, WebviewWindowBuilder,
@@ -47,11 +52,38 @@ struct Infos {
     modif: u64,
 }
 
+/// Le dossier « Ma classe » retenu sur ce poste (gardé en mémoire après la première lecture du fichier du profil).
+static RACINE: Mutex<Option<String>> = Mutex::new(None);
+
+fn racine(app: &AppHandle) -> Result<PathBuf, String> {
+    if let Some(r) = RACINE.lock().map_err(texte)?.clone() {
+        return Ok(PathBuf::from(r));
+    }
+    let r = dossier_retenu(app.clone()).ok_or("aucun dossier « Ma classe » choisi sur ce poste")?;
+    *RACINE.lock().map_err(texte)? = Some(r.clone());
+    Ok(PathBuf::from(r))
+}
+
+fn retenir(app: &AppHandle, chemin: &str) -> Result<(), String> {
+    fs::write(fichier_dossier(app)?, chemin).map_err(texte)?;
+    *RACINE.lock().map_err(texte)? = Some(chemin.to_string());
+    Ok(())
+}
+
+/// Le chemin demandé par la page, s'il est dans le dossier retenu ; sinon une erreur (rien n'est fait).
+/// « E: » seul (la page retire la barre finale : dossier retenu à la racine d'une clé USB) vaut « E:/ ».
+fn permis(app: &AppHandle, chemin: &str) -> Result<PathBuf, String> {
+    let lecteur = chemin.len() == 2 && chemin.ends_with(':') && chemin.as_bytes()[0].is_ascii_alphabetic();
+    let c = if lecteur { format!("{chemin}/") } else { chemin.to_string() };
+    chemins::dans_racine(&racine(app)?, Path::new(&c))
+}
+
 /// Contenu d'un dossier (noms et nature).
 #[tauri::command]
-fn lister(chemin: String) -> Result<Vec<Entree>, String> {
+fn lister(app: AppHandle, chemin: String) -> Result<Vec<Entree>, String> {
+    let p = permis(&app, &chemin)?;
     let mut v = Vec::new();
-    for e in fs::read_dir(&chemin).map_err(texte)? {
+    for e in fs::read_dir(&p).map_err(texte)? {
         let e = e.map_err(texte)?;
         let dossier = e.path().is_dir();
         v.push(Entree { nom: e.file_name().to_string_lossy().into_owned(), dossier });
@@ -59,10 +91,11 @@ fn lister(chemin: String) -> Result<Vec<Entree>, String> {
     Ok(v)
 }
 
-/// Nature, taille et date d'un fichier ou d'un dossier ; rien s'il n'existe pas.
+/// Nature, taille et date d'un fichier ou d'un dossier ; rien s'il n'existe pas (ou s'il est hors du dossier retenu).
 #[tauri::command]
-fn infos(chemin: String) -> Option<Infos> {
-    let m = fs::metadata(&chemin).ok()?;
+fn infos(app: AppHandle, chemin: String) -> Option<Infos> {
+    let p = permis(&app, &chemin).ok()?;
+    let m = fs::metadata(&p).ok()?;
     let modif = m
         .modified()
         .ok()
@@ -74,14 +107,14 @@ fn infos(chemin: String) -> Option<Infos> {
 
 /// Octets d'un fichier (rendus tels quels à la page, sans conversion).
 #[tauri::command]
-fn lire(chemin: String) -> Result<Response, String> {
-    fs::read(&chemin).map(Response::new).map_err(texte)
+fn lire(app: AppHandle, chemin: String) -> Result<Response, String> {
+    fs::read(permis(&app, &chemin)?).map(Response::new).map_err(texte)
 }
 
 /// Écrit un fichier : le chemin est dans l'en-tête « chemin », les octets dans le corps.
 /// Écriture dans un fichier temporaire à côté, puis remplacement : un fichier n'est jamais à moitié écrit.
 #[tauri::command]
-fn ecrire(request: Request<'_>) -> Result<(), String> {
+fn ecrire(app: AppHandle, request: Request<'_>) -> Result<(), String> {
     let brut = request
         .headers()
         .get("chemin")
@@ -91,7 +124,10 @@ fn ecrire(request: Request<'_>) -> Result<(), String> {
     let InvokeBody::Raw(octets) = request.body() else {
         return Err("contenu attendu en octets".into());
     };
-    let p = PathBuf::from(&chemin);
+    let p = permis(&app, &chemin)?;
+    if chemins::est_racine(&racine(&app)?, &p) {
+        return Err("le dossier « Ma classe » n'est pas un fichier".into());
+    }
     let nom = p.file_name().map(|n| n.to_string_lossy().into_owned()).unwrap_or_default();
     let tmp = p.with_file_name(format!(".{nom}.ecriture"));
     fs::write(&tmp, octets).map_err(texte)?;
@@ -104,16 +140,20 @@ fn ecrire(request: Request<'_>) -> Result<(), String> {
 
 /// Crée UN dossier (son parent doit exister : un dossier « Ma classe » absent n'est jamais recréé vide).
 #[tauri::command]
-fn creer_dossier(chemin: String) -> Result<(), String> {
-    match fs::create_dir(&chemin) {
+fn creer_dossier(app: AppHandle, chemin: String) -> Result<(), String> {
+    match fs::create_dir(permis(&app, &chemin)?) {
         Err(e) if e.kind() != ErrorKind::AlreadyExists => Err(texte(e)),
         _ => Ok(()),
     }
 }
 
+/// Supprime un fichier ou un dossier du dossier retenu ; jamais le dossier « Ma classe » lui-même.
 #[tauri::command]
-fn supprimer(chemin: String, recursif: bool) -> Result<(), String> {
-    let p = PathBuf::from(&chemin);
+fn supprimer(app: AppHandle, chemin: String, recursif: bool) -> Result<(), String> {
+    let p = permis(&app, &chemin)?;
+    if chemins::est_racine(&racine(&app)?, &p) {
+        return Err("le dossier « Ma classe » lui-même ne se supprime pas".into());
+    }
     let r = if p.is_dir() {
         if recursif { fs::remove_dir_all(&p) } else { fs::remove_dir(&p) }
     } else {
@@ -137,19 +177,6 @@ fn dossier_retenu(app: AppHandle) -> Option<String> {
     (!c.is_empty()).then(|| c.to_string())
 }
 
-/// Poste équipé avant que l'application retienne le dossier : son chemin n'était connu que de la page (stockage du
-/// navigateur intégré), et les applis du Store (adresse appli://) ne le trouvaient pas (« Dossier « Ma classe »
-/// introuvable »). La page le transmet au démarrage ; il n'est retenu que si rien ne l'est encore et si c'est bien un
-/// dossier existant : un dossier déjà choisi n'est jamais remplacé par cette voie.
-#[tauri::command]
-fn reprendre_dossier(app: AppHandle, chemin: String) -> Result<bool, String> {
-    if dossier_retenu(app.clone()).is_some() || !Path::new(&chemin).is_dir() {
-        return Ok(false);
-    }
-    fs::write(fichier_dossier(&app)?, chemin.replace('\\', "/")).map_err(texte)?;
-    Ok(true)
-}
-
 /// Fenêtre de Windows pour choisir le dossier « Ma classe » (souvent dans Google Drive) ; le choix est retenu.
 #[tauri::command]
 async fn choisir_dossier(app: AppHandle) -> Result<Option<String>, String> {
@@ -163,9 +190,28 @@ async fn choisir_dossier(app: AppHandle) -> Result<Option<String>, String> {
         .and_then(|f| f.into_path().ok())
         .map(|p| p.to_string_lossy().replace('\\', "/"));
     if let Some(c) = &chemin {
-        fs::write(fichier_dossier(&app)?, c).map_err(texte)?;
+        retenir(&app, c)?;
     }
     Ok(chemin)
+}
+
+/// Poste équipé avant que l'application retienne le dossier : son chemin n'était connu que de la page (stockage du
+/// navigateur intégré), et les applis du Store (adresse appli://) ne le trouvaient pas (« Dossier « Ma classe »
+/// introuvable », essai 5.2.34). La page le transmet au démarrage ; depuis le lot B de l'audit de sécurité (toutes les
+/// commandes de fichiers limitées au dossier retenu), il n'est retenu que si rien ne l'est encore et s'il ressemble à
+/// un dossier « Ma classe » (chemin complet, sous-dossier « reglages ») : une page piégée ne peut pas faire retenir un
+/// autre dossier, et un dossier déjà choisi n'est jamais remplacé par cette voie. Rend vrai si c'est le dossier retenu.
+#[tauri::command]
+fn reprendre_dossier(app: AppHandle, chemin: String) -> Result<bool, String> {
+    if let Some(r) = dossier_retenu(app.clone()) {
+        return Ok(chemins::est_racine(Path::new(&r), Path::new(&chemin)));
+    }
+    let p = Path::new(&chemin);
+    if !p.is_absolute() || !p.is_dir() || !p.join("reglages").is_dir() || chemins::dans_racine(p, p).is_err() {
+        return Ok(false);
+    }
+    retenir(&app, &chemin.replace('\\', "/"))?;
+    Ok(true)
 }
 
 /// Plein écran de la fenêtre : etat vrai / faux, ou bascule ; rend l'état d'avant.
@@ -321,6 +367,13 @@ fn installer_paquet(app: AppHandle, request: Request<'_>) -> Result<(), String> 
     let cle = PublicKey::decode(&texte_b64(CLE_MAJ)?).map_err(texte)?;
     let sig = Signature::decode(&texte_b64(&signature)?).map_err(texte)?;
     cle.verify(octets, &sig, true).map_err(|e| format!("signature refusée ({e}) : installateur non installé"))?;
+    // la version vient du commentaire signé (nom du fichier signé), pas de ce que dit la page : pas de retour en arrière
+    let signee = chemins::version_signee(sig.trusted_comment()).ok_or("installateur sans numéro de version signé : non installé")?;
+    let courante = chemins::numeros(&app.package_info().version.to_string()).unwrap_or_default();
+    if chemins::plus_ancienne(&signee, &courante) {
+        return Err(format!("installateur plus ancien ({}) que l'application ({}) : non installé",
+            signee.iter().map(|n| n.to_string()).collect::<Vec<_>>().join("."), app.package_info().version));
+    }
     let p = std::env::temp_dir().join(format!("Ma-classe_{version}_x64-setup.exe"));
     fs::write(&p, octets).map_err(texte)?;
     std::process::Command::new(&p).args(["/P", "/UPDATE", "/R"]).spawn().map_err(texte)?;
@@ -343,8 +396,8 @@ pub fn run() {
         // applis du dossier « Ma classe/Applis » (module Applis de la page)
         .register_uri_scheme_protocol("appli", |ctx, requete| servir_appli(ctx.app_handle(), requete.uri().path()))
         .invoke_handler(tauri::generate_handler![
-            lister, infos, lire, ecrire, creer_dossier, supprimer, choisir_dossier, dossier_retenu, reprendre_dossier, plein_ecran, ouvrir_url, ouvrir_site,
-            installer_paquet
+            lister, infos, lire, ecrire, creer_dossier, supprimer, choisir_dossier, dossier_retenu, reprendre_dossier, plein_ecran,
+            ouvrir_url, ouvrir_site, installer_paquet
         ])
         .run(tauri::generate_context!())
         .expect("impossible de lancer Ma classe");
