@@ -1,23 +1,21 @@
 {
-  "version": "5.2.35",
+  "version": "5.2.36",
   "date": "2026-11-13",
-  "titre": "Essai : Sécurité : application Windows",
+  "titre": "Essai : Sécurité : sites et signature",
   "notes": [
-    "Application Windows, sécurité : l'application ne lit, n'écrit et ne supprime plus rien en dehors de votre dossier « Ma classe ». Même un document piégé ne pourrait pas toucher au reste de l'ordinateur.",
-    "Application Windows, sécurité : un code glissé dans un document ne s'exécute plus, et l'application ne joint plus d'autre site que celui des mises à jour.",
-    "Application Windows : une mise à jour ne peut plus remplacer l'application par une version plus ancienne.",
-    "Application Windows : sur un ordinateur équipé dès les premières versions, le dossier retrouvé au démarrage n'est gardé que s'il s'agit bien d'un dossier « Ma classe » ; sinon, l'accueil propose de le choisir une fois."
+    "Sites, sécurité : un site affiché dans Ma classe ne peut plus remplacer Ma classe par sa propre page, et ne lit plus votre presse-papiers sans votre accord (bouton par site dans Réglages › Sites ; Ctrl+V colle toujours).",
+    "Mises à jour, sécurité : les outils qui fabriquent et signent les mises à jour sont fixés à des versions vérifiées, et chaque signature de l'application est contrôlée avant d'être publiée."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6278760,
-      "sha256": "04bdc5ecd80f6f46c05f700133ebcc7c592641032bc8afb18caa78e9b9e910bf"
+      "taille": 6280202,
+      "sha256": "820de5d8ccb8847fe7305db7734151bfcc006af8a360b774e85d2b14a322c944"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6278760,
-      "sha256": "04bdc5ecd80f6f46c05f700133ebcc7c592641032bc8afb18caa78e9b9e910bf"
+      "taille": 6280202,
+      "sha256": "820de5d8ccb8847fe7305db7734151bfcc006af8a360b774e85d2b14a322c944"
     }
   }
 }
