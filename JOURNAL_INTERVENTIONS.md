@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-13 — Essai 5.2.37 (pages et application) : remise en ordre et fiabilité ; « Essai du pont » retiré du Store
+
+- **Autorisation :** Franck : « Fais les trois derniers lots » (lots D, E, F de l'audit) ; règle permanente du canal d'essai. Stable non publié (lot E préparé, en attente de Franck).
+- **Contrôle préalable :** `main` à `9625e72` (journal de l'essai 5.2.36) ; aucune pull request. Source : `Ma-classe` `essai` `91aaee7` (5.2.36 + `claude/lots-d-e-f`), numérotée par `build/numeroter-essai.py` ; suite complète locale 89 sur 90 (`reprise_ecriture`, course de minutage connue, verte seule et sous charge 8 fois sur 8), scénarios sensibles à la version relancés après numérotation.
+- **Préparation :** `publier-version.py --canal essai`, `publier-appli.py --canal essai` ; `outils/publier.py --retirer essai-pont … --canal essai` d'`Applis-classe` (entrée et paquet retirés) ; nouvelle action `.github/workflows/nettoyer-branches.yml`, **à lancer à la main** (la suppression de branches est refusée aux assistants) ; `DOCUMENTATION.md`.
+- **Livraison :** avance rapide `9625e72..38e3827`, sans forçage ; action `43504076972` réussie (« versions.json signé : essai 5.2.37, stable 5.2.0 », catalogue sans `essai-pont`, installateur 5.2.37 signé et vérifié).
+- **À faire par Franck :** Actions › Nettoyer les branches › Run workflow : d'abord « non » (liste), puis « oui ».
+
 ## 2026-11-13 — Lot C de l'audit de sécurité : chaîne de signature fixée, puis essai 5.2.36 (pages et application)
 
 - **Autorisation :** Franck : « Fais le lot C », en réponse au plan qui annonçait que ce lot modifie ce dépôt et qu'un envoi sur `main` republie le site ; règle permanente du canal d'essai. Stable non concerné.
