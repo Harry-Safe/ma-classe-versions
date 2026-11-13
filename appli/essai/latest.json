@@ -1,11 +1,11 @@
 {
-  "version": "5.2.36",
-  "notes": "Sites, sécurité : un site affiché dans Ma classe ne peut plus remplacer Ma classe par sa propre page, et ne lit plus votre presse-papiers sans votre accord (bouton par site dans Réglages › Sites ; Ctrl+V colle toujours).\nMises à jour, sécurité : les outils qui fabriquent et signent les mises à jour sont fixés à des versions vérifiées, et chaque signature de l'application est contrôlée avant d'être publiée.",
-  "pub_date": "2026-11-13T19:39:26Z",
+  "version": "5.2.37",
+  "notes": "Réglages › Journal des erreurs : un fichier illisible du dossier « Ma classe » ou une copie impossible dans le dossier (cahier journal, notice du remplaçant, séances) y est maintenant noté, au lieu de passer inaperçu.\nStore des applis : l'appli technique « Essai du pont » n'est plus proposée.\nFiabilité : tout le programme fonctionne désormais en « mode strict », qui signale une erreur au lieu de l'ignorer.",
+  "pub_date": "2026-11-13T20:42:36Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.36_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.37_x64-setup-essai.exe"
     }
   }
 }

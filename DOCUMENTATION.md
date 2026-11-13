@@ -32,6 +32,7 @@ GitHub du dépôt. Seuls Franck (et les assistants qui travaillent avec lui, sur
 | `outils/signature/package.json`, `package-lock.json` | — | l'outil de signature, à version et empreintes fixées ; installé par `npm ci --ignore-scripts` avant que la clé soit dans l'environnement |
 | `outils/exigences.txt` | — | paquets Python de l'action (`cryptography` et ses dépendances), versions et empreintes SHA-256 fixées (`pip install --require-hashes`) |
 | `.github/workflows/publier.yml` | — | action « Publier les mises à jour » |
+| `.github/workflows/nettoyer-branches.yml` | — | action « Nettoyer les branches », **lancée à la main par Franck** (liste d'abord, « oui » pour supprimer) : branches contenues dans `main`, de fabrication seule et anciennes préparations de publication ; les assistants n'ont pas le droit de supprimer une branche (lot D de l'audit, 13 novembre 2026) |
 | `_site/`, `construction/`, `paquet/`, `paquets/` (ignorés) | l'action | site déployé ; fabrication de l'installateur |
 
 ## 2. Formats
