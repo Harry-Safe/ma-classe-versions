@@ -1,24 +1,20 @@
 {
-  "version": "5.2.33",
+  "version": "5.2.34",
   "date": "2026-11-13",
-  "titre": "Essai : Sécurité : fichiers piégés",
+  "titre": "Essai : Applis du Store : dossier retrouvé",
   "notes": [
-    "Sécurité : un document Word envoyé par un collègue ne peut plus glisser de code dans Ma classe par ses couleurs, son surlignage, ses tailles ou ses cellules fusionnées. Les vraies couleurs et le surlignage s'affichent comme avant (les teintes foncées de Word aussi, désormais).",
-    "Sécurité : une séance de tableau ou un fichier « .tableau.json » modifié en dehors de Ma classe est refusé avec un message, au lieu d'être ouvert. Vos séances s'ouvrent comme avant, avec tous leurs textes.",
-    "Sécurité : la vignette d'un tableau dans les Documents n'affiche qu'une image intégrée, et une image d'un tableau ne peut plus charger une adresse extérieure.",
-    "Sécurité : un plan de classe ouvert depuis un fichier est recopié champ par champ ; seuls les meubles, règles et réglages connus sont gardés.",
-    "Données personnelles : trois exemples des textes d'aide ne citent plus ni ville ni prénom."
+    "Application Windows : une appli téléchargée dans le Store ne s'ouvre plus sur « Dossier « Ma classe » introuvable » sur un PC équipé avant novembre ; l'application retrouve seule le dossier de la classe au démarrage."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6278729,
-      "sha256": "3c4739a0fb3480bb651b8362212e1b57513a0a7dcd7797c3e6baf238842e20e4"
+      "taille": 6278985,
+      "sha256": "fe5497dc6b3c4e9ac22e43444715b313a275b6c97024579149d05b9e2182288b"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6278729,
-      "sha256": "3c4739a0fb3480bb651b8362212e1b57513a0a7dcd7797c3e6baf238842e20e4"
+      "taille": 6278985,
+      "sha256": "fe5497dc6b3c4e9ac22e43444715b313a275b6c97024579149d05b9e2182288b"
     }
   }
 }

@@ -137,6 +137,19 @@ fn dossier_retenu(app: AppHandle) -> Option<String> {
     (!c.is_empty()).then(|| c.to_string())
 }
 
+/// Poste équipé avant que l'application retienne le dossier : son chemin n'était connu que de la page (stockage du
+/// navigateur intégré), et les applis du Store (adresse appli://) ne le trouvaient pas (« Dossier « Ma classe »
+/// introuvable »). La page le transmet au démarrage ; il n'est retenu que si rien ne l'est encore et si c'est bien un
+/// dossier existant : un dossier déjà choisi n'est jamais remplacé par cette voie.
+#[tauri::command]
+fn reprendre_dossier(app: AppHandle, chemin: String) -> Result<bool, String> {
+    if dossier_retenu(app.clone()).is_some() || !Path::new(&chemin).is_dir() {
+        return Ok(false);
+    }
+    fs::write(fichier_dossier(&app)?, chemin.replace('\\', "/")).map_err(texte)?;
+    Ok(true)
+}
+
 /// Fenêtre de Windows pour choisir le dossier « Ma classe » (souvent dans Google Drive) ; le choix est retenu.
 #[tauri::command]
 async fn choisir_dossier(app: AppHandle) -> Result<Option<String>, String> {
@@ -330,7 +343,7 @@ pub fn run() {
         // applis du dossier « Ma classe/Applis » (module Applis de la page)
         .register_uri_scheme_protocol("appli", |ctx, requete| servir_appli(ctx.app_handle(), requete.uri().path()))
         .invoke_handler(tauri::generate_handler![
-            lister, infos, lire, ecrire, creer_dossier, supprimer, choisir_dossier, dossier_retenu, plein_ecran, ouvrir_url, ouvrir_site,
+            lister, infos, lire, ecrire, creer_dossier, supprimer, choisir_dossier, dossier_retenu, reprendre_dossier, plein_ecran, ouvrir_url, ouvrir_site,
             installer_paquet
         ])
         .run(tauri::generate_context!())
