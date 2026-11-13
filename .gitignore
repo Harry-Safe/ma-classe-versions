@@ -4,3 +4,5 @@ _site/
 /paquet/
 /paquets/
 # (à la racine seulement : applis/paquets/ contient les paquets du Store, publiés)
+# outil de signature installé par « npm ci --ignore-scripts » (outils/signature/package-lock.json)
+/outils/signature/node_modules/

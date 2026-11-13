@@ -1,0 +1,8 @@
+{
+  "name": "ma-classe-signature",
+  "private": true,
+  "description": "Outil de signature des installateurs (Tauri), installé par « npm ci --ignore-scripts » avant que la clé privée soit dans l'environnement",
+  "dependencies": {
+    "@tauri-apps/cli": "2.12.4"
+  }
+}

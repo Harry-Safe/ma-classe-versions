@@ -3,7 +3,13 @@
 # (GitHub Pages).
 # La fabrication se fait ici (dépôt public : minutes GitHub sans quota) à partir de la page publiée sur le canal et de
 # la coquille Tauri de coquille/<canal>/ ; une même fabrication est réutilisée tant que ni l'une ni l'autre ne change.
-# Branches claude/fabrication-* : fabrication seule, pour essayer une coquille ; rien n'est signé ni publié.
+# Branches claude/fabrication-* : fabrication seule, pour essayer une coquille ; rien n'est signé ni publié, mais toute la
+# chaîne de signature est essayée avec une clé jetable (outils/signer-appli.py --a-blanc).
+# Chaîne de signature (lot C de l'audit de sécurité, 13 novembre 2026) : actions désignées par leur commit (l'étiquette
+# en commentaire), paquets Python à versions et empreintes fixées (outils/exigences.txt), outil de signature installé
+# depuis outils/signature/package-lock.json AVANT que la clé soit dans l'environnement, sans script d'installation ;
+# chaque signature revérifiée avec la clé publique de l'application avant publication.
+# Mettre à jour une action : son nouveau commit (git ls-remote https://github.com/<action> refs/tags/<étiquette>).
 name: Publier les mises à jour
 on:
   push:
@@ -22,8 +28,8 @@ jobs:
     env:
       PYTHONUTF8: "1"
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: "3.12"
       - name: Faut-il fabriquer ?
@@ -32,7 +38,7 @@ jobs:
       - name: Fabrication déjà faite ?
         if: steps.plan.outputs.fabriquer == 'oui'
         id: cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: paquet
           key: appli-${{ matrix.canal }}-${{ steps.plan.outputs.cle }}
@@ -40,13 +46,15 @@ jobs:
         if: steps.plan.outputs.fabriquer == 'oui' && steps.cache.outputs.cache-hit != 'true'
         run: python outils/fabriquer-appli.py ${{ matrix.canal }} --preparer
       - if: steps.plan.outputs.fabriquer == 'oui' && steps.cache.outputs.cache-hit != 'true'
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: "20"
       - if: steps.plan.outputs.fabriquer == 'oui' && steps.cache.outputs.cache-hit != 'true'
-        uses: dtolnay/rust-toolchain@stable
+        uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec # branche stable
+        with:
+          toolchain: stable
       - if: steps.plan.outputs.fabriquer == 'oui' && steps.cache.outputs.cache-hit != 'true'
-        uses: Swatinem/rust-cache@v2
+        uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2
         with:
           workspaces: "construction/tauri/src-tauri -> target"
           key: ${{ matrix.canal }}
@@ -55,13 +63,13 @@ jobs:
         run: python outils/fabriquer-appli.py ${{ matrix.canal }} --compiler
       - name: Garder la fabrication
         if: steps.plan.outputs.fabriquer == 'oui' && steps.cache.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: paquet
           key: appli-${{ matrix.canal }}-${{ steps.plan.outputs.cle }}
       - name: Transmettre à la publication
         if: steps.plan.outputs.fabriquer == 'oui'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: appli-${{ matrix.canal }}
           path: paquet/${{ steps.plan.outputs.nom }}
@@ -74,13 +82,24 @@ jobs:
     if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Copie des fiches comme sur le site
         run: mkdir -p _site && cp -r appli _site/appli
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           pattern: appli-*
           path: paquets
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+      - name: Paquets Python fixés
+        run: pip install --require-hashes --only-binary=':all:' -r outils/exigences.txt
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "20"
+      - name: Outil de signature (versions et empreintes fixées, sans scripts)
+        working-directory: outils/signature
+        run: npm ci --ignore-scripts --no-audit --no-fund
       - name: Ranger et contrôler
         run: |
           python3 outils/fabriquer-appli.py --placer paquets
@@ -92,6 +111,8 @@ jobs:
               if not exe.is_file(): sys.exit(f"{exe} manquant")
               print(f"{f.parent} : {d['version']} -> {exe.name} ({exe.stat().st_size} octets)")
           PY
+      - name: Chaîne de signature à blanc (clé jetable)
+        run: python3 outils/signer-appli.py --a-blanc
 
   publier:
     needs: appli
@@ -108,34 +129,39 @@ jobs:
       name: github-pages
       url: ${{ steps.deploiement.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: "3.12"
-      - run: pip install cryptography
+      - name: Paquets Python fixés
+        run: pip install --require-hashes --only-binary=':all:' -r outils/exigences.txt
       - name: Signer versions.json et applis.json
         env:
           MAJ_CLE_PRIVEE: ${{ secrets.MAJ_CLE_PRIVEE }}
         run: python outils/signer.py
       - name: Installateurs fabriqués
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           pattern: appli-*
           path: paquets
       - name: Ranger les installateurs fabriqués
         run: python outils/fabriquer-appli.py --placer paquets
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         if: hashFiles('appli/latest.json') != ''
         with:
           node-version: "20"
+      - name: Outil de signature (versions et empreintes fixées, sans scripts ; la clé n'est pas encore là)
+        if: hashFiles('appli/latest.json') != ''
+        working-directory: outils/signature
+        run: npm ci --ignore-scripts --no-audit --no-fund
       - name: Signer l'application Windows
         if: hashFiles('appli/latest.json') != ''
         env:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
         run: python outils/signer-appli.py
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
           path: _site
       - id: deploiement
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

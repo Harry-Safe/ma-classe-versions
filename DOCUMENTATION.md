@@ -28,7 +28,9 @@ GitHub du dépôt. Seuls Franck (et les assistants qui travaillent avec lui, sur
 | `index.html` | à la main | page publique : explication et lien vers l'installateur Windows (`#appli`) |
 | `outils/signer.py` | — | vérifie les fichiers annoncés, signe `versions.json` et le catalogue du Store `applis.json` (Ed25519, même clé), prépare `_site/` |
 | `outils/fabriquer-appli.py` | — | fabrique l'installateur d'un canal (coquille + page publiée), le range dans `_site/appli/` |
-| `outils/signer-appli.py` | — | signe chaque installateur (Minisign, `@tauri-apps/cli` 2.12.4) et écrit la signature dans les `latest.json` de `_site/appli/` |
+| `outils/signer-appli.py` | — | signe chaque installateur (Minisign, `@tauri-apps/cli` installé depuis `outils/signature/`), **revérifie** chaque signature comme l'application (clé `CLE_MAJ` de la coquille du canal, nom et version du fichier signé) et l'écrit dans les `latest.json` de `_site/appli/` ; `--a-blanc` : toute la chaîne avec une clé jetable (branches de fabrication) |
+| `outils/signature/package.json`, `package-lock.json` | — | l'outil de signature, à version et empreintes fixées ; installé par `npm ci --ignore-scripts` avant que la clé soit dans l'environnement |
+| `outils/exigences.txt` | — | paquets Python de l'action (`cryptography` et ses dépendances), versions et empreintes SHA-256 fixées (`pip install --require-hashes`) |
 | `.github/workflows/publier.yml` | — | action « Publier les mises à jour » |
 | `_site/`, `construction/`, `paquet/`, `paquets/` (ignorés) | l'action | site déployé ; fabrication de l'installateur |
 
@@ -91,18 +93,28 @@ Déclenchée par **tout envoi sur `main`** (et à la main) :
    `appli/<…>/latest.json` n'est pas dans le dépôt, il est fabriqué à partir de `coquille/<canal>/` et de la page
    publiée sur le canal (`<canal>/Ma classe.html`, après contrôle de son empreinte et de sa version) ; une fabrication
    est gardée en cache et réutilisée tant que la coquille, la page et la version ne changent pas ;
-1. Python 3.12 + `cryptography` ;
+1. Python 3.12 + `cryptography`, `cffi`, `pycparser` aux versions et empreintes de `outils/exigences.txt` ;
 2. `outils/signer.py` : pour chaque `entrees/*.json`, vérifie que chaque fichier existe et a la taille et l'empreinte
    annoncées (sinon **échec, rien n'est publié**), assemble et signe `versions.json` avec le secret **`MAJ_CLE_PRIVEE`**
    (clé Ed25519 brute, 32 octets en base64), copie les canaux, `index.html` et `appli/` dans `_site/` ; puis
    `fabriquer-appli.py --placer` range les installateurs fabriqués à côté de leur `latest.json` ;
-3. Node 20 + `outils/signer-appli.py` (si `appli/latest.json` existe) : signe chaque installateur avec le secret
-   **`TAURI_SIGNING_PRIVATE_KEY`** (sans mot de passe) ; échoue si le secret ou l'installateur manquent ;
+3. Node 20, `npm ci --ignore-scripts` dans `outils/signature/` (la clé n'est pas encore dans l'environnement), puis
+   `outils/signer-appli.py` (si `appli/latest.json` existe) : signe chaque installateur avec le secret
+   **`TAURI_SIGNING_PRIVATE_KEY`** (sans mot de passe), revérifie la signature avec la clé publique de l'application ;
+   échoue si le secret ou l'installateur manquent, ou si l'application refuserait la signature (**rien n'est publié**) ;
 4. déploiement GitHub Pages (`_site/`). Le journal de l'action affiche « versions.json signé : essai X, stable Y ».
 
 Une branche autre que `main` ne déclenche **rien**, sauf `claude/fabrication-*` : l'installateur y est fabriqué et
-rangé pour contrôle, **sans signature ni publication** (essayer une nouvelle coquille). C'est l'endroit pour préparer ou
-relire un changement sans le publier.
+rangé pour contrôle, **sans signature ni publication** (essayer une nouvelle coquille), puis la chaîne de signature est
+essayée avec une clé jetable (`signer-appli.py --a-blanc` : la signature jetable doit passer le contrôle, et être
+refusée par la clé de l'application). C'est l'endroit pour préparer ou relire un changement sans le publier.
+
+**Dépendances fixées** (lot C de l'audit de sécurité, 13 novembre 2026) : chaque action est désignée par son commit
+(étiquette en commentaire ; nouveau commit : `git ls-remote https://github.com/<action> refs/tags/<étiquette>`) ;
+paquets Python par `outils/exigences.txt` ; outil de signature par `outils/signature/package-lock.json` ; fabrication
+par `npm ci --ignore-scripts` (le `package-lock.json` de la coquille, copié par `build/publier-appli.py`) et
+`cargo --locked` (son `Cargo.lock`, dont `fabriquer-appli.py` reporte le numéro de version). Une coquille publiée
+avant ce lot n'a pas de `package-lock.json` : `npm install`, avec un avertissement.
 
 ## 3 bis. Pourquoi l'installateur est fabriqué ici
 
