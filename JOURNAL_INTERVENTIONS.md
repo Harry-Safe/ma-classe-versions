@@ -2,6 +2,12 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-13 — Essai 5.2.38 sur le canal d'essai (pages et application) : micro et caméra des anciens sites coupés
+
+- **Autorisation :** Franck : « Oui, couper » (micro et caméra des sites enregistrés avant le 5 novembre) ; règle permanente du canal d'essai. Stable non concerné : Franck prévoit une **version 6.0** de référence (« on cumule les nouveaux en beta »), sans stable intermédiaire.
+- **Contrôle préalable :** `main` à `dd4d923` ; aucune pull request. Source : `Ma-classe` `essai` `c1d658f` ; suite complète locale 90 sur 90 avant numérotation, scénarios sensibles à la version relancés après.
+- **Livraison :** avance rapide `dd4d923..5309881`, sans forçage ; action `43514850423` réussie (« versions.json signé : essai 5.2.38, stable 5.2.0 », installateur 5.2.38 signé et vérifié).
+
 ## 2026-11-13 — Essai 5.2.37 (pages et application) : remise en ordre et fiabilité ; « Essai du pont » retiré du Store
 
 - **Autorisation :** Franck : « Fais les trois derniers lots » (lots D, E, F de l'audit) ; règle permanente du canal d'essai. Stable non publié (lot E préparé, en attente de Franck).
