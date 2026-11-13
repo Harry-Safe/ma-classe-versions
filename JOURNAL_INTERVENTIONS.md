@@ -2,6 +2,17 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-13 — Lot C de l'audit de sécurité : chaîne de signature fixée, puis essai 5.2.36 (pages et application)
+
+- **Autorisation :** Franck : « Fais le lot C », en réponse au plan qui annonçait que ce lot modifie ce dépôt et qu'un envoi sur `main` republie le site ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` à `77a21a6` (journal de l'essai 5.2.35) ; aucune pull request. Source de l'essai : `Ma-classe` `essai` `cf0291a` (5.2.35 + `claude/lot-c-signature`), numérotée par `build/numeroter-essai.py` ; suite complète locale 90 verts sur 90.
+- **Chaîne de signature (S6) :** actions désignées par leur commit ; `outils/exigences.txt` (`cryptography` 50.0.2, `cffi` 2.1.1, `pycparser` 3.12, empreintes exigées) ; outil de signature installé par `npm ci --ignore-scripts` depuis `outils/signature/package-lock.json` avant que la clé soit dans l'environnement ; `signer-appli.py` revérifie chaque signature avec la `CLE_MAJ` de la coquille (ancienne clé seulement par `outils/cle-precedente.txt`, pendant un changement de clé) et essaie toute la chaîne avec une clé jetable sur les branches de fabrication (`--a-blanc`) ; fabrication par `npm ci --ignore-scripts` et `cargo --locked` (numéro reporté dans `Cargo.lock`). Documentation : `DOCUMENTATION.md`.
+- **Essais avant publication :** branche de fabrication seule `claude/fabrication-lot-c` (action `43487615070`, réussie) : installateur d'essai recompilé avec `npm ci` et `--locked`, chaîne à blanc bonne pour les deux canaux.
+- **Livraison 1, chaîne seule :** avance rapide de `main` `77a21a6..6549802`, sans forçage ; action `43488323351` réussie : « signature vérifiée comme dans l'application » pour 5.2.0 et 5.2.35 avec la vraie clé.
+- **Livraison 2, essai 5.2.36 :** `publier-version.py --canal essai` puis `publier-appli.py --canal essai` (coquille avec `package-lock.json`, 18 fichiers) ; avance rapide `6549802..f8ce401` ; action `43494284901` réussie (installateur 5.2.36 fabriqué par `npm ci` et `cargo --locked`, « versions.json signé : essai 5.2.36, stable 5.2.0 », signature vérifiée avant publication).
+- **Reste :** branches de fabrication `claude/fabrication-lot-b`, `-lot-b-2` et `-lot-c` non supprimées (accès en écriture refusé) ; sans effet sur les publications. Les actions annoncent la fin de Node 20 sur les runners (forcées en Node 24) : à suivre lors d'une prochaine mise à jour des actions.
+- **À vérifier sur le PC :** la mise à jour vers 5.2.36 s'installe ; un site épinglé (Solaire) s'affiche et se connecte toujours dans Ma classe.
+
 ## 2026-11-13 — Essai 5.2.35 sur le canal d'essai (pages et application) : sécurité de l'application Windows
 
 - **Autorisation :** Franck : « Corrigé ce qu'il faut et fait le lot b » (lot B de l'audit de sécurité) ; règle permanente du canal d'essai. Stable non concerné.
