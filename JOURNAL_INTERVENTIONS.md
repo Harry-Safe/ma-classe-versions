@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-13 — Essai 5.2.34 sur le canal d'essai (pages et application) : applis du Store, dossier retrouvé
+
+- **Autorisation :** Franck, en classe, après « Dossier « Ma classe » introuvable » à l'ouverture d'une appli du Store : « Oui rapidement s'il te plait » (correctif en essai) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `017588b` (journal de l'essai 5.2.33) ; aucune pull request. Source : `Ma-classe` `essai` `d131409` (5.2.33 + `claude/dossier-retenu-applis`), numérotée par `build/numeroter-essai.py` ; suite complète locale 89 verts sur 89 sur la branche de travail.
+- **Préparation :** `publier-version.py --canal essai` (garde passée, configuration d'exemple seule) puis `publier-appli.py --canal essai` ; diff : `essai/` (deux pages), `entrees/essai.json`, `entrees/essai.source` (`d131409`), `appli/essai/latest.json`, `coquille/essai/…/lib.rs` (commande `reprendre_dossier`) ; stable et coquille stable inchangés.
+- **Livraison :** avance rapide de `main` `017588b..9e6a2ed`, sans forçage. Action « Publier les mises à jour » `43453894238` réussie (installateur d'essai 5.2.34 fabriqué et signé, pages déployées) ; `appli/latest.json` et `entrees/stable.json` toujours en 5.2.0.
+- **À vérifier sur le PC :** après la mise à jour de l'application d'essai, une appli du Store s'ouvre sans avoir à rechoisir le dossier.
+
 ## 2026-11-13 — Essai 5.2.33 sur le canal d'essai (pages et application) : sécurité, fichiers piégés
 
 - **Autorisation :** Franck : « Fais le lot a » (lot A de l'audit de sécurité) ; règle permanente du canal d'essai. Stable non concerné.
