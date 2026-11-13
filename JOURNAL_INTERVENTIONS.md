@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-13 — Essai 5.2.33 sur le canal d'essai (pages et application) : sécurité, fichiers piégés
+
+- **Autorisation :** Franck : « Fais le lot a » (lot A de l'audit de sécurité) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` public à `e15bb15` (journal de l'essai 5.2.32) ; aucune pull request. Source : `Ma-classe` `essai` `d61f95e` (5.2.32 + `claude/fichiers-pieges` + `claude/donnees-personnelles`), numérotée par `build/numeroter-essai.py` ; suite complète locale 88 verts sur 89, l'échec (`accueil_widgets_culture`, fenêtre d'accueil du remplaçant ouverte en retard sur une machine chargée) sans fichier commun avec le lot, scénario rendu patient et vert seul deux fois.
+- **Préparation :** `publier-version.py --canal essai` (garde passée, configuration d'exemple seule) puis `publier-appli.py --canal essai` ; diff : `essai/` (deux pages), `entrees/essai.json`, `entrees/essai.source` (`d61f95e`), `appli/essai/latest.json` ; stable, coquille et catalogue des applis inchangés.
+- **Livraison :** avance rapide de `main` `e15bb15..280c44e`, sans forçage. Action « Publier les mises à jour » `43433790967` réussie (« versions.json signé : essai 5.2.33, stable 5.2.0 », `Ma-classe_5.2.33_x64-setup-essai.exe` signé).
+- **À vérifier sur le PC :** ouvrir une séance de tableau enregistrée et un Word des Documents (rien ne doit être refusé à tort).
+
 ## 2026-11-13 — Essai 5.2.32 sur le canal d'essai (pages et application) : billets sans la mention SPECIMEN
 
 - **Autorisation :** Franck : « Pas de mention spécimen, car c'est pour afficher au tableau seulement, pour des enfants. » ; règle permanente du canal d'essai. Stable non concerné.
