@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-14 — Historique du dépôt public réécrit : adresse e-mail personnelle remplacée (S4 de l'audit)
+
+- **Autorisation :** Franck, 14 novembre, 21 h 25 : « Ne réécris pas l'historique si c'est en privé, mais en public oui. »
+- **Contrôle préalable :** `main` à `097a815` (journal de l'essai 5.2.42, publié par une autre conversation à 21 h 19) ; aucune action en cours sur `main` ; aucune pull request. Adresse personnelle trouvée dans **un seul commit** (`0accc7a`, 7 novembre 2026, « Ma classe 5.0.4 : assistant sans IA sur le canal d'essai », auteur et committer), contenu dans les 15 branches.
+- **Réalisation :** copie miroir, `git filter-repo --mailmap` (adresse personnelle → `Harry-Safe@users.noreply.github.com`, nom « Franck VARAULT ») ; rien d'autre changé (les commits signés « Claude » et les anciennes lignes de co-écriture restent, comme le veut `AGENTS.md`). Contrôle : pour chacune des 15 branches, l'arbre de fichiers réécrit est **identique** à l'ancien ; plus aucune adresse personnelle dans l'historique. Envoi forcé de chaque branche avec `--force-with-lease` (ancien identifiant exigé) ; les 15 branches distantes vérifiées une à une. `main` : `097a815` → `11eb908`.
+- **Publication :** l'envoi de `main` a relancé l'action `43637597753` : réussie (« versions.json signé : essai 5.2.42, stable 5.2.0 », installateurs stable et d'essai signés et vérifiés) ; aucun contenu changé.
+- **Suites :** correspondance ancien → nouvel identifiant dans `historique/commits-reecrits-2026-11-14.txt` (les journaux gardent les anciens identifiants) ; exception notée dans `AGENTS.md` ; **toute copie de ce dépôt faite avant doit être re-clonée** (une conversation qui garderait l'ancienne copie verrait son envoi refusé, sans perte). Limite : GitHub peut encore montrer l'ancien commit à qui connaît son identifiant exact, jusqu'à son nettoyage ; seul le support de GitHub peut l'accélérer.
+
 ## 2026-11-14 — Essai 5.2.42 sur le canal d'essai (pages et application) : fichiers et sites dans le dock, nouveau site
 
 - **Autorisation :** demande de Franck du 14 novembre, 20 h 12 (fichiers et sites gardés dans le dock, ampoule plus rentrée, « Nouveau site » ouvert dans le navigateur par défaut, tutoriels à jour) ; règle permanente du canal d'essai.

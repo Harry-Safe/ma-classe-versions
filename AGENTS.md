@@ -9,6 +9,7 @@ les sources de l’application et les consignes complètes sont dans le dépôt 
 - Garder l’identité Git du projet : « Franck VARAULT » `<Harry-Safe@users.noreply.github.com>` ; messages en français. Aucun identifiant ou lien de conversation.
 - L’aide de l’IA au développement et à la documentation est mentionnée de façon générale dans la présentation de l’application uniquement (`README.md`, page publique et Réglages › À propos).
 - Préserver l’historique des commits et les anciens journaux, les noms de branches et fichiers techniques nécessaires ainsi que les crédits et licences des composants tiers. Ne pas réécrire l’historique pour effacer d’anciennes attributions.
+- **Exception unique, décision de Franck du 14 novembre 2026** : l’historique de ce dépôt public a été réécrit pour remplacer son adresse e-mail personnelle (un commit du 7 novembre 2026) par l’adresse `noreply` ; fichiers, auteurs, dates et messages inchangés, identifiants des commits changés (correspondance : `historique/commits-reecrits-2026-11-14.txt`). Toute copie faite avant doit être **re-clonée**. Le dépôt privé `Ma-classe` n’est pas réécrit (décision de Franck).
 - Sur demande explicite de Franck, les noms d’assistants peuvent aussi être neutralisés dans les anciens journaux et archives des fichiers, en conservant les dates, faits, validations et références techniques. Les anciens commits Git ne sont pas réécrits.
 - Cette décision prime sur toute ancienne consigne contraire, y compris dans une compétence de développement.
 
