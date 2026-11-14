@@ -1,23 +1,23 @@
 {
-  "version": "5.2.41",
+  "version": "5.2.42",
   "date": "2026-11-14",
-  "titre": "Essai : Séances rangées et notes sur l'Accueil",
+  "titre": "Essai : Fichiers et sites dans le dock, nouveau site",
   "notes": [
-    "Tableaux : le menu « Séances » est le même sur tous les tableaux : il réunit toutes les séances enregistrées, rangées par tableau (celui affiché en tête), présentées comme dans « Lier une séance » de Préparer, avec une tuile de leur couleur. Une séance d'un autre tableau s'ouvre directement dans son tableau.",
-    "Rituels : le menu « Séances » range les séances par niveau et par période (celle en cours en tête), de la même façon.",
-    "Assistant : le bouton au bord gauche de l'écran est plus discret : une languette étroite et légère, avec une ampoule à la place du robot ; il s'estompe au repos et redevient net avec sa pastille, au survol ou quand l'assistant est ouvert.",
-    "Accueil › widget Notes (l'ancien Post-it) : il montre les notes de Rappels › Notes ; une note s'écrit et se modifie aussi bien dans le widget que dans les Rappels. En petit, une note ; en moyen, deux ; en grand, quatre, comme un panneau. À toutes les tailles, « ＋ » écrit une nouvelle note et « Ouvrir » remet une ancienne note sur l'Accueil ; le crayon ouvre la note dans les Rappels (rappel visuel, épingle, archive). Le texte de l'ancien post-it devient une note. En remplacement, seules les notes posées sur l'Accueil se lisent."
+    "Dock : un site ou un document se garde aussi dans le dock, à droite : clic droit sur lui dans Explorer (onglets Sites web et Documents) ou dans le menu « Sites », puis « Garder dans le dock ». Sa tuile ouvre le site (comme il est réglé) ou le document ; un document déplacé ou supprimé est signalé. Sites et documents n'entrent dans le dock que gardés, jamais parmi les derniers ouverts.",
+    "Sites : « Nouveau site » se trouve dans Explorer (onglet Sites web) et en bas du menu « Sites » de la barre du haut, toujours présent pour l'enseignant : adresse (https:// s'ajoute seul), nom, façon de l'ouvrir, place dans le menu « Sites » et dans le dock. Un nouveau site s'ouvre dans le navigateur par défaut de l'ordinateur, pas dans Ma classe ; Réglages › Sites internet propose trois façons de l'ouvrir (↗ navigateur, ▣ ici, ⧉ fenêtre), un site par ligne. Les sites déjà enregistrés gardent leur façon de s'ouvrir.",
+    "Assistant : la languette à l'ampoule est encore plus rentrée à gauche (32 px visibles au lieu de 46).",
+    "Tutoriels de l'assistant : deux nouveaux, « Garder l'essentiel dans le dock » et « Créer un site et choisir où il s'ouvre » ; Explorer, Rappels (notes partagées avec le widget Notes), séances des rituels rangées, menu « Séances » commun des tableaux et ampoule mis à jour ; une étape « Le dock » dans la visite « Rappels et affichage »."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6371116,
-      "sha256": "833265ef4ab32a9140f9e8ccb9a02404677476296d92d2b87b546770d946a704"
+      "taille": 6385797,
+      "sha256": "112c0d8ee9a6d4f74988c6346a96d8b302cbe0d0c491cf917d2c482d658eb672"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6371116,
-      "sha256": "833265ef4ab32a9140f9e8ccb9a02404677476296d92d2b87b546770d946a704"
+      "taille": 6385797,
+      "sha256": "112c0d8ee9a6d4f74988c6346a96d8b302cbe0d0c491cf917d2c482d658eb672"
     }
   }
 }

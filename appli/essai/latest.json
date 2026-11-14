@@ -1,11 +1,11 @@
 {
-  "version": "5.2.41",
-  "notes": "Tableaux : le menu « Séances » est le même sur tous les tableaux : il réunit toutes les séances enregistrées, rangées par tableau (celui affiché en tête), présentées comme dans « Lier une séance » de Préparer, avec une tuile de leur couleur. Une séance d'un autre tableau s'ouvre directement dans son tableau.\nRituels : le menu « Séances » range les séances par niveau et par période (celle en cours en tête), de la même façon.\nAssistant : le bouton au bord gauche de l'écran est plus discret : une languette étroite et légère, avec une ampoule à la place du robot ; il s'estompe au repos et redevient net avec sa pastille, au survol ou quand l'assistant est ouvert.\nAccueil › widget Notes (l'ancien Post-it) : il montre les notes de Rappels › Notes ; une note s'écrit et se modifie aussi bien dans le widget que dans les Rappels. En petit, une note ; en moyen, deux ; en grand, quatre, comme un panneau. À toutes les tailles, « ＋ » écrit une nouvelle note et « Ouvrir » remet une ancienne note sur l'Accueil ; le crayon ouvre la note dans les Rappels (rappel visuel, épingle, archive). Le texte de l'ancien post-it devient une note. En remplacement, seules les notes posées sur l'Accueil se lisent.",
-  "pub_date": "2026-11-14T18:31:40Z",
+  "version": "5.2.42",
+  "notes": "Dock : un site ou un document se garde aussi dans le dock, à droite : clic droit sur lui dans Explorer (onglets Sites web et Documents) ou dans le menu « Sites », puis « Garder dans le dock ». Sa tuile ouvre le site (comme il est réglé) ou le document ; un document déplacé ou supprimé est signalé. Sites et documents n'entrent dans le dock que gardés, jamais parmi les derniers ouverts.\nSites : « Nouveau site » se trouve dans Explorer (onglet Sites web) et en bas du menu « Sites » de la barre du haut, toujours présent pour l'enseignant : adresse (https:// s'ajoute seul), nom, façon de l'ouvrir, place dans le menu « Sites » et dans le dock. Un nouveau site s'ouvre dans le navigateur par défaut de l'ordinateur, pas dans Ma classe ; Réglages › Sites internet propose trois façons de l'ouvrir (↗ navigateur, ▣ ici, ⧉ fenêtre), un site par ligne. Les sites déjà enregistrés gardent leur façon de s'ouvrir.\nAssistant : la languette à l'ampoule est encore plus rentrée à gauche (32 px visibles au lieu de 46).\nTutoriels de l'assistant : deux nouveaux, « Garder l'essentiel dans le dock » et « Créer un site et choisir où il s'ouvre » ; Explorer, Rappels (notes partagées avec le widget Notes), séances des rituels rangées, menu « Séances » commun des tableaux et ampoule mis à jour ; une étape « Le dock » dans la visite « Rappels et affichage ».",
+  "pub_date": "2026-11-14T20:15:29Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.41_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.42_x64-setup-essai.exe"
     }
   }
 }
