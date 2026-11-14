@@ -111,7 +111,7 @@ essayée avec une clé jetable (`signer-appli.py --a-blanc` : la signature jetab
 refusée par la clé de l'application). C'est l'endroit pour préparer ou relire un changement sans le publier.
 
 **Dépendances fixées** (lot C de l'audit de sécurité, 13 novembre 2026) : chaque action est désignée par son commit
-(étiquette en commentaire ; nouveau commit : `git ls-remote https://github.com/<action> refs/tags/<étiquette>`) ;
+(étiquette en commentaire ; nouveau commit : `git ls-remote https://github.com/<action> refs/tags/<étiquette>` ; dernières versions, Node 24, depuis le 14 novembre 2026) ;
 paquets Python par `outils/exigences.txt` ; outil de signature par `outils/signature/package-lock.json` ; fabrication
 par `npm ci --ignore-scripts` (le `package-lock.json` de la coquille, copié par `build/publier-appli.py`) et
 `cargo --locked` (son `Cargo.lock`, dont `fabriquer-appli.py` reporte le numéro de version). Une coquille publiée
