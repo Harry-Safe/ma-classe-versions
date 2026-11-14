@@ -182,3 +182,5 @@ mod tests {
         assert!(plus_ancienne(&[5, 2], &[5, 2, 1]));
     }
 }
+
+// essai de fabrication seulement (branche claude/fabrication-node24) : oblige une fabrication complète
