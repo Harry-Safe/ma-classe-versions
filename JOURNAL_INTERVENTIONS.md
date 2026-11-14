@@ -2,6 +2,12 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-14 — Essai 5.2.40 sur le canal d'essai (pages et application) : icônes, dock et problèmes à manipuler
+
+- **Autorisation :** Franck, 14 novembre, 17 h 06 : correction illustrée, « Manipuler », cadran dans le sens des aiguilles, et « j'aimerais que tu mixtes avec la mise à jour de design (icone et barre qu'on a fait dans une autre conversation) » ; règle permanente du canal d'essai.
+- **Contrôle préalable :** `main` à `1c9f747` ; aucune pull request. Source : `Ma-classe` `essai` `e57aba2` (réunit `claude/icones-dock` et `claude/illustrer-manipuler`) ; suite complète locale 92 sur 92 avant numérotation, scénarios sensibles à la version relancés après.
+- **Livraison :** avance rapide `1c9f747..ed85f2b`, sans forçage ; action `43619347297` réussie (installateur d'essai 5.2.40 signé et vérifié, pages publiées).
+
 ## 2026-11-14 — Essai 5.2.39 sur le canal d'essai (pages et application) : balance, minuteur et schémas illustrés
 
 - **Autorisation :** demande de Franck du 14 novembre (balance en glisser-déposer, minuteur affiné aux durées modulables, option « Illustrer » des schémas de problèmes) ; règle permanente du canal d'essai.
