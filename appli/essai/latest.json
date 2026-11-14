@@ -1,11 +1,11 @@
 {
-  "version": "5.2.38",
-  "notes": "Sites, sécurité : le micro et la caméra sont refusés à tous les sites tant que vous ne les avez pas permis, y compris aux sites enregistrés avant le 5 novembre (bouton 🎤 dans Réglages › Sites).",
-  "pub_date": "2026-11-13T21:54:40Z",
+  "version": "5.2.39",
+  "notes": "Outils › Balance à plateaux : les jetons se glissent maintenant sur un plateau (moitié gauche ou droite de la balance), d'un plateau à l'autre, ou hors de la balance pour les retirer. Le choix « plateau de gauche / de droite » disparaît ; un clic sur un jeton le pose sur le dernier plateau utilisé.\nOutils › Minuteur : la fenêtre montre tout (plus de réglages cachés sous le bord), le disque prend la place libre et grandit pendant le décompte, où les réglages se replient (bouton des réglages pour les revoir). Nouveaux réglages : « ± 10 s », « ± 5 min », « 45 min », « 1 h », et « Taper » (ou un clic sur les chiffres) pour écrire une durée : 7, 7:30, 90 s ou 1 h 15. Affichage « Cadran 60 min », à la manière d'un Time Timer : la part colorée montre les minutes qui restent sur un cadran d'une heure et se règle en la tirant. Le disque porte des graduations et indique la durée choisie ; la part colorée diminue comme avance une aiguille, dans la fenêtre comme dans le widget Minuteur de l'Accueil. « Son à la fin » devient une pastille.\nRituels › Problèmes : nouveau bouton « Illustrer », à côté de « Représentation » : les objets de l'énoncé (billes, pommes, oiseaux… et pièces de 1 € pour les prix) sont dessinés dans les barres du schéma, pour les quantités connues ; en comparaison, ils s'alignent terme à terme. L'option reste choisie d'un problème à l'autre.",
+  "pub_date": "2026-11-14T14:56:45Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.38_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.39_x64-setup-essai.exe"
     }
   }
 }
