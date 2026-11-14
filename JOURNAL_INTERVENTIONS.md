@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-14 — Essai 5.2.43 (pages et application) ; actions de publication sur leurs dernières versions (Node 24)
+
+- **Autorisation :** Franck, 21 h 48 : « Fais : Deux postes ouverts en même temps, Lecteur PDF, lot 4, Petite dette » (la petite dette comprend les actions encore en Node 20) ; règle permanente du canal d'essai. Stable non concerné.
+- **Contrôle préalable :** `main` à `b93740e` (historique réécrit) ; aucune pull request ; aucune action en cours. Source : `Ma-classe` `essai` `3cb08d2` ; suite complète locale 95 sur 95.
+- **Actions :** checkout 7.0.1, setup-python 7.1.0, setup-node 7.1.0, cache 6.1.0, upload-artifact 7.0.2, download-artifact 8.0.2, configure-pages 6.0.0, upload-pages-artifact 5.0.0 (fichiers cachés exclus : le site n'en a pas), deploy-pages 5.0.1, rust-cache 2.9.3, toutes désignées par leur commit ; Node 24 pour les outils (`DOCUMENTATION.md`). Essai préalable sur la branche de fabrication seule `claude/fabrication-node24` (action `43640091211`, réussie : installateur recompilé, `npm ci`, `--locked`, chaîne de signature à blanc bonne).
+- **Livraison :** avance rapide `b93740e..ee4da6f`, sans forçage ; action `43646060907` réussie avec les nouvelles actions (« versions.json signé : essai 5.2.43, stable 5.2.0 », installateur 5.2.43 signé et vérifié, pages déployées) ; plus d'avertissement Node 20.
+- **Reste :** branche `claude/fabrication-node24` (fabrication seule) à supprimer avec les autres par l'action « Nettoyer les branches ». Avis de GitHub : `ubuntu-latest` passe à Ubuntu 26 progressivement ; rien à faire tant que la publication réussit.
+
 ## 2026-11-14 — Historique du dépôt public réécrit : adresse e-mail personnelle remplacée (S4 de l'audit)
 
 - **Autorisation :** Franck, 14 novembre, 21 h 25 : « Ne réécris pas l'historique si c'est en privé, mais en public oui. »
