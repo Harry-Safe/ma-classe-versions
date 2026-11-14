@@ -2,6 +2,12 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-14 — Essai 5.2.39 sur le canal d'essai (pages et application) : balance, minuteur et schémas illustrés
+
+- **Autorisation :** demande de Franck du 14 novembre (balance en glisser-déposer, minuteur affiné aux durées modulables, option « Illustrer » des schémas de problèmes) ; règle permanente du canal d'essai.
+- **Contrôle préalable :** `main` à `0d6bf4a` ; aucune pull request. Source : `Ma-classe` `essai` `667f8ef` ; suite complète locale 90 sur 91 avant les derniers correctifs (ordre d'une étape du tutoriel du minuteur, sens du widget Minuteur), scénarios concernés relancés ensuite (voir le journal de `Ma-classe`).
+- **Livraison :** avance rapide `0d6bf4a..d4e47f9`, sans forçage ; action `43607501146` réussie (installateur d'essai 5.2.39 signé et vérifié, pages publiées).
+
 ## 2026-11-13 — Essai 5.2.38 sur le canal d'essai (pages et application) : micro et caméra des anciens sites coupés
 
 - **Autorisation :** Franck : « Oui, couper » (micro et caméra des sites enregistrés avant le 5 novembre) ; règle permanente du canal d'essai. Stable non concerné : Franck prévoit une **version 6.0** de référence (« on cumule les nouveaux en beta »), sans stable intermédiaire.
