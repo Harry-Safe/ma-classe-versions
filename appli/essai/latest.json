@@ -1,11 +1,11 @@
 {
-  "version": "5.2.42",
-  "notes": "Dock : un site ou un document se garde aussi dans le dock, à droite : clic droit sur lui dans Explorer (onglets Sites web et Documents) ou dans le menu « Sites », puis « Garder dans le dock ». Sa tuile ouvre le site (comme il est réglé) ou le document ; un document déplacé ou supprimé est signalé. Sites et documents n'entrent dans le dock que gardés, jamais parmi les derniers ouverts.\nSites : « Nouveau site » se trouve dans Explorer (onglet Sites web) et en bas du menu « Sites » de la barre du haut, toujours présent pour l'enseignant : adresse (https:// s'ajoute seul), nom, façon de l'ouvrir, place dans le menu « Sites » et dans le dock. Un nouveau site s'ouvre dans le navigateur par défaut de l'ordinateur, pas dans Ma classe ; Réglages › Sites internet propose trois façons de l'ouvrir (↗ navigateur, ▣ ici, ⧉ fenêtre), un site par ligne. Les sites déjà enregistrés gardent leur façon de s'ouvrir.\nAssistant : la languette à l'ampoule est encore plus rentrée à gauche (32 px visibles au lieu de 46).\nTutoriels de l'assistant : deux nouveaux, « Garder l'essentiel dans le dock » et « Créer un site et choisir où il s'ouvre » ; Explorer, Rappels (notes partagées avec le widget Notes), séances des rituels rangées, menu « Séances » commun des tableaux et ampoule mis à jour ; une étape « Le dock » dans la visite « Rappels et affichage ».",
-  "pub_date": "2026-11-14T20:15:29Z",
+  "version": "5.2.43",
+  "notes": "Outils : des pictogrammes à la place des symboles et émojis dans les commandes, des boutons d'au moins 32 px (plus faciles à viser au tableau), des repères du thermomètre plus lisibles, et un cadenas visible pour verrouiller un onglet d'un outil personnel.\nLecteur PDF : passage à pdf.js 4 (sécurité et rendu plus récents) ; rien ne change à l'usage.\nDeux ordinateurs ouverts en même temps (classe et maison) : les métiers de la semaine et les actions « Automatique » de l'assistant ne se font plus tout seuls tant que Ma classe est aussi ouvert ailleurs ; un clic les fait sur le poste où vous travaillez.",
+  "pub_date": "2026-11-14T22:03:28Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.42_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.43_x64-setup-essai.exe"
     }
   }
 }
