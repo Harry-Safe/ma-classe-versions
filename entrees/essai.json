@@ -1,22 +1,27 @@
 {
-  "version": "5.2.39",
+  "version": "5.2.40",
   "date": "2026-11-14",
-  "titre": "Essai : Balance, minuteur et schémas illustrés",
+  "titre": "Essai : Icônes, dock et problèmes à manipuler",
   "notes": [
-    "Outils › Balance à plateaux : les jetons se glissent maintenant sur un plateau (moitié gauche ou droite de la balance), d'un plateau à l'autre, ou hors de la balance pour les retirer. Le choix « plateau de gauche / de droite » disparaît ; un clic sur un jeton le pose sur le dernier plateau utilisé.",
-    "Outils › Minuteur : la fenêtre montre tout (plus de réglages cachés sous le bord), le disque prend la place libre et grandit pendant le décompte, où les réglages se replient (bouton des réglages pour les revoir). Nouveaux réglages : « ± 10 s », « ± 5 min », « 45 min », « 1 h », et « Taper » (ou un clic sur les chiffres) pour écrire une durée : 7, 7:30, 90 s ou 1 h 15. Affichage « Cadran 60 min », à la manière d'un Time Timer : la part colorée montre les minutes qui restent sur un cadran d'une heure et se règle en la tirant. Le disque porte des graduations et indique la durée choisie ; la part colorée diminue comme avance une aiguille, dans la fenêtre comme dans le widget Minuteur de l'Accueil. « Son à la fin » devient une pastille.",
-    "Rituels › Problèmes : nouveau bouton « Illustrer », à côté de « Représentation » : les objets de l'énoncé (billes, pommes, oiseaux… et pièces de 1 € pour les prix) sont dessinés dans les barres du schéma, pour les quantités connues ; en comparaison, ils s'alignent terme à terme. L'option reste choisie d'un problème à l'autre."
+    "Icônes : chaque outil et chaque fonction a maintenant sa propre icône dessinée (la maison, le tableau vert, le disque rouge du minuteur, la pièce de deux euros, le clavier du piano…), sur un fond qui lui est propre, au lieu d'un pictogramme blanc sur une tuile de couleur. On les reconnaît d'un coup d'œil, dans le dock, dans les Outils et dans Explorer.",
+    "Navigation, comme le Dock du Mac : Accueil, Rituels et Tableaux restent en place ; viennent ensuite Explorer, les deux derniers outils, applis ou fonctions ouverts, puis ceux que vous avez épinglés ; enfin Plein écran (hors de l'application) et Réglages.",
+    "Épingler : un clic droit sur une icône du dock ou d'Explorer propose « Garder dans le dock » ou « Retirer du dock ». Élèves, Préparer et Résultats sont épinglés au départ ; ce que vous retirez se retrouve dans Explorer (nouvel onglet « Fonctions ») et garde son raccourci.",
+    "Le bouton « Outils » quitte le dock : les outils sont dans Explorer (onglet Outils), et la touche O ouvre toujours leur grille.",
+    "Rituels › Problèmes : la correction complète maintenant le schéma : la quantité cherchée est écrite en vert à la place du « ? » et, si « Illustrer » est choisi, dessinée comme les autres (l'illustration complète s'affiche aussi avec la correction seule).",
+    "Rituels › Problèmes : au-delà de 20 objets, l'illustration les range en barquettes de 10 (les dizaines) et, à 100, en plateaux ; pour les prix, en billets de 10 € et de 100 €.",
+    "Rituels › Problèmes : nouveau bouton « Manipuler » : les objets de l'énoncé arrivent sur un tapis, avec les gestes du tableau de numération : un clic choisit un objet, maintenir le clic dans le vide entoure une zone, maintenir sur un objet le déplace ; « Faire un paquet » (10 objets → 1 barquette de 10, 10 pièces de 1 € → 1 billet de 10 €), « Casser » (ou double-clic), « Retirer » (ou Suppr), « Remettre ». Le nombre d'objets choisis s'affiche pour aider à compter.",
+    "Outils › Minuteur : le cadran de 60 minutes est numéroté dans le sens des aiguilles d'une montre (5 à droite de midi, 15 à 3 h) ; la part colorée part de midi dans le même sens, dans la fenêtre comme dans le widget de l'Accueil."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6303228,
-      "sha256": "5c5a7cd5629e3c7d08c6236b331767b3a239189cb2c41bbb516e30696323fa70"
+      "taille": 6353772,
+      "sha256": "fa4e4acb48d2d3aac28c9b7761362393660b7dcafbe08826f002505ed6c9ec33"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6303228,
-      "sha256": "5c5a7cd5629e3c7d08c6236b331767b3a239189cb2c41bbb516e30696323fa70"
+      "taille": 6353772,
+      "sha256": "fa4e4acb48d2d3aac28c9b7761362393660b7dcafbe08826f002505ed6c9ec33"
     }
   }
 }
