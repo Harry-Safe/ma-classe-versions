@@ -2,6 +2,12 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-14 — Essai 5.2.41 sur le canal d'essai (pages et application) : séances rangées et notes sur l'Accueil
+
+- **Autorisation :** demande de Franck du 14 novembre, 18 h 29 (séances des Tableaux et des Rituels rangées, assistant plus discret, widget Notes lié aux Rappels) ; règle permanente du canal d'essai.
+- **Contrôle préalable :** `main` à `59fc44f` ; aucune pull request. Source : `Ma-classe` `essai` `2eab2fb` ; suite complète locale 92 sur 93 avant numérotation, le scénario en échec mis à jour pour le menu commun puis vert ; scénarios sensibles à la version relancés après.
+- **Livraison :** avance rapide `59fc44f..cea3bbf`, sans forçage ; action `43627101673` réussie (installateur d'essai 5.2.41 signé et vérifié, pages publiées).
+
 ## 2026-11-14 — Essai 5.2.40 sur le canal d'essai (pages et application) : icônes, dock et problèmes à manipuler
 
 - **Autorisation :** Franck, 14 novembre, 17 h 06 : correction illustrée, « Manipuler », cadran dans le sens des aiguilles, et « j'aimerais que tu mixtes avec la mise à jour de design (icone et barre qu'on a fait dans une autre conversation) » ; règle permanente du canal d'essai.
