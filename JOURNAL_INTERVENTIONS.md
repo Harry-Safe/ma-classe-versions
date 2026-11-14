@@ -2,6 +2,12 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-14 — Essai 5.2.42 sur le canal d'essai (pages et application) : fichiers et sites dans le dock, nouveau site
+
+- **Autorisation :** demande de Franck du 14 novembre, 20 h 12 (fichiers et sites gardés dans le dock, ampoule plus rentrée, « Nouveau site » ouvert dans le navigateur par défaut, tutoriels à jour) ; règle permanente du canal d'essai.
+- **Contrôle préalable :** `main` à `cea3bbf` ; aucune pull request. Source : `Ma-classe` `essai` `e0ea4d1` ; suite complète locale 90 sur 94 avant numérotation, les 4 scénarios en échec corrigés (textes des tutoriels, tests mis à jour) puis verts relancés seuls ; scénarios sensibles à la version relancés après.
+- **Livraison :** avance rapide `cea3bbf..4caedfc`, sans forçage ; action `43636536987` réussie (installateur d'essai 5.2.42 signé et vérifié, pages publiées).
+
 ## 2026-11-14 — Essai 5.2.41 sur le canal d'essai (pages et application) : séances rangées et notes sur l'Accueil
 
 - **Autorisation :** demande de Franck du 14 novembre, 18 h 29 (séances des Tableaux et des Rituels rangées, assistant plus discret, widget Notes lié aux Rappels) ; règle permanente du canal d'essai.
