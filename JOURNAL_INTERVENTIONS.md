@@ -2,6 +2,12 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-15 — Essai 5.2.44 sur le canal d'essai (pages et application) : journée validée par l'enseignant, calcul mental
+
+- **Autorisation :** demande de Franck du 14 novembre, 23 h 30 (le créneau de la journée ne change qu'à la validation de l'enseignant, l'assistant propose de valider ; démonstration de fin de journée sans ½ ni ✕ ; Calcul mental : 6 à 12 calculs, minuteur avec la nouvelle série, couleurs des lignes, plan à plastifier) ; règle permanente du canal d'essai. Stable inchangé.
+- **Contrôle préalable :** `main` à `21a85f0` ; aucune pull request ; aucune action en cours. Source : `Ma-classe` `essai` `a42611e` ; suite complète locale 96 sur 96.
+- **Livraison :** avance rapide `21a85f0..05c8426`, sans forçage ; action `43656934139` réussie (« versions.json signé : essai 5.2.44, stable 5.2.0 », installateur d'essai 5.2.44 signé et vérifié, pages publiées).
+
 ## 2026-11-14 — Essai 5.2.43 (pages et application) ; actions de publication sur leurs dernières versions (Node 24)
 
 - **Autorisation :** Franck, 21 h 48 : « Fais : Deux postes ouverts en même temps, Lecteur PDF, lot 4, Petite dette » (la petite dette comprend les actions encore en Node 20) ; règle permanente du canal d'essai. Stable non concerné.
