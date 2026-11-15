@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-15 — Essai 5.2.47 sur le canal d'essai (pages et application) : pauses déplaçables, À propos sans IA, lecteur audio retiré
+
+- **Autorisation :** demandes de Franck du 15 novembre, 16 h 27 à 16 h 40 (mention de l'IA retirée de Réglages › À propos, présentation seulement ; lecteur audio retiré ; erreur « fichier illisible reglages/postes/._… » ; récréations et pause méridienne déplaçables) ; règle permanente du canal d'essai. Stable inchangé.
+- **Contrôle préalable :** `main` à `9298e6a` ; aucune pull request ; aucune action en cours. Source : `Ma-classe` `essai` `42eea93` ; suite complète locale 98 sur 98.
+- **Documentation :** `DOCUMENTATION.md`, point 8 : l'application ne mentionne plus l'aide de l'IA ; la mention reste sur la page de présentation et dans le README (inchangés).
+- **Livraison :** avance rapide `9298e6a..61ac3ab`, sans forçage ; action `43736332836` réussie (« versions.json signé : essai 5.2.47, stable 5.2.0 », installateur d'essai 5.2.47 signé et vérifié, pages publiées).
+
 ## 2026-11-15 — Essai 5.2.46 sur le canal d'essai (pages et application) : rituels en cartes, lots 2 et 3, corrigé du plan
 
 - **Autorisation :** demande de Franck du 15 novembre, 10 h 37 (plan du Nombre du jour, corrigé du plan au tableau, « Puis fais les derniers lots ») ; règle permanente du canal d'essai. Stable inchangé.
