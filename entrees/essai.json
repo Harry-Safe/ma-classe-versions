@@ -1,22 +1,25 @@
 {
-  "version": "5.2.43",
-  "date": "2026-11-14",
-  "titre": "Essai : Deux postes, lecteur PDF, outils",
+  "version": "5.2.44",
+  "date": "2026-11-15",
+  "titre": "Essai : Journée validée, calcul mental",
   "notes": [
-    "Outils : des pictogrammes à la place des symboles et émojis dans les commandes, des boutons d'au moins 32 px (plus faciles à viser au tableau), des repères du thermomètre plus lisibles, et un cadenas visible pour verrouiller un onglet d'un outil personnel.",
-    "Lecteur PDF : passage à pdf.js 4 (sécurité et rendu plus récents) ; rien ne change à l'usage.",
-    "Deux ordinateurs ouverts en même temps (classe et maison) : les métiers de la semaine et les actions « Automatique » de l'assistant ne se font plus tout seuls tant que Ma classe est aussi ouvert ailleurs ; un clic les fait sur le poste où vous travaillez."
+    "Journée : l'activité affichée ne change plus avec l'heure : elle reste « En ce moment » jusqu'à ce que vous la validiez. « Valider » (suivi du nom de l'activité suivante) la note faite et passe à la suivante ; cocher sa case dans la journée ou la touche Page suivante (télécommande) font de même. Décocher l'activité qu'on vient de valider y revient. Les récréations et la pause de midi passent seules, à leur heure ; « Suivante » pendant une récréation commence l'activité suivante tout de suite. Avant la classe, « Commencer ».",
+    "Journée : quand le temps prévu d'une activité est dépassé de 5 minutes (réglable : Réglages › Emploi du temps), « Valider » est cerclé et l'assistant propose de la valider ; avec plusieurs activités de retard sur l'horaire, « Tout est fait jusqu'ici » les note faites et rejoint l'activité prévue maintenant. Dans « Ce que l'assistant peut faire », « Automatique » fait passer la journée seule à la suite, sans cocher l'activité.",
+    "Journée : Ma classe ouvert en cours de journée commence à l'activité de l'horaire ; la journée est finie quand la dernière activité est validée, ou 15 minutes après sa fin prévue. Le widget « En ce moment », la pastille de la barre du haut, l'écran « Consignes », les fiches de préparation, la fin d'activité annoncée et l'assistant suivent l'activité validée.",
+    "Classe de démonstration : la journée fictive est validée au fil des heures (seulement des coches ✓, plus de ½ ni de ✕ impossibles à faire depuis l'Accueil) ; le matin, « Maths » est en cours depuis 10 h 30.",
+    "Rituels › Calcul mental : de 6 à 12 calculs (réglage « Calculs » ; avec aide, deux de moins) ; un minuteur réglé d'avance (« Minuteur », de 30 s à 5 min) part avec chaque « Nouvelle série » ; les calculs sont rangés en lignes de couleurs claires et numérotés, pour s'y repérer (« la ligne jaune, le calcul 5 ») ; les mêmes couleurs dans le widget « Calcul mental » de l'Accueil.",
+    "Rituels › Calcul mental : « Plan » imprime le plan à plastifier, la même grille qu'au tableau (lignes de couleurs, cases numérotées, A4 paysage ou deux plans A5 par feuille) : chaque élève y écrit ses réponses au feutre effaçable, série après série."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6713295,
-      "sha256": "37649bdbe1e7350c1da813149de6c45b46f1dadda32e395b8aebee1dc6f2f2ba"
+      "taille": 6737474,
+      "sha256": "6cbb91a187cd4924bbff179434826efdd4dcbda6dcc2ce28d38a024b4d7daad8"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6713295,
-      "sha256": "37649bdbe1e7350c1da813149de6c45b46f1dadda32e395b8aebee1dc6f2f2ba"
+      "taille": 6737474,
+      "sha256": "6cbb91a187cd4924bbff179434826efdd4dcbda6dcc2ce28d38a024b4d7daad8"
     }
   }
 }
