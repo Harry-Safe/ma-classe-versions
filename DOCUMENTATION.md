@@ -150,7 +150,7 @@ seule la coquille s'ajoute au contenu public. Elle ne contient que la **clé pub
 8. L’aide de l’IA au développement et à la documentation est mentionnée de façon générale dans la présentation
    uniquement. Depuis le 8 novembre 2026, `index.html` et `README.md` portent la formulation de Franck (« Ma classe »
    est conçu et développé par Franck VARAULT […] ; le code a été écrit avec l’aide d’assistants de programmation par IA,
-   sous sa direction) ; Réglages › À propos garde sa mention générale, que Franck ne veut pas modifier. Les anciens commits et journaux, les références techniques et les crédits/licences tiers sont conservés.
+   sous sa direction) ; depuis le 15 novembre 2026 (décision de Franck), l'application ne mentionne plus l'aide de l'IA (Réglages › À propos) : la mention figure seulement sur la page de présentation et dans le README. Les anciens commits et journaux, les références techniques et les crédits/licences tiers sont conservés.
    Ne pas retoucher les HTML, ZIP ou installateurs distribués à la main : leur mise à jour passe par les scripts
    de publication du dépôt source et une autorisation de publication.
 

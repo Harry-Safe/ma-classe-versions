@@ -1,11 +1,11 @@
 {
-  "version": "5.2.46",
-  "notes": "Nombre du jour : sur le plan à plastifier, la case « Écris-le en lettres » est deux fois plus longue pour écrire, et la case du nombre du jour vient au-dessous.\nCorrigé du plan au tableau (bouton « Corrigé ») pour Calcul mental, Fluence, Nombre du jour et Date du jour : les mêmes cases que le plan, avec seulement ce que les élèves devaient y écrire (le résultat, le nombre manquant, « sept », 6 et 8…) ; « Revenir » retrouve les cartes.\nFlash Maths : une série de 6 à 12 cartes (réglage « Cartes », 8 par défaut) au lieu d'une suite sans fin ; chaque carte a son numéro et la couleur de sa ligne sur le plan ; après la dernière, le corrigé de la série (les nombres dans les cases du plan), puis « Nouvelle série » ; « Plan » et « Corrigé » sous la carte.\nLecture flash : nombre de mots de la série (de 6 à 20, ou toute la liste) et temps d'affichage (0,5 à 3 s, ou selon le palier) ; mots numérotés aux couleurs de leur ligne ; en fin de série, tous les mots à relire ; « Lecture chronométrée » (1 ou 2 minutes) : la liste en lignes de couleurs numérotées, un clic sur le dernier mot lu compte les mots lus ; « Plan » : la liste plastifiée.\nMot et phrase du jour : réglure Seyès aux couleurs claires ciel (lettres qui montent), herbe (petites lettres), terre (lettres qui descendent), au tableau et dans le widget de l'Accueil (case « ciel, herbe, terre ») ; minuteur de copie (1 à 5 minutes, « Copier ») ; « Plan » : des bandes Seyès agrandies aux mêmes couleurs (une ligne pour le mot, deux pour la phrase).",
-  "pub_date": "2026-11-15T10:34:36Z",
+  "version": "5.2.47",
+  "notes": "Emploi du temps et La semaine : la récréation et la pause méridienne se déplacent. Glisser la bande la déplace pour tous les jours à la fois ; un clic dessus ouvre son panneau (titre, horaires, « Retirer de tous les jours »). Une pause propre à un seul jour se glisse dans son jour. L'activité juste avant et celle juste après suivent ; aucune autre activité n'est recouverte. Annuler remet tout.\nLe jour : la récréation et la pause méridienne se glissent entre deux lignes (par l'heure, comme les activités) ; les activités qu'elles sautent avancent ou reculent d'autant. Ses horaires changés dans le panneau, ses voisines suivent.\nMac : les fichiers cachés « ._… » que le Mac crée dans le dossier de la classe sont ignorés (plus d'erreur « fichier illisible reglages/postes/._… » dans le journal des erreurs).\nRéglages › À propos : plus de mention de l'aide de l'IA ; elle figure seulement sur la page de présentation publique.\nApplication Windows : le lecteur audio du dock est retiré ; il reviendra plus tard sous une autre forme. Les fichiers déjà ajoutés restent sur le poste.",
+  "pub_date": "2026-11-15T16:35:11Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.46_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.47_x64-setup-essai.exe"
     }
   }
 }
