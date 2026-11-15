@@ -2,6 +2,12 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-15 — Essai 5.2.46 sur le canal d'essai (pages et application) : rituels en cartes, lots 2 et 3, corrigé du plan
+
+- **Autorisation :** demande de Franck du 15 novembre, 10 h 37 (plan du Nombre du jour, corrigé du plan au tableau, « Puis fais les derniers lots ») ; règle permanente du canal d'essai. Stable inchangé.
+- **Contrôle préalable :** `main` à `b9a8132` ; aucune pull request ; aucune action en cours. Source : `Ma-classe` `essai` `72a4f67` ; suite complète locale 97 sur 97.
+- **Livraison :** avance rapide `b9a8132..42ec6e2`, sans forçage ; action `43704752920` réussie (« versions.json signé : essai 5.2.46, stable 5.2.0 », installateur d'essai 5.2.46 signé et vérifié, pages publiées).
+
 ## 2026-11-15 — Essai 5.2.45 sur le canal d'essai (pages et application) : rituels en cartes, lot 1
 
 - **Autorisation :** demande de Franck du 15 novembre, 8 h 22 et 8 h 38 (enrichir les rituels comme le Calcul mental ; lot 1 : Fluence, Nombre du jour, Date du jour, plans sans prénom) ; règle permanente du canal d'essai. Stable inchangé.
