@@ -1,20 +1,20 @@
 {
-  "version": "5.2.48",
+  "version": "5.2.49",
   "date": "2026-11-16",
-  "titre": "Essai : Paquet et casse animés",
+  "titre": "Essai : Tableau de numération animé",
   "notes": [
-    "Tableaux › Numération : « Faire un paquet » s'anime. Les 10 éléments filent un à un, en une demi-seconde, à leur place exacte dans la dizaine (cases de la boîte de dix, jetons de la constellation, cubes de la barre, bûchettes du fagot, perles du boulier, pièces posées sur le billet de 10 €), puis la dizaine apparaît. « Casser » fait l'inverse : la dizaine s'ouvre et ses 10 unités sortent de leur place. Même chose pour les centaines (10 dizaines en rangées dans la plaque) et les milliers (10 plaques en couches dans le gros cube). Rien ne bouge en mode léger."
+    "Outil Tableau de numération, mode Matériel : « 10 font 1 » et « 1 font 10 » s'animent comme dans Tableaux › Numération. Les 10 cubes filent un à un dans les cases de la nouvelle barre ; 10 barres deviennent les 10 colonnes de la plaque ; 10 plaques deviennent les couches du gros cube. Pour « 1 font 10 », c'est l'inverse : les 10 éléments sortent de leur place et rejoignent la colonne de droite. « Tout grouper » laisse un peu plus de temps entre deux groupes. Rien ne bouge en mode léger."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6786184,
-      "sha256": "64cc73099b3faef2e89482d40737a15b1b6f79de7601b23a7fd7159432f56804"
+      "taille": 6791959,
+      "sha256": "54306f4e23f57bd440a38c4dded58078ed94520c931c82bd763bd4573346861f"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6786184,
-      "sha256": "64cc73099b3faef2e89482d40737a15b1b6f79de7601b23a7fd7159432f56804"
+      "taille": 6791959,
+      "sha256": "54306f4e23f57bd440a38c4dded58078ed94520c931c82bd763bd4573346861f"
     }
   }
 }
