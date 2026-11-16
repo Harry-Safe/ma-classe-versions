@@ -2,6 +2,12 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-16 — Essai 5.2.49 sur le canal d'essai (pages et application) : outil Tableau de numération animé
+
+- **Autorisation :** réponse de Franck du 16 novembre, 19 h 01 (« Ca me va. Applique ça dans l'application », sur la proposition d'animer l'outil Tableau de numération) ; règle permanente du canal d'essai. Stable inchangé.
+- **Contrôle préalable :** `main` à `6358e1e` ; aucune pull request ; aucune action en cours. Source : `Ma-classe` `essai` `6d00aa8` ; suite complète locale 98 sur 98.
+- **Livraison :** avance rapide `6358e1e..52415aa`, sans forçage ; action `43933584643` réussie (« versions.json signé : essai 5.2.49, stable 5.2.0 », installateur d'essai 5.2.49 signé et vérifié, pages publiées).
+
 ## 2026-11-16 — Essai 5.2.48 sur le canal d'essai (pages et application) : paquet et casse animés (Tableaux › Numération)
 
 - **Autorisation :** demandes de Franck du 16 novembre, 16 h 19 et 17 h 07 (« un effet visuel plus rapide et qui fonctionne avec les représentations déjà utilisées sur le tableau numération ») ; règle permanente du canal d'essai. Stable inchangé.
