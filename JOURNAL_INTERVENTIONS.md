@@ -2,6 +2,12 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-17 — Essai 5.2.50 sur le canal d'essai (pages et application) : couleurs et forme des unités (Tableaux › Numération), séries de calcul complètes
+
+- **Autorisation :** demande de Franck du 16 novembre, 23 h 04 (couleurs des unités, forme des paquets défaits, option debout / couché, Calcul mental figé en CP, contrôle hors CP) ; règle permanente du canal d'essai. Stable inchangé.
+- **Contrôle préalable :** `main` à `b550dd2` ; aucune pull request ; aucune action en cours. Source : `Ma-classe` `essai` `336a0d5` ; suite complète locale 98 sur 98.
+- **Livraison :** avance rapide `b550dd2..4d389cc`, sans forçage ; action `43976782590` réussie (« versions.json signé : essai 5.2.50, stable 5.2.0 », installateur d'essai 5.2.50 signé et vérifié, pages publiées).
+
 ## 2026-11-16 — Essai 5.2.49 sur le canal d'essai (pages et application) : outil Tableau de numération animé
 
 - **Autorisation :** réponse de Franck du 16 novembre, 19 h 01 (« Ca me va. Applique ça dans l'application », sur la proposition d'animer l'outil Tableau de numération) ; règle permanente du canal d'essai. Stable inchangé.
