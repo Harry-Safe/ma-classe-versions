@@ -2,6 +2,12 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-16 — Essai 5.2.48 sur le canal d'essai (pages et application) : paquet et casse animés (Tableaux › Numération)
+
+- **Autorisation :** demandes de Franck du 16 novembre, 16 h 19 et 17 h 07 (« un effet visuel plus rapide et qui fonctionne avec les représentations déjà utilisées sur le tableau numération ») ; règle permanente du canal d'essai. Stable inchangé.
+- **Contrôle préalable :** `main` à `0d079cc` ; aucune pull request ; aucune action en cours. Source : `Ma-classe` `essai` `27e1ecd` ; suite complète locale 98 sur 98.
+- **Livraison :** avance rapide `0d079cc..d7cd1ea`, sans forçage ; action `43913914056` réussie (« versions.json signé : essai 5.2.48, stable 5.2.0 », installateur d'essai 5.2.48 signé et vérifié, pages publiées).
+
 ## 2026-11-15 — Essai 5.2.47 sur le canal d'essai (pages et application) : pauses déplaçables, À propos sans IA, lecteur audio retiré
 
 - **Autorisation :** demandes de Franck du 15 novembre, 16 h 27 à 16 h 40 (mention de l'IA retirée de Réglages › À propos, présentation seulement ; lecteur audio retiré ; erreur « fichier illisible reglages/postes/._… » ; récréations et pause méridienne déplaçables) ; règle permanente du canal d'essai. Stable inchangé.
