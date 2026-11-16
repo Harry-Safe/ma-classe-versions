@@ -1,20 +1,24 @@
 {
-  "version": "5.2.49",
-  "date": "2026-11-16",
-  "titre": "Essai : Tableau de numération animé",
+  "version": "5.2.50",
+  "date": "2026-11-17",
+  "titre": "Essai : Couleurs des unités et séries de calcul complètes",
   "notes": [
-    "Outil Tableau de numération, mode Matériel : « 10 font 1 » et « 1 font 10 » s'animent comme dans Tableaux › Numération. Les 10 cubes filent un à un dans les cases de la nouvelle barre ; 10 barres deviennent les 10 colonnes de la plaque ; 10 plaques deviennent les couches du gros cube. Pour « 1 font 10 », c'est l'inverse : les 10 éléments sortent de leur place et rejoignent la colonne de droite. « Tout grouper » laisse un peu plus de temps entre deux groupes. Rien ne bouge en mode léger."
+    "Tableaux › Numération, couleurs : les unités suivent maintenant « Deux couleurs : 5 + 5 ». Sur 7 unités, 5 ont la couleur des unités et 2 la deuxième couleur. Quand on casse une dizaine, ses 10 unités gardent les deux couleurs de la dizaine, et chacune sort de sa propre place. Déplacer une unité ne change pas sa couleur.",
+    "Tableaux › Numération, forme d'un paquet défait : les 10 unités gardent une forme cohérente avec la dizaine. Barre couchée : deux rangées de 5. Barre debout : deux colonnes de 5. Double constellation : les deux constellations du 5. Boîte de dix : la boîte, sans son cadre. 10 dizaines sorties d'une centaine se rangent comme dans la plaque (10 rangées, ou 10 colonnes debout). Le groupe se pose à la place du paquet si elle est libre, sinon à la place libre la plus proche, sans recouvrir les autres éléments.",
+    "Tableaux › Numération, « debout / couché » (Aspect des éléments) : l'option agit maintenant sur toutes les représentations (barres, boîtes, constellations, tiges de perles), plus seulement sur les fagots. Si « Barres debout » était choisi, les barres s'affichent donc debout.",
+    "Calcul mental : une série a toujours le nombre de calculs choisi. Avant, quand « Nombres jusqu'à » était trop petit pour l'objectif, la série ne contenait qu'un seul calcul (en CP, avec 10 : « 1 + 10 », « 10 − 10 », « 2 + 9 »). Désormais les nombres s'élargissent juste ce qu'il faut (sans dépasser la fin d'année du niveau) et un message le dit : « Nombres jusqu'à 10 » est trop petit pour cet objectif, cette série va jusqu'à 20.",
+    "Calcul mental, tous les niveaux : quand un objectif n'a pas assez de calculs différents (« Compléter à 5 » n'en a que six), la série est complétée par des reprises, jamais deux fois de suite le même calcul. Même règle pour la fluence « Procédure travaillée »."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6791959,
-      "sha256": "54306f4e23f57bd440a38c4dded58078ed94520c931c82bd763bd4573346861f"
+      "taille": 6802104,
+      "sha256": "b28ee0e95557d2a6e187c0b17db455d783d4c9442d1ed302b56980c045fd4473"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6791959,
-      "sha256": "54306f4e23f57bd440a38c4dded58078ed94520c931c82bd763bd4573346861f"
+      "taille": 6802104,
+      "sha256": "b28ee0e95557d2a6e187c0b17db455d783d4c9442d1ed302b56980c045fd4473"
     }
   }
 }
