@@ -1,11 +1,11 @@
 {
-  "version": "5.2.47",
-  "notes": "Emploi du temps et La semaine : la récréation et la pause méridienne se déplacent. Glisser la bande la déplace pour tous les jours à la fois ; un clic dessus ouvre son panneau (titre, horaires, « Retirer de tous les jours »). Une pause propre à un seul jour se glisse dans son jour. L'activité juste avant et celle juste après suivent ; aucune autre activité n'est recouverte. Annuler remet tout.\nLe jour : la récréation et la pause méridienne se glissent entre deux lignes (par l'heure, comme les activités) ; les activités qu'elles sautent avancent ou reculent d'autant. Ses horaires changés dans le panneau, ses voisines suivent.\nMac : les fichiers cachés « ._… » que le Mac crée dans le dossier de la classe sont ignorés (plus d'erreur « fichier illisible reglages/postes/._… » dans le journal des erreurs).\nRéglages › À propos : plus de mention de l'aide de l'IA ; elle figure seulement sur la page de présentation publique.\nApplication Windows : le lecteur audio du dock est retiré ; il reviendra plus tard sous une autre forme. Les fichiers déjà ajoutés restent sur le poste.",
-  "pub_date": "2026-11-15T16:35:11Z",
+  "version": "5.2.48",
+  "notes": "Tableaux › Numération : « Faire un paquet » s'anime. Les 10 éléments filent un à un, en une demi-seconde, à leur place exacte dans la dizaine (cases de la boîte de dix, jetons de la constellation, cubes de la barre, bûchettes du fagot, perles du boulier, pièces posées sur le billet de 10 €), puis la dizaine apparaît. « Casser » fait l'inverse : la dizaine s'ouvre et ses 10 unités sortent de leur place. Même chose pour les centaines (10 dizaines en rangées dans la plaque) et les milliers (10 plaques en couches dans le gros cube). Rien ne bouge en mode léger.",
+  "pub_date": "2026-11-16T17:01:20Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.47_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_5.2.48_x64-setup-essai.exe"
     }
   }
 }
