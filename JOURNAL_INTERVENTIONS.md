@@ -8,7 +8,7 @@ Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne s
 - **Contrôle préalable :** `main` à `5f36e3f` ; aucune pull request ; aucune action en cours. Source : `Ma-classe` `essai` `4da565f` ; suite complète locale 98 sur 98.
 - **Outils :** `outils/signer-appli.py` lit un numéro avec suffixe dans le nom de l'installateur (`Ma-classe_6.0.0-beta.1_x64-setup-essai.exe`) ; `outils/fabriquer-appli.py` (`trois`) garde le suffixe ; `DOCUMENTATION.md` : numéros et ordre. Vérifié : expression du nom sur 5.2.51, 6.0.0-beta.1 et 6.0.0.
 - **Essai de transition :** la coquille 5.2.51 apprend à l'application installée les numéros `6.0.0-beta.N` ; l'essai suivant portera ce numéro.
-- **Livraison :** voir le résultat de l'action ci-dessous.
+- **Livraison :** avance rapide `5f36e3f..79ef7ad`, sans forçage ; action `43989759974` réussie (« versions.json signé : essai 5.2.51, stable 5.2.0 », installateur d'essai 5.2.51 fabriqué avec la nouvelle coquille, signé et vérifié comme dans l'application ; stable inchangé).
 
 ## 2026-11-17 — Essai 5.2.50 sur le canal d'essai (pages et application) : couleurs et forme des unités (Tableaux › Numération), séries de calcul complètes
 
