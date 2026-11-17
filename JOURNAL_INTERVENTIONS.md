@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-18 — Essai 6.0.0-beta.9 sur le canal d'essai : Ma classe devient un logiciel libre (publication du site bloquée)
+
+- **Autorisation :** Franck, 18 novembre, 0 h (« Oui et complète les crédits », après le choix de la GPL) ; canal d'essai : autorisation permanente du 8 novembre 2026.
+- **Contrôle préalable :** `main` à `2802c80` ; aucune action en cours. Source : `Ma-classe` `essai` `aee92a1`.
+- **Contenu :** licence GNU GPL version 3 ou ultérieure (`LICENSE`), section Licence du `README.md` (applis du Store sous leur propre licence), pied de page de `index.html` et de `DOCUMENTATION.md` ; pages et coquille 6.0.0-beta.9.
+- **Livraison :** avance rapide `2802c80..75c8115`, sans forçage. L'action « Publier les mises à jour » **échoue deux fois** à `configure-pages` (« Get Pages site failed … Not Found ») : GitHub Pages semble désactivé dans les réglages du dépôt ; site non mis à jour, stable inchangé (5.2.0). À réactiver par Franck (Settings › Pages › Source : GitHub Actions), puis relancer l'action (run `44202387233`).
+
 ## 2026-11-17 — Essai 6.0.0-beta.8 sur le canal d'essai (pages et application) : pièces et billets dessinés
 
 - **Autorisation :** Franck, 17 novembre, 22 h 58 (« génère les pièces et billets pour qu'ils ressemblent à peu près ») ; canal d'essai : autorisation permanente du 8 novembre 2026.
