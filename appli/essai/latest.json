@@ -1,11 +1,11 @@
 {
-  "version": "6.0.0-beta.1",
-  "notes": "Tableaux › Numération, « Casser » : un paquet défait garde maintenant la forme du paquet, et ses éléments sont seulement espacés. Une barre couchée donne une ligne de 10 cubes, une barre debout une colonne de 10. Une boîte de dix donne 2 rangées de 5, une double constellation les deux constellations du 5, un fagot ses 10 bûchettes côte à côte. Une centaine donne 10 barres en rangées, comme dans la plaque. Si la forme ne tient pas, l'écart se resserre ; le groupe se pose à la place du paquet ou à la place libre la plus proche.\nNouveau tableau « Manipuler », avec trois outils à glisser-déposer, au doigt ou à la souris :",
-  "pub_date": "2026-11-17T10:54:38Z",
+  "version": "6.0.0-beta.2",
+  "notes": "Boîtes de 10, Balance des nombres et Triangle des opérations sont maintenant dans le menu Outils, juste après le Tableau de numération, chacun avec son icône. Le tableau « Manipuler » de l'essai précédent disparaît. Chaque outil s'ouvre dans sa propre fenêtre, que l'on peut déplacer, agrandir et ouvrir en même temps que les autres. Ses réglages sont en haut, avec ↶ (ou Ctrl+Z) et « Tout enlever ». Une fenêtre fermée puis rouverte retrouve ses jetons, ses poids et ses nombres.",
+  "pub_date": "2026-11-17T13:13:12Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_6.0.0-beta.1_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_6.0.0-beta.2_x64-setup-essai.exe"
     }
   }
 }

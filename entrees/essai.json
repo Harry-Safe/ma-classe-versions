@@ -1,21 +1,20 @@
 {
-  "version": "6.0.0-beta.1",
+  "version": "6.0.0-beta.2",
   "date": "2026-11-17",
-  "titre": "Essai : Casse en forme de paquet, outils Manipuler",
+  "titre": "Essai : Outils à manipuler dans le menu Outils",
   "notes": [
-    "Tableaux › Numération, « Casser » : un paquet défait garde maintenant la forme du paquet, et ses éléments sont seulement espacés. Une barre couchée donne une ligne de 10 cubes, une barre debout une colonne de 10. Une boîte de dix donne 2 rangées de 5, une double constellation les deux constellations du 5, un fagot ses 10 bûchettes côte à côte. Une centaine donne 10 barres en rangées, comme dans la plaque. Si la forme ne tient pas, l'écart se resserre ; le groupe se pose à la place du paquet ou à la place libre la plus proche.",
-    "Nouveau tableau « Manipuler », avec trois outils à glisser-déposer, au doigt ou à la souris :"
+    "Boîtes de 10, Balance des nombres et Triangle des opérations sont maintenant dans le menu Outils, juste après le Tableau de numération, chacun avec son icône. Le tableau « Manipuler » de l'essai précédent disparaît. Chaque outil s'ouvre dans sa propre fenêtre, que l'on peut déplacer, agrandir et ouvrir en même temps que les autres. Ses réglages sont en haut, avec ↶ (ou Ctrl+Z) et « Tout enlever ». Une fenêtre fermée puis rouverte retrouve ses jetons, ses poids et ses nombres."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6863867,
-      "sha256": "3d431bcee16efccab92c527194c8d4bfcd4b8d72605d1101dcd4c165e79a3213"
+      "taille": 6870154,
+      "sha256": "4b3dd02b89672e884a04ebfc743e955064308905a3f68c6a517173caef098632"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6863867,
-      "sha256": "3d431bcee16efccab92c527194c8d4bfcd4b8d72605d1101dcd4c165e79a3213"
+      "taille": 6870154,
+      "sha256": "4b3dd02b89672e884a04ebfc743e955064308905a3f68c6a517173caef098632"
     }
   }
 }
