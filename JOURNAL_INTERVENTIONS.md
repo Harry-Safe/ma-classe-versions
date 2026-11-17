@@ -2,6 +2,12 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-17 — Essai 6.0.0-beta.3 sur le canal d'essai (pages et application) : mode TBI/ENI, écrire au tableau et par-dessus l'écran
+
+- **Autorisation :** demande de Franck du 17 novembre, 15 h 27 (« Fais ce mode pour les tableaux, avec mémorisation de l'écriture comme pour les éléments des tableaux. Puis ajoute un mode pour écriture par dessus les autres rituels ou application (comme une surcouche), activable rapidement. Ces modes ne viendraient que en mode tbi. ») ; règle permanente du canal d'essai. Stable inchangé.
+- **Contrôle préalable :** `main` à `a547929` ; aucune pull request ; aucune action en cours. Source : `Ma-classe` `essai` `b4bf35c` ; suite complète locale 100 sur 100 (nouveau scénario `mode_tbi` ; `reprise_ecriture` relancé seul après un échec sous la charge).
+- **Livraison :** avance rapide `a547929..213270a`, sans forçage ; action `44125041476` réussie (« versions.json signé : essai 6.0.0-beta.3, stable 5.2.0 » ; `Ma-classe_6.0.0-beta.3_x64-setup-essai.exe` fabriqué (3 231 Ko), signé, signature vérifiée comme dans l'application ; pages publiées).
+
 ## 2026-11-17 — Essai 6.0.0-beta.2 sur le canal d'essai (pages et application) : outils à manipuler dans le menu Outils
 
 - **Autorisation :** Franck, 17 novembre, 12 h 35 (« Ils doivent être dans Outils pas un tableau à part ») ; règle permanente du canal d'essai. Stable inchangé.
