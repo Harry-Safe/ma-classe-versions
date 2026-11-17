@@ -3,5 +3,11 @@
   "identifier": "default",
   "description": "La fenêtre principale de Ma classe seulement (les fenêtres de sites n'ont aucun accès)",
   "windows": ["main"],
-  "permissions": ["core:default"]
+  "permissions": [
+    "core:default",
+    "core:window:allow-minimize",
+    "core:window:allow-toggle-maximize",
+    "core:window:allow-close",
+    "core:window:allow-start-dragging"
+  ]
 }
