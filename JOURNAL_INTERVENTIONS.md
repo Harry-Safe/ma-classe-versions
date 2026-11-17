@@ -2,6 +2,12 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-17 — Essai 6.0.0-beta.2 sur le canal d'essai (pages et application) : outils à manipuler dans le menu Outils
+
+- **Autorisation :** Franck, 17 novembre, 12 h 35 (« Ils doivent être dans Outils pas un tableau à part ») ; règle permanente du canal d'essai. Stable inchangé.
+- **Contrôle préalable :** `main` à `d31a374` ; aucune pull request ; aucune action en cours. Source : `Ma-classe` `essai` `1afd051` ; suite complète locale 99 sur 99.
+- **Livraison :** avance rapide `d31a374..2a0afdb`, sans forçage ; action `44090545283` réussie (« versions.json signé : essai 6.0.0-beta.2, stable 5.2.0 » ; `Ma-classe_6.0.0-beta.2_x64-setup-essai.exe` signé, signature vérifiée comme dans l'application ; pages publiées).
+
 ## 2026-11-17 — Essai 6.0.0-beta.1 sur le canal d'essai (pages et application) : casse en forme de paquet, tableau « Manipuler »
 
 - **Autorisation :** demande de Franck du 17 novembre, 10 h 32 (casse des barres de 10 : « la forme globale du paquet est conservée, mais seulement, les unités sont espacées » ; nouveaux outils à glisser-déposer : boîtes de 10 jetons, balance des nombres, triangle des opérations) ; règle permanente du canal d'essai. Stable inchangé.
