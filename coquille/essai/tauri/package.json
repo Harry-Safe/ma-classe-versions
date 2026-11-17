@@ -1,5 +1,6 @@
 {
   "name": "ma-classe-appli",
+  "license": "GPL-3.0-or-later",
   "private": true,
   "description": "Outils de construction de l'application de bureau Ma classe (Tauri)",
   "scripts": {

@@ -1,6 +1,7 @@
 [package]
 name = "ma-classe"
 version = "5.0.0"
+license = "GPL-3.0-or-later"
 description = "Ma classe — application de bureau"
 authors = ["Franck VARAULT"]
 edition = "2021"

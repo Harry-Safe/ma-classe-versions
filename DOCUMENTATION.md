@@ -181,4 +181,4 @@ téléchargées ; installateur identique au paquet construit ; signature Minisig
 Changer une clé est une décision de Franck : publier d'abord une version de l'application qui accepte la nouvelle clé,
 attendre qu'elle soit installée, puis seulement remplacer le secret.
 
-© 2026 Franck VARAULT. Tous droits réservés.
+© 2026 Franck VARAULT. Ma classe : licence GNU GPL version 3 ou ultérieure (`LICENSE`) ; documentation : CC BY-SA 4.0 ; applis du Store : licence propre à chacune.

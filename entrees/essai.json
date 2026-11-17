@@ -1,20 +1,20 @@
 {
-  "version": "6.0.0-beta.8",
-  "date": "2026-11-17",
-  "titre": "Essai : Pièces et billets dessinés",
+  "version": "6.0.0-beta.9",
+  "date": "2026-11-18",
+  "titre": "Essai : Ma classe devient un logiciel libre",
   "notes": [
-    "Monnaie : des pièces et des billets dessinés pour Ma classe. Les quinze pièces et billets (outil Monnaie, Tableaux › Numération en monnaie, Fleur des nombres, Problèmes illustrés) sont maintenant des dessins simples et nets, comme dans un fichier de maths : couleurs et tailles proches des vrais, valeur bien lisible, monuments inventés. Ce ne sont plus des reproductions des pièces et billets officiels, et l'appli s'allège d'environ 220 Ko."
+    "Ma classe devient un logiciel libre (licence GNU GPL version 3 ou ultérieure ; documentation et contenus sous CC BY-SA 4.0). Chacun peut l'utiliser, l'étudier, le modifier et le partager, en gardant le nom de l'auteur et en partageant ses modifications sous la même licence. Réglages › À propos l'indique et cite aussi les dessins OpenMoji et la police Andika."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6821262,
-      "sha256": "42f7d721c0727ada67629cce101a19d465e1f4082447ecc609c5fe7731a77259"
+      "taille": 6821648,
+      "sha256": "eee602cbb16dde1c5e3aaf10309afd17704174cc8ad2f8deef919b2b8ce155dd"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6821262,
-      "sha256": "42f7d721c0727ada67629cce101a19d465e1f4082447ecc609c5fe7731a77259"
+      "taille": 6821648,
+      "sha256": "eee602cbb16dde1c5e3aaf10309afd17704174cc8ad2f8deef919b2b8ce155dd"
     }
   }
 }
