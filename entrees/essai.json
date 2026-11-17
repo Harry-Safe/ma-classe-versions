@@ -1,20 +1,20 @@
 {
-  "version": "6.0.0-beta.4",
+  "version": "6.0.0-beta.5",
   "date": "2026-11-17",
-  "titre": "Essai : Fenêtre de l'application aux couleurs de Ma classe",
+  "titre": "Essai : Pastilles aux couleurs de Ma classe",
   "notes": [
-    "Application Windows : la fenêtre s'habille comme le reste de Ma classe. La barre de titre grise de Windows disparaît : le fond du thème monte jusqu'en haut de la fenêtre, et trois pastilles, les mêmes que celles des fenêtres de l'appli (jaune pour réduire, vert pour agrandir ou restaurer, rouge pour fermer), se placent au bout de la barre de menus, après l'heure. Leur signe apparaît au survol. On déplace la fenêtre en la tenant par la barre de menus, là où il n'y a rien à cliquer, et un double-clic l'agrandit ou la restaure. Au doigt, la barre ne déplace jamais la fenêtre. En plein écran (touche F), les pastilles s'effacent. Sous Windows 11, la fenêtre garde son ombre et ses coins arrondis."
+    "Des pastilles aux couleurs de Ma classe. Les pastilles des fenêtres (fermer, réduire, agrandir) prennent une palette propre à l'appli, plus douce : corail pour fermer, miel pour réduire, sauge pour agrandir. Elles changent partout à la fois : fenêtres des outils, fenêtre de l'application Windows, boutons fermer ronds des applis, des widgets et de l'emploi du temps."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6918189,
-      "sha256": "d91d26f477c856741fc2638bfb267d0b295351ce5b85c3aed2652c3f000bccb0"
+      "taille": 6918357,
+      "sha256": "45bd0d257ba96389a490ce64609215871b9c9efd285b3838300e34f967854735"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6918189,
-      "sha256": "d91d26f477c856741fc2638bfb267d0b295351ce5b85c3aed2652c3f000bccb0"
+      "taille": 6918357,
+      "sha256": "45bd0d257ba96389a490ce64609215871b9c9efd285b3838300e34f967854735"
     }
   }
 }
