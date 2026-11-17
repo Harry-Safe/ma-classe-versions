@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-17 — Essai 6.0.0-beta.6 sur le canal d'essai (pages et application) : outils à manipuler, un même toucher, secousse de refus
+
+- **Autorisation :** Franck, 17 novembre, 19 h 43 (« Fais le lot 0 ») ; règle permanente du canal d'essai. Stable inchangé.
+- **Contrôle préalable :** `main` à `0c48067` ; aucune pull request ; aucune action en cours. Source : `Ma-classe` `essai` `7751457` (réunit l'essai 6.0.0-beta.5) ; suite complète locale 101 sur 101 sur la page numérotée.
+- **Contenu :** module commun de physique (`coeur/physique.js`) pour les outils à manipuler ; Balance des nombres et Boîtes de 10 branchées dessus, boîte pleine et crochet plein secoués. Coquille inchangée.
+- **Livraison :** avance rapide `0c48067..a9b9575`, sans forçage ; action `44170243838` réussie (« versions.json signé : essai 6.0.0-beta.6, stable 5.2.0 » ; `Ma-classe_6.0.0-beta.6_x64-setup-essai.exe` fabriqué (3 234 Ko), signé, signature vérifiée comme dans l'application ; pages publiées).
+
 ## 2026-11-17 — Essai 6.0.0-beta.5 sur le canal d'essai (pages et application) : pastilles aux couleurs de Ma classe
 
 - **Autorisation :** Franck, 17 novembre, 19 h 32 (« Oui », à la proposition de passer les pastilles dans une palette propre) ; règle permanente du canal d'essai. Stable inchangé.
