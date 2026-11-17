@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-17 — Essai 6.0.0-beta.7 sur le canal d'essai (pages et application) : réglettes Cuisenaire
+
+- **Autorisation :** Franck, 17 novembre, 19 h 36 (« Fais un outil drag and drop avec effets visuels pour avoir un rendu smooth et plus naturel (comme la balance des nombres), qui reprend les cuisenaires avec toutes les fonctions conseillées ») ; règle permanente du canal d'essai. Stable inchangé.
+- **Contrôle préalable :** `main` à `c04a72d` ; aucune pull request ; aucune action en cours. Source : `Ma-classe` `essai` `79e7f4c` (réunit les essais 6.0.0-beta.5 et 6.0.0-beta.6) ; suite complète locale 102 sur 102. Coquille inchangée.
+- **Contenu :** outil « Réglettes Cuisenaire » dans le menu Outils (glisser-déposer sur le module commun de physique, trains aimantés, Comparer et écarts, Escalier, règle graduée, calculs) ; fenêtre d'outil à manipuler rouverte aussitôt.
+- **Livraison :** avance rapide `c04a72d..b5c0646`, sans forçage ; action `44179812414` réussie (« versions.json signé : essai 6.0.0-beta.7, stable 5.2.0 » ; `Ma-classe_6.0.0-beta.7_x64-setup-essai.exe` signé, signature vérifiée comme dans l'application ; stable `Ma-classe_5.2.0_x64-setup.exe` inchangé).
+
 ## 2026-11-17 — Essai 6.0.0-beta.6 sur le canal d'essai (pages et application) : outils à manipuler, un même toucher, secousse de refus
 
 - **Autorisation :** Franck, 17 novembre, 19 h 43 (« Fais le lot 0 ») ; règle permanente du canal d'essai. Stable inchangé.
