@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-17 — Essai 6.0.0-beta.4 sur le canal d'essai (pages et application) : fenêtre de l'application aux couleurs de Ma classe
+
+- **Autorisation :** Franck, 17 novembre, 17 h 16 (« Oui, je veux que tu intègres la barre du haut dans le design. J'ai envie que l'encadré dans lequel se trouve l'appli soit en accord avec tout le reste ») ; règle permanente du canal d'essai. Stable inchangé.
+- **Contrôle préalable :** `main` à `1eb8eef` ; aucune pull request ; aucune action en cours. Source : `Ma-classe` `essai` `6ed75b7` ; suite complète locale 101 sur 101 (nouveau scénario `cadre_fenetre`).
+- **Coquille modifiée :** `tauri.conf.json` (fenêtre principale sans barre de titre : `decorations: false`, `shadow: true`) et `capabilities/default.json` (permissions `minimize`, `toggle-maximize`, `close`, `start-dragging`).
+- **Livraison :** avance rapide `1eb8eef..b304761`, sans forçage ; action `44134525761` réussie (« versions.json signé : essai 6.0.0-beta.4, stable 5.2.0 » ; `Ma-classe_6.0.0-beta.4_x64-setup-essai.exe` fabriqué (3 233 Ko) avec la coquille modifiée, signé ; pages publiées).
+
 ## 2026-11-17 — Essai 6.0.0-beta.3 sur le canal d'essai (pages et application) : mode TBI/ENI, écrire au tableau et par-dessus l'écran
 
 - **Autorisation :** demande de Franck du 17 novembre, 15 h 27 (« Fais ce mode pour les tableaux, avec mémorisation de l'écriture comme pour les éléments des tableaux. Puis ajoute un mode pour écriture par dessus les autres rituels ou application (comme une surcouche), activable rapidement. Ces modes ne viendraient que en mode tbi. ») ; règle permanente du canal d'essai. Stable inchangé.
