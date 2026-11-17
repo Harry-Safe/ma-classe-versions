@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-17 — Essai 6.0.0-beta.1 sur le canal d'essai (pages et application) : casse en forme de paquet, tableau « Manipuler »
+
+- **Autorisation :** demande de Franck du 17 novembre, 10 h 32 (casse des barres de 10 : « la forme globale du paquet est conservée, mais seulement, les unités sont espacées » ; nouveaux outils à glisser-déposer : boîtes de 10 jetons, balance des nombres, triangle des opérations) ; règle permanente du canal d'essai. Stable inchangé.
+- **Contrôle préalable :** `main` à `c90cfa3` ; aucune pull request ; aucune action en cours. Source : `Ma-classe` `essai` `66e113f` ; suite complète locale 99 sur 99 (nouveau scénario `manipuler`).
+- **Premier numéro en versionnage sémantique :** `6.0.0-beta.1` (« 6.0 · essai 1 »), lu par la coquille 5.2.51 publiée juste avant.
+- **Livraison :** avance rapide `c90cfa3..0d5cedc`, sans forçage ; action `44069168136` réussie (« versions.json signé : essai 6.0.0-beta.1, stable 5.2.0 » ; `Ma-classe_6.0.0-beta.1_x64-setup-essai.exe` signé, signature vérifiée comme dans l'application ; pages publiées).
+
 ## 2026-11-17 — Essai 5.2.51 sur le canal d'essai (pages et application) : numéros de version vers la 6.0, outils prêts pour les pré-versions
 
 - **Autorisation :** Franck, 17 novembre, 0 h 28 (« Go option b alors » : versionnage sémantique, essais `6.0.0-beta.N`) ; règle permanente du canal d'essai (8 novembre).
