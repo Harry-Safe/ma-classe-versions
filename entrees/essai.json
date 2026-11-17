@@ -1,24 +1,21 @@
 {
-  "version": "5.2.50",
+  "version": "5.2.51",
   "date": "2026-11-17",
-  "titre": "Essai : Couleurs des unités et séries de calcul complètes",
+  "titre": "Essai : Numéros de version vers la 6.0",
   "notes": [
-    "Tableaux › Numération, couleurs : les unités suivent maintenant « Deux couleurs : 5 + 5 ». Sur 7 unités, 5 ont la couleur des unités et 2 la deuxième couleur. Quand on casse une dizaine, ses 10 unités gardent les deux couleurs de la dizaine, et chacune sort de sa propre place. Déplacer une unité ne change pas sa couleur.",
-    "Tableaux › Numération, forme d'un paquet défait : les 10 unités gardent une forme cohérente avec la dizaine. Barre couchée : deux rangées de 5. Barre debout : deux colonnes de 5. Double constellation : les deux constellations du 5. Boîte de dix : la boîte, sans son cadre. 10 dizaines sorties d'une centaine se rangent comme dans la plaque (10 rangées, ou 10 colonnes debout). Le groupe se pose à la place du paquet si elle est libre, sinon à la place libre la plus proche, sans recouvrir les autres éléments.",
-    "Tableaux › Numération, « debout / couché » (Aspect des éléments) : l'option agit maintenant sur toutes les représentations (barres, boîtes, constellations, tiges de perles), plus seulement sur les fagots. Si « Barres debout » était choisi, les barres s'affichent donc debout.",
-    "Calcul mental : une série a toujours le nombre de calculs choisi. Avant, quand « Nombres jusqu'à » était trop petit pour l'objectif, la série ne contenait qu'un seul calcul (en CP, avec 10 : « 1 + 10 », « 10 − 10 », « 2 + 9 »). Désormais les nombres s'élargissent juste ce qu'il faut (sans dépasser la fin d'année du niveau) et un message le dit : « Nombres jusqu'à 10 » est trop petit pour cet objectif, cette série va jusqu'à 20.",
-    "Calcul mental, tous les niveaux : quand un objectif n'a pas assez de calculs différents (« Compléter à 5 » n'en a que six), la série est complétée par des reprises, jamais deux fois de suite le même calcul. Même règle pour la fluence « Procédure travaillée »."
+    "Numéros de version : à partir du prochain essai, les essais préparent la version 6.0 et s'affichent « 6.0 · essai 1 », « 6.0 · essai 2 »… (numéro exact : 6.0.0-beta.1). La version finale s'appellera simplement 6.0. Réglages › À propos montre les deux.",
+    "Cet essai apprend à l'application Windows et aux mises à jour à lire ces nouveaux numéros : installez-le avant les essais de la 6.0 pour que la mise à jour automatique continue de fonctionner."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6802104,
-      "sha256": "b28ee0e95557d2a6e187c0b17db455d783d4c9442d1ed302b56980c045fd4473"
+      "taille": 6803921,
+      "sha256": "6e4d61ada8ccf286f18f592052d47f6c96ee93152f1d20fbc4118e3dcc9dbc67"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6802104,
-      "sha256": "b28ee0e95557d2a6e187c0b17db455d783d4c9442d1ed302b56980c045fd4473"
+      "taille": 6803921,
+      "sha256": "6e4d61ada8ccf286f18f592052d47f6c96ee93152f1d20fbc4118e3dcc9dbc67"
     }
   }
 }

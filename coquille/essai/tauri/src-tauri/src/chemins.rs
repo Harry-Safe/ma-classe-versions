@@ -84,24 +84,75 @@ pub fn dans_racine(racine: &Path, cible: &Path) -> Result<PathBuf, String> {
     Ok(cible.to_path_buf())
 }
 
-/// Version d'un installateur, lue dans le nom de fichier du commentaire signé (« timestamp:…\tfile:Ma-classe_5.2.33_x64-setup-essai.exe »).
-pub fn version_signee(commentaire: &str) -> Option<Vec<u64>> {
+/// Numéro de version façon « versionnage sémantique » (docs/VERSIONS_ET_PUBLICATION.md § 1) : nombres, et un suffixe
+/// de pré-version pour les essais (« 6.0.0-beta.3 » → n = [6, 0, 0], pre = ["beta", "3"]).
+/// Même ordre que MiseAJour.comparer (page) et build/numeros.py : 5.2.51 < 6.0.0-beta.2 < 6.0.0-beta.10 < 6.0.0-rc.1 < 6.0.0.
+#[derive(Debug, Default, PartialEq, Eq, Clone)]
+pub struct Numero {
+    pub n: Vec<u64>,
+    pub pre: Vec<String>,
+}
+
+impl std::fmt::Display for Numero {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let n = self.n.iter().map(|x| x.to_string()).collect::<Vec<_>>().join(".");
+        if self.pre.is_empty() { write!(f, "{n}") } else { write!(f, "{n}-{}", self.pre.join(".")) }
+    }
+}
+
+/// Version d'un installateur, lue dans le nom de fichier du commentaire signé
+/// (« timestamp:…\tfile:Ma-classe_5.2.33_x64-setup-essai.exe », « …file:Ma-classe_6.0.0-beta.1_x64-setup-essai.exe »).
+pub fn version_signee(commentaire: &str) -> Option<Numero> {
     let fichier = commentaire.split('\t').find_map(|x| x.strip_prefix("file:"))?;
-    let v = fichier.split('_').find(|x| !x.is_empty() && x.chars().all(|c| c.is_ascii_digit() || c == '.') && x.contains('.'))?;
-    v.split('.').map(|n| n.parse::<u64>().ok()).collect()
+    fichier.split('_').find_map(|x| if x.contains('.') && x.starts_with(|c: char| c.is_ascii_digit()) { numeros(x) } else { None })
 }
 
-/// « 5.2.33 » → [5, 2, 33] ; comparaison nombre par nombre (5.2.10 > 5.2.9).
-pub fn numeros(v: &str) -> Option<Vec<u64>> {
-    v.trim().split('.').map(|n| n.parse::<u64>().ok()).collect()
+/// « 5.2.33 » → [5, 2, 33] ; « 6.0.0-beta.3 » → [6, 0, 0] et ["beta", "3"] ; un numéro de build (« +42 ») est ignoré.
+pub fn numeros(v: &str) -> Option<Numero> {
+    let v = v.trim().split('+').next()?;
+    let (base, pre) = match v.split_once('-') { Some((b, p)) => (b, Some(p)), None => (v, None) };
+    let n = base.split('.').map(|x| x.parse::<u64>().ok()).collect::<Option<Vec<_>>>()?;
+    let pre = match pre {
+        None => vec![],
+        Some(p) => {
+            let p: Vec<String> = p.split('.').map(String::from).collect();
+            if p.iter().any(|x| x.is_empty() || !x.chars().all(|c| c.is_ascii_alphanumeric())) { return None; }
+            p
+        }
+    };
+    Some(Numero { n, pre })
 }
 
-pub fn plus_ancienne(a: &[u64], b: &[u64]) -> bool {
-    let n = a.len().max(b.len());
-    for i in 0..n {
-        let (x, y) = (a.get(i).copied().unwrap_or(0), b.get(i).copied().unwrap_or(0));
+/// a est-elle plus ancienne que b ? Nombre par nombre (5.2.10 > 5.2.9, 5.2 = 5.2.0), puis une pré-version passe
+/// avant sa version finale, et les pré-versions se comparent morceau par morceau (nombres entre eux, sinon texte).
+pub fn plus_ancienne(a: &Numero, b: &Numero) -> bool {
+    use std::cmp::Ordering::*;
+    let len = a.n.len().max(b.n.len());
+    for i in 0..len {
+        let (x, y) = (a.n.get(i).copied().unwrap_or(0), b.n.get(i).copied().unwrap_or(0));
         if x != y {
             return x < y;
+        }
+    }
+    match (a.pre.is_empty(), b.pre.is_empty()) {
+        (true, _) => return false,
+        (false, true) => return true,
+        _ => {}
+    }
+    for i in 0..a.pre.len().max(b.pre.len()) {
+        let (p, q) = match (a.pre.get(i), b.pre.get(i)) {
+            (None, _) => return true,
+            (_, None) => return false,
+            (Some(p), Some(q)) => (p, q),
+        };
+        let o = match (p.parse::<u64>(), q.parse::<u64>()) {
+            (Ok(x), Ok(y)) => x.cmp(&y),
+            (Ok(_), Err(_)) => Less,
+            (Err(_), Ok(_)) => Greater,
+            _ => p.cmp(q),
+        };
+        if o != Equal {
+            return o == Less;
         }
     }
     false
@@ -172,13 +223,28 @@ mod tests {
 
     #[test]
     fn versions() {
-        assert_eq!(version_signee("timestamp:1731500000\tfile:Ma-classe_5.2.33_x64-setup-essai.exe"), Some(vec![5, 2, 33]));
-        assert_eq!(version_signee("timestamp:1731500000\tfile:Ma-classe_5.2.0_x64-setup.exe"), Some(vec![5, 2, 0]));
+        let v = |s: &str| numeros(s).unwrap();
+        assert_eq!(version_signee("timestamp:1731500000\tfile:Ma-classe_5.2.33_x64-setup-essai.exe"), Some(v("5.2.33")));
+        assert_eq!(version_signee("timestamp:1731500000\tfile:Ma-classe_5.2.0_x64-setup.exe"), Some(v("5.2.0")));
+        assert_eq!(version_signee("timestamp:1731500000\tfile:Ma-classe_6.0.0-beta.1_x64-setup-essai.exe"), Some(v("6.0.0-beta.1")));
         assert_eq!(version_signee("timestamp:1731500000"), None);
-        assert_eq!(numeros("5.2.33"), Some(vec![5, 2, 33]));
-        assert!(plus_ancienne(&[5, 2, 9], &[5, 2, 10]));
-        assert!(!plus_ancienne(&[5, 2, 33], &[5, 2, 33]));
-        assert!(!plus_ancienne(&[5, 3], &[5, 2, 33]));
-        assert!(plus_ancienne(&[5, 2], &[5, 2, 1]));
+        assert_eq!(numeros("5.2.33").map(|x| x.n), Some(vec![5, 2, 33]));
+        assert_eq!(numeros("6.0.0-beta.3").map(|x| (x.n, x.pre)), Some((vec![6, 0, 0], vec!["beta".to_string(), "3".to_string()])));
+        assert_eq!(numeros("6.0.0-beta.3").unwrap().to_string(), "6.0.0-beta.3");
+        assert_eq!(numeros("6.0.0-"), None);
+        assert_eq!(numeros("6.0.0-be/ta"), None);
+        assert!(plus_ancienne(&v("5.2.9"), &v("5.2.10")));
+        assert!(!plus_ancienne(&v("5.2.33"), &v("5.2.33")));
+        assert!(!plus_ancienne(&v("5.3"), &v("5.2.33")));
+        assert!(plus_ancienne(&v("5.2"), &v("5.2.1")));
+        // pré-versions : 5.2.51 < 6.0.0-beta.2 < 6.0.0-beta.10 < 6.0.0-rc.1 < 6.0.0 < 6.0.1 < 6.1.0-beta.1
+        let ordre = ["5.2.51", "6.0.0-beta.2", "6.0.0-beta.10", "6.0.0-rc.1", "6.0.0", "6.0.1", "6.1.0-beta.1"];
+        for (i, a) in ordre.iter().enumerate() {
+            for (j, b) in ordre.iter().enumerate() {
+                assert_eq!(plus_ancienne(&v(a), &v(b)), i < j, "{a} / {b}");
+            }
+        }
+        assert!(plus_ancienne(&v("6.0.0-beta"), &v("6.0.0-beta.1")));
+        assert!(!plus_ancienne(&v("6.0"), &v("6.0.0")));
     }
 }

@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-17 — Essai 5.2.51 sur le canal d'essai (pages et application) : numéros de version vers la 6.0, outils prêts pour les pré-versions
+
+- **Autorisation :** Franck, 17 novembre, 0 h 28 (« Go option b alors » : versionnage sémantique, essais `6.0.0-beta.N`) ; règle permanente du canal d'essai (8 novembre).
+- **Contrôle préalable :** `main` à `5f36e3f` ; aucune pull request ; aucune action en cours. Source : `Ma-classe` `essai` `4da565f` ; suite complète locale 98 sur 98.
+- **Outils :** `outils/signer-appli.py` lit un numéro avec suffixe dans le nom de l'installateur (`Ma-classe_6.0.0-beta.1_x64-setup-essai.exe`) ; `outils/fabriquer-appli.py` (`trois`) garde le suffixe ; `DOCUMENTATION.md` : numéros et ordre. Vérifié : expression du nom sur 5.2.51, 6.0.0-beta.1 et 6.0.0.
+- **Essai de transition :** la coquille 5.2.51 apprend à l'application installée les numéros `6.0.0-beta.N` ; l'essai suivant portera ce numéro.
+- **Livraison :** voir le résultat de l'action ci-dessous.
+
 ## 2026-11-17 — Essai 5.2.50 sur le canal d'essai (pages et application) : couleurs et forme des unités (Tableaux › Numération), séries de calcul complètes
 
 - **Autorisation :** demande de Franck du 16 novembre, 23 h 04 (couleurs des unités, forme des paquets défaits, option debout / couché, Calcul mental figé en CP, contrôle hors CP) ; règle permanente du canal d'essai. Stable inchangé.

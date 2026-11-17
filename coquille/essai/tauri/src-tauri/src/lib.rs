@@ -358,7 +358,8 @@ fn entete(request: &Request<'_>, nom: &str) -> Result<String, String> {
 fn installer_paquet(app: AppHandle, request: Request<'_>) -> Result<(), String> {
     let signature = entete(&request, "signature")?;
     let version = entete(&request, "version")?;
-    if version.is_empty() || !version.chars().all(|c| c.is_ascii_digit() || c == '.') {
+    // chiffres et points, et un suffixe d'essai (« 6.0.0-beta.3 ») : rien qui puisse sortir du dossier temporaire
+    if chemins::numeros(&version).is_none() || !version.chars().all(|c| c.is_ascii_alphanumeric() || c == '.' || c == '-') {
         return Err("numéro de version invalide".into());
     }
     let InvokeBody::Raw(octets) = request.body() else {
@@ -371,8 +372,7 @@ fn installer_paquet(app: AppHandle, request: Request<'_>) -> Result<(), String> 
     let signee = chemins::version_signee(sig.trusted_comment()).ok_or("installateur sans numéro de version signé : non installé")?;
     let courante = chemins::numeros(&app.package_info().version.to_string()).unwrap_or_default();
     if chemins::plus_ancienne(&signee, &courante) {
-        return Err(format!("installateur plus ancien ({}) que l'application ({}) : non installé",
-            signee.iter().map(|n| n.to_string()).collect::<Vec<_>>().join("."), app.package_info().version));
+        return Err(format!("installateur plus ancien ({signee}) que l'application ({}) : non installé", app.package_info().version));
     }
     let p = std::env::temp_dir().join(format!("Ma-classe_{version}_x64-setup.exe"));
     fs::write(&p, octets).map_err(texte)?;

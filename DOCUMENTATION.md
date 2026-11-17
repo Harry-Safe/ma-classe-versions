@@ -9,6 +9,11 @@ GitHub du dépôt. Seuls Franck (et les assistants qui travaillent avec lui, sur
 
 > Le code source et la procédure complète (numéros de version, CHANGELOG, essais, publication pas à pas) sont dans le
 > dépôt privé de Ma classe : `docs/VERSIONS_ET_PUBLICATION.md` et `docs/APPLICATION_WINDOWS.md`.
+>
+> **Numéros** (versionnage sémantique, depuis le 17 novembre 2026) : une version publiée s'écrit `6.0.0` ; les essais
+> qui la préparent, `6.0.0-beta.1`, `6.0.0-beta.2`… (affichés « 6.0 · essai 1, 2… »), éventuellement `6.0.0-rc.1`.
+> Ordre : `5.2.51 < 6.0.0-beta.2 < 6.0.0-beta.10 < 6.0.0-rc.1 < 6.0.0`. Les outils de ce dépôt acceptent ce suffixe
+> dans les fiches et dans les noms d'installateurs (`Ma-classe_6.0.0-beta.1_x64-setup-essai.exe`).
 
 ---
 

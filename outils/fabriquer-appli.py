@@ -24,7 +24,10 @@ PAQUET = ICI / "paquet"
 
 
 def trois(v):
-    return v if v.count(".") >= 2 else v + ".0"          # Tauri veut trois nombres : 5.1 -> 5.1.0
+    """Tauri veut trois nombres : 5.1 -> 5.1.0 ; le suffixe d'essai est gardé : 6.0-beta.1 -> 6.0.0-beta.1."""
+    base, sep, pre = v.partition("-")
+    n = base.split(".")
+    return ".".join(n + ["0"] * (3 - len(n))) + sep + pre
 
 
 def sortie(**valeurs):

@@ -86,7 +86,7 @@ def verifier(exe, signature, cle, version):
     except InvalidSignature:
         raise ValueError("signature invalide") from None
     if f"file:{exe.name}" not in commentaire.split("\t"): raise ValueError(f"commentaire signé sans le nom {exe.name}")
-    m = re.search(r"_(\d+(?:\.\d+)*)_", exe.name)
+    m = re.search(r"_(\d+(?:\.\d+)*(?:-[0-9A-Za-z]+(?:\.[0-9A-Za-z]+)*)?)_", exe.name)   # 5.2.51, 6.0.0-beta.1
     if not m or m.group(1) != version: raise ValueError(f"version du fichier signé ({m and m.group(1)}) différente de {version}")
 
 
