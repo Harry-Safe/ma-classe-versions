@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-17 — Essai 6.0.0-beta.8 sur le canal d'essai (pages et application) : pièces et billets dessinés
+
+- **Autorisation :** Franck, 17 novembre, 22 h 58 (« génère les pièces et billets pour qu'ils ressemblent à peu près ») ; canal d'essai : autorisation permanente du 8 novembre 2026.
+- **Contrôle préalable :** `main` à `12ed48e` ; aucune action en cours. Source : `Ma-classe` `essai` `0f5a43c` ; suite complète locale 102 sur 102 (avant numérotation), scénarios de version repassés après.
+- **Contenu :** pièces et billets de l'outil Monnaie redessinés pour le projet (SVG en aplats, monuments inventés), à la place des reproductions officielles.
+- **Livraison :** avance rapide `12ed48e..44b3384`, sans forçage ; action « Publier les mises à jour » réussie ; canal stable inchangé (5.2.0).
+
 ## 2026-11-17 — Essai 6.0.0-beta.7 sur le canal d'essai (pages et application) : réglettes Cuisenaire
 
 - **Autorisation :** Franck, 17 novembre, 19 h 36 (« Fais un outil drag and drop avec effets visuels pour avoir un rendu smooth et plus naturel (comme la balance des nombres), qui reprend les cuisenaires avec toutes les fonctions conseillées ») ; règle permanente du canal d'essai. Stable inchangé.
