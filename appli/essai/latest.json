@@ -1,11 +1,11 @@
 {
-  "version": "6.0.0-beta.6",
-  "notes": "Outils à manipuler : un même « toucher » pour tous. Les mouvements de la Balance des nombres (le fléau qui penche, dépasse et se pose ; les poids qui se balancent) et la chute avec rebond des jetons des Boîtes de 10 viennent maintenant d'un module commun. Les prochains outils à glisser-déposer auront exactement les mêmes réactions. Rien ne change dans leur façon de bouger.\nSecousse de refus : une boîte de 10 pleine se secoue quand on y lâche un jeton ; si toutes les boîtes sont pleines, elles se secouent ensemble au clic sur une pile ; un crochet de la balance qui porte déjà 6 poids se secoue aussi. Le message habituel reste affiché pour l'adulte.\nBalance des nombres rouverte : le fléau et les poids sont immobiles, déjà à leur place (les poids ne se balançaient plus seuls à la réouverture).\nRien ne bouge en mode léger ni quand l'ordinateur demande moins d'animations : l'état final s'affiche directement.",
-  "pub_date": "2026-11-17T20:31:37Z",
+  "version": "6.0.0-beta.7",
+  "notes": "Réglettes Cuisenaire (menu Outils, après le Triangle des opérations) : les réglettes de 1 à 10 aux couleurs des boîtes du commerce (blanche, rouge, vert clair, rose, jaune, vert foncé, noire, marron, bleue, orange), à glisser de la boîte sur un tapis quadrillé. Prise, une réglette se soulève, suit le doigt avec souplesse et penche un peu selon l'endroit où on la tient, comme une baguette qu'on fait glisser sur une table. Une silhouette en pointillés montre où elle va se poser : collée au bout d'une autre réglette si on la lâche tout près (les trains), sinon sur la case la plus proche, jamais par-dessus une autre. Lâchée, elle glisse à sa place, se tasse un peu et pousse doucement ses voisines ; lâchée hors du tapis, elle retourne dans la boîte. Un train se déplace d'un bloc par sa poignée. Un clic sur la boîte envoie la réglette au bout du dernier train.\nOutils à manipuler : une fenêtre fermée puis rouverte aussitôt retrouve bien son contenu (elle restait vide si on la rouvrait pendant l'animation de fermeture).",
+  "pub_date": "2026-11-17T21:26:12Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_6.0.0-beta.6_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_6.0.0-beta.7_x64-setup-essai.exe"
     }
   }
 }
