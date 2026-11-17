@@ -2,6 +2,12 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-17 — Essai 6.0.0-beta.5 sur le canal d'essai (pages et application) : pastilles aux couleurs de Ma classe
+
+- **Autorisation :** Franck, 17 novembre, 19 h 32 (« Oui », à la proposition de passer les pastilles dans une palette propre) ; règle permanente du canal d'essai. Stable inchangé.
+- **Contrôle préalable :** `main` à `774f316` ; aucune pull request ; aucune action en cours. Source : `Ma-classe` `essai` `ae069d7` ; suite complète locale 101 sur 101. Coquille inchangée.
+- **Livraison :** avance rapide `774f316..99e4516`, sans forçage ; action `44157449102` réussie (« versions.json signé : essai 6.0.0-beta.5, stable 5.2.0 » ; `Ma-classe_6.0.0-beta.5_x64-setup-essai.exe` fabriqué (3 233 Ko), signé, signature vérifiée comme dans l'application ; pages publiées).
+
 ## 2026-11-17 — Essai 6.0.0-beta.4 sur le canal d'essai (pages et application) : fenêtre de l'application aux couleurs de Ma classe
 
 - **Autorisation :** Franck, 17 novembre, 17 h 16 (« Oui, je veux que tu intègres la barre du haut dans le design. J'ai envie que l'encadré dans lequel se trouve l'appli soit en accord avec tout le reste ») ; règle permanente du canal d'essai. Stable inchangé.
