@@ -1,20 +1,23 @@
 {
-  "version": "6.0.0-beta.2",
+  "version": "6.0.0-beta.3",
   "date": "2026-11-17",
-  "titre": "Essai : Outils à manipuler dans le menu Outils",
+  "titre": "Essai : Mode TBI/ENI : écrire au tableau et par-dessus l'écran",
   "notes": [
-    "Boîtes de 10, Balance des nombres et Triangle des opérations sont maintenant dans le menu Outils, juste après le Tableau de numération, chacun avec son icône. Le tableau « Manipuler » de l'essai précédent disparaît. Chaque outil s'ouvre dans sa propre fenêtre, que l'on peut déplacer, agrandir et ouvrir en même temps que les autres. Ses réglages sont en haut, avec ↶ (ou Ctrl+Z) et « Tout enlever ». Une fenêtre fermée puis rouverte retrouve ses jetons, ses poids et ses nombres."
+    "Mode TBI/ENI (Réglages › Apparence › Affichage, « sur ce poste ») : pour un tableau blanc interactif ou un écran numérique interactif. Sans lui, rien ne change.",
+    "Tableaux, en mode TBI : « Écrire » et « Effacer » au début du dock de chaque tableau (à la place de « Dessiner »). Écrire au stylet ou au doigt, en stylo ou en surligneur, six couleurs, trois épaisseurs ; Effacer gomme seulement l'encre touchée (trois tailles, ou toute l'encre). Deux élèves peuvent écrire en même temps ; pendant qu'un stylet écrit, la paume posée n'écrit pas ; avec un stylet, le trait s'épaissit quand on appuie.",
+    "L'écriture est gardée avec le tableau, comme ses éléments : elle revient en rouvrant Ma classe, part avec une séance enregistrée, s'annule par ↶ et part à la corbeille. Elle reste visible sur un ordinateur sans le mode TBI.",
+    "Écrire par-dessus les autres écrans (mode TBI) : la pastille ronde en bas à gauche, ou le stylo de la barre de menus, pose une feuille transparente sur l'écran (Accueil, Rituels, applis, documents, présentation d'un PDF). Sa barre : Écrire, Effacer, Toucher (l'encre reste, le doigt agit dessous), ↶ ↷, corbeille, place de la barre, fermer (ou Échap). Chaque écran garde son encre le temps de la journée : on la retrouve en revenant. Sur les Tableaux, le stylo de la barre prend « Écrire » dans le dock."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Ma classe.html",
-      "taille": 6870154,
-      "sha256": "4b3dd02b89672e884a04ebfc743e955064308905a3f68c6a517173caef098632"
+      "taille": 6909898,
+      "sha256": "34d8f7be131585030fbf1d5103e21e100c229a488cef3aa56bf639e8aa57f489"
     },
     "remplacant": {
       "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6870154,
-      "sha256": "4b3dd02b89672e884a04ebfc743e955064308905a3f68c6a517173caef098632"
+      "taille": 6909898,
+      "sha256": "34d8f7be131585030fbf1d5103e21e100c229a488cef3aa56bf639e8aa57f489"
     }
   }
 }
