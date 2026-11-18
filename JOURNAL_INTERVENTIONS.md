@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-18 — Claude — Passage à Glacis préparé : site sur glacis-classe.fr (`claude/glacis-site`, rien de publié)
+
+- **Demande / Autorisation** : Franck, 18 novembre : « Les mises à jour et la page de présentation passent sur glacis-classe.fr (Cloudflare Pages) » ; « Publier seulement sur une phrase explicite de Franck ». Aucun envoi sur `main`.
+- **Contrôle préalable** : `main` à `3e2bd45` ; aucune pull request ; dernière action (`44381803860`) en échec à `configure-pages` (GitHub Pages désactivé). Cloudflare (lecture seule) : projet Pages `glacis-classe` en envoi direct, branche de production `main` ; domaines `glacis-classe.fr` et `www.glacis-classe.fr` encore « pending ».
+- **Réalisation** : action de publication : mise en ligne par `wrangler pages deploy` (outil fixé dans `outils/deploiement/`, secrets `CLOUDFLARE_API_TOKEN` et `CLOUDFLARE_ACCOUNT_ID` à créer) à la place de GitHub Pages ; `outils/signer.py` : canal stable facultatif, copie de `index.html`, `icone.svg`, `_headers` ; `outils/fabriquer-appli.py` : balise `glacis-version` acceptée ; page de présentation de Glacis (`index.html`, `icone.svg`) ; `DOCUMENTATION.md` § 0 (tableau avant / après, ordre des opérations).
+- **Validation** : YAML de l'action relu par un analyseur (trois travaux, étapes de mise en ligne en fin de « publier ») ; `npm ci --ignore-scripts` puis `wrangler --version` (4.164.0) dans `outils/deploiement/` ; page de présentation ouverte dans Chromium sans erreur JavaScript, capture regardée. **Non essayé** : l'action elle-même (elle ne tourne que sur `main`), la mise en ligne, la fabrication d'un installateur « Glacis_… ».
+- **Livraison / état** : poussé sur `claude/glacis-site` ; `main` et le site inchangés.
+
 ## 2026-11-18 — Claude — Essai 6.0.0-beta.11 « Vers Glacis » (site bloqué par GitHub Pages)
 
 - **Demande / Autorisation** : Franck : « Oui, publier l'essai » (réunion des branches terminées : contenus neutres, crédits et licences, export La Forge, thème Glacis seul).

@@ -1,7 +1,7 @@
 """Fabrique l'installateur Windows d'un canal à partir de ce que ce dépôt publie déjà (action « Publier les mises à jour »).
 
-L'installateur contient exactement la page publiée sur le canal (<canal>/Ma classe.html, fiche entrees/<canal>.json)
-dans la coquille Tauri copiée du dépôt source (coquille/<canal>/, écrite par build/publier-appli.py de Ma classe, avec
+L'installateur contient exactement la page publiée sur le canal (<canal>/Glacis.html, fiche entrees/<canal>.json)
+dans la coquille Tauri copiée du dépôt source (coquille/<canal>/, écrite par build/publier-appli.py de Glacis, avec
 les chemins de ce dépôt-là : tauri/… et les quelques fichiers de la page que le code Rust intègre, comme src/applis/…).
 La fabrication se fait ici, sur un dépôt public, pour ne pas consommer les minutes GitHub du dépôt privé.
 
@@ -57,7 +57,8 @@ def controler(canal, f):
     b = page.read_bytes()
     if hashlib.sha256(b).hexdigest() != entree["fichiers"]["classe"]["sha256"]:
         sys.exit(f"{canal} : {page.name} ne correspond pas à son empreinte")
-    if f'<meta name="ma-classe-version" content="{entree["version"]}">'.encode() not in b[:4000]:
+    # balise de version : « glacis-version » (Glacis) ou « ma-classe-version » (pages publiées avant le renommage)
+    if not any(f'<meta name="{nom}" content="{entree["version"]}">'.encode() in b[:4000] for nom in ("glacis-version", "ma-classe-version")):
         sys.exit(f"{canal} : {page.name} n'est pas en version {entree['version']}")
     return coquille, b
 

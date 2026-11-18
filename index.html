@@ -1,19 +1,148 @@
-<!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ma classe – mises à jour</title>
-<style>body{font:16px/1.5 system-ui,sans-serif;max-width:40rem;margin:2rem auto;padding:0 1rem;color:#1d2733}code{background:#eef2f6;padding:0 .3em;border-radius:4px}</style></head>
-<body><h1>Ma classe – mises à jour</h1>
-<p>Ce site sert les mises à jour du logiciel de classe <b>Ma classe</b>, conçu par Franck VARAULT. Dans Ma classe : <b>Réglages › Mises à jour</b>.</p>
-<p>« Ma classe » est conçu et développé par Franck VARAULT, enseignant de CP : conception pédagogique, choix des fonctionnalités, architecture, tests en classe et validation de chaque version. Le code a été écrit avec l’aide d’assistants de programmation par IA, sous sa direction.</p>
-<p>Les fichiers sont signés ; Ma classe refuse un fichier dont la signature ou l'empreinte ne correspond pas. Ce site ne contient aucune donnée d'élève.</p>
-<h2 id="appli">Application Windows</h2>
-<p id="appliLien">L'installateur de l'application « Ma classe » pour Windows sera proposé ici.</p>
-<p>Installation sans droits d'administrateur. L'installateur n'est pas signé par Microsoft : si Windows affiche « Windows a protégé votre ordinateur », choisir « Informations complémentaires » puis « Exécuter quand même ». Ensuite, l'application se met à jour d'elle-même (Réglages › Mises à jour).</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glacis – Ma classe</title>
+<meta name="description" content="Glacis – Ma classe : le tableau de bord de la classe pour l'école élémentaire. Journée, rituels, outils et tableaux, hors ligne. Logiciel libre conçu par un enseignant.">
+<meta name="author" content="Franck VARAULT">
+<link rel="icon" type="image/svg+xml" href="/icone.svg">
+<link rel="apple-touch-icon" href="/icone.svg">
+<meta name="theme-color" content="#eef2fb">
+<style>
+  :root{
+    --encre:#1f2d55; --bleu:#2f4fa8; --doux:#5b6788;
+    --fond1:#f7f4ec; --fond2:#e6edfb;
+    --verre:rgba(255,255,255,.55); --bord:rgba(255,255,255,.8); --teinte:rgba(47,79,168,.09); --trait:rgba(47,79,168,.15);
+  }
+  *{box-sizing:border-box;margin:0}
+  body{
+    min-height:100vh;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color:var(--encre);
+    background:
+      radial-gradient(60vmax 60vmax at 15% 10%, #fffdf7 0%, transparent 60%),
+      radial-gradient(55vmax 55vmax at 90% 95%, #cfe3ff 0%, transparent 60%),
+      linear-gradient(160deg,var(--fond1),var(--fond2)) fixed;
+    padding:32px 20px 40px;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* lignes Seyès très discrètes en fond */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;
+    background-image:repeating-linear-gradient(to bottom,transparent 0 31px,rgba(143,168,232,.35) 31px 32px);
+    -webkit-mask-image:radial-gradient(closest-side,#000 40%,transparent);
+            mask-image:radial-gradient(closest-side,#000 40%,transparent);
+  }
+  main{position:relative;width:min(760px,100%);margin:0 auto;display:grid;gap:20px}
+  .carte{
+    padding:28px 30px;border-radius:28px;
+    background:var(--verre);border:1px solid var(--bord);
+    box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 30px 60px -28px rgba(47,79,168,.25),0 8px 20px -12px rgba(31,45,85,.15);
+    -webkit-backdrop-filter:blur(18px) saturate(1.4);
+            backdrop-filter:blur(18px) saturate(1.4);
+  }
+  .tete{text-align:center;padding:44px 30px 34px;animation:entree .9s cubic-bezier(.2,.8,.2,1) both}
+  .icone{width:124px;height:124px;display:block;margin:0 auto 24px;filter:drop-shadow(0 14px 22px rgba(47,79,168,.28))}
+  h1{font-size:clamp(2rem,6vw,2.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+  h1 span{color:var(--doux);font-weight:500}
+  h2{font-size:1.25rem;letter-spacing:-.01em;margin-bottom:10px}
+  p{color:var(--doux);font-size:1.02rem;line-height:1.55}
+  p + p{margin-top:10px}
+  .accroche{max-width:34rem;margin:16px auto 0;font-size:1.08rem}
+  ul{margin:8px 0 0;padding-left:1.2rem;color:var(--doux);line-height:1.55;display:grid;gap:6px}
+  b{color:var(--encre)}
+  a{color:var(--bleu);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(47,79,168,.3)}
+  a:hover{border-bottom-color:var(--bleu)}
+  .bouton{
+    display:inline-block;margin-top:14px;padding:13px 26px;border-radius:999px;border:0;
+    font-size:1.08rem;font-weight:700;color:#fff;background:linear-gradient(180deg,#4a6bc6,var(--bleu));
+    box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 12px 22px -10px rgba(47,79,168,.6);
+  }
+  .bouton:hover{filter:brightness(1.06)}
+  .pastille{
+    display:inline-block;margin-top:14px;padding:6px 14px;border-radius:999px;
+    font-size:.88rem;font-weight:600;color:var(--bleu);background:var(--teinte);border:1px solid var(--trait);
+  }
+  .petit{font-size:.92rem;margin-top:12px}
+  .grille{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+  @media (max-width:560px){.grille{grid-template-columns:1fr}}
+  .grille div{padding:14px 16px;border-radius:18px;background:var(--teinte);border:1px solid var(--trait)}
+  .grille b{display:block;margin-bottom:4px}
+  .grille span{color:var(--doux);font-size:.95rem;line-height:1.45;display:block}
+  footer{text-align:center;font-size:.82rem;color:#7c86a3;line-height:1.6}
+  [hidden]{display:none}
+  @keyframes entree{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.tete{animation:none}}
+  @media (prefers-color-scheme:dark){
+    :root{--encre:#e8ecf8;--doux:#aab4d0;--bleu:#9fb7ff;--fond1:#141a2c;--fond2:#1d2747;--verre:rgba(30,38,64,.55);--bord:rgba(255,255,255,.12);--teinte:rgba(159,183,255,.10);--trait:rgba(159,183,255,.22)}
+    body{background:radial-gradient(60vmax 60vmax at 85% 90%,#26407a 0%,transparent 60%),linear-gradient(160deg,var(--fond1),var(--fond2)) fixed}
+    .carte{box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+    .bouton{color:#10162a;background:linear-gradient(180deg,#b9caff,#9fb7ff)}
+    a{border-bottom-color:rgba(159,183,255,.4)}
+    footer{color:#8f9ab8}
+  }
+</style>
+</head>
+<body>
+<main>
+  <section class="carte tete">
+    <img class="icone" src="/icone.svg" alt="Icône de Glacis : un G bleu sur une feuille de cahier" width="124" height="124">
+    <h1>Glacis <span>– Ma classe</span></h1>
+    <p class="accroche">Le tableau de bord de la classe, pensé par un enseignant pour l'école élémentaire&nbsp;: journée, rituels, outils et tableaux, réunis en un seul endroit, <b>sans connexion</b>.</p>
+  </section>
+
+  <section class="carte" id="appli">
+    <h2>Installer Glacis sur Windows</h2>
+    <p id="appliLien"><span class="pastille">Bientôt disponible</span></p>
+    <p class="petit">Installation sans droits d'administrateur. L'installateur n'est pas signé par Microsoft&nbsp;: si Windows affiche «&nbsp;Windows a protégé votre ordinateur&nbsp;», choisissez «&nbsp;Informations complémentaires&nbsp;» puis «&nbsp;Exécuter quand même&nbsp;». Ensuite, Glacis se met à jour de lui-même (Réglages › Mises à jour).</p>
+    <p class="petit" id="pageLien" hidden></p>
+  </section>
+
+  <section class="carte">
+    <h2>Ce que fait Glacis</h2>
+    <div class="grille">
+      <div><b>La journée</b><span>L'emploi du temps au tableau, l'activité en cours, le cahier journal, l'appel et la cantine.</span></div>
+      <div><b>Les rituels</b><span>Nombre du jour, calcul mental, date, lecture flash, mot et phrase du jour, du CP au CM2.</span></div>
+      <div><b>Les tableaux</b><span>Lignages, numération, géométrie, opérations posées, écriture au stylet sur un écran interactif.</span></div>
+      <div><b>Les outils</b><span>Minuteur, tirage au sort, monnaie, balance, réglettes, droite graduée, horloge, à manipuler au doigt.</span></div>
+    </div>
+    <p class="petit">Les données de la classe restent dans <b>un dossier que vous choisissez</b> sur votre ordinateur&nbsp;: rien n'est envoyé en ligne, aucun compte n'est demandé.</p>
+  </section>
+
+  <section class="carte">
+    <h2>Vous utilisiez «&nbsp;Ma classe&nbsp;»&nbsp;?</h2>
+    <p>Glacis en est la suite, sous un nouveau nom. C'est une <b>nouvelle application</b>&nbsp;: elle s'installe à côté de l'ancienne.</p>
+    <ul>
+      <li>Au premier lancement, choisissez <b>le même dossier de la classe</b>&nbsp;: élèves, emploi du temps, cahier journal, documents et réglages y sont déjà.</li>
+      <li>Seuls quelques réglages propres à l'ordinateur (place des fenêtres, mode léger) sont à refaire.</li>
+      <li>Vous pouvez ensuite désinstaller «&nbsp;Ma classe&nbsp;».</li>
+    </ul>
+  </section>
+
+  <section class="carte">
+    <h2>Un logiciel libre</h2>
+    <p>«&nbsp;Glacis – Ma classe&nbsp;» est conçu et développé par Franck VARAULT, enseignant de CP&nbsp;: conception pédagogique, choix des fonctionnalités, architecture, tests en classe et validation de chaque version. Le code a été écrit avec l'aide d'assistants de programmation par IA, sous sa direction.</p>
+    <p>Logiciel libre sous licence <a href="https://www.gnu.org/licenses/gpl-3.0.fr.html">GNU GPL version 3 ou ultérieure</a>&nbsp;; documentation sous licence CC BY-SA 4.0. Les fichiers de mise à jour sont signés&nbsp;: Glacis refuse un fichier dont la signature ou l'empreinte ne correspond pas. Ce site ne contient aucune donnée d'élève.</p>
+    <p class="petit">Une question&nbsp;? <a href="mailto:contact@glacis-classe.fr">contact@glacis-classe.fr</a></p>
+  </section>
+
+  <footer>© 2026 Franck VARAULT · Glacis – Ma classe</footer>
+</main>
 <script>
-fetch("appli/latest.json", {cache:"no-store"}).then(r => r.ok ? r.json() : null).then(f => {
-  const u = f && f.platforms && f.platforms["windows-x86_64"] && f.platforms["windows-x86_64"].url; if (!u) return;
+/* Lien de téléchargement : la version publiée (appli/latest.json), sinon la version d'essai (appli/essai/latest.json). */
+(async () => {
+  const lire = async u => { try { const r = await fetch(u, {cache:"no-store"}); return r.ok ? await r.json() : null; } catch { return null; } };
+  const lien = f => f && f.platforms && f.platforms["windows-x86_64"] && f.platforms["windows-x86_64"].url;
+  const court = v => String(v).replace(/^(\d+\.\d+)\.0(?=$|-)/, "$1").replace(/-beta\.(\d+)$/, " · essai $1").replace(/-rc\.(\d+)$/, " · version candidate $1");
+  let f = await lire("appli/latest.json"), essai = false;
+  if (!lien(f)){ f = await lire("appli/essai/latest.json"); essai = true; }
+  const u = lien(f); if (!u) return;
   const p = document.getElementById("appliLien"); p.textContent = "";
-  const a = document.createElement("a"); a.href = u; a.textContent = "Télécharger Ma classe " + f.version + " pour Windows"; p.append(a);
-}).catch(() => {});
+  const a = document.createElement("a"); a.className = "bouton"; a.href = u;
+  a.textContent = "Télécharger Glacis " + court(f.version) + " pour Windows"; p.append(a);
+  if (essai){ const s = document.createElement("span"); s.className = "pastille"; s.style.marginLeft = "10px"; s.textContent = "Version d'essai"; p.append(s); }
+})();
 </script>
-<p>© 2026 Franck VARAULT. Logiciel libre sous licence <a href="https://www.gnu.org/licenses/gpl-3.0.fr.html">GNU GPL version 3 ou ultérieure</a> ; documentation sous licence CC BY-SA 4.0. Applis du Store : licence propre à chacune.</p></body></html>
+</body>
+</html>

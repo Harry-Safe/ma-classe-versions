@@ -1,0 +1,4 @@
+# Site glacis-classe.fr (Cloudflare Pages). La page et l application lisent les fiches et les fichiers depuis une autre
+# origine (page ouverte en file://, application Windows) : lecture permise de partout, comme le fait Pages par defaut.
+/*
+  Access-Control-Allow-Origin: *

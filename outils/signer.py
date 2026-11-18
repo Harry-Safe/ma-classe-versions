@@ -1,6 +1,8 @@
 """Assemble et signe versions.json à partir de entrees/*.json, puis prépare le site (dossier _site).
 Assemble et signe aussi applis.json, le catalogue du Store des applis, à partir de applis/entrees/*.json.
 
+Le site est celui de Glacis, https://glacis-classe.fr (Cloudflare Pages) : page de présentation (index.html, icone.svg),
+fiches signées, pages et installateurs. Les formats « ma-classe-versions » et « ma-classe-applis » gardent leur nom.
 Lancé par GitHub Actions à chaque envoi (voir .github/workflows/publier.yml) ; la clé privée Ed25519
 (base64, 32 octets) est lue dans la variable d'environnement MAJ_CLE_PRIVEE (secret du dépôt).
 Vérifie que chaque fichier annoncé existe et a bien l'empreinte annoncée avant de signer.
@@ -53,13 +55,15 @@ def main():
         e = json.loads(f.read_text(encoding="utf-8"))
         for ed, x in e["fichiers"].items(): verifier_fichier(f.name, x)
         canaux[f.stem] = e
-    if "stable" not in canaux: sys.exit("aucune version stable (entrees/stable.json)")
+    if not canaux: sys.exit("aucune version à publier (entrees/*.json)")
+    if "stable" not in canaux: print("::warning::pas encore de version stable (entrees/stable.json) : seuls les essais sont publiés")
     contenu = json.dumps({"canaux": canaux}, ensure_ascii=False, separators=(",", ":"))
     fiche = {"format": "ma-classe-versions", "contenu": contenu,
              "signature": base64.b64encode(k.sign(contenu.encode("utf-8"))).decode()}
     shutil.rmtree(SITE, ignore_errors=True); SITE.mkdir()
     for c in canaux: shutil.copytree(ICI / c, SITE / c)
-    shutil.copyfile(ICI / "index.html", SITE / "index.html")
+    for nom in ("index.html", "icone.svg", "_headers"):          # page de présentation, son icône, en-têtes de Cloudflare Pages
+        if (ICI / nom).is_file(): shutil.copyfile(ICI / nom, SITE / nom)
     if (ICI / "appli").is_dir(): shutil.copytree(ICI / "appli", SITE / "appli")   # application Windows (latest.json + installateur signé)
     (SITE / "versions.json").write_text(json.dumps(fiche, ensure_ascii=False), encoding="utf-8")
     (SITE / ".nojekyll").write_text("")

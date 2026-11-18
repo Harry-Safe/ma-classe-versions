@@ -1,0 +1,8 @@
+{
+  "name": "glacis-deploiement",
+  "private": true,
+  "description": "Outil de mise en ligne du site glacis-classe.fr (Cloudflare Pages, envoi direct), installé par « npm ci --ignore-scripts » avant que le jeton soit dans l'environnement",
+  "dependencies": {
+    "wrangler": "4.164.0"
+  }
+}

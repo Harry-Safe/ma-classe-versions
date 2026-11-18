@@ -17,6 +17,39 @@ GitHub du dépôt. Seuls Franck (et les assistants qui travaillent avec lui, sur
 
 ---
 
+## 0. Passage à Glacis (branche `claude/glacis-site`, préparée le 18 novembre 2026, **pas encore dans `main`**)
+
+Décision de Franck du 18 novembre 2026 : le logiciel devient « **Glacis – Ma classe** », une nouvelle application
+(identifiant, clés et nom d'installateur nouveaux) ; ses mises à jour et sa page de présentation sont servies par
+**`https://glacis-classe.fr`** (Cloudflare Pages, projet `glacis-classe`, envoi direct). Ce dépôt reste la fabrique
+(installateur Windows, signatures) ; seule la destination change.
+
+| Avant (Ma classe) | Après (Glacis) |
+|---|---|
+| site `harry-safe.github.io/ma-classe-versions` (GitHub Pages) | `glacis-classe.fr` (Cloudflare Pages) : l'ancienne adresse n'est plus mise à jour |
+| `stable/Ma classe.html`, `Ma classe - Remplaçant.html` | `stable/Glacis.html`, `Glacis - Remplaçant.html` (balise `glacis-version`) |
+| `Ma-classe_<v>_x64-setup*.exe` | `Glacis_<v>_x64-setup*.exe` (l'application refuse un installateur d'un autre nom) |
+| `index.html` : page des mises à jour | page de présentation de Glacis, `icone.svg`, `_headers` |
+| déploiement : `configure-pages`, `deploy-pages` | `outils/deploiement/` (wrangler à version et empreintes fixées, `npm ci --ignore-scripts`), puis `wrangler pages deploy _site --project-name=glacis-classe --branch=main` |
+| secrets `MAJ_CLE_PRIVEE`, `TAURI_SIGNING_PRIVATE_KEY` | les mêmes (**mêmes clés**), plus `CLOUDFLARE_API_TOKEN` (jeton « Cloudflare Pages : Edit ») et `CLOUDFLARE_ACCOUNT_ID` |
+
+Inchangés : formats `ma-classe-versions` et `ma-classe-applis`, clés de signature, outils de signature et de
+fabrication (qui acceptent la balise `glacis-version` comme `ma-classe-version`). Un canal `stable` n'est plus
+obligatoire : tant que Glacis n'a que des essais, `versions.json` ne porte que le canal `essai` (avertissement dans le
+journal de l'action) et la page de présentation propose l'installateur d'essai.
+
+**Ordre des opérations** (chacune sur une phrase explicite de Franck) :
+
+1. *Facultatif, avant tout le reste* : la **passerelle**, dernière version de « Ma classe » (branche
+   `claude/ma-classe-passerelle` du dépôt source), publiée depuis `main` **tel qu'il est** (GitHub Pages à réactiver :
+   Settings › Pages › Source : GitHub Actions). Elle annonce Glacis aux postes installés.
+2. **Bascule** : réunir `claude/glacis-site` dans `main` **dans le même envoi que la première publication de Glacis** ;
+   retirer d'abord ce qui appartient à Ma classe (`git rm -r stable essai appli coquille entrees` et, dans `applis/`,
+   les entrées et paquets autres que `echecs` : seul Échecs est repris), puis lancer `build/publier-version.py` et
+   `build/publier-appli.py` du dépôt source (branche renommée) et `outils/publier.py echecs` d'Applis-classe.
+3. Avant cet envoi : les deux secrets Cloudflare existent, et le domaine `glacis-classe.fr` est **actif** sur le projet
+   Pages (le 18 novembre 2026 au soir, `glacis-classe.fr` et `www.glacis-classe.fr` étaient encore « pending »).
+
 ## 1. Contenu
 
 | Chemin | Écrit par | Rôle |
