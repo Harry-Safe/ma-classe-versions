@@ -1,11 +1,11 @@
 {
-  "version": "6.0.0-beta.9",
-  "notes": "Ma classe devient un logiciel libre (licence GNU GPL version 3 ou ultérieure ; documentation et contenus sous CC BY-SA 4.0). Chacun peut l'utiliser, l'étudier, le modifier et le partager, en gardant le nom de l'auteur et en partageant ses modifications sous la même licence. Réglages › À propos l'indique et cite aussi les dessins OpenMoji et la police Andika.",
-  "pub_date": "2026-11-17T23:47:07Z",
+  "version": "6.0.0-beta.10",
+  "notes": "Balance à plateaux vivante. Le fléau penche du côté le plus lourd, dépasse un peu, puis se pose, avec l'aiguille ; les plateaux sont suspendus et se balancent doucement ; un objet lâché tombe sur le plateau, rebondit, et le plateau s'enfonce un instant sous le choc ; un plateau plein se secoue en plus du message. Les masses, les objets, les égalités, le clavier et les clics sont comme avant.\nMonnaie vivante. Une pièce ou un billet lâché sur le tapis tombe en rebondissant ; un déplacé retombe ; la solution se pose pièce après pièce.\nÉchanger et casser en monnaie. Le bouton Échanger remplace 10 pièces ou billets identiques par 1 de valeur dix fois plus grande (10 pièces de 1 € contre 1 billet de 10 €…) : les 10 filent un à un jusqu'au nouveau billet. Casser (ou un double clic) fait l'inverse. Le total ne change pas, et une phrase le rappelle. Si l'échange est impossible, les pièces se secouent et un message dit pourquoi.\nTableau de numération, mode Matériel : on glisse les blocs. Sous le tableau, une réserve montre un cube, une barre, une plaque et un gros cube (selon les colonnes affichées), avec leur valeur. On glisse un bloc dans une colonne : il tombe à sa place en rebondissant un peu et la colonne l'accueille. Le clic dans une colonne et les boutons + et − restent comme avant.\nDroite graduée, au doigt : un pion (une coccinelle) se glisse le long de la droite et se cale sur la graduation la plus proche ; son nombre s'écrit au-dessus (bouton « Nombre du pion » pour le cacher). Un clic sur une graduation le fait sauter jusque-là.\nTableau des nombres, au doigt : mode Puzzle (les nombres cachés deviennent des étiquettes mélangées à glisser à leur place, une petite vague quand tout est replacé) et mode Croix : une croix de cinq cases (n, n − 1, n + 1, n − 10, n + 10) qu'on promène sur le tableau ; elle cache ses nombres à retrouver, un appui la soulève et montre les écarts +1, −1, +10, −10 ; « Ne voir que la croix » cache tout le reste. Un clic sur une case y amène la croix.\nRien ne bouge en mode léger ni quand l'ordinateur demande moins d'animations.",
+  "pub_date": "2026-11-18T00:44:06Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_6.0.0-beta.9_x64-setup-essai.exe"
+      "url": "https://harry-safe.github.io/ma-classe-versions/appli/essai/Ma-classe_6.0.0-beta.10_x64-setup-essai.exe"
     }
   }
 }
