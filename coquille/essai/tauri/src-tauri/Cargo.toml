@@ -1,13 +1,13 @@
 [package]
-name = "ma-classe"
+name = "glacis"
 version = "5.0.0"
 license = "GPL-3.0-or-later"
-description = "Ma classe — application de bureau"
+description = "Glacis — application de bureau"
 authors = ["Franck VARAULT"]
 edition = "2021"
 
 [lib]
-name = "ma_classe_lib"
+name = "glacis_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]

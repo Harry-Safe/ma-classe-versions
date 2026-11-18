@@ -1,6 +1,6 @@
 //! Chemins permis aux commandes de fichiers (lot B de l'audit de sécurité, 13 novembre 2026).
 //!
-//! La page ne peut lire, écrire, lister ou supprimer que DANS le dossier « Ma classe » retenu par l'application
+//! La page ne peut lire, écrire, lister ou supprimer que DANS le dossier « Glacis » retenu par l'application
 //! (choisi dans la fenêtre de Windows). Même si un fichier piégé arrivait à exécuter du code dans la page, il ne
 //! pourrait rien toucher d'autre sur l'ordinateur.
 //!
@@ -67,16 +67,16 @@ pub fn dans_racine(racine: &Path, cible: &Path) -> Result<PathBuf, String> {
     let r = morceaux(racine)?;
     let c = morceaux(cible)?;
     if c.len() < r.len() || c[..r.len()] != r[..] {
-        return Err("chemin refusé : hors du dossier « Ma classe »".into());
+        return Err("chemin refusé : hors du dossier « Glacis »".into());
     }
     if !racine.is_dir() {
-        return Err("dossier « Ma classe » introuvable".into());
+        return Err("dossier « Glacis » introuvable".into());
     }
     if let Ok(vraie) = fs::canonicalize(racine) {
         if let Some(p) = parent_existant(cible) {
             if let Ok(vrai) = fs::canonicalize(p) {
                 if !vrai.starts_with(&vraie) {
-                    return Err("chemin refusé : un lien mène hors du dossier « Ma classe »".into());
+                    return Err("chemin refusé : un lien mène hors du dossier « Glacis »".into());
                 }
             }
         }
@@ -101,9 +101,12 @@ impl std::fmt::Display for Numero {
 }
 
 /// Version d'un installateur, lue dans le nom de fichier du commentaire signé
-/// (« timestamp:…\tfile:Ma-classe_5.2.33_x64-setup-essai.exe », « …file:Ma-classe_6.0.0-beta.1_x64-setup-essai.exe »).
+/// (« timestamp:…\tfile:Glacis_5.2.33_x64-setup-essai.exe », « …file:Glacis_6.0.0-beta.1_x64-setup-essai.exe »).
+/// Seul un installateur de Glacis (« Glacis_… ») est accepté : la clé de signature étant aussi celle de l'ancienne
+/// application « Ma classe », un de ses installateurs, pourtant bien signé, est refusé.
 pub fn version_signee(commentaire: &str) -> Option<Numero> {
     let fichier = commentaire.split('\t').find_map(|x| x.strip_prefix("file:"))?;
+    if !fichier.starts_with("Glacis_") { return None; }
     fichier.split('_').find_map(|x| if x.contains('.') && x.starts_with(|c: char| c.is_ascii_digit()) { numeros(x) } else { None })
 }
 
@@ -163,9 +166,9 @@ mod tests {
     use super::*;
 
     fn tmp(nom: &str) -> PathBuf {
-        let d = std::env::temp_dir().join(format!("mc-chemins-{}-{}", nom, std::process::id()));
+        let d = std::env::temp_dir().join(format!("gl-chemins-{}-{}", nom, std::process::id()));
         let _ = fs::remove_dir_all(&d);
-        fs::create_dir_all(d.join("Ma classe/reglages")).unwrap();
+        fs::create_dir_all(d.join("Glacis/reglages")).unwrap();
         fs::create_dir_all(d.join("ailleurs")).unwrap();
         fs::write(d.join("ailleurs/secret.txt"), "x").unwrap();
         d
@@ -174,14 +177,14 @@ mod tests {
     #[test]
     fn dedans_et_dehors() {
         let d = tmp("base");
-        let r = d.join("Ma classe");
+        let r = d.join("Glacis");
         assert!(dans_racine(&r, &r).is_ok(), "la racine elle-même");
         assert!(dans_racine(&r, &r.join("reglages/preferences.json")).is_ok(), "fichier à créer");
         assert!(dans_racine(&r, &r.join("nouveau/sous/dossier/x.json")).is_ok(), "dossiers à créer");
         assert!(dans_racine(&r, &d.join("ailleurs/secret.txt")).is_err(), "voisin");
-        assert!(dans_racine(&r, &d.join("Ma classe/../ailleurs/secret.txt")).is_err(), "remontée « .. »");
-        assert!(dans_racine(&r, &d.join("Ma classe/./reglages")).is_ok(), "« . » au milieu : sans effet (Rust et Windows l'ignorent)");
-        assert!(dans_racine(&r, &d.join("Ma classe 2/x")).is_err(), "nom qui commence pareil");
+        assert!(dans_racine(&r, &d.join("Glacis/../ailleurs/secret.txt")).is_err(), "remontée « .. »");
+        assert!(dans_racine(&r, &d.join("Glacis/./reglages")).is_ok(), "« . » au milieu : sans effet (Rust et Windows l'ignorent)");
+        assert!(dans_racine(&r, &d.join("Glacis 2/x")).is_err(), "nom qui commence pareil");
         assert!(dans_racine(&r, &d).is_err(), "parent");
         assert!(dans_racine(&r, Path::new("reglages/x.json")).is_err(), "chemin relatif");
         assert!(dans_racine(&r, Path::new("/etc/passwd")).is_err(), "système");
@@ -200,7 +203,7 @@ mod tests {
     #[test]
     fn racine_et_separateurs() {
         let d = tmp("racine");
-        let r = d.join("Ma classe");
+        let r = d.join("Glacis");
         assert!(est_racine(&r, &r));
         assert!(!est_racine(&r, &r.join("reglages")));
         let texte = format!("{}/reglages/x.json", r.to_string_lossy());
@@ -212,7 +215,7 @@ mod tests {
     #[test]
     fn lien_vers_ailleurs() {
         let d = tmp("lien");
-        let r = d.join("Ma classe");
+        let r = d.join("Glacis");
         std::os::unix::fs::symlink(d.join("ailleurs"), r.join("raccourci")).unwrap();
         assert!(dans_racine(&r, &r.join("raccourci/secret.txt")).is_err(), "lien vers un fichier existant");
         assert!(dans_racine(&r, &r.join("raccourci/nouveau.txt")).is_err(), "lien vers un dossier, fichier à créer");
@@ -224,9 +227,10 @@ mod tests {
     #[test]
     fn versions() {
         let v = |s: &str| numeros(s).unwrap();
-        assert_eq!(version_signee("timestamp:1731500000\tfile:Ma-classe_5.2.33_x64-setup-essai.exe"), Some(v("5.2.33")));
-        assert_eq!(version_signee("timestamp:1731500000\tfile:Ma-classe_5.2.0_x64-setup.exe"), Some(v("5.2.0")));
-        assert_eq!(version_signee("timestamp:1731500000\tfile:Ma-classe_6.0.0-beta.1_x64-setup-essai.exe"), Some(v("6.0.0-beta.1")));
+        assert_eq!(version_signee("timestamp:1731500000\tfile:Glacis_5.2.33_x64-setup-essai.exe"), Some(v("5.2.33")));
+        assert_eq!(version_signee("timestamp:1731500000\tfile:Glacis_5.2.0_x64-setup.exe"), Some(v("5.2.0")));
+        assert_eq!(version_signee("timestamp:1731500000\tfile:Glacis_6.0.0-beta.1_x64-setup-essai.exe"), Some(v("6.0.0-beta.1")));
+        assert_eq!(version_signee("timestamp:1731500000\tfile:Ma-classe_6.0.0_x64-setup.exe"), None, "installateur de l'ancienne application");
         assert_eq!(version_signee("timestamp:1731500000"), None);
         assert_eq!(numeros("5.2.33").map(|x| x.n), Some(vec![5, 2, 33]));
         assert_eq!(numeros("6.0.0-beta.3").map(|x| (x.n, x.pre)), Some((vec![6, 0, 0], vec!["beta".to_string(), "3".to_string()])));

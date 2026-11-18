@@ -2,24 +2,24 @@
  "id": "echecs",
  "nom": "Échecs",
  "description": "Apprendre les échecs pas à pas : une pièce à la fois, des étoiles à ramasser, puis la partie contre un camarade ou le robot",
- "couleur": "#4f7a35",
- "icone": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZWNoZWNzRm9uZCIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM4NmIzNWUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNGI3NjMxIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIzIiBmaWxsPSJ1cmwoI2VjaGVjc0ZvbmQpIi8+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTYgMTMpIHNjYWxlKC42OCkiPgogICAgPHJlY3QgeD0iMTgiIHk9IjgwIiB3aWR0aD0iNjQiIGhlaWdodD0iMTIiIHJ4PSI2IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9Ii4zOCIvPgogICAgPHBhdGggZD0iTTcxIDc4SDMwYy0xLTEyIDUtMjAgMTQtMjgtNiAxLTExIDQtMTUgNy00IDMtOSAxLTEwLTMtMS0zIDEtNiA0LTkgNi02IDExLTEyIDE0LTE5bDEtOSA2IDZjMy0xIDYtMSA5IDAgMTQgNCAyMiAxNyAyMiAzMiAwIDktMiAxNi00IDIzeiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIuNiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogICAgPGNpcmNsZSBjeD0iNDEiIGN5PSIzMyIgcj0iMy40IiBmaWxsPSIjNWQ4YTNkIi8+CiAgICA8cGF0aCBkPSJNNTggMzBjNSA2IDggMTQgOCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNGI3NjMxIiBzdHJva2Utb3BhY2l0eT0iLjM4IiBzdHJva2Utd2lkdGg9IjMuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPC9nPgo8L3N2Zz4K",
+ "couleur": "#2f4fa8",
+ "icone": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZWNoZWNzRm9uZCIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM2ZDhkZGYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMmY0ZmE4Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIzIiBmaWxsPSJ1cmwoI2VjaGVjc0ZvbmQpIi8+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTYgMTMpIHNjYWxlKC42OCkiPgogICAgPHJlY3QgeD0iMTgiIHk9IjgwIiB3aWR0aD0iNjQiIGhlaWdodD0iMTIiIHJ4PSI2IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9Ii4zOCIvPgogICAgPHBhdGggZD0iTTcxIDc4SDMwYy0xLTEyIDUtMjAgMTQtMjgtNiAxLTExIDQtMTUgNy00IDMtOSAxLTEwLTMtMS0zIDEtNiA0LTkgNi02IDExLTEyIDE0LTE5bDEtOSA2IDZjMy0xIDYtMSA5IDAgMTQgNCAyMiAxNyAyMiAzMiAwIDktMiAxNi00IDIzeiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIuNiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogICAgPGNpcmNsZSBjeD0iNDEiIGN5PSIzMyIgcj0iMy40IiBmaWxsPSIjM2M1Y2I2Ii8+CiAgICA8cGF0aCBkPSJNNTggMzBjNSA2IDggMTQgOCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMmY0ZmE4IiBzdHJva2Utb3BhY2l0eT0iLjM4IiBzdHJva2Utd2lkdGg9IjMuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPC9nPgo8L3N2Zz4K",
  "canaux": {
   "essai": {
-   "version": "1.0.0",
-   "date": "2026-11-11",
+   "version": "1.1.0",
+   "date": "2026-11-18",
    "notes": [
-    "Première version : le tableau « Échecs » de Ma classe devient une appli.",
-    "Jouer ou composer ses propres situations (pièces, étoiles à ramasser), et les garder dans la liste.",
-    "Règles à activer une à une, robot à cinq niveaux, flèches et cases colorées au clic droit.",
-    "Parties, réglages et situations enregistrés dans le dossier de la classe."
+    "Nouvelles couleurs, celles de Glacis : échiquier papier et bleu, dernier coup en miel, roi en échec entouré de corail.",
+    "Police de lecture « Glacis Lecture » (les mêmes lettres qu'avant).",
+    "Logiciel libre : licence GNU GPL version 3 ou ultérieure, texte fourni avec l'appli.",
+    "Vos parties, réglages et situations sont gardés."
    ],
    "fichier": {
-    "url": "applis/paquets/echecs-1.0.0.zip",
-    "taille": 65899,
-    "sha256": "5a5caf4c032ee64656f55f92e6c50d6199a4009ed549a7c4f79c6ca6ae6e1e69"
+    "url": "applis/paquets/echecs-1.1.0.zip",
+    "taille": 80348,
+    "sha256": "dfa968c3f6edd45823721e13c3705e67e374383ccfd753330cb1ff9ae2ab1e2c"
    },
-   "source": "applis-classe@d048cb8"
+   "source": "applis-classe@e291299"
   }
  }
 }

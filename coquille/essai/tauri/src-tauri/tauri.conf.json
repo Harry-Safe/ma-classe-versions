@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Ma classe",
+  "productName": "Glacis",
   "version": "5.0.0",
-  "identifier": "fr.franckvarault.maclasse",
+  "identifier": "fr.glacis-classe.glacis",
   "build": {
     "frontendDist": "../www"
   },
@@ -11,7 +11,7 @@
     "windows": [
       {
         "label": "main",
-        "title": "Ma classe",
+        "title": "Glacis – Ma classe",
         "width": 1366,
         "height": 768,
         "minWidth": 1024,
@@ -30,7 +30,7 @@
         "img-src": "'self' data: blob:",
         "font-src": "'self' data:",
         "media-src": "'self' data: blob:",
-        "connect-src": "'self' ipc: http://ipc.localhost https://harry-safe.github.io data: blob:",
+        "connect-src": "'self' ipc: http://ipc.localhost https://glacis-classe.fr data: blob:",
         "worker-src": "'self' blob:",
         "frame-src": "'self' blob: https: http: appli:",
         "object-src": "'none'",
@@ -50,8 +50,8 @@
     "publisher": "Franck VARAULT",
     "copyright": "© 2026 Franck VARAULT",
     "category": "Education",
-    "shortDescription": "Ma classe",
-    "longDescription": "Ma classe : la journée, les rituels, les tableaux et les outils de la classe de CP. Conçu par Franck VARAULT.",
+    "shortDescription": "Glacis – Ma classe",
+    "longDescription": "Glacis – Ma classe : la journée, les rituels, les tableaux et les outils de la classe, du CP au CM2. Conçu par Franck VARAULT.",
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",

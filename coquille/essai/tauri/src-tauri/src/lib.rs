@@ -1,7 +1,7 @@
-//! Ma classe — application de bureau (Tauri 2).
+//! Glacis — application de bureau (Tauri 2).
 //! La page (tauri/www/index.html, construite par build/construire-appli.py) est la même que dans le
 //! navigateur. Ce fichier ne fait que ce qu'une page ne peut pas faire seule :
-//!  · lire et écrire dans le dossier « Ma classe » choisi une fois (son chemin est retenu par la page,
+//!  · lire et écrire dans le dossier « Glacis » choisi une fois (son chemin est retenu par la page,
 //!    il n'y a donc plus d'autorisation à redonner à chaque démarrage) : lister, infos, lire, ecrire,
 //!    creer_dossier, supprimer — voir src/coeur/appli-bureau.js, qui les présente comme les dossiers
 //!    du navigateur ;
@@ -14,7 +14,7 @@
 //!    et lance l'installation.
 //!  · donner à la page les licences de Tauri et des bibliothèques Rust (licences_rust : fichier écrit par
 //!    build/licences-rust.py avec cargo-about, lu dans Réglages › À propos › Licences des composants) ;
-//!  · servir les applis HTML du dossier « Ma classe/Applis » à l'adresse appli:// (http://appli.localhost/ sous
+//!  · servir les applis HTML du dossier « Glacis/Applis » à l'adresse appli:// (http://appli.localhost/ sous
 //!    Windows), avec le pont /_ma-classe/pont.js (src/applis/pont-applis.js) ; jamais leurs dossiers « donnees »,
 //!    que chaque appli ne lit et n'écrit que par le pont, pour elle seule (module Applis de la page).
 //! Les fenêtres de sites n'ont accès à aucune de ces commandes (capabilities/default.json : « main » seule) ; les
@@ -54,14 +54,14 @@ struct Infos {
     modif: u64,
 }
 
-/// Le dossier « Ma classe » retenu sur ce poste (gardé en mémoire après la première lecture du fichier du profil).
+/// Le dossier « Glacis » retenu sur ce poste (gardé en mémoire après la première lecture du fichier du profil).
 static RACINE: Mutex<Option<String>> = Mutex::new(None);
 
 fn racine(app: &AppHandle) -> Result<PathBuf, String> {
     if let Some(r) = RACINE.lock().map_err(texte)?.clone() {
         return Ok(PathBuf::from(r));
     }
-    let r = dossier_retenu(app.clone()).ok_or("aucun dossier « Ma classe » choisi sur ce poste")?;
+    let r = dossier_retenu(app.clone()).ok_or("aucun dossier « Glacis » choisi sur ce poste")?;
     *RACINE.lock().map_err(texte)? = Some(r.clone());
     Ok(PathBuf::from(r))
 }
@@ -128,7 +128,7 @@ fn ecrire(app: AppHandle, request: Request<'_>) -> Result<(), String> {
     };
     let p = permis(&app, &chemin)?;
     if chemins::est_racine(&racine(&app)?, &p) {
-        return Err("le dossier « Ma classe » n'est pas un fichier".into());
+        return Err("le dossier « Glacis » n'est pas un fichier".into());
     }
     let nom = p.file_name().map(|n| n.to_string_lossy().into_owned()).unwrap_or_default();
     let tmp = p.with_file_name(format!(".{nom}.ecriture"));
@@ -140,7 +140,7 @@ fn ecrire(app: AppHandle, request: Request<'_>) -> Result<(), String> {
     Ok(())
 }
 
-/// Crée UN dossier (son parent doit exister : un dossier « Ma classe » absent n'est jamais recréé vide).
+/// Crée UN dossier (son parent doit exister : un dossier « Glacis » absent n'est jamais recréé vide).
 #[tauri::command]
 fn creer_dossier(app: AppHandle, chemin: String) -> Result<(), String> {
     match fs::create_dir(permis(&app, &chemin)?) {
@@ -149,12 +149,12 @@ fn creer_dossier(app: AppHandle, chemin: String) -> Result<(), String> {
     }
 }
 
-/// Supprime un fichier ou un dossier du dossier retenu ; jamais le dossier « Ma classe » lui-même.
+/// Supprime un fichier ou un dossier du dossier retenu ; jamais le dossier « Glacis » lui-même.
 #[tauri::command]
 fn supprimer(app: AppHandle, chemin: String, recursif: bool) -> Result<(), String> {
     let p = permis(&app, &chemin)?;
     if chemins::est_racine(&racine(&app)?, &p) {
-        return Err("le dossier « Ma classe » lui-même ne se supprime pas".into());
+        return Err("le dossier « Glacis » lui-même ne se supprime pas".into());
     }
     let r = if p.is_dir() {
         if recursif { fs::remove_dir_all(&p) } else { fs::remove_dir(&p) }
@@ -164,12 +164,12 @@ fn supprimer(app: AppHandle, chemin: String, recursif: bool) -> Result<(), Strin
     r.map_err(texte)
 }
 
-/// Le chemin du dossier « Ma classe » est retenu dans un petit fichier du profil de l'application
-/// (%APPDATA%\\fr.franckvarault.maclasse\\dossier-ma-classe.txt) : il survit aux redémarrages et aux mises à jour.
+/// Le chemin du dossier « Glacis » est retenu dans un petit fichier du profil de l'application
+/// (%APPDATA%\\fr.glacis-classe.glacis\\dossier-glacis.txt) : il survit aux redémarrages et aux mises à jour.
 fn fichier_dossier(app: &AppHandle) -> Result<PathBuf, String> {
     let d = app.path().app_config_dir().map_err(texte)?;
     fs::create_dir_all(&d).map_err(texte)?;
-    Ok(d.join("dossier-ma-classe.txt"))
+    Ok(d.join("dossier-glacis.txt"))
 }
 
 #[tauri::command]
@@ -179,12 +179,12 @@ fn dossier_retenu(app: AppHandle) -> Option<String> {
     (!c.is_empty()).then(|| c.to_string())
 }
 
-/// Fenêtre de Windows pour choisir le dossier « Ma classe » (souvent dans Google Drive) ; le choix est retenu.
+/// Fenêtre de Windows pour choisir le dossier « Glacis » (souvent dans Google Drive) ; le choix est retenu.
 #[tauri::command]
 async fn choisir_dossier(app: AppHandle) -> Result<Option<String>, String> {
     let a = app.clone();
     let choix = tauri::async_runtime::spawn_blocking(move || {
-        a.dialog().file().set_title("Choisir le dossier « Ma classe »").blocking_pick_folder()
+        a.dialog().file().set_title("Choisir le dossier « Glacis »").blocking_pick_folder()
     })
     .await
     .map_err(texte)?;
@@ -198,10 +198,10 @@ async fn choisir_dossier(app: AppHandle) -> Result<Option<String>, String> {
 }
 
 /// Poste équipé avant que l'application retienne le dossier : son chemin n'était connu que de la page (stockage du
-/// navigateur intégré), et les applis du Store (adresse appli://) ne le trouvaient pas (« Dossier « Ma classe »
+/// navigateur intégré), et les applis du Store (adresse appli://) ne le trouvaient pas (« Dossier « Glacis »
 /// introuvable », essai 5.2.34). La page le transmet au démarrage ; depuis le lot B de l'audit de sécurité (toutes les
 /// commandes de fichiers limitées au dossier retenu), il n'est retenu que si rien ne l'est encore et s'il ressemble à
-/// un dossier « Ma classe » (chemin complet, sous-dossier « reglages ») : une page piégée ne peut pas faire retenir un
+/// un dossier « Glacis » (chemin complet, sous-dossier « reglages ») : une page piégée ne peut pas faire retenir un
 /// autre dossier, et un dossier déjà choisi n'est jamais remplacé par cette voie. Rend vrai si c'est le dossier retenu.
 #[tauri::command]
 fn reprendre_dossier(app: AppHandle, chemin: String) -> Result<bool, String> {
@@ -252,7 +252,7 @@ async fn ouvrir_site(app: AppHandle, url: String, titre: String) -> Result<(), S
         return w.set_focus().map_err(texte);
     }
     WebviewWindowBuilder::new(&app, label, WebviewUrl::External(u))
-        .title(format!("{titre} — Ma classe"))
+        .title(format!("{titre} — Glacis"))
         .inner_size(1280.0, 800.0)
         .maximized(true)
         .build()
@@ -314,7 +314,7 @@ fn type_fichier(p: &Path) -> &'static str {
     }
 }
 
-/// Adresse appli://localhost/<appli>/<fichier> : un fichier du dossier « Ma classe/Applis ».
+/// Adresse appli://localhost/<appli>/<fichier> : un fichier du dossier « Glacis/Applis ».
 /// Refusés : « . » et « .. », lecteurs (« C: »), fichiers cachés, le dossier « donnees » d'une appli, et tout
 /// ce qui sortirait du dossier « Applis » (vérifié sur le chemin réel, liens compris).
 fn servir_appli(app: &AppHandle, uri_chemin: &str) -> tauri::http::Response<Vec<u8>> {
@@ -324,7 +324,7 @@ fn servir_appli(app: &AppHandle, uri_chemin: &str) -> tauri::http::Response<Vec<
         return reponse_appli(200, "text/javascript; charset=utf-8", PONT_APPLIS.as_bytes().to_vec());
     }
     let Some(dossier) = dossier_retenu(app.clone()) else {
-        return reponse_appli(404, TEXTE, "Dossier « Ma classe » introuvable".into());
+        return reponse_appli(404, TEXTE, "Dossier « Glacis » introuvable".into());
     };
     let racine = PathBuf::from(dossier).join("Applis");
     let parts: Vec<&str> = chemin.split('/').filter(|s| !s.is_empty()).collect();
@@ -365,7 +365,7 @@ fn entete(request: &Request<'_>, nom: &str) -> Result<String, String> {
 
 /// Installe une nouvelle version téléchargée par la page : signature vérifiée (sinon refus), installateur écrit dans
 /// le dossier temporaire puis lancé en mode « passif » (barre de progression, pas de questions) avec relance de
-/// Ma classe, comme le module de mise à jour de Tauri (/P /UPDATE /R) ; l'application se ferme aussitôt.
+/// Glacis, comme le module de mise à jour de Tauri (/P /UPDATE /R) ; l'application se ferme aussitôt.
 #[tauri::command]
 fn installer_paquet(app: AppHandle, request: Request<'_>) -> Result<(), String> {
     let signature = entete(&request, "signature")?;
@@ -386,7 +386,7 @@ fn installer_paquet(app: AppHandle, request: Request<'_>) -> Result<(), String> 
     if chemins::plus_ancienne(&signee, &courante) {
         return Err(format!("installateur plus ancien ({signee}) que l'application ({}) : non installé", app.package_info().version));
     }
-    let p = std::env::temp_dir().join(format!("Ma-classe_{version}_x64-setup.exe"));
+    let p = std::env::temp_dir().join(format!("Glacis_{version}_x64-setup.exe"));
     fs::write(&p, octets).map_err(texte)?;
     std::process::Command::new(&p).args(["/P", "/UPDATE", "/R"]).spawn().map_err(texte)?;
     app.exit(0);
@@ -396,7 +396,7 @@ fn installer_paquet(app: AppHandle, request: Request<'_>) -> Result<(), String> 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
-        // une seule « Ma classe » ouverte : un 2e lancement ramène la fenêtre déjà ouverte
+        // une seule « Glacis » ouverte : un 2e lancement ramène la fenêtre déjà ouverte
         .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| {
             if let Some(w) = app.get_webview_window("main") {
                 let _ = w.unminimize();
@@ -405,12 +405,12 @@ pub fn run() {
         }))
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_opener::init())
-        // applis du dossier « Ma classe/Applis » (module Applis de la page)
+        // applis du dossier « Glacis/Applis » (module Applis de la page)
         .register_uri_scheme_protocol("appli", |ctx, requete| servir_appli(ctx.app_handle(), requete.uri().path()))
         .invoke_handler(tauri::generate_handler![
             lister, infos, lire, ecrire, creer_dossier, supprimer, choisir_dossier, dossier_retenu, reprendre_dossier, plein_ecran,
             ouvrir_url, ouvrir_site, installer_paquet, licences_rust
         ])
         .run(tauri::generate_context!())
-        .expect("impossible de lancer Ma classe");
+        .expect("impossible de lancer Glacis");
 }

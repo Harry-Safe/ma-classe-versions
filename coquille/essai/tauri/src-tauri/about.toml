@@ -1,6 +1,6 @@
 # Configuration de cargo-about (notices des bibliothèques Rust de l'application Windows) :
 # build/licences-rust.py lance « cargo about generate --format json » et écrit licences/licences-rust.txt.
-# Licences acceptées : toutes compatibles avec la GNU GPL version 3 (licence de Ma classe). Une bibliothèque sous une
+# Licences acceptées : toutes compatibles avec la GNU GPL version 3 (licence de Glacis). Une bibliothèque sous une
 # autre licence fait échouer la génération : à examiner avant de l'ajouter ici.
 accepted = [
     "MIT", "MIT-0", "Apache-2.0", "Apache-2.0 WITH LLVM-exception", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Zlib",

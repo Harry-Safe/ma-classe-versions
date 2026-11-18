@@ -1,7 +1,7 @@
-Ma classe — application Windows : licences de Tauri et des bibliothèques Rust qu'elle contient
+Glacis — application Windows : licences de Tauri et des bibliothèques Rust qu'elle contient
 
 Fichier écrit par build/licences-rust.py avec cargo-about 0.9.3, pour la cible x86_64-pc-windows-msvc.
-Empreinte de Cargo.lock : bf1e6789cdb96afcaa6998b00778ac628568ebf1140e345adffad4f5db848937
+Empreinte de Cargo.lock : b11f61173c89443070ba7dd481818bce9474fc97a9319a1a1fb9541424a67cff
 
 L'application est construite avec Tauri 2.12.5 (© Tauri Programme within The Commons Conservancy,
 MIT ou Apache 2.0) et contient les 233 bibliothèques Rust ci-dessous. Chacune reste sous sa propre

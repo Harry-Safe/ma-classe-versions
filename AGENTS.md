@@ -1,4 +1,4 @@
-# Consignes de contribution — Ma classe, distribution
+# Consignes de contribution — Glacis – Ma classe, distribution (site glacis-classe.fr)
 
 Lire `DOCUMENTATION.md` et `README.md` avant toute modification. Ce dépôt distribue les mises à jour ;
 les sources de l’application et les consignes complètes sont dans le dépôt `Harry-Safe/Ma-classe`.

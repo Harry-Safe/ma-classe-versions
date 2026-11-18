@@ -1,25 +1,27 @@
 {
-  "version": "6.0.0-beta.11",
+  "version": "6.0.0-beta.12",
   "date": "2026-11-18",
-  "titre": "Essai : Vers Glacis : thème Glacis, contenus neutres, crédits et licences",
+  "titre": "Essai : Glacis – Ma classe",
   "notes": [
-    "Nouveau thème « Glacis », seul thème d'origine. Le fond du site glacis-classe.fr : crème et bleu pâle, lignes de cahier très discrètes, couleur principale le bleu de l'icône. Les onze anciens thèmes de saison sont retirés ; un poste qui en utilisait un passe sur Glacis. Les thèmes importés restent possibles et peuvent reprendre ce fond (clés de style doux et seyes).",
-    "Contenus de départ neutres. L'emploi du temps de départ et les textes d'aide ne citent plus de méthode du commerce : les séances de lecture et de maths sont décrites par leur déroulement (« Jour 1 : phonème, affiche référente, combinatoire », « Séance 1 : découverte, manipulation, institutionnalisation »). Les emplois du temps déjà enregistrés ne changent pas.",
-    "Plus aucun site ajouté d'office. Une nouvelle installation démarre sans site enregistré ; le site de l'ENT qu'ajoutaient les versions précédentes est retiré une fois des réglages existants (un site que vous enregistrez vous-même reste).",
-    "Aucune appli privée nommée dans l'appli et sa documentation (exemples d'énoncés de problèmes : « cartes à collectionner »).",
-    "Crédits et licences complétés. Réglages › À propos cite aussi d3-array (cartes), la mention de la licence ODbL des noms de pays et, dans l'application Windows, Tauri, ses bibliothèques et le chargeur WebView2 de Microsoft. Un bloc « Licences des composants » montre les textes complets des licences ; dans l'application Windows, il y ajoute ceux des 233 bibliothèques Rust, aussi installés avec elle (dossier licences).",
-    "Police de lecture renommée « Glacis Lecture ». C'est toujours Andika (SIL), avec les mêmes lettres : rien ne change à l'écran ni à l'impression ; sa licence ne permet pas de garder le nom « Andika » pour une version allégée."
+    "Ma classe s'appelle désormais « Glacis – Ma classe ». Nouveau nom à l'accueil, dans la fenêtre et dans À propos, nouvelle icône (un G d'écolier sur une feuille de cahier). Rien ne change dans les écrans ni dans vos habitudes.",
+    "Nouvel écran d'accueil : une feuille de cahier vernie, comme l'icône, sur le fond du site glacis-classe.fr ; « Ma classe » écrit en cursive.",
+    "Glacis est une nouvelle application. Elle s'installe à côté de « Ma classe » ; au premier lancement, choisissez le même dossier de la classe : élèves, emploi du temps, cahier journal, documents et réglages y sont déjà. Seuls quelques réglages propres à l'ordinateur (place des fenêtres, mode léger, nom du poste) sont à refaire. « Ma classe » peut ensuite être désinstallée.",
+    "Nouvelle adresse : glacis-classe.fr. Les mises à jour, le Store des applis et la page de présentation y sont réunis.",
+    "Fichiers renommés : la page s'appelle « Glacis.html » (« Glacis - Remplaçant.html » pour les remplacements), l'installateur « Glacis_… ». Le dossier proposé s'appelle « Glacis » ; un dossier « Ma classe » existant se choisit tel quel.",
+    "Mises à jour plus sûres : l'application n'accepte que les installateurs de Glacis.",
+    "Versions d'essai suivies d'office : une version d'essai de Glacis propose les essais suivants sans réglage (Réglages › Mises à jour › Versions proposées reste modifiable).",
+    "Store : seule l'appli Échecs est reprise."
   ],
   "fichiers": {
     "classe": {
-      "url": "essai/Ma classe.html",
-      "taille": 6986613,
-      "sha256": "d6453cb1ea256a805d55bfcaa757b98b953ccc59cacdcc90694f11453be562d7"
+      "url": "essai/Glacis.html",
+      "taille": 6989752,
+      "sha256": "318940407ecd693415b0ca69e9ae19024760dd57f7d0f25d9bcf9249c8521f90"
     },
     "remplacant": {
-      "url": "essai/Ma classe - Remplaçant.html",
-      "taille": 6986613,
-      "sha256": "d6453cb1ea256a805d55bfcaa757b98b953ccc59cacdcc90694f11453be562d7"
+      "url": "essai/Glacis - Remplaçant.html",
+      "taille": 6989752,
+      "sha256": "318940407ecd693415b0ca69e9ae19024760dd57f7d0f25d9bcf9249c8521f90"
     }
   }
 }

@@ -17,7 +17,7 @@ GitHub du dépôt. Seuls Franck (et les assistants qui travaillent avec lui, sur
 
 ---
 
-## 0. Passage à Glacis (branche `claude/glacis-site`, préparée le 18 novembre 2026, **pas encore dans `main`**)
+## 0. Passage à Glacis (branche `claude/glacis-site`, préparée et réunie dans `main` le 18 novembre 2026 avec le premier essai de Glacis, 6.0.0-beta.12)
 
 Décision de Franck du 18 novembre 2026 : le logiciel devient « **Glacis – Ma classe** », une nouvelle application
 (identifiant, clés et nom d'installateur nouveaux) ; ses mises à jour et sa page de présentation sont servies par
@@ -33,6 +33,7 @@ Décision de Franck du 18 novembre 2026 : le logiciel devient « **Glacis – Ma
 | déploiement : `configure-pages`, `deploy-pages` | `outils/deploiement/` (wrangler à version et empreintes fixées, `npm ci --ignore-scripts`), puis `wrangler pages deploy _site --project-name=glacis-classe --branch=main` |
 | secrets `MAJ_CLE_PRIVEE`, `TAURI_SIGNING_PRIVATE_KEY` | les mêmes (**mêmes clés**), plus `CLOUDFLARE_API_TOKEN` (jeton « Cloudflare Pages : Edit ») et `CLOUDFLARE_ACCOUNT_ID` |
 
+Les étapes de signature de l'application tournent dès qu'une des deux fiches (`appli/latest.json`, `appli/essai/latest.json`) existe.
 Inchangés : formats `ma-classe-versions` et `ma-classe-applis`, clés de signature, outils de signature et de
 fabrication (qui acceptent la balise `glacis-version` comme `ma-classe-version`). Un canal `stable` n'est plus
 obligatoire : tant que Glacis n'a que des essais, `versions.json` ne porte que le canal `essai` (avertissement dans le
@@ -40,7 +41,7 @@ journal de l'action) et la page de présentation propose l'installateur d'essai.
 
 **Ordre des opérations** (chacune sur une phrase explicite de Franck) :
 
-1. *Facultatif, avant tout le reste* : la **passerelle**, dernière version de « Ma classe » (branche
+1. *Écartée par Franck* (« passerelle non ») : la **passerelle**, dernière version de « Ma classe » (branche
    `claude/ma-classe-passerelle` du dépôt source), publiée depuis `main` **tel qu'il est** (GitHub Pages à réactiver :
    Settings › Pages › Source : GitHub Actions). Elle annonce Glacis aux postes installés.
 2. **Bascule** : réunir `claude/glacis-site` dans `main` **dans le même envoi que la première publication de Glacis** ;

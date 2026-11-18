@@ -1,8 +1,8 @@
 {
-  "name": "ma-classe-appli",
+  "name": "glacis-appli",
   "license": "GPL-3.0-or-later",
   "private": true,
-  "description": "Outils de construction de l'application de bureau Ma classe (Tauri)",
+  "description": "Outils de construction de l'application de bureau Glacis (Tauri)",
   "scripts": {
     "icones": "tauri icon icone.png",
     "construire": "tauri build --bundles nsis"

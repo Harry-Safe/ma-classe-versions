@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-18 — Claude — Premier essai de Glacis publié sur glacis-classe.fr : 6.0.0-beta.12 et Échecs 1.1.0
+
+- **Demande / Autorisation** : Franck, 23 h 11 : « Les secrets Cloudflare sont créés dans ma-classe-versions et glacis-classe.fr est actif sur le projet Pages. Choix validés, passerelle non. Tu peux lancer l'étape 3 : réunir le renommage dans essai, suite complète, publier Glacis en essai sur glacis-classe.fr, puis Échecs 1.1.0. »
+- **Contrôle préalable** : `main` à `3e2bd45`, aucune pull request, aucune action en cours ; branche `claude/glacis-site` (`ba6af89`) réunie ici par avance rapide. Source : `Ma-classe` `essai` `de28282` (6.0.0-beta.12) ; `Applis-classe` `main` `e291299` (Échecs 1.1.0).
+- **Réalisation** : retrait de tout ce qui appartenait à « Ma classe » (`stable/`, `essai/`, `appli/`, `coquille/`, `entrees/`) ; `publier-version.py` et `publier-appli.py --canal essai` (pages `Glacis.html`, `Glacis - Remplaçant.html`, coquille, `appli/essai/latest.json` vers `https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.12_x64-setup-essai.exe`) ; Store : `publier.py echecs` (1.1.0, essai), `--retirer evar` et `--retirer dizaines-unites` (décision de Franck : seule Échecs est reprise) ; action : la signature de l'application tourne aussi quand seul le canal d'essai existe (`hashFiles` sur les deux fiches) ; README et consignes au nom de Glacis.
+- **Validation** : suite complète de Ma-classe (deux moitiés parallèles) : 105 sur 106, `outils` en échec sous cette charge puis vert deux fois seul ; répétition à blanc ici (`signer.py` avec une clé jetable : « versions.json signé : essai 6.0.0-beta.12 », « applis.json signé : echecs 1.1.0 (essai) » ; `fabriquer-appli.py essai --plan` : à fabriquer ; `stable --plan` : rien).
+- **Livraison / état** : envoyé sur `main` (avance rapide, sans forçage) ; action « Publier les mises à jour » : voir l'entrée suivante.
+
 ## 2026-11-18 — Claude — Passage à Glacis préparé : site sur glacis-classe.fr (`claude/glacis-site`, rien de publié)
 
 - **Demande / Autorisation** : Franck, 18 novembre : « Les mises à jour et la page de présentation passent sur glacis-classe.fr (Cloudflare Pages) » ; « Publier seulement sur une phrase explicite de Franck ». Aucun envoi sur `main`.

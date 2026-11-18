@@ -1274,6 +1274,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "glacis"
+version = "4.18.0"
+dependencies = [
+ "base64 0.23.1",
+ "minisign-verify",
+ "percent-encoding",
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-dialog",
+ "tauri-plugin-opener",
+ "tauri-plugin-single-instance",
+]
+
+[[package]]
 name = "glib"
 version = "0.18.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1972,22 +1988,6 @@ name = "log"
 version = "0.4.35"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5d15f86d12da44cd8d4ec3c73984537eb7f4cadcb9776a575a0a8a05ca11005c"
-
-[[package]]
-name = "ma-classe"
-version = "4.18.0"
-dependencies = [
- "base64 0.23.1",
- "minisign-verify",
- "percent-encoding",
- "serde",
- "serde_json",
- "tauri",
- "tauri-build",
- "tauri-plugin-dialog",
- "tauri-plugin-opener",
- "tauri-plugin-single-instance",
-]
 
 [[package]]
 name = "markup5ever"
