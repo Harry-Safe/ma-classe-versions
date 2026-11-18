@@ -64,7 +64,10 @@ journal de l'action) et la page de présentation propose l'installateur d'essai.
 | `appli/…/Ma-classe_<v>_x64-setup*.exe` | ancien fonctionnement (avant le 9 novembre 2026) | installateur fabriqué dans le dépôt privé ; s'il est présent, l'action le prend tel quel au lieu de fabriquer |
 | `applis/entrees/<id>.json` | `outils/publier.py` du dépôt privé `Applis-classe` (référence, avec garde ; ou `build/publier-applis.py` du dépôt Ma classe) | une appli du **Store** : nom, description, couleur, icône intégrée, et pour chaque canal version, date, notes, paquet (adresse, taille, SHA-256) |
 | `applis/paquets/<id>-<version>.zip` | idem | paquet d'une appli (sans son dossier `donnees`) ; une version publiée ne change plus |
-| `index.html` | à la main | page publique : explication et lien vers l'installateur Windows (`#appli`) |
+| `index.html`, `icone.svg` | à la main | page de présentation de Glacis (vitrine animée, § 1 bis) et lien vers l'installateur Windows (`#telecharger`) : la version publiée, sinon la version d'essai |
+| `vitrine/films/`, `vitrine/images/` | `outils/vitrine/` (§ 1 bis) | films MP4 et images WebP de la page, pris dans la **vraie application** (classe de démonstration, prénoms fictifs) |
+| `vitrine/polices/` | copie de `vendor/polices/` du dépôt source | polices de la page (Glacis Lecture, Marelle) et leurs licences OFL |
+| `outils/vitrine/` | — | fabrique des films et des images de la page (§ 1 bis) ; `_travail/` est ignoré par Git |
 | `outils/signer.py` | — | vérifie les fichiers annoncés, signe `versions.json` et le catalogue du Store `applis.json` (Ed25519, même clé), prépare `_site/` |
 | `outils/fabriquer-appli.py` | — | fabrique l'installateur d'un canal (coquille + page publiée), le range dans `_site/appli/` |
 | `outils/signer-appli.py` | — | signe chaque installateur (Minisign, `@tauri-apps/cli` installé depuis `outils/signature/`), **revérifie** chaque signature comme l'application (clé `CLE_MAJ` de la coquille du canal, nom et version du fichier signé) et l'écrit dans les `latest.json` de `_site/appli/` ; `--a-blanc` : toute la chaîne avec une clé jetable (branches de fabrication) |
@@ -73,6 +76,29 @@ journal de l'action) et la page de présentation propose l'installateur d'essai.
 | `.github/workflows/publier.yml` | — | action « Publier les mises à jour » |
 | `.github/workflows/nettoyer-branches.yml` | — | action « Nettoyer les branches », **lancée à la main par Franck** (liste d'abord, « oui » pour supprimer) : branches contenues dans `main`, de fabrication seule et anciennes préparations de publication ; les assistants n'ont pas le droit de supprimer une branche (lot D de l'audit, 13 novembre 2026) |
 | `_site/`, `construction/`, `paquet/`, `paquets/` (ignorés) | l'action | site déployé ; fabrication de l'installateur |
+
+## 1 bis. La page de présentation et ses images
+
+`index.html` est une page sans dépendance extérieure (aucun script, police ou image d'un autre site, aucun traceur) :
+elle fonctionne aussi sans JavaScript (tout est alors visible et immobile) et respecte « réduire les animations »
+(rien ne bouge, les films attendent un clic sur leur bouton lecture). `outils/signer.py` copie `index.html`,
+`icone.svg`, `_headers` et le dossier `vitrine/` dans `_site/`.
+
+Les films et les images montrent la **vraie application**, ouverte dans sa classe de démonstration
+(`Glacis.html?classe-demo` : prénoms fictifs, lundi 9 novembre 2026, rien d'enregistré). **Aucune image n'est retouchée
+ni générée** ; seul un point bleu est ajouté pour montrer où l'on clique. Pour les refaire après une nouvelle version
+(Chromium de Playwright, `ffmpeg` et Pillow nécessaires ; `CHROME=…` pour un Chromium particulier) :
+
+```
+python outils/vitrine/filmer.py            # les six films, image par image (environ 4 min chacun)
+python outils/vitrine/captures.py          # les captures fixes et les tuiles des outils
+python outils/vitrine/ranger.py            # conversion et rangement dans vitrine/films et vitrine/images
+```
+
+`filmer.py` pilote l'horloge de la page (30 images par seconde, minuteries, `requestAnimationFrame` et animations CSS
+avancées pas à pas) : le film est fluide même sur une machine lente. Un scénario qui ne trouve plus son bouton après
+un changement de l'application s'arrête avec une erreur : corriger le scénario (fin de `filmer.py`), pas l'image.
+Relire chaque film avant de l'envoyer (une planche d'images suffit) : aucun prénom réel, aucun message d'erreur.
 
 ## 2. Formats
 

@@ -8,3 +8,6 @@ _site/
 /outils/signature/node_modules/
 # outil de mise en ligne installé par « npm ci --ignore-scripts » (outils/deploiement/package-lock.json)
 /outils/deploiement/node_modules/
+# images intermédiaires des films et captures de la page de présentation (outils/vitrine/)
+/outils/vitrine/_travail/
+__pycache__/

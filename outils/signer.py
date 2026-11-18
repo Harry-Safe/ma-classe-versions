@@ -1,7 +1,7 @@
 """Assemble et signe versions.json à partir de entrees/*.json, puis prépare le site (dossier _site).
 Assemble et signe aussi applis.json, le catalogue du Store des applis, à partir de applis/entrees/*.json.
 
-Le site est celui de Glacis, https://glacis-classe.fr (Cloudflare Pages) : page de présentation (index.html, icone.svg),
+Le site est celui de Glacis, https://glacis-classe.fr (Cloudflare Pages) : page de présentation (index.html, icone.svg, vitrine/),
 fiches signées, pages et installateurs. Les formats « ma-classe-versions » et « ma-classe-applis » gardent leur nom.
 Lancé par GitHub Actions à chaque envoi (voir .github/workflows/publier.yml) ; la clé privée Ed25519
 (base64, 32 octets) est lue dans la variable d'environnement MAJ_CLE_PRIVEE (secret du dépôt).
@@ -64,6 +64,7 @@ def main():
     for c in canaux: shutil.copytree(ICI / c, SITE / c)
     for nom in ("index.html", "icone.svg", "_headers"):          # page de présentation, son icône, en-têtes de Cloudflare Pages
         if (ICI / nom).is_file(): shutil.copyfile(ICI / nom, SITE / nom)
+    if (ICI / "vitrine").is_dir(): shutil.copytree(ICI / "vitrine", SITE / "vitrine")   # images, films et polices de la page de présentation
     if (ICI / "appli").is_dir(): shutil.copytree(ICI / "appli", SITE / "appli")   # application Windows (latest.json + installateur signé)
     (SITE / "versions.json").write_text(json.dumps(fiche, ensure_ascii=False), encoding="utf-8")
     (SITE / ".nojekyll").write_text("")

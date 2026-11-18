@@ -6,130 +6,544 @@
 <title>Glacis – Ma classe</title>
 <meta name="description" content="Glacis – Ma classe : le tableau de bord de la classe pour l'école élémentaire. Journée, rituels, outils et tableaux, hors ligne. Logiciel libre conçu par un enseignant.">
 <meta name="author" content="Franck VARAULT">
-<link rel="icon" type="image/svg+xml" href="/icone.svg">
-<link rel="apple-touch-icon" href="/icone.svg">
-<meta name="theme-color" content="#eef2fb">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Glacis – Ma classe">
+<meta property="og:description" content="Toute la classe, sur un seul écran : journée, rituels, tableaux et outils à manipuler. Sans connexion, sans compte.">
+<meta property="og:url" content="https://glacis-classe.fr/">
+<meta property="og:image" content="https://glacis-classe.fr/vitrine/images/partage.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="icone.svg">
+<link rel="apple-touch-icon" href="icone.svg">
+<link rel="preload" href="vitrine/polices/glacis-lecture-700.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#f7f4ec">
+<meta name="color-scheme" content="light">
+<script>document.documentElement.classList.add("js")</script>
 <style>
+  /* Polices de Glacis : Glacis Lecture (lecture), Marelle (cursive scolaire). Licences OFL 1.1 : vitrine/polices/. */
+  @font-face{font-family:"Glacis Lecture";font-weight:400;font-style:normal;font-display:swap;src:url(vitrine/polices/glacis-lecture-400.woff2) format("woff2")}
+  @font-face{font-family:"Glacis Lecture";font-weight:700;font-style:normal;font-display:swap;src:url(vitrine/polices/glacis-lecture-700.woff2) format("woff2")}
+  @font-face{font-family:"Marelle";font-weight:400;font-style:normal;font-display:swap;src:url(vitrine/polices/Marelle-Regular.woff) format("woff")}
+
   :root{
-    --encre:#1f2d55; --bleu:#2f4fa8; --doux:#5b6788;
-    --fond1:#f7f4ec; --fond2:#e6edfb;
-    --verre:rgba(255,255,255,.55); --bord:rgba(255,255,255,.8); --teinte:rgba(47,79,168,.09); --trait:rgba(47,79,168,.15);
+    --encre:#1f2d55; --bleu:#2f4fa8; --doux:#56617f; --papier:#f7f4ec; --pale:#e6edfb; --ciel:#cfe3ff;
+    --regle:#8fa8e8; --marge:#e06b7a; --corail:#ec6a5c; --miel:#f3b64f; --sauge:#5fae76;
+    --verre:rgba(255,255,255,.58); --verre-fort:rgba(255,255,255,.78); --bord:rgba(255,255,255,.85);
+    --teinte:rgba(47,79,168,.08); --trait:rgba(47,79,168,.16);
+    --ombre:0 1px 0 rgba(255,255,255,.9) inset,0 34px 70px -34px rgba(47,79,168,.38),0 10px 24px -14px rgba(31,45,85,.16);
+    --large:1180px; --rxl:28px; --rl:20px;
+    --elan:cubic-bezier(.2,.8,.2,1);
   }
   *{box-sizing:border-box;margin:0}
+  html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
   body{
-    min-height:100vh;
-    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    color:var(--encre);
+    font-family:"Glacis Lecture",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color:var(--encre);background:var(--papier);line-height:1.55;font-size:1.0625rem;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  /* le fond d'écran du thème Glacis : éclat de papier, halo bleu, lignes de cahier effacées vers les bords */
+  .fond{position:fixed;inset:0;z-index:-1;pointer-events:none;
     background:
-      radial-gradient(60vmax 60vmax at 15% 10%, #fffdf7 0%, transparent 60%),
-      radial-gradient(55vmax 55vmax at 90% 95%, #cfe3ff 0%, transparent 60%),
-      linear-gradient(160deg,var(--fond1),var(--fond2)) fixed;
-    padding:32px 20px 40px;
-    -webkit-font-smoothing:antialiased;
-  }
-  /* lignes Seyès très discrètes en fond */
-  body::before{
-    content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;
-    background-image:repeating-linear-gradient(to bottom,transparent 0 31px,rgba(143,168,232,.35) 31px 32px);
-    -webkit-mask-image:radial-gradient(closest-side,#000 40%,transparent);
-            mask-image:radial-gradient(closest-side,#000 40%,transparent);
-  }
-  main{position:relative;width:min(760px,100%);margin:0 auto;display:grid;gap:20px}
-  .carte{
-    padding:28px 30px;border-radius:28px;
+      radial-gradient(60vmax 60vmax at 12% 6%,#fffdf7 0%,transparent 60%),
+      radial-gradient(58vmax 58vmax at 92% 96%,var(--ciel) 0%,transparent 62%),
+      linear-gradient(160deg,var(--papier),var(--pale));}
+  .fond::before{content:"";position:absolute;inset:0;opacity:.34;
+    background-image:repeating-linear-gradient(to bottom,transparent 0 31px,rgba(143,168,232,.38) 31px 32px);
+    -webkit-mask-image:radial-gradient(closest-side,#000 35%,transparent);mask-image:radial-gradient(closest-side,#000 35%,transparent)}
+  img,video{display:block;max-width:100%}
+  a{color:var(--bleu);font-weight:700;text-decoration:none}
+  p a,li a{border-bottom:1px solid rgba(47,79,168,.3)}
+  p a:hover,li a:hover{border-bottom-color:var(--bleu)}
+  :focus-visible{outline:3px solid #2f6fd6;outline-offset:3px;border-radius:8px}
+  b,strong{color:var(--encre)}
+  [hidden]{display:none!important}
+  .cache{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+  .contenu{width:min(var(--large),100% - 40px);margin-inline:auto}
+
+  /* ---------- barre du haut : une capsule de verre, comme la barre de menus de Glacis ---------- */
+  .barre{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:20;width:min(var(--large),100% - 24px);
+    display:flex;align-items:center;gap:6px;padding:7px 8px 7px 12px;border-radius:999px;
     background:var(--verre);border:1px solid var(--bord);
-    box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 30px 60px -28px rgba(47,79,168,.25),0 8px 20px -12px rgba(31,45,85,.15);
-    -webkit-backdrop-filter:blur(18px) saturate(1.4);
-            backdrop-filter:blur(18px) saturate(1.4);
+    -webkit-backdrop-filter:blur(18px) saturate(1.5);backdrop-filter:blur(18px) saturate(1.5);
+    box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 14px 30px -18px rgba(47,79,168,.45);}
+  .barre .marque{display:flex;align-items:center;gap:9px;color:var(--encre);font-size:1.08rem;margin-right:auto}
+  .barre .marque img{width:30px;height:30px}
+  .barre nav{display:flex;gap:2px}
+  .barre nav a{padding:7px 13px;border-radius:999px;color:var(--doux);font-weight:400;font-size:.95rem;transition:background .25s,color .25s}
+  .barre nav a:hover,.barre nav a.ici{background:rgba(255,255,255,.75);color:var(--encre)}
+  .barre .bouton{padding:8px 18px;font-size:.95rem;margin-left:6px}
+  @media (max-width:860px){.barre nav{display:none}}
+
+  .bouton{display:inline-flex;align-items:center;gap:.5em;padding:14px 28px;border-radius:999px;border:0;cursor:pointer;
+    font:inherit;font-size:1.08rem;font-weight:700;color:#fff;background:linear-gradient(180deg,#4a6bc6,var(--bleu));
+    box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 14px 26px -12px rgba(47,79,168,.7);
+    transition:transform .35s var(--elan),box-shadow .35s,filter .2s}
+  .bouton:hover{filter:brightness(1.07);transform:translateY(-1px)}
+  .bouton:active{transform:scale(.97)}
+  .bouton svg{width:1.1em;height:1.1em}
+  .lien{display:inline-flex;align-items:center;gap:.35em;padding:12px 8px;font-size:1.08rem}
+  .lien svg{width:1em;height:1em;transition:transform .3s var(--elan)}
+  .lien:hover svg{transform:translateY(3px)}
+  .pastille{display:inline-block;padding:6px 14px;border-radius:999px;font-size:.88rem;font-weight:700;color:var(--bleu);background:var(--teinte);border:1px solid var(--trait)}
+
+  /* ---------- en-tête ---------- */
+  .tete{padding:118px 0 0;text-align:center}
+  .tete .icone{width:104px;height:104px;margin:0 auto 18px;filter:drop-shadow(0 14px 22px rgba(47,79,168,.3))}
+  h1{line-height:1;font-size:clamp(1.5rem,2.6vw,1.9rem);font-weight:700;letter-spacing:-.01em;display:flex;flex-direction:column;align-items:center}
+  h1 .cursive{font-family:"Marelle",cursive;font-weight:400;color:var(--bleu);font-size:1.45em;line-height:1.7;margin-top:.28em}
+  .accroche{font-size:clamp(2.5rem,7.2vw,5.4rem);font-weight:700;line-height:1.02;letter-spacing:-.03em;margin:22px auto 0;max-width:13em;text-wrap:balance}
+  .accroche em{font-style:normal;color:var(--bleu)}
+  .chapo{font-size:clamp(1.08rem,1.6vw,1.3rem);color:var(--doux);max-width:36em;margin:22px auto 0;text-wrap:pretty}
+  .actions{display:flex;flex-wrap:wrap;gap:10px 18px;justify-content:center;align-items:center;margin-top:30px}
+  .sous{margin-top:16px;font-size:.92rem;color:var(--doux)}
+  .sous i{font-style:normal;margin:0 .5em;opacity:.5}
+
+  /* ---------- l'écran : une vraie image de Glacis, sous une fine couche de verre ---------- */
+  .scene{perspective:1700px;margin-top:54px;padding-bottom:20px}
+  .ecran{position:relative;margin:0;border-radius:clamp(12px,1.8vw,22px);overflow:hidden;background:#eef2fb;
+    border:1px solid rgba(255,255,255,.9);
+    box-shadow:0 0 0 1px rgba(47,79,168,.12),0 60px 110px -50px rgba(47,79,168,.55),0 24px 50px -30px rgba(31,45,85,.3);}
+  .ecran > img,.ecran > video{width:100%;height:auto}
+  /* le glacis : un reflet en biais qui traverse l'écran quand il arrive */
+  .ecran::after{content:"";position:absolute;inset:-20% -60%;pointer-events:none;
+    background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.55) 49%,rgba(159,216,255,.28) 52%,transparent 58%);
+    transform:translateX(-70%);opacity:0}
+  .ecran.vu::after{animation:glacis 1.7s .15s var(--elan) both}
+  @keyframes glacis{0%{transform:translateX(-70%);opacity:0}25%{opacity:1}100%{transform:translateX(70%);opacity:0}}
+  .tete .ecran{transform-origin:50% 0;will-change:transform;
+    transform:rotateX(calc(var(--t,0)*15deg)) scale(calc(1 - var(--t,0)*.11)) translateY(calc(var(--t,0)*26px))}
+  .pause{position:absolute;right:12px;bottom:12px;z-index:2;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.8);cursor:pointer;
+    background:rgba(31,45,85,.42);color:#fff;display:grid;place-items:center;opacity:0;transition:opacity .25s;
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  .pause svg{width:16px;height:16px}
+  .ecran:hover .pause,.pause:focus-visible,.pause[aria-pressed=true]{opacity:1}
+  @media (hover:none){.pause{opacity:.85}}
+
+  /* ---------- sections ---------- */
+  section{padding:clamp(84px,12vw,150px) 0 0}
+  /* le petit titre écrit à la main, sur une ligne de cahier */
+  .ecrit{display:inline-block;position:relative;font-family:"Marelle",cursive;font-size:clamp(1.7rem,3vw,2.2rem);line-height:1.5;color:var(--bleu);
+    padding:0 .9em 0 .75em;border-bottom:2px solid rgba(143,168,232,.85);margin-bottom:22px}
+  .ecrit::before{content:"";position:absolute;left:.3em;top:-.35em;bottom:-.6em;width:2px;background:var(--marge);opacity:.8;border-radius:2px}
+  h2{font-size:clamp(2rem,4.8vw,3.5rem);line-height:1.06;letter-spacing:-.025em;max-width:16em;text-wrap:balance}
+  h2 + .chapo{margin-left:0;margin-top:18px}
+  .centre{text-align:center}
+  .centre h2,.centre .chapo{margin-inline:auto}
+  h3{font-size:clamp(1.3rem,2.2vw,1.7rem);line-height:1.15;letter-spacing:-.015em}
+
+  /* apparition au défilement (sans script : tout est visible) */
+  .js [data-r]{opacity:0;transform:translateY(26px);transition:opacity .9s var(--elan),transform .9s var(--elan);transition-delay:calc(var(--i,0)*90ms)}
+  .js [data-r].vu{opacity:1;transform:none}
+
+  /* ---------- la journée : le texte défile, l'écran reste ---------- */
+  .defile{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.5fr);gap:clamp(24px,4vw,64px);margin-top:20px;align-items:start}
+  .pas{min-height:72vh;display:flex;flex-direction:column;justify-content:center;transition:opacity .5s}
+  .pas p{color:var(--doux);margin-top:12px;max-width:26em}
+  .pas .num{font-size:.9rem;font-weight:700;color:var(--bleu);margin-bottom:10px}
+  .js .defile .pas{opacity:.28}
+  .js .defile .pas.ici{opacity:1}
+  .pas .ecran{display:none;margin-top:22px}
+  .epingle{position:sticky;top:calc(50vh - min(22vw,270px));}
+  .pile{aspect-ratio:16/9}
+  .pile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.025);transition:opacity .7s var(--elan),transform 1.1s var(--elan)}
+  .pile img.ici{opacity:1;transform:none}
+  @media (max-width:900px){
+    .defile{grid-template-columns:1fr}
+    .epingle{display:none}
+    .pas{min-height:0;padding:26px 0}
+    .js .defile .pas{opacity:1}
+    .pas .ecran{display:block}
   }
-  .tete{text-align:center;padding:44px 30px 34px;animation:entree .9s cubic-bezier(.2,.8,.2,1) both}
-  .icone{width:124px;height:124px;display:block;margin:0 auto 24px;filter:drop-shadow(0 14px 22px rgba(47,79,168,.28))}
-  h1{font-size:clamp(2rem,6vw,2.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.1}
-  h1 span{color:var(--doux);font-weight:500}
-  h2{font-size:1.25rem;letter-spacing:-.01em;margin-bottom:10px}
-  p{color:var(--doux);font-size:1.02rem;line-height:1.55}
-  p + p{margin-top:10px}
-  .accroche{max-width:34rem;margin:16px auto 0;font-size:1.08rem}
-  ul{margin:8px 0 0;padding-left:1.2rem;color:var(--doux);line-height:1.55;display:grid;gap:6px}
-  b{color:var(--encre)}
-  a{color:var(--bleu);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(47,79,168,.3)}
-  a:hover{border-bottom-color:var(--bleu)}
-  .bouton{
-    display:inline-block;margin-top:14px;padding:13px 26px;border-radius:999px;border:0;
-    font-size:1.08rem;font-weight:700;color:#fff;background:linear-gradient(180deg,#4a6bc6,var(--bleu));
-    box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 12px 22px -10px rgba(47,79,168,.6);
+
+  html:not(.js) .defile{grid-template-columns:1fr}
+  html:not(.js) .epingle{display:none}
+  html:not(.js) .pas{min-height:0;padding:26px 0}
+  html:not(.js) .pas .ecran{display:block;max-width:900px}
+
+  /* ---------- deux colonnes : texte et écran ---------- */
+  .duo{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.45fr);gap:clamp(24px,4vw,64px);align-items:center;margin-top:8px}
+  .duo.inverse .texte{order:2}
+  @media (max-width:900px){.duo{grid-template-columns:1fr}.duo.inverse .texte{order:0}}
+  .niveaux{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding:0;list-style:none}
+  .niveaux li{padding:6px 15px;border-radius:999px;background:var(--verre-fort);border:1px solid var(--trait);font-weight:700;font-size:.95rem;color:var(--bleu)}
+  .liste{list-style:none;padding:0;margin-top:20px;display:grid;gap:10px;color:var(--doux)}
+  .liste li{padding-left:1.5em;position:relative}
+  .liste li::before{content:"";position:absolute;left:.15em;top:.62em;width:.55em;height:.55em;border-radius:50%;background:var(--bleu);opacity:.8}
+
+  /* ---------- onglets en pilules : un choix actif qui se remplit, puis passe au suivant ---------- */
+  .pilules{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:4px;padding:5px;border-radius:26px;margin:30px auto 0;
+    background:rgba(118,118,128,.13);max-width:100%}
+  .pilules button{position:relative;overflow:hidden;font:inherit;font-weight:700;font-size:.98rem;color:var(--doux);background:none;border:0;cursor:pointer;
+    padding:9px 18px;border-radius:999px;transition:color .3s,background .3s,box-shadow .3s}
+  .pilules button[aria-selected=true]{color:var(--encre);background:#fff;box-shadow:0 4px 12px -4px rgba(31,45,85,.3)}
+  .pilules button i{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--bleu);transform-origin:0 50%;transform:scaleX(0);opacity:.75}
+  .pilules button[aria-selected=true].tourne i{animation:jauge var(--duree,6s) linear both}
+  @keyframes jauge{to{transform:scaleX(1)}}
+  .vues{position:relative;margin-top:30px}
+  .vue{margin:0}
+  .js .vue{display:none}
+  .js .vue.ici{display:block;animation:vue .6s var(--elan) both}
+  @keyframes vue{from{opacity:0;transform:translateY(14px) scale(.985)}}
+  .vue figcaption{max-width:40em;margin:22px auto 0;text-align:center;color:var(--doux)}
+  .vue figcaption b{display:block;font-size:1.2rem;margin-bottom:4px}
+  .etroit{max-width:940px;margin-inline:auto}
+  .etroit .ecran video{aspect-ratio:3/2;object-fit:cover}
+
+  /* ---------- les outils : la grille de tuiles ---------- */
+  .tuiles{list-style:none;padding:0;margin:54px auto 0;display:flex;flex-wrap:wrap;justify-content:center;gap:26px 8px;max-width:740px}
+  .tuiles li{width:112px;display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center;font-size:.86rem;line-height:1.2;font-weight:700}
+  @media (max-width:560px){.tuiles li{width:96px}}
+  .tuiles img{width:64px;height:64px;filter:drop-shadow(0 8px 10px rgba(47,79,168,.22));transition:transform .45s var(--elan)}
+  .tuiles li:hover img{transform:scale(1.13) translateY(-3px)}
+  .js .tuiles li{opacity:0;transform:scale(.6);transition:opacity .5s var(--elan),transform .7s cubic-bezier(.3,1.5,.5,1);transition-delay:calc(var(--i,0)*45ms)}
+  .js .tuiles.vu li{opacity:1;transform:none}
+
+  /* ---------- vos données : cartes de verre ---------- */
+  .cartes{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:44px}
+  .carte{grid-column:span 2;padding:26px 26px 28px;border-radius:var(--rxl);background:var(--verre);border:1px solid var(--bord);box-shadow:var(--ombre);
+    -webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4)}
+  .carte.grande{grid-column:span 3}
+  .carte svg{width:34px;height:34px;color:var(--bleu);margin-bottom:14px}
+  .carte h3{font-size:1.28rem}
+  .carte p{color:var(--doux);margin-top:8px;font-size:1rem}
+  .carte .chiffre{font-size:clamp(2.6rem,5vw,3.6rem);font-weight:700;line-height:1;letter-spacing:-.03em;color:var(--bleu);margin-bottom:10px}
+  .carte .chiffre small{font-size:.42em;letter-spacing:0;margin-left:.15em}
+  @media (max-width:900px){.cartes{grid-template-columns:repeat(2,1fr)}.carte,.carte.grande{grid-column:span 1}}
+  @media (max-width:560px){.cartes{grid-template-columns:1fr}}
+
+  /* ---------- télécharger : la feuille de cahier de l'écran d'accueil ---------- */
+  .feuille{position:relative;overflow:hidden;max-width:760px;margin:0 auto;padding:54px 40px 46px 78px;border-radius:var(--rxl);text-align:center;
+    background-color:#fffdf7;
+    background-image:
+      linear-gradient(to right,transparent 52px,rgba(224,107,122,.7) 52px,rgba(224,107,122,.7) 54px,transparent 54px),
+      repeating-linear-gradient(to bottom,transparent 0 31px,rgba(143,168,232,.55) 31px 33px),
+      repeating-linear-gradient(to bottom,transparent 0 7px,rgba(143,168,232,.2) 7px 8px);
+    border:1px solid #fff;box-shadow:0 0 0 1px rgba(47,79,168,.1),0 50px 90px -46px rgba(47,79,168,.5),0 16px 36px -22px rgba(31,45,85,.25)}
+  .feuille::after{content:"";position:absolute;inset:-30% -40%;pointer-events:none;background:linear-gradient(115deg,transparent 44%,rgba(159,216,255,.22) 50%,transparent 56%)}
+  .feuille > *{position:relative;z-index:1}
+  .feuille img{width:92px;height:92px;margin:0 auto 14px;filter:drop-shadow(0 12px 18px rgba(47,79,168,.28))}
+  .feuille h2{font-size:clamp(1.9rem,4.4vw,2.9rem);margin-inline:auto}
+  .feuille .cursive{font-family:"Marelle",cursive;color:var(--bleu);font-size:1.9rem;line-height:1.7;margin-top:.5em}
+  .feuille .bouton{margin-top:22px}
+  .feuille .note{font-size:.92rem;color:var(--doux);max-width:36em;margin:22px auto 0;background:rgba(255,253,247,.86);border-radius:14px;padding:10px 14px}
+  @media (max-width:560px){.feuille{padding:44px 20px 36px 44px;background-image:linear-gradient(to right,transparent 26px,rgba(224,107,122,.7) 26px,rgba(224,107,122,.7) 28px,transparent 28px),repeating-linear-gradient(to bottom,transparent 0 31px,rgba(143,168,232,.55) 31px 33px),repeating-linear-gradient(to bottom,transparent 0 7px,rgba(143,168,232,.2) 7px 8px)}}
+  details{max-width:760px;margin:18px auto 0;border-radius:var(--rl);background:var(--verre);border:1px solid var(--bord);padding:4px 22px}
+  summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"";width:.6em;height:.6em;border-right:2.5px solid var(--bleu);border-bottom:2.5px solid var(--bleu);transform:rotate(45deg);transition:transform .3s var(--elan);flex:none;margin-right:6px}
+  details[open] summary::after{transform:rotate(-135deg)}
+  details p,details ul{color:var(--doux);padding-bottom:6px}
+  details ul{padding-left:1.2rem;display:grid;gap:6px;margin:8px 0 14px}
+
+  /* ---------- auteur, licence ---------- */
+  .libre{max-width:760px;margin-inline:auto}
+  .libre p{color:var(--doux);margin-top:14px}
+  footer{margin-top:clamp(70px,10vw,120px);padding:26px 0 40px;text-align:center;font-size:.86rem;color:#7c86a3;border-top:1px solid var(--trait)}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .js [data-r],.js .tuiles li{opacity:1;transform:none;transition:none}
+    .tete .ecran{transform:none}
+    .ecran.vu::after,.js .vue.ici,.pilules button i{animation:none}
+    .pile img{transition:none;transform:none}
   }
-  .bouton:hover{filter:brightness(1.06)}
-  .pastille{
-    display:inline-block;margin-top:14px;padding:6px 14px;border-radius:999px;
-    font-size:.88rem;font-weight:600;color:var(--bleu);background:var(--teinte);border:1px solid var(--trait);
-  }
-  .petit{font-size:.92rem;margin-top:12px}
-  .grille{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
-  @media (max-width:560px){.grille{grid-template-columns:1fr}}
-  .grille div{padding:14px 16px;border-radius:18px;background:var(--teinte);border:1px solid var(--trait)}
-  .grille b{display:block;margin-bottom:4px}
-  .grille span{color:var(--doux);font-size:.95rem;line-height:1.45;display:block}
-  footer{text-align:center;font-size:.82rem;color:#7c86a3;line-height:1.6}
-  [hidden]{display:none}
-  @keyframes entree{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
-  @media (prefers-reduced-motion:reduce){.tete{animation:none}}
-  @media (prefers-color-scheme:dark){
-    :root{--encre:#e8ecf8;--doux:#aab4d0;--bleu:#9fb7ff;--fond1:#141a2c;--fond2:#1d2747;--verre:rgba(30,38,64,.55);--bord:rgba(255,255,255,.12);--teinte:rgba(159,183,255,.10);--trait:rgba(159,183,255,.22)}
-    body{background:radial-gradient(60vmax 60vmax at 85% 90%,#26407a 0%,transparent 60%),linear-gradient(160deg,var(--fond1),var(--fond2)) fixed}
-    .carte{box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
-    .bouton{color:#10162a;background:linear-gradient(180deg,#b9caff,#9fb7ff)}
-    a{border-bottom-color:rgba(159,183,255,.4)}
-    footer{color:#8f9ab8}
+  @media (prefers-reduced-transparency:reduce){
+    .barre,.carte,details{background:#fbfaf5;-webkit-backdrop-filter:none;backdrop-filter:none}
   }
 </style>
 </head>
 <body>
-<main>
-  <section class="carte tete">
-    <img class="icone" src="/icone.svg" alt="Icône de Glacis : un G bleu sur une feuille de cahier" width="124" height="124">
-    <h1>Glacis <span>– Ma classe</span></h1>
-    <p class="accroche">Le tableau de bord de la classe, pensé par un enseignant pour l'école élémentaire&nbsp;: journée, rituels, outils et tableaux, réunis en un seul endroit, <b>sans connexion</b>.</p>
-  </section>
+<div class="fond" aria-hidden="true"></div>
 
-  <section class="carte" id="appli">
-    <h2>Installer Glacis sur Windows</h2>
-    <p id="appliLien"><span class="pastille">Bientôt disponible</span></p>
-    <p class="petit">Installation sans droits d'administrateur. L'installateur n'est pas signé par Microsoft&nbsp;: si Windows affiche «&nbsp;Windows a protégé votre ordinateur&nbsp;», choisissez «&nbsp;Informations complémentaires&nbsp;» puis «&nbsp;Exécuter quand même&nbsp;». Ensuite, Glacis se met à jour de lui-même (Réglages › Mises à jour).</p>
-    <p class="petit" id="pageLien" hidden></p>
-  </section>
+<header class="barre">
+  <a class="marque" href="#haut"><img src="icone.svg" alt="" width="30" height="30">Glacis</a>
+  <nav aria-label="Dans cette page">
+    <a href="#journee">La journée</a>
+    <a href="#rituels">Les rituels</a>
+    <a href="#tableaux">Les tableaux</a>
+    <a href="#outils">Les outils</a>
+    <a href="#donnees">Vos données</a>
+  </nav>
+  <a class="bouton" href="#telecharger">Télécharger</a>
+</header>
 
-  <section class="carte">
-    <h2>Ce que fait Glacis</h2>
-    <div class="grille">
-      <div><b>La journée</b><span>L'emploi du temps au tableau, l'activité en cours, le cahier journal, l'appel et la cantine.</span></div>
-      <div><b>Les rituels</b><span>Nombre du jour, calcul mental, date, lecture flash, mot et phrase du jour, du CP au CM2.</span></div>
-      <div><b>Les tableaux</b><span>Lignages, numération, géométrie, opérations posées, écriture au stylet sur un écran interactif.</span></div>
-      <div><b>Les outils</b><span>Minuteur, tirage au sort, monnaie, balance, réglettes, droite graduée, horloge, à manipuler au doigt.</span></div>
+<main id="haut">
+
+  <!-- ============ En-tête ============ -->
+  <div class="tete">
+    <div class="contenu">
+      <img class="icone" src="icone.svg" alt="Icône de Glacis : un G bleu sur une feuille de cahier" width="104" height="104">
+      <h1>Glacis <span class="cache">–</span><span class="cursive">Ma classe</span></h1>
+      <p class="accroche">Toute la classe, sur <em>un seul écran.</em></p>
+      <p class="chapo">La journée au tableau, les rituels, les tableaux et les outils à manipuler. Pensé par un enseignant pour l'école élémentaire, et utilisable <b>sans connexion</b>.</p>
+      <div class="actions">
+        <a class="bouton" data-telecharger href="#telecharger">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>
+          <span>Télécharger pour Windows</span></a>
+        <a class="lien" href="#journee">Voir Glacis en action
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+      </div>
+      <p class="sous">Gratuit<i>·</i>Logiciel libre<i>·</i>Sans compte</p>
+
+      <div class="scene">
+        <figure class="ecran" data-ecran>
+          <video controls muted loop playsinline preload="none" width="1600" height="900" poster="vitrine/films/journee.webp" data-film
+                 aria-label="Glacis en classe : l'activité en cours est validée, la suivante arrive, puis un élève est tiré au sort.">
+            <source src="vitrine/films/journee.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
     </div>
-    <p class="petit">Les données de la classe restent dans <b>un dossier que vous choisissez</b> sur votre ordinateur&nbsp;: rien n'est envoyé en ligne, aucun compte n'est demandé.</p>
+  </div>
+
+  <!-- ============ La journée ============ -->
+  <section id="journee">
+    <div class="contenu">
+      <p class="ecrit" data-r>la journée</p>
+      <h2 data-r>Elle avance avec vous, pas contre vous.</h2>
+      <p class="chapo" data-r>L'emploi du temps s'affiche au tableau et suit l'heure. Vous gardez la main : un clic valide l'activité, et la suivante arrive.</p>
+
+      <div class="defile" data-defile>
+        <div>
+          <article class="pas ici">
+            <p class="num">En ce moment</p>
+            <h3>L'activité en cours, lisible du fond de la classe.</h3>
+            <p>Le nom de la séance, ce qui est prévu, le temps qu'il reste. Les élèves savent où ils en sont, et ce qui vient ensuite.</p>
+            <figure class="ecran"><img src="vitrine/images/accueil.webp" alt="L'accueil de Glacis : l'activité en cours (Maths), le temps restant et le programme de la journée." width="1920" height="1080" loading="lazy"></figure>
+          </article>
+          <article class="pas">
+            <p class="num">La semaine</p>
+            <h3>Préparer la semaine, en déplaçant les créneaux.</h3>
+            <p>L'emploi du temps type, la semaine, le jour : tout se glisse et se modifie dans Glacis. Un cahier journal au format Word peut être importé.</p>
+            <figure class="ecran"><img src="vitrine/images/semaine.webp" alt="L'écran Préparer : la semaine du 9 au 13 novembre, jour par jour, créneau par créneau." width="1920" height="1080" loading="lazy"></figure>
+          </article>
+          <article class="pas">
+            <p class="num">Les élèves</p>
+            <h3>L'appel, la cantine, le tirage au sort.</h3>
+            <p>Les présents et les demi-pensionnaires en deux gestes. Un prénom tiré au sort, des groupes, les métiers de la classe : chacun passe à son tour.</p>
+            <figure class="ecran"><img src="vitrine/images/eleves.webp" alt="La fenêtre Élèves : un prénom vient d'être tiré au sort." width="1920" height="1080" loading="lazy"></figure>
+          </article>
+          <article class="pas">
+            <p class="num">Le soir</p>
+            <h3>La journée est finie. Le bilan est prêt.</h3>
+            <p>Ce qui a été fait est coché au fil de la journée. Le rapport du jour et la préparation du lendemain se font au même endroit.</p>
+            <figure class="ecran"><img src="vitrine/images/soir.webp" alt="L'accueil de Glacis en fin de journée : toutes les activités sont cochées, le prochain jour de classe est annoncé." width="1920" height="1080" loading="lazy"></figure>
+          </article>
+        </div>
+        <div class="epingle" aria-hidden="true">
+          <figure class="ecran pile" data-ecran>
+            <img class="ici" src="vitrine/images/accueil.webp" alt="" width="1920" height="1080">
+            <img src="vitrine/images/semaine.webp" alt="" width="1920" height="1080" loading="lazy">
+            <img src="vitrine/images/eleves.webp" alt="" width="1920" height="1080" loading="lazy">
+            <img src="vitrine/images/soir.webp" alt="" width="1920" height="1080" loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="carte">
-    <h2>Vous utilisiez «&nbsp;Ma classe&nbsp;»&nbsp;?</h2>
-    <p>Glacis en est la suite, sous un nouveau nom. C'est une <b>nouvelle application</b>&nbsp;: elle s'installe à côté de l'ancienne.</p>
-    <ul>
-      <li>Au premier lancement, choisissez <b>le même dossier de la classe</b>&nbsp;: élèves, emploi du temps, cahier journal, documents et réglages y sont déjà.</li>
-      <li>Seuls quelques réglages propres à l'ordinateur (place des fenêtres, mode léger) sont à refaire.</li>
-      <li>Vous pouvez ensuite désinstaller «&nbsp;Ma classe&nbsp;».</li>
-    </ul>
+  <!-- ============ Les rituels ============ -->
+  <section id="rituels">
+    <div class="contenu duo">
+      <div class="texte">
+        <p class="ecrit" data-r>les rituels</p>
+        <h2 data-r>Une série prête en un clic.</h2>
+        <p class="chapo" data-r>Calcul mental, Flash Maths, explorer un nombre, lecture flash, mot et phrase du jour, problèmes. Les cartes s'enchaînent au tableau, le corrigé suit.</p>
+        <ul class="niveaux" data-r aria-label="Niveaux">
+          <li>GS</li><li>CP</li><li>CE1</li><li>CE2</li><li>CM1</li><li>CM2</li>
+        </ul>
+      </div>
+      <figure class="ecran" data-ecran data-r>
+        <video controls muted loop playsinline preload="none" width="1600" height="900" poster="vitrine/films/rituels.webp" data-film
+               aria-label="Le rituel Flash Maths : des cartes numérotées s'affichent l'une après l'autre.">
+          <source src="vitrine/films/rituels.mp4" type="video/mp4">
+        </video>
+      </figure>
+    </div>
   </section>
 
-  <section class="carte">
-    <h2>Un logiciel libre</h2>
-    <p>«&nbsp;Glacis – Ma classe&nbsp;» est conçu et développé par Franck VARAULT, enseignant de CP&nbsp;: conception pédagogique, choix des fonctionnalités, architecture, tests en classe et validation de chaque version. Le code a été écrit avec l'aide d'assistants de programmation par IA, sous sa direction.</p>
-    <p>Logiciel libre sous licence <a href="https://www.gnu.org/licenses/gpl-3.0.fr.html">GNU GPL version 3 ou ultérieure</a>&nbsp;; documentation sous licence CC BY-SA 4.0. Les fichiers de mise à jour sont signés&nbsp;: Glacis refuse un fichier dont la signature ou l'empreinte ne correspond pas. Ce site ne contient aucune donnée d'élève.</p>
-    <p class="petit">Une question&nbsp;? <a href="mailto:contact@glacis-classe.fr">contact@glacis-classe.fr</a></p>
+  <!-- ============ Les tableaux ============ -->
+  <section id="tableaux">
+    <div class="contenu centre">
+      <p class="ecrit" data-r>les tableaux</p>
+      <h2 data-r>Le bon tableau, au bon moment.</h2>
+      <p class="chapo" data-r>Une page blanche, un lignage, du matériel de numération, une opération posée, des instruments de géométrie. Tout ce qui est posé au tableau peut être repris plus tard.</p>
+
+      <div data-onglets>
+        <div class="pilules" role="tablist" aria-label="Les tableaux de Glacis" data-r>
+          <button role="tab" aria-selected="true" aria-controls="t-num" id="o-num">Numération<i></i></button>
+          <button role="tab" aria-selected="false" aria-controls="t-ops" id="o-ops" tabindex="-1">Opérations<i></i></button>
+          <button role="tab" aria-selected="false" aria-controls="t-geo" id="o-geo" tabindex="-1">Géométrie<i></i></button>
+          <button role="tab" aria-selected="false" aria-controls="t-ecr" id="o-ecr" tabindex="-1">Écriture<i></i></button>
+        </div>
+        <div class="vues" data-r>
+          <figure class="vue ici" role="tabpanel" id="t-num" aria-labelledby="o-num">
+            <div class="ecran" data-ecran>
+              <video controls muted playsinline preload="none" width="1600" height="900" poster="vitrine/films/numeration.webp" data-film
+                     aria-label="Le tableau Numération : des unités sont ajoutées, puis une dizaine est cassée en dix unités.">
+                <source src="vitrine/films/numeration.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><b>Dizaines et unités, à défaire et à refaire.</b>Dix unités filent une à une dans une dizaine ; une dizaine se casse en dix unités. Le tableau de numération et la bande numérique suivent.</figcaption>
+          </figure>
+          <figure class="vue" role="tabpanel" id="t-ops" aria-labelledby="o-ops">
+            <div class="ecran"><img src="vitrine/images/operations.webp" alt="Une addition posée, expliquée étape par étape." width="1920" height="1080" loading="lazy"></div>
+            <figcaption><b>Les opérations posées, étape par étape.</b>Addition, soustraction, multiplication, division : chaque étape s'affiche avec son explication, ou se laisse à compléter par les élèves.</figcaption>
+          </figure>
+          <figure class="vue" role="tabpanel" id="t-geo" aria-labelledby="o-geo">
+            <div class="ecran"><img src="vitrine/images/geometrie.webp" alt="Le tableau Géométrie : une règle et une équerre posées sur un quadrillage." width="1920" height="1080" loading="lazy"></div>
+            <figcaption><b>La règle, l'équerre, le compas.</b>Les instruments se posent, se tournent et s'aimantent sur le quadrillage. On trace avec, comme au tableau.</figcaption>
+          </figure>
+          <figure class="vue" role="tabpanel" id="t-ecr" aria-labelledby="o-ecr">
+            <div class="ecran"><img src="vitrine/images/ecriture.webp" alt="Les modèles d'écriture : une phrase en cursive sur un lignage Seyès, prête à imprimer." width="1920" height="1080" loading="lazy"></div>
+            <figcaption><b>Les lignages et les modèles d'écriture.</b>Au tableau, la réglure Seyès s'agrandit pour être lue de loin. Pour les cahiers, les modèles s'impriment en cursive scolaire, à la taille réelle.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer>© 2026 Franck VARAULT · Glacis – Ma classe</footer>
+  <!-- ============ Les outils ============ -->
+  <section id="outils">
+    <div class="contenu centre">
+      <p class="ecrit" data-r>les outils</p>
+      <h2 data-r>Ils se manipulent comme les vrais.</h2>
+      <p class="chapo" data-r>Un poids lâché fait pencher la balance, dix pièces s'échangent contre un billet, les réglettes s'aimantent bout à bout. À la souris, ou au doigt sur un écran interactif.</p>
+
+      <div data-onglets class="etroit">
+        <div class="pilules" role="tablist" aria-label="Trois outils en mouvement" data-r>
+          <button role="tab" aria-selected="true" aria-controls="u-bal" id="p-bal">Balance<i></i></button>
+          <button role="tab" aria-selected="false" aria-controls="u-mon" id="p-mon" tabindex="-1">Monnaie<i></i></button>
+          <button role="tab" aria-selected="false" aria-controls="u-reg" id="p-reg" tabindex="-1">Réglettes<i></i></button>
+        </div>
+        <div class="vues" data-r>
+          <figure class="vue ici" role="tabpanel" id="u-bal" aria-labelledby="p-bal">
+            <div class="ecran" data-ecran>
+              <video controls muted playsinline preload="none" width="1400" height="934" poster="vitrine/films/balance.webp" data-film
+                     aria-label="La balance à plateaux : une masse de 100 grammes d'un côté, deux masses de 50 grammes de l'autre, la balance trouve son équilibre.">
+                <source src="vitrine/films/balance.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><b>La balance à plateaux.</b>Le fléau penche, dépasse un peu, puis se pose. 100 g d'un côté, deux fois 50 g de l'autre : l'équilibre se voit.</figcaption>
+          </figure>
+          <figure class="vue" role="tabpanel" id="u-mon" aria-labelledby="p-mon">
+            <div class="ecran">
+              <video controls muted playsinline preload="none" width="1400" height="920" poster="vitrine/films/monnaie.webp" data-film
+                     aria-label="L'outil Monnaie : dix pièces de un euro sont échangées contre un billet de dix euros.">
+                <source src="vitrine/films/monnaie.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><b>La monnaie.</b>Dix pièces de 1 € contre un billet de 10 € : elles filent une à une, et le total ne change pas.</figcaption>
+          </figure>
+          <figure class="vue" role="tabpanel" id="u-reg" aria-labelledby="p-reg">
+            <div class="ecran">
+              <video controls muted playsinline preload="none" width="1400" height="934" poster="vitrine/films/reglettes.webp" data-film
+                     aria-label="Les réglettes Cuisenaire : un train de 6 et 4 posé sous la réglette de 10, puis l'escalier de 1 à 10.">
+                <source src="vitrine/films/reglettes.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><b>Les réglettes Cuisenaire.</b>6 et 4 font 10 : les réglettes s'aimantent en trains, se comparent, et l'escalier se monte d'un clic.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <ul class="tuiles" data-tuiles aria-label="Tous les outils de Glacis">
+        <li><img src="vitrine/images/outil-minuteur.webp" alt="" width="64" height="64" loading="lazy">Minuteur</li>
+        <li><img src="vitrine/images/outil-chrono.webp" alt="" width="64" height="64" loading="lazy">Chronomètre</li>
+        <li><img src="vitrine/images/outil-calendrier.webp" alt="" width="64" height="64" loading="lazy">Calendrier</li>
+        <li><img src="vitrine/images/outil-horloge.webp" alt="" width="64" height="64" loading="lazy">Horloge</li>
+        <li><img src="vitrine/images/outil-thermometre.webp" alt="" width="64" height="64" loading="lazy">Thermomètre</li>
+        <li><img src="vitrine/images/outil-conversion.webp" alt="" width="64" height="64" loading="lazy">Tableau de conversion</li>
+        <li><img src="vitrine/images/outil-droite.webp" alt="" width="64" height="64" loading="lazy">Droite graduée</li>
+        <li><img src="vitrine/images/outil-fractions.webp" alt="" width="64" height="64" loading="lazy">Fractions</li>
+        <li><img src="vitrine/images/outil-monnaie.webp" alt="" width="64" height="64" loading="lazy">Monnaie</li>
+        <li><img src="vitrine/images/outil-balance.webp" alt="" width="64" height="64" loading="lazy">Balance à plateaux</li>
+        <li><img src="vitrine/images/outil-multiplication.webp" alt="" width="64" height="64" loading="lazy">Table de multiplication</li>
+        <li><img src="vitrine/images/outil-tabnombres.webp" alt="" width="64" height="64" loading="lazy">Tableau des nombres</li>
+        <li><img src="vitrine/images/outil-numeration.webp" alt="" width="64" height="64" loading="lazy">Tableau de numération</li>
+        <li><img src="vitrine/images/outil-boitesdix.webp" alt="" width="64" height="64" loading="lazy">Boîtes de 10</li>
+        <li><img src="vitrine/images/outil-balancenb.webp" alt="" width="64" height="64" loading="lazy">Balance des nombres</li>
+        <li><img src="vitrine/images/outil-triangleops.webp" alt="" width="64" height="64" loading="lazy">Triangle des opérations</li>
+        <li><img src="vitrine/images/outil-reglettes.webp" alt="" width="64" height="64" loading="lazy">Réglettes Cuisenaire</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ Vos données ============ -->
+  <section id="donnees">
+    <div class="contenu">
+      <p class="ecrit" data-r>vos données</p>
+      <h2 data-r>La classe reste dans la classe.</h2>
+      <p class="chapo" data-r>Glacis n'a besoin ni d'Internet ni d'un compte. Tout ce qui concerne vos élèves reste dans un dossier de votre ordinateur.</p>
+
+      <div class="cartes">
+        <div class="carte grande" data-r>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5h4l2 2.5h7A2.5 2.5 0 0 1 21 10v7.5A2.5 2.5 0 0 1 18.500 20h-13A2.5 2.5 0 0 1 3 17.500z"/><path d="M9 14l2 2 4-4.500"/></svg>
+          <h3>Un dossier que vous choisissez.</h3>
+          <p>Élèves, emploi du temps, cahier journal, documents : tout est rangé dans un dossier de votre ordinateur. Rien n'est envoyé en ligne.</p>
+        </div>
+        <div class="carte grande" data-r style="--i:1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.500 9a14 14 0 0 1 4.500-3M21.500 9a14 14 0 0 0-8-3.900M6 12.500a9 9 0 0 1 3-1.900M18 12.500a9 9 0 0 0-3.500-2.100M9.500 16a4 4 0 0 1 5 0"/><circle cx="12" cy="19" r=".6" fill="currentColor"/><path d="M4 3l16 18"/></svg>
+          <h3>Sans connexion.</h3>
+          <p>Le réseau de l'école tombe ? La classe continue. Glacis fonctionne entièrement hors ligne, une fois installé.</p>
+        </div>
+        <div class="carte" data-r>
+          <p class="chiffre">3<small>Mo</small></p>
+          <h3>Léger, même sur un vieux PC.</h3>
+          <p>L'installateur pèse environ 3 Mo. Un mode léger coupe les effets sur les postes anciens.</p>
+        </div>
+        <div class="carte" data-r style="--i:1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12.500" rx="2"/><path d="M8 20h8M12 16.500V20M8 12c1.500-3 3-3 4.200-.800s2.300 1.700 3.800-1.700"/></svg>
+          <h3>Vidéoprojecteur ou écran interactif.</h3>
+          <p>À la souris depuis le fond de la classe, ou au stylet : en mode TBI, on écrit par-dessus ce qui est affiché.</p>
+        </div>
+        <div class="carte" data-r style="--i:2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.500c0 4.300-2.900 7.700-7 9.500-4.100-1.800-7-5.200-7-9.500V6z"/><path d="M9 12l2.200 2.200L15.200 10"/></svg>
+          <h3>Des mises à jour signées.</h3>
+          <p>Glacis se met à jour de lui-même, et refuse tout fichier dont la signature ne correspond pas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Télécharger ============ -->
+  <section id="telecharger">
+    <div class="contenu">
+      <div class="feuille" data-r>
+        <img src="icone.svg" alt="" width="92" height="92">
+        <h2>Installer Glacis</h2>
+        <p class="cursive">sur Windows</p>
+        <p id="appliLien"><span class="pastille">Bientôt disponible</span></p>
+        <p class="note">Installation sans droits d'administrateur. L'installateur n'est pas signé par Microsoft&nbsp;: si Windows affiche «&nbsp;Windows a protégé votre ordinateur&nbsp;», choisissez «&nbsp;Informations complémentaires&nbsp;» puis «&nbsp;Exécuter quand même&nbsp;». Ensuite, Glacis se met à jour de lui-même (Réglages › Mises à jour).</p>
+      </div>
+      <details data-r>
+        <summary>Vous utilisiez «&nbsp;Ma classe&nbsp;»&nbsp;?</summary>
+        <p>Glacis en est la suite, sous un nouveau nom. C'est une <b>nouvelle application</b>&nbsp;: elle s'installe à côté de l'ancienne.</p>
+        <ul>
+          <li>Au premier lancement, choisissez <b>le même dossier de la classe</b>&nbsp;: élèves, emploi du temps, cahier journal, documents et réglages y sont déjà.</li>
+          <li>Seuls quelques réglages propres à l'ordinateur (place des fenêtres, mode léger) sont à refaire.</li>
+          <li>Vous pouvez ensuite désinstaller «&nbsp;Ma classe&nbsp;».</li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ Un logiciel libre ============ -->
+  <section id="libre">
+    <div class="contenu libre">
+      <p class="ecrit" data-r>un logiciel libre</p>
+      <h2 data-r>Conçu en classe, par un enseignant.</h2>
+      <p data-r>«&nbsp;Glacis – Ma classe&nbsp;» est conçu et développé par Franck VARAULT, enseignant de CP&nbsp;: conception pédagogique, choix des fonctionnalités, architecture, tests en classe et validation de chaque version. Le code a été écrit avec l'aide d'assistants de programmation par IA, sous sa direction.</p>
+      <p data-r>Logiciel libre sous licence <a href="https://www.gnu.org/licenses/gpl-3.0.fr.html">GNU GPL version 3 ou ultérieure</a>&nbsp;; documentation sous licence CC BY-SA 4.0. Les fichiers de mise à jour sont signés&nbsp;: Glacis refuse un fichier dont la signature ou l'empreinte ne correspond pas. Ce site ne contient aucune donnée d'élève&nbsp;: les prénoms visibles sur les images sont ceux d'une classe de démonstration.</p>
+      <p data-r>Une question&nbsp;? <a href="mailto:contact@glacis-classe.fr">contact@glacis-classe.fr</a></p>
+    </div>
+  </section>
+
+  <footer><div class="contenu">© 2026 Franck VARAULT · Glacis – Ma classe · Polices Glacis Lecture et Marelle, sous <a href="vitrine/polices/LICENCE-Marelle.txt">licence OFL</a></div></footer>
 </main>
+
 <script>
+"use strict";
 /* Lien de téléchargement : la version publiée (appli/latest.json), sinon la version d'essai (appli/essai/latest.json). */
 (async () => {
   const lire = async u => { try { const r = await fetch(u, {cache:"no-store"}); return r.ok ? await r.json() : null; } catch { return null; } };
@@ -141,7 +555,85 @@
   const p = document.getElementById("appliLien"); p.textContent = "";
   const a = document.createElement("a"); a.className = "bouton"; a.href = u;
   a.textContent = "Télécharger Glacis " + court(f.version) + " pour Windows"; p.append(a);
-  if (essai){ const s = document.createElement("span"); s.className = "pastille"; s.style.marginLeft = "10px"; s.textContent = "Version d'essai"; p.append(s); }
+  if (essai){ const s = document.createElement("span"); s.className = "pastille"; s.style.margin = "14px 0 0 10px"; s.textContent = "Version d'essai"; p.append(s); }
+})();
+
+/* Mouvements de la page. Sans script, ou en mouvements réduits, tout reste lisible et immobile. */
+(() => {
+  const calme = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const tous = (s, r = document) => [...r.querySelectorAll(s)];
+  const voir = (els, fn, o) => { const io = new IntersectionObserver(es => es.forEach(e => fn(e, io)), o); els.forEach(e => io.observe(e)); return io; };
+
+  /* apparitions : une fois, quand l'élément entre dans l'écran */
+  voir(tous("[data-r],[data-ecran],[data-tuiles]"), (e, io) => { if (e.isIntersecting){ e.target.classList.add("vu"); io.unobserve(e.target); } }, {threshold:.18, rootMargin:"0px 0px -6% 0px"});
+  tous("[data-tuiles] li").forEach((li, i) => li.style.setProperty("--i", i));
+
+  /* l'écran du haut se redresse pendant qu'on descend */
+  const heros = document.querySelector(".tete .ecran");
+  if (heros && !calme){
+    let attente = false;
+    const poser = () => { attente = false;
+      const r = heros.getBoundingClientRect(), h = innerHeight;
+      const t = Math.min(1, Math.max(0, (r.top - h * .16) / (h * .62)));
+      heros.style.setProperty("--t", t.toFixed(4)); };
+    addEventListener("scroll", () => { if (!attente){ attente = true; requestAnimationFrame(poser); } }, {passive:true});
+    addEventListener("resize", poser); poser();
+  }
+
+  /* films : ils ne jouent que visibles ; bouton pause sur chacun */
+  const PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></svg>';
+  const LIRE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.500v13a1 1 0 0 0 1.500.900l10.500-6.500a1 1 0 0 0 0-1.700L9.500 4.600A1 1 0 0 0 8 5.500z"/></svg>';
+  const jouer = v => { if (v.dataset.arret || calme && !v.dataset.voulu) return; const p = v.play(); if (p) p.catch(() => {}); };
+  tous("video[data-film]").forEach(v => {
+    v.controls = false;                                   /* sans script, les commandes du navigateur restent */
+    const b = document.createElement("button"); b.className = "pause"; b.type = "button";
+    const maj = () => { const a = v.paused; b.innerHTML = a ? LIRE : PAUSE; b.setAttribute("aria-label", a ? "Lire l'animation" : "Mettre l'animation en pause"); b.setAttribute("aria-pressed", String(!!v.dataset.arret)); };
+    b.onclick = () => { if (v.paused){ delete v.dataset.arret; v.dataset.voulu = "1"; jouer(v); } else { v.dataset.arret = "1"; v.pause(); } maj(); };
+    v.addEventListener("play", maj); v.addEventListener("pause", maj); v.after(b); maj();
+  });
+  voir(tous("video[data-film]"), e => { const v = e.target; v.dataset.vu = e.isIntersecting ? "1" : ""; if (e.isIntersecting && v.closest(".vue:not(.ici)") === null) jouer(v); else v.pause(); }, {threshold:.45});
+
+  /* la journée : l'image suit le paragraphe qu'on lit */
+  tous("[data-defile]").forEach(d => {
+    const pas = tous(".pas", d), imgs = tous(".pile img", d);
+    voir(pas, e => { if (!e.isIntersecting) return; const i = pas.indexOf(e.target);
+      pas.forEach((p, k) => p.classList.toggle("ici", k === i)); imgs.forEach((m, k) => m.classList.toggle("ici", k === i)); }, {rootMargin:"-45% 0px -45% 0px"});
+  });
+
+  /* onglets : le choix actif se remplit puis passe au suivant, jusqu'au premier clic */
+  tous("[data-onglets]").forEach(z => {
+    const ong = tous("[role=tab]", z), vues = ong.map(o => document.getElementById(o.getAttribute("aria-controls")));
+    let i = 0, auto = !calme, visible = false, minuterie = 0;
+    const film = k => vues[k].querySelector("video");
+    const montrer = (k, depuisClic) => {
+      clearTimeout(minuterie); const v0 = film(i); if (v0){ v0.pause(); }
+      i = k;
+      ong.forEach((o, n) => { const a = n === k; o.setAttribute("aria-selected", String(a)); o.tabIndex = a ? 0 : -1; o.classList.remove("tourne"); });
+      vues.forEach((v, n) => v.classList.toggle("ici", n === k));
+      const v = film(k);
+      if (v){ v.loop = !auto; try { v.currentTime = 0; } catch {} if (visible) jouer(v); }
+      if (auto && visible) lancer();
+      if (depuisClic) ong[k].focus();
+    };
+    const lancer = () => {
+      clearTimeout(minuterie); const o = ong[i], v = film(i);
+      const duree = v && isFinite(v.duration) && v.duration ? v.duration : v ? 11 : 6;
+      o.style.setProperty("--duree", duree + "s"); o.classList.remove("tourne"); void o.offsetWidth; o.classList.add("tourne");
+      minuterie = setTimeout(() => montrer((i + 1) % ong.length), duree * 1000 + 250);
+    };
+    ong.forEach((o, n) => {
+      o.addEventListener("click", () => { auto = false; montrer(n, true); });
+      o.addEventListener("keydown", e => { const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0; if (!d) return; e.preventDefault(); auto = false; montrer((n + d + ong.length) % ong.length, true); });
+    });
+    voir([z], e => { visible = e.isIntersecting; const v = film(i);
+      if (visible){ if (v){ v.loop = !auto; jouer(v); } if (auto) lancer(); }
+      else { clearTimeout(minuterie); ong[i].classList.remove("tourne"); if (v) v.pause(); } }, {threshold:.35});
+    tous("video", z).forEach(v => v.addEventListener("loadedmetadata", () => { if (auto && visible && v === film(i)) lancer(); }));
+  });
+
+  /* la barre du haut : le chapitre qu'on lit */
+  const liens = tous(".barre nav a"), cibles = liens.map(a => document.querySelector(a.getAttribute("href")));
+  voir(cibles.filter(Boolean), e => { if (e.isIntersecting) liens.forEach(a => a.classList.toggle("ici", a.getAttribute("href") === "#" + e.target.id)); }, {rootMargin:"-40% 0px -55% 0px"});
 })();
 </script>
 </body>

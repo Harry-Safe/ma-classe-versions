@@ -1,0 +1,31 @@
+FONTLOG — Glacis Lecture
+========================
+
+Glacis Lecture est la police de lecture de Glacis – Ma classe. C'est une version modifiée de la police Andika 6.101,
+créée par SIL International et diffusée sous la SIL Open Font License 1.1 (texte complet et mention de droits
+d'origine : LICENCE-Glacis-Lecture.txt, copie exacte du fichier OFL.txt d'Andika 6.101).
+
+Modifications (18 novembre 2026, build/police-lecture.py)
+- Sous-ensemble : les 232 caractères latins dont la page a besoin (lettres latines et accents du français, chiffres,
+  ponctuation, symbole euro), avec les fonctions typographiques ccmp, liga, mark et mkmk. Les tracés, les chasses et
+  les métriques verticales sont ceux d'Andika 6.101, sans changement.
+- Nom : « Glacis Lecture » (graisses Regular et Bold). La licence d'Andika réserve les noms « Andika » et « SIL » :
+  une version modifiée ne peut pas les porter dans son nom.
+- Table propre aux outils de SIL (Silt) retirée ; code fabricant « NONE » au lieu de « SIL ».
+
+Source
+- Archive officielle : https://github.com/silnrsi/font-andika/releases/download/v6.101/Andika-6.101.zip
+  (SHA-256 8595a879054a540b24fa942a2621efcd194a9f6468d9cf2541ae693e496b8dd4).
+- Andika-Regular.ttf : SHA-256 202b96b1f174a4a43baefe885b40dacacb81786755efd08ed4b7704e79c45515.
+- Andika-Bold.ttf : SHA-256 4361126189a2d0e0da66999352db58aaf1b4ca940faf8a8239d725f8303d890d.
+
+Remerciements
+Andika a été conçue par SIL International (Victor Gaultney, Annie Olsen, Julie Remington, Don Collingsworth,
+Eric Hays, Becca Hirsbrunner) pour les lecteurs débutants : https://software.sil.org/andika/
+
+Historique
+- Jusqu'au 18 novembre 2026, Ma classe intégrait le sous-ensemble « latin » de Google Fonts (redistribué par
+  Fontsource, paquet @fontsource/andika 5.2.8 à 5.3.0, fichiers andika-latin-400-normal.woff2 et
+  andika-latin-700-normal.woff2), qui portait encore le nom « Andika » : l'autorisation d'employer un nom réservé
+  est donnée à Google pour les polices servies par Google Fonts, pas aux copies redistribuées ailleurs. Mêmes
+  tracés que Glacis Lecture.
