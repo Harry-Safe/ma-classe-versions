@@ -12,6 +12,8 @@
 //!    (par le réseau de Windows, comme le navigateur : proxy et certificats de l'école compris), puis
 //!    installer_paquet vérifie la signature (CLE_MAJ ; clé privée seulement dans le secret du dépôt public)
 //!    et lance l'installation.
+//!  · donner à la page les licences de Tauri et des bibliothèques Rust (licences_rust : fichier écrit par
+//!    build/licences-rust.py avec cargo-about, lu dans Réglages › À propos › Licences des composants) ;
 //!  · servir les applis HTML du dossier « Ma classe/Applis » à l'adresse appli:// (http://appli.localhost/ sous
 //!    Windows), avec le pont /_ma-classe/pont.js (src/applis/pont-applis.js) ; jamais leurs dossiers « donnees »,
 //!    que chaque appli ne lit et n'écrit que par le pont, pour elle seule (module Applis de la page).
@@ -261,6 +263,16 @@ async fn ouvrir_site(app: AppHandle, url: String, titre: String) -> Result<(), S
 /// Pont des applis (src/applis/pont-applis.js), intégré à l'application.
 const PONT_APPLIS: &str = include_str!("../../../src/applis/pont-applis.js");
 
+/// Licences de Tauri et des bibliothèques Rust de l'application (licences/licences-rust.txt, écrit par
+/// build/licences-rust.py avec cargo-about ; le même fichier est installé dans le dossier de l'application).
+const LICENCES_RUST: &str = include_str!("../licences/licences-rust.txt");
+
+/// Texte des licences des bibliothèques Rust, pour Réglages › À propos › Licences des composants.
+#[tauri::command]
+fn licences_rust() -> &'static str {
+    LICENCES_RUST
+}
+
 fn reponse_appli(statut: u16, type_: &str, corps: Vec<u8>) -> tauri::http::Response<Vec<u8>> {
     tauri::http::Response::builder()
         .status(statut)
@@ -397,7 +409,7 @@ pub fn run() {
         .register_uri_scheme_protocol("appli", |ctx, requete| servir_appli(ctx.app_handle(), requete.uri().path()))
         .invoke_handler(tauri::generate_handler![
             lister, infos, lire, ecrire, creer_dossier, supprimer, choisir_dossier, dossier_retenu, reprendre_dossier, plein_ecran,
-            ouvrir_url, ouvrir_site, installer_paquet
+            ouvrir_url, ouvrir_site, installer_paquet, licences_rust
         ])
         .run(tauri::generate_context!())
         .expect("impossible de lancer Ma classe");

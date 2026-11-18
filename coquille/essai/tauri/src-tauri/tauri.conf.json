@@ -58,6 +58,9 @@
       "icons/128x128@2x.png",
       "icons/icon.ico"
     ],
+    "resources": {
+      "licences/licences-rust.txt": "licences/licences-rust.txt"
+    },
     "windows": {
       "nsis": {
         "installMode": "currentUser",
