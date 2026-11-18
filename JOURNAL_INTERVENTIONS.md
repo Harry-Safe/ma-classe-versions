@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-18 — Essai 6.0.0-beta.10 sur le canal d'essai (pages et application) : outils vivants, site non mis à jour (GitHub Pages désactivé)
+
+- **Autorisation :** Franck, 17 novembre, 22 h 40 (« Lance les lots 1 à 3 séparément mais en parallèle. On ne fera pas le lot 4. ») ; règle permanente du canal d'essai. Stable inchangé.
+- **Contrôle préalable :** `main` à `f96e005` ; aucune pull request ; aucune action en cours ; dernière action (`44202387233`, essai 6.0.0-beta.9) en échec à `configure-pages` (« Not Found ») ; `has_pages` faux. Source : `Ma-classe` `essai` `3d046d3` (contient l'essai 6.0.0-beta.9) ; suite complète locale 105 sur 105.
+- **Contenu :** Balance à plateaux et Monnaie (chute, échanger, casser), Tableau de numération en mode Matériel (réserve de blocs à glisser), Droite graduée (pion, bonds au doigt, étiquettes) et Tableau des nombres (puzzle, croix). Coquille inchangée.
+- **Livraison :** avance rapide `f96e005..55b5c4f`, sans forçage ; action `44210254629` : `Ma-classe_6.0.0-beta.10_x64-setup-essai.exe` fabriqué (3 104 Ko) et signé, signatures vérifiées comme dans l'application, « versions.json signé : essai 6.0.0-beta.10, stable 5.2.0 » ; **échec de la publication du site** à `configure-pages` (« Get Pages site failed … Not Found »), comme pour l'essai 9 : le site reste à l'essai 8. **À faire par Franck :** réactiver GitHub Pages (Settings › Pages › Source : GitHub Actions), puis relancer l'action `44210254629` (« Re-run all jobs ») : elle publie l'essai 10, qui contient aussi l'essai 9.
+
 ## 2026-11-18 — Essai 6.0.0-beta.9 sur le canal d'essai : Ma classe devient un logiciel libre (publication du site bloquée)
 
 - **Autorisation :** Franck, 18 novembre, 0 h (« Oui et complète les crédits », après le choix de la GPL) ; canal d'essai : autorisation permanente du 8 novembre 2026.
