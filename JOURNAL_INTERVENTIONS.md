@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-18 — Claude — Essai 6.0.0-beta.11 « Vers Glacis » (site bloqué par GitHub Pages)
+
+- **Demande / Autorisation** : Franck : « Oui, publier l'essai » (réunion des branches terminées : contenus neutres, crédits et licences, export La Forge, thème Glacis seul).
+- **Réalisation** : `publier-version.py` et `publier-appli.py --canal essai` depuis `essai` (`f8a0fa1`) de Ma-classe ; commit `66dc45a`.
+- **Validation** : suite complète de Ma-classe : 106 scénarios sur 106. Action `44381803860` : installateurs fabriqués et signés, **échec à `configure-pages`** (GitHub Pages désactivé sur ce dépôt) : le site reste à l'essai 8.
+- **État** : à la réactivation de Pages (Settings › Pages › Source : GitHub Actions), relancer l'action `44381803860`. Les mises à jour passeront ensuite par glacis-classe.fr (renommage à venir).
+
 ## 2026-11-18 — Essai 6.0.0-beta.10 sur le canal d'essai (pages et application) : outils vivants, site non mis à jour (GitHub Pages désactivé)
 
 - **Autorisation :** Franck, 17 novembre, 22 h 40 (« Lance les lots 1 à 3 séparément mais en parallèle. On ne fera pas le lot 4. ») ; règle permanente du canal d'essai. Stable inchangé.
