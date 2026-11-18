@@ -2,6 +2,11 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-18 — Claude — Rangement de l'installateur quand un seul canal est fabriqué (action 44414904869 en échec)
+
+- **Constat** : action `44414904869` (commit `1235593`) : installateur `Glacis_6.0.0-beta.12_x64-setup-essai.exe` fabriqué (3 177 441 octets), `versions.json` et `applis.json` signés, mais **« manquant dans appli/essai/ »** à la signature : avec un seul installateur téléchargé (plus de canal stable), `actions/download-artifact` le pose directement dans `paquets/`, sans le sous-dossier `appli-essai`. Rien n'a été mis en ligne (le site garde la page d'attente).
+- **Correction** : `outils/fabriquer-appli.py --placer` cherche l'installateur dans `paquets/appli-<canal>/` puis dans `paquets/` ; essayé à blanc (installateur factice rangé dans `_site/appli/essai/`). La fabrication est en cache : la nouvelle action la réutilise.
+
 ## 2026-11-18 — Claude — Premier essai de Glacis publié sur glacis-classe.fr : 6.0.0-beta.12 et Échecs 1.1.0
 
 - **Demande / Autorisation** : Franck, 23 h 11 : « Les secrets Cloudflare sont créés dans ma-classe-versions et glacis-classe.fr est actif sur le projet Pages. Choix validés, passerelle non. Tu peux lancer l'étape 3 : réunir le renommage dans essai, suite complète, publier Glacis en essai sur glacis-classe.fr, puis Échecs 1.1.0. »

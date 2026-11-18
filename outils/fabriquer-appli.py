@@ -128,8 +128,11 @@ def placer(dossier):
     """Après outils/signer.py (qui a préparé _site/) : chaque installateur fabriqué rejoint sa fiche."""
     for canal in SOUS:
         f, nom = fiche(canal)
-        source = Path(dossier) / f"appli-{canal}" / (nom or "")
-        if f is None or not source.is_file(): continue
+        if f is None: continue
+        # un seul installateur téléchargé (un seul canal fabriqué) : actions/download-artifact le pose directement dans
+        # <dossier>, sans le sous-dossier appli-<canal> qu'il crée quand il y en a plusieurs
+        source = next((s for s in (Path(dossier) / f"appli-{canal}" / nom, Path(dossier) / nom) if s.is_file()), None)
+        if source is None: continue
         dest = ICI / "_site" / "appli" / SOUS[canal] / nom
         if dest.exists(): sys.exit(f"{dest} existe déjà : installateur à la fois dans le dépôt et fabriqué")
         shutil.copyfile(source, dest)
