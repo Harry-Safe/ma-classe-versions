@@ -7,8 +7,8 @@ Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne s
 - **Demande / Autorisation** : Franck, 10 h 27 : « Publie la vitrine. »
 - **Contrôle préalable** : `main` distant à `7b0c5ee` (journal de l'essai 6.0.0-beta.13), contenu dans `claude/vitrine-2` (`25a292b`) : avance rapide, sans forçage ; aucune pull request ; aucune action en cours (dernière : `44493706315`, réussie).
 - **Réalisation** : réunion de la refonte (entrée suivante) et de cette entrée ; aucune page, fiche, coquille ni paquet de l'application modifié : l'essai 6.0.0-beta.13 et Échecs 1.1.0 restent tels quels.
-- **Validation** : contrôles de la page : entrée suivante. Action et déploiement : complétés après l'envoi.
-- **Livraison / état** : envoi sur `main`.
+- **Validation** : contrôles de la page : entrée suivante. Action `44496683216` **réussie** : « versions.json signé : essai 6.0.0-beta.13 », « applis.json signé : echecs 1.1.0 (essai) », « Glacis_6.0.0-beta.13_x64-setup-essai.exe signé, signature vérifiée comme dans l'application », « Uploaded 35 files (14 already uploaded) », « Deployment complete ». Cloudflare (connecteur) : déploiement de production `571b642a`, branche `main`, commit `14bb735`, « deploy success », alias `glacis-classe.fr` et `www.glacis-classe.fr`. Non relu de l'extérieur (l'outil de lecture rend une copie ancienne de la page d'accueil et refuse les autres fichiers).
+- **Livraison / état** : `main` `14bb735` ; `claude/vitrine-2` et `claude/site-vitrine` identiques à des états réunis, à supprimer par Franck (action « Nettoyer les branches »).
 
 ## 2026-11-19 — Claude — Vitrine refaite selon les remarques de Franck : quatorze nouveaux films (`claude/vitrine-2`, site non publié)
 
