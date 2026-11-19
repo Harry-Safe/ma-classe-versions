@@ -2,6 +2,24 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-19 — Claude — Vitrine refaite selon les remarques de Franck : quatorze nouveaux films (`claude/vitrine-2`, site non publié)
+
+- **Demande / Autorisation** : Franck, 8 h 16 : « A refaire : la partie "Les tableaux" (casser un paquet, puis refaire un paquet de 10 ; une règle sortie et un trait tracé ; Lignages à la place d'Écriture ; soustraction par dégroupement avec la représentation, sans explication) ; rituels : les problèmes, manipuler, visualiser, corriger ; la première partie, "un truc plus Whaou", par exemple l'intégration d'un fichier dans le cahier journal ; la personnalisation de l'accueil ; l'assistant ; l'appel et la cantine plutôt que le tirage au sort ; les outils à mettre en avant, en montrant qu'on peut les réduire : Minuteur, balance des nombres, droite graduée, fraction et cuisenaire » ; 8 h 20 : « Je trouve aussi trop présent l'onglet flottant sur la version mobile », « Celui pour télécharger ». Aucune phrase de publication du site : branche et aperçu privé.
+- **Contrôle préalable** : `main` à `6394de5` au départ, puis `edc5f49` (essai 6.0.0-beta.13, entrée suivante) ; aucune pull request ; branche partie de `origin/main` et reposée sur `edc5f49`.
+- **Périmètre / chevauchements** : `index.html`, `vitrine/films/`, `vitrine/images/`, `outils/vitrine/`, `DOCUMENTATION.md` ; aucune page, fiche, coquille ni paquet de l'application.
+- **Réalisation**
+  - **Ouverture** : nouvelle accroche (« Votre journée de classe, prête d'un clic. ») et film `document` : dans Préparer › Le jour, une fiche PDF est jointe à la séance de maths ; sur l'Accueil, à 10 h 30, un clic l'ouvre, puis « Plein cadre » la met au tableau.
+  - **La journée** : le pas « Les élèves » (tirage au sort) est remplacé par « L'appel et la cantine » (film `appel` dans l'écran épinglé) ; nouveau chapitre « Votre accueil » (film `accueil` : taille d'une carte, horloge et date ajoutées puis échangées).
+  - **Les rituels** : film `problemes` (trois objets mis de côté, schéma en barres, illustration, correction).
+  - **Les tableaux** : quatre films, `numeration` (une dizaine cassée, puis dix unités entourées qui refont un paquet), `geometrie` (règle sortie, déplacée, trait bleu tracé le long du bord, règle écartée), `operations` (342 − 165 par dégroupement, illustration affichée, explications masquées), `lignages` (taille de la réglure, tableau, cahier, feuille) ; l'onglet « Écriture » est retiré.
+  - **Les outils** : cinq films en plein écran de l'application, chacun réduit en bas de l'écran à la fin (le minuteur est rouvert) : `minuteur`, `balancenb`, `droite`, `fractions`, `reglettes` ; balance à plateaux et monnaie retirées de la page.
+  - **L'assistant** : nouveau chapitre et film `assistant` (ouverture au survol, tutoriels de l'écran, trois pas d'un tutoriel).
+  - **Téléphone** : la barre du haut ne flotte plus (elle reste en haut de la page), sans fond, « Télécharger » en simple lien.
+  - **Fabrique** : `filmer.py` réécrit (14 scénarios ; choix d'un fichier sans montrer la fenêtre du système, tracé, points d'un dessin SVG, mode `BROUILLON`, `GLACIS_PAGE`) ; `ranger.py` (affiche prise à une fraction de la durée, médias retirés supprimés) ; `exemples/` (fiche PDF « Compléments à 10 » faite pour la démonstration).
+- **Images** : pris sur la page construite de l'essai 6.0.0-beta.13 (même source que `essai/Glacis.html` publié), classe de démonstration, prénoms fictifs ; aucune image retouchée ni générée. `vitrine/` : 7,5 Mo (films de 94 à 853 Ko, chargés seulement quand ils arrivent à l'écran).
+- **Validation** : page servie en local et pilotée dans Chromium, 25 contrôles verts deux fois (dont : film de l'appel joué puis arrêté dans l'écran épinglé, passage automatique des onglets, clavier, bouton pause, 17 tuiles, mouvements réduits, barre non flottante à 390 px et partie avec la page) ; aucune erreur JavaScript ; seule réponse en erreur `appli/latest.json` (pas de version stable) ; pas de défilement horizontal à 390, 1366, 1440 et 1920 px ; chaque film relu sur planche d'images. **Non vérifié** : Safari, Firefox, un vrai téléphone.
+- **Livraison / état** : poussé sur `claude/vitrine-2` ; aperçu privé mis à jour ; publication du site sur une phrase de Franck.
+
 ## 2026-11-19 — Claude — Nouvelle page de présentation publiée sur glacis-classe.fr (réunion de `claude/site-vitrine`)
 
 - **Demande / Autorisation** : Franck, 1 h 04 : « Publie » (après « Je valide » à 0 h 59, sur la maquette et ses tuiles corrigées).

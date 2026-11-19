@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="fr"><meta charset="utf-8"><style>
+@font-face{font-family:GL;font-weight:400;src:url(../../../vitrine/polices/glacis-lecture-400.woff2)}
+@font-face{font-family:GL;font-weight:700;src:url(../../../vitrine/polices/glacis-lecture-700.woff2)}
+@page{size:A4;margin:14mm}
+body{font-family:GL,sans-serif;color:#1f2d55;margin:0;font-size:15pt}
+h1{font-size:26pt;margin:0 0 2mm}.sous{color:#56617f;margin-bottom:8mm;display:flex;justify-content:space-between;border-bottom:2px solid #8fa8e8;padding-bottom:3mm}
+h2{font-size:15pt;margin:9mm 0 4mm;display:flex;align-items:center;gap:3mm}h2 b{display:inline-grid;place-items:center;width:9mm;height:9mm;border-radius:50%;background:#2f4fa8;color:#fff}
+.boites{display:grid;grid-template-columns:repeat(3,1fr);gap:8mm}
+.b{display:flex;flex-direction:column;align-items:center;gap:3mm}
+.dix{display:grid;grid-template-columns:repeat(5,11mm);grid-auto-rows:11mm;border:2px solid #1f2d55;border-radius:2mm;overflow:hidden}
+.dix i{border:1px solid #1f2d55;display:grid;place-items:center}.dix i.j::after{content:"";width:7.5mm;height:7.5mm;border-radius:50%;background:#e2574c}
+.eg{font-size:19pt;font-weight:700}.tr{display:inline-block;width:12mm;border-bottom:2px solid #1f2d55;height:9mm;vertical-align:bottom}
+.calc{display:grid;grid-template-columns:repeat(3,1fr);gap:7mm 8mm;font-size:21pt;font-weight:700}
+.pb{border:2px solid #8fa8e8;border-radius:4mm;padding:5mm 6mm;background:#f4f7fe;font-size:16pt;line-height:1.5}
+</style><h1>Les compléments à 10</h1><div class="sous"><span>Mathématiques · Séance 1</span><span>Prénom : ______________</span></div>
+<h2><b>1</b>Complète chaque boîte de 10, puis écris le calcul.</h2><div class="boites" id="bx"></div>
+<h2><b>2</b>Calcule.</h2><div class="calc"><span>6 + <span class="tr"></span> = 10</span><span>3 + <span class="tr"></span> = 10</span><span>8 + <span class="tr"></span> = 10</span><span>5 + <span class="tr"></span> = 10</span><span>1 + <span class="tr"></span> = 10</span><span>9 + <span class="tr"></span> = 10</span></div>
+<h2><b>3</b>Résous le problème.</h2><div class="pb">Dans la boîte, il y a 10 crayons. J'en sors 4.<br>Combien de crayons reste-t-il dans la boîte ? <span class="tr" style="width:20mm"></span></div>
+<script>for(const n of [7,4,2]){let h='<div class="b"><div class="dix">';for(let i=0;i<10;i++)h+=`<i class="${i<n?'j':''}"></i>`;h+=`</div><div class="eg">${n} + <span class="tr"></span> = 10</div></div>`;bx.insertAdjacentHTML('beforeend',h)}</script>

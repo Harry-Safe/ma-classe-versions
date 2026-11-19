@@ -1,11 +1,13 @@
 """Filme la vraie application, image par image, dans sa classe de démonstration (prénoms fictifs).
 L'horloge de la page est pilotée (30 images par seconde) : le film est fluide quel que soit le poste qui le fabrique.
-Usage : python outils/vitrine/filmer.py [journee rituels numeration balance monnaie reglettes]   (voir LISEZ-MOI.md)"""
-import sys
+Usage : python outils/vitrine/filmer.py [document accueil appel assistant problemes numeration geometrie lignages operations
+        minuteur balancenb droite fractions reglettes]   (voir LISEZ-MOI.md ; BROUILLON=1 : une image sur dix)"""
+import sys, os
 import asyncio, pathlib, shutil, subprocess, datetime, math
 from playwright.async_api import async_playwright
 from commun import DEMO, CACHE, TRAVAIL, lancer
 FPS=30; DT=1000/FPS
+BROUILLON=bool(os.environ.get("BROUILLON"))
 CURSEUR="""
 (()=>{const c=document.createElement('div');c.id='__cur';c.style.cssText='position:fixed;left:0;top:0;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:rgba(47,79,168,.28);border:2px solid rgba(255,255,255,.95);box-shadow:0 2px 8px rgba(31,45,85,.35);pointer-events:none;z-index:2147483647;opacity:0;will-change:transform';
 document.documentElement.appendChild(c);
@@ -42,6 +44,7 @@ class Film:
             s.k=getattr(s,'k',0)+1; d=round(s.k*DT)-round((s.k-1)*DT)
             await s.pg.clock.run_for(d)
             await s.pg.evaluate(AVANCE,d)
+            if photo and BROUILLON and s.k % 10: s.n+=0; continue      # brouillon : une image sur dix, pour régler un scénario
             if photo:
                 kw={"clip":s.clip} if s.clip else {}
                 await s.pg.screenshot(path=str(s.dir/f"{s.n:05d}.jpg"),type="jpeg",quality=93,**kw); s.n+=1
@@ -64,6 +67,28 @@ class Film:
         cx=bb["x"]+bb["width"]/2; cy=bb["y"]+bb["height"]/2
         x=min(max(0,cx-w/2),s.w-w); y=min(max(0,cy-h/2),s.h-h)
         s.clip={"x":round(x),"y":round(y),"width":2*round(w/2),"height":2*round(h/2)}; print(s.nom,"cadre",s.clip)
+    async def plein(s): s.clip=None
+    async def fichier(s,sel,chemin,ms=700):
+        """Clic sur un bouton qui ouvre le choix d'un fichier : le fichier est fourni sans montrer la fenêtre du système."""
+        await s.vers(*(await s.centre(sel)),ms); await s.attendre(150)
+        for essai in range(3):
+            try:
+                async with s.pg.expect_file_chooser(timeout=6000) as fc:
+                    await s.pg.mouse.down(); await s.pg.mouse.up(); await s.pas(8)
+                break
+            except Exception:
+                if essai==2: raise
+                await s.pg.mouse.move(*(await s.centre(sel))); await s.pas(4,photo=False)
+        await (await fc.value).set_files(str(chemin)); await s.pas(12,photo=False)
+    async def svgpt(s,expr,x,y):
+        """Point d'un dessin SVG (coordonnées du dessin) vers l'écran."""
+        return tuple(await s.pg.evaluate(f"([x,y])=>{{const p=new DOMPoint(x,y).matrixTransform(({expr}).getScreenCTM());return [p.x,p.y]}}",[x,y]))
+    async def tracer(s,pts,ms=900):
+        await s.vers(*pts[0],500); await s.attendre(100); await s.bas()
+        for q in pts[1:]: await s.vers(*q,ms)
+        await s.attendre(80); await s.haut()
+    async def taper(s,texte,ms=70):
+        for c in texte: await s.pg.keyboard.type(c); await s.attendre(ms)
     async def bas(s): await s.pg.mouse.down(); await s.pas(2)
     async def haut(s): await s.pg.mouse.up(); await s.pas(2)
     async def clic(s,sel=None,ms=600,apres=250):
@@ -83,81 +108,231 @@ def encoder(nom,larg=1600,crf=27):
 
 
 # ---------- les scénarios ----------
+ICI=pathlib.Path(__file__).resolve().parent
+FICHE=ICI/"exemples"/"Compléments à 10.pdf"            # fiche d'exemple faite pour la démonstration (exemples/fiche.html)
 
-async def journee():
-    async with Film("journee") as f:
-        await f.attendre(700)
-        await f.clic("button.prim:has-text('Valider')",ms=900,apres=1500)
-        await f.vers(*(await f.centre(".sbtn:has-text('Élèves')")),900); await f.attendre(350)
-        await f.bas(); await f.haut(); await f.attendre(1100)
-        await f.clic("button:has-text('Tirer au sort')",ms=800,apres=3000)
-        await f.attendre(600)
-    encoder("journee")
+async def document():
+    """Un document joint à une activité dans Préparer : il s'ouvre d'un clic, au bon moment, sur l'Accueil."""
+    async with Film("document") as f:
+        await f.js("Preparer.ouvrir('jour', new Date(2026,10,9)),0"); await f.avancer(1500)
+        i=await f.js("[...document.querySelectorAll('#apPrep .jxR')].find(r=>r.textContent.replace(/\\s+/g,' ').trim().startsWith('10 h 30 Maths')).dataset.i")
+        L=f'#apPrep .jxR[data-i="{i}"]'
+        await f.js(f"document.querySelector('{L}').scrollIntoView({{block:'center'}}),0"); await f.avancer(400)
+        f.x,f.y=640,560; await f.attendre(600)
+        await f.fichier(L+' [data-ra="doc"]',FICHE,900)
+        await f.js(f"document.querySelector('{L}').scrollIntoView({{block:'center'}}),0"); await f.attendre(1500)
+        await f.clic('#side [data-act="journee"]',ms=900,apres=1300)
+        await f.clic("#nowMat .nowRess .rsN",ms=900,apres=2600)
+        await f.clic(".panel[id^=p-doc-] button[title^='Plein cadre']",ms=900,apres=2600)
+    encoder("document")
 
-async def rituels():
-    async with Film("rituels") as f:
-        await f.js("Rituels.ouvrir(),0"); await f.avancer(1500)
-        await f.attendre(600)
-        await f.clic("#flSuiv",ms=900,apres=1900)
-        for _ in range(3): await f.clic("#flSuiv",ms=200,apres=1900)
-        await f.attendre(400)
-    encoder("rituels")
+async def accueil():
+    """L'Accueil se compose : changer une taille, ajouter des widgets."""
+    async with Film("accueil") as f:
+        await f.attendre(500)
+        await f.clic("#wgModifier",ms=900,apres=700)
+        await f.clic('.wg-maintenant .wgTailles [data-taille="moyen"]',ms=800,apres=800)
+        await f.clic("#wgAjouter",ms=800,apres=900)
+        for w in ("horloge","date"):
+            await f.js(f"document.querySelector('#p-widgets [data-ajout=\"{w}\"]').scrollIntoView({{block:'center'}}),0"); await f.pas(4)
+            await f.clic(f'#p-widgets [data-ajout="{w}"]',ms=600,apres=700)
+        await f.clic("#p-widgets .pClose, #p-widgets button[title^=Fermer]",ms=600,apres=600)
+        h=await f.centre(".wg-horloge"); d=await f.centre(".wg-date")
+        await f.glisser(h,d,900); await f.attendre(700)
+        await f.clic("button:has-text('Terminé')",ms=700,apres=2200)
+    encoder("accueil")
+
+async def appel():
+    """L'activité validée, puis l'appel et la cantine depuis la barre du haut."""
+    async with Film("appel") as f:
+        await f.attendre(500)
+        await f.clic("#chipPresents",ms=1000,apres=1100)
+        await f.clic("#p-appel .tag:has-text('Chloé')",ms=800,apres=600)
+        await f.clic("#apVal",ms=800,apres=1200)
+        await f.clic("#chipCantine",ms=900,apres=1200)
+        await f.clic("#p-cantine .tag:has-text('David'), #p-cantine button:has-text('David'), #p-cantine :text-is('David')",ms=800,apres=600)
+        await f.clic("#cnOk",ms=800,apres=1800)
+    encoder("appel")
+
+async def assistant():
+    """L'assistant : il s'ouvre au survol et propose les tutoriels de l'écran affiché."""
+    async with Film("assistant") as f:
+        await f.js("Tableau.ouvrir('maths'),0"); await f.avancer(1400)
+        f.x,f.y=500,420; await f.attendre(500)
+        await f.vers(*(await f.centre("#asPoignee")),900); await f.attendre(1500)
+        await f.bas(); await f.haut(); await f.attendre(1200)
+        await f.clic("#asGuides :text('Manipuler unités et dizaines')",ms=800,apres=2200)
+        print("tutoriel :",await f.js("[...document.querySelectorAll('button')].filter(b=>b.offsetParent&&/Suivant|Terminer|Précédent|Quitter/.test(b.textContent)).map(b=>(b.id||b.className)+'/'+b.textContent.trim()).join(' ; ')"))
+        for _ in range(2):
+            try: await f.clic("button:has-text('Suivant'):visible",ms=700,apres=2000)
+            except Exception as e: print("suivant",str(e)[:80]); break
+    encoder("assistant")
+
+async def problemes():
+    """Un problème : manipuler, se le représenter, puis corriger."""
+    async with Film("problemes") as f:
+        graine=int(os.environ.get("GRAINE","7"))
+        await f.js("(g=>{let x=g;Math.random=()=>(x=(x*1664525+1013904223)%4294967296)/4294967296})("+str(graine)+"),Rituels.ouvrir(),0"); await f.avancer(1000)
+        await f.pg.locator("button:has-text('Problèmes')").first.click(); await f.avancer(1200)
+        print("énoncé :",await f.js("document.querySelector('.pbEnonce, .pbTexte, #ritZone')?.textContent.trim().replace(/\\s+/g,' ').slice(0,160)"))
+        f.x,f.y=640,560; await f.attendre(700)
+        await f.clic("#pbManip",ms=900,apres=1100)
+        z=await f.js("(()=>{const r=document.querySelector('#pbMpZone').getBoundingClientRect();return [r.x,r.y,r.width,r.height]})()")
+        j=await f.js("[...document.querySelectorAll('#pbMpZone .mnpI')].map(e=>{const r=e.getBoundingClientRect();return [r.x+r.width/2,r.y+r.height/2]})")
+        print("zone",z,"jetons",len(j),j[:4])
+        n=min(3,max(1,len(j)-2))
+        for k in range(n):
+            cible=(z[0]+70+k*52,z[1]+z[3]-48) if z else (j[k][0]-150+k*48,j[k][1]+80)
+            await f.glisser(tuple(j[k]),cible,650); await f.attendre(250)
+        await f.attendre(500)
+        await f.clic("button:has-text('Représentation')",ms=900,apres=1400)
+        await f.clic("#pbIllu",ms=700,apres=1500)
+        await f.clic("button:has-text('Correction')",ms=800,apres=2600)
+    encoder("problemes")
 
 async def numeration():
+    """Casser une dizaine en dix unités, puis refaire un paquet de dix en l'entourant."""
     async with Film("numeration") as f:
         await f.js("Store.get('prefs').dockEpingle=true;Tableau.ouvrir('maths'),0"); await f.avancer(1500)
         await f.attendre(500)
-        await f.vers(*(await f.centre('[data-pr="u"][data-s="1"]')),800)
-        for _ in range(4): await f.bas(); await f.haut(); await f.attendre(330)
-        await f.attendre(400)
-        bb=await f.pg.evaluate("(()=>{const e=document.querySelector('.mnp').firstElementChild.getBoundingClientRect();return [e.x+e.width/2,e.y+e.height/2]})()")
-        await f.vers(*bb,800); await f.attendre(150); await f.bas(); await f.haut(); await f.attendre(400)
-        await f.clic("#acCasser",ms=900,apres=3000)
+        bb=await f.js("(()=>{const e=document.querySelector('.mnp').children[1].getBoundingClientRect();return [e.x,e.y,e.width,e.height]})()")   # la dizaine de droite : de la place autour pour l'entourer
+        c=(bb[0]+bb[2]/2,bb[1]+bb[3]/2)
+        await f.vers(*c,800); await f.attendre(150); await f.bas(); await f.haut(); await f.attendre(400)
+        await f.clic("#acCasser",ms=900,apres=2300)
+        await f.clic("#acPaquet",ms=700,apres=500)
+        bb=await f.js("(()=>{const r=[...document.querySelector('.mnp').children].map(e=>e.getBoundingClientRect()).filter(r=>r.width<40&&r.width>4);const x0=Math.min(...r.map(a=>a.left)),y0=Math.min(...r.map(a=>a.top)),x1=Math.max(...r.map(a=>a.right)),y1=Math.max(...r.map(a=>a.bottom));return [x0,y0,x1-x0,y1-y0,r.length]})()")
+        print("unités à entourer",bb)
+        zn=await f.pg.locator("#tbFond .mnp").bounding_box()       # le tracé doit commencer et rester dans la zone du matériel
+        m=18; x0,y0,x1,y1=max(bb[0]-m,zn["x"]+4),max(bb[1]-m,zn["y"]+4),bb[0]+bb[2]+m,bb[1]+bb[3]+m
+        tour=[(x0,y0),(x1,y0),(x1,y1),(x0,y1),(x0,y0+4)]
+        await f.vers(*tour[0],700); await f.attendre(100); await f.bas()
+        for q in tour[1:]: await f.vers(*q,420)
+        await f.haut(); await f.attendre(2600)
     encoder("numeration")
 
-async def balance():
-    async with Film("balance",dsf=2) as f:
-        await f.js("Balance.g=[];Balance.d=[];Balance.regler(x=>{x.mode='masses';x.totaux=true;});Balance.ouvrir(),0")
-        await f.avancer(1300); await f.cadrer("#p-balance")
-        sc=await f.pg.locator("#p-balance .balScene").bounding_box()
-        G=(sc["x"]+sc["width"]*.25,sc["y"]+sc["height"]*.45); D=(sc["x"]+sc["width"]*.75,sc["y"]+sc["height"]*.45)
-        f.x,f.y=sc["x"]+sc["width"]*.5,sc["y"]+sc["height"]*.8
-        await f.attendre(400)
-        await f.glisser(await f.centre('#p-balance .balJt[data-bp="6"]'),G); await f.attendre(1700)
-        await f.glisser(await f.centre('#p-balance .balJt[data-bp="5"]'),D); await f.attendre(1300)
-        await f.glisser(await f.centre('#p-balance .balJt[data-bp="5"]'),D); await f.attendre(2800)
-    encoder("balance",1400)
+async def geometrie():
+    """On sort une règle, on la déplace, on trace un trait le long de son bord."""
+    async with Film("geometrie") as f:
+        await f.js("Store.get('prefs').dockEpingle=true;Tableau.ouvrir('geometrie'),0"); await f.avancer(1500)
+        f.x,f.y=640,380; await f.attendre(500)
+        await f.clic("#geo-regle",ms=900,apres=500)
+        await f.clic('.geoPalette [data-taille="15"]',ms=500,apres=900)
+        fig=await f.js("Geometrie.p().figures.at(-1)"); print("regle",fig)
+        S="Geometrie.svg"
+        a=await f.svgpt(S,fig["x"]+380,fig["y"]+35); b=await f.svgpt(S,fig["x"]+520,fig["y"]-150)
+        await f.glisser(a,b,900); await f.attendre(600)
+        fig=await f.js("Geometrie.p().figures.at(-1)"); print("regle déplacée",fig)
+        await f.clic("#geoCrayon",ms=900,apres=500)
+        await f.clic('.geoPalette [data-geo-c="#2f6fd6"]',ms=500,apres=500)
+        d=await f.svgpt(S,fig["x"]+75,fig["y"]-3); e=await f.svgpt(S,fig["x"]+650,fig["y"]-3)
+        await f.tracer([d,e],1300); await f.attendre(400)
+        print("figures",await f.js("Geometrie.p().figures.map(x=>x.type).join()+' | '+Object.keys(Geometrie.p()).join()"))
+        g=await f.svgpt(S,fig["x"]+380,fig["y"]+35); h=await f.svgpt(S,fig["x"]+330,fig["y"]+250)
+        await f.glisser(g,h,1000); await f.attendre(1800)          # la règle s'écarte : le trait reste
+    encoder("geometrie")
 
-async def monnaie():
-    async with Film("monnaie",dsf=2) as f:
-        await f.js("Monnaie.regler(x=>{x.centimes=false;x.grands=false;x.total=true;});Monnaie.tapis=[];Monnaie.ouvrir(),0")
-        await f.avancer(1300); await f.cadrer("#p-monnaie")
-        z=await f.pg.locator("#mnTapis").bounding_box(); f.x,f.y=z["x"]+z["width"]*.5,z["y"]+z["height"]*.7
-        await f.attendre(300)
-        await f.vers(*(await f.centre('.mnR[data-v="100"]')),700)
-        for _ in range(10): await f.bas(); await f.haut(); await f.attendre(170)
-        await f.attendre(900)
-        await f.clic("#mnEch",ms=700,apres=3400)
-    encoder("monnaie",1400)
+async def lignages():
+    """Les lignages : la réglure grandit, le support change (tableau, cahier, feuille)."""
+    async with Film("lignages") as f:
+        await f.js("Store.get('prefs').dockEpingle=true;Tableau.ouvrir('lignes'),0"); await f.avancer(1500)
+        f.x,f.y=640,420; await f.attendre(600)
+        cur=await f.pg.locator("#tbOpts input[type=range]").first.bounding_box()
+        y=cur["y"]+cur["height"]/2
+        await f.glisser((cur["x"]+cur["width"]*.42,y),(cur["x"]+cur["width"]*.92,y),1200); await f.attendre(900)
+        await f.clic("#tbOpts button:has-text('Cahier A5')",ms=800,apres=1500)
+        await f.clic("#tbOpts button:has-text('Feuille A4')",ms=600,apres=1500)
+        await f.clic("#tbOpts button:has-text('Tableau')",ms=600,apres=1200)
+    encoder("lignages")
+
+async def operations():
+    """Une soustraction par dégroupement, avec le matériel de numération qui suit chaque étape."""
+    async with Film("operations") as f:
+        await f.js("Store.get('prefs').dockEpingle=true;Tableau.ouvrir('ops'),0"); await f.avancer(1200)
+        await f.js("OpsTab.regler(x=>{x.op='cas';x.a='342';x.b='165';x.illus=true;x.explic=false;x.taille=7}),OpsTab.options(document.querySelector('#tbOpts')),OpsTab.rendre(),0"); await f.avancer(800)
+        n=await f.js("OpsTab.g.etapes.length"); print("étapes",n)
+        f.x,f.y=640,600; await f.attendre(900)
+        for k in range(n):
+            await f.pg.keyboard.press("Space"); await f.attendre(1150)
+        await f.attendre(1500)
+    encoder("operations")
+
+async def _outil(f,o,panneau):
+    await f.js("Outils.ouvrir(),0"); await f.avancer(900)
+    await f.attendre(400)
+    await f.clic(f'#p-outils [data-o="{o}"]',ms=800,apres=1200)
+    return await f.pg.locator(panneau).bounding_box()
+
+async def _reduire(f,panneau):
+    await f.clic(panneau+" .pRed",ms=800,apres=1500)
+
+async def minuteur():
+    """Le minuteur : une durée, on démarre, on le réduit en bas de l'écran, on le rouvre."""
+    async with Film("minuteur") as f:
+        f.x,f.y=640,520
+        await _outil(f,"minuteur","#p-minuteur")
+        await f.clic("#p-minuteur button:text-is('5 min')",ms=800,apres=700)
+        await f.clic("#mnGo",ms=700,apres=3400)
+        await _reduire(f,"#p-minuteur"); await f.attendre(1800)
+        await f.clic("#fenRed .fenP",ms=800,apres=2000)
+    encoder("minuteur")
+
+async def balancenb():
+    """La balance des nombres : 6 d'un côté, 2 et 4 de l'autre, le fléau revient à l'équilibre."""
+    async with Film("balancenb") as f:
+        f.x,f.y=640,560
+        await _outil(f,"balanceNb","#p-balanceNb")
+        async def reserve():
+            r=await f.pg.locator("#p-balanceNb .blRes").bounding_box(); return (r["x"]+r["width"]/2,r["y"]+r["height"]*.4)
+        async def crochet(k):
+            c=await f.js("[...document.querySelectorAll('#p-balanceNb .blCr')].map(e=>{const r=e.getBoundingClientRect();return [r.x+r.width/2,r.y+r.height*.7]}).sort((a,b)=>a[0]-b[0])")
+            return tuple(c[k])
+        for k,pause in ((4,1700),(11,1500),(13,2600)):       # 6 à gauche ; 2 puis 4 à droite
+            await f.glisser(await reserve(),await crochet(k),850); await f.attendre(pause)
+        await _reduire(f,"#p-balanceNb"); await f.attendre(1200)
+    encoder("balancenb")
+
+async def droite():
+    """La droite graduée : des bonds tracés d'une graduation à l'autre."""
+    async with Film("droite") as f:
+        f.x,f.y=640,560
+        await _outil(f,"droite","#p-droite")
+        await f.clic('#p-droite [data-dm="bonds"]',ms=800,apres=600)
+        async def grad(n):
+            r=await f.pg.locator("#p-droite .drHit").nth(n).bounding_box(); return (r["x"]+r["width"]/2,r["y"]+r["height"]/2)
+        await f.glisser(await grad(4),await grad(10),1000); await f.attendre(900)
+        await f.glisser(await grad(10),await grad(13),800); await f.attendre(1600)
+        await _reduire(f,"#p-droite"); await f.attendre(1200)
+    encoder("droite")
+
+async def fractions():
+    """Les fractions : la bande, le disque, puis deux fractions à comparer."""
+    async with Film("fractions") as f:
+        f.x,f.y=640,560
+        await _outil(f,"fractions","#p-fractions")
+        await f.attendre(600)
+        await f.clic("#p-fractions .btn:has-text('Disque')",ms=800,apres=1300)
+        await f.clic("#p-fractions .btn.mini:has-text('−')",ms=700,apres=900)
+        await f.clic("#p-fractions .btn:has-text('Bande')",ms=700,apres=900)
+        await f.clic("#frCmp",ms=700,apres=2400)
+        await _reduire(f,"#p-fractions"); await f.attendre(1200)
+    encoder("fractions")
 
 async def reglettes():
-    async with Film("reglettes",dsf=2) as f:
-        await f.js("Outils.ouvrir(),0"); await f.avancer(700)
-        await f.pg.click('#p-outils [data-o="reglettes"]'); await f.avancer(1500)
-        await f.cadrer("#p-reglettes")
+    async with Film("reglettes") as f:
+        f.x,f.y=640,520
+        await _outil(f,"reglettes","#p-reglettes")
         async def prendre(v):
             bb=await f.pg.locator(f".rgPioche[data-v='{v}'] .rgR").bounding_box(); return (bb["x"]+bb["height"]/2,bb["y"]+bb["height"]/2)
         async def case(x,y,dx=.5):
             return tuple(await f.pg.evaluate(f"(()=>{{const r=Reglettes.plan().getBoundingClientRect(),G=Reglettes.geo;return [r.left+G.ox+({x}+{dx})*G.u,r.top+G.oy+({y}+.5)*G.u]}})()"))
-        f.x,f.y=await case(8,6)
-        await f.attendre(300)
-        await f.glisser(await prendre(10),await case(1,1),900); await f.attendre(700)
-        await f.glisser(await prendre(6),await case(1,3),900); await f.attendre(600)
-        await f.glisser(await prendre(4),await case(7,3),900); await f.attendre(900)
-        await f.clic("#rgCalc",ms=700,apres=1400)
-        await f.clic("#rgEsc",ms=600,apres=3200)
-    encoder("reglettes",1400)
+        await f.glisser(await prendre(10),await case(1,1),900); await f.attendre(500)
+        await f.glisser(await prendre(6),await case(1,3),900); await f.attendre(400)
+        await f.glisser(await prendre(4),await case(7,3),900); await f.attendre(800)
+        await f.clic("#rgCalc",ms=700,apres=1300)
+        await f.clic("#rgEsc",ms=600,apres=2600)
+        await _reduire(f,"#p-reglettes"); await f.attendre(1200)
+    encoder("reglettes")
 
-FILMS={"journee":journee,"rituels":rituels,"numeration":numeration,"balance":balance,"monnaie":monnaie,"reglettes":reglettes}
+FILMS={"document":document,"accueil":accueil,"appel":appel,"assistant":assistant,"problemes":problemes,"numeration":numeration,"geometrie":geometrie,"lignages":lignages,"operations":operations,"minuteur":minuteur,"balancenb":balancenb,"droite":droite,"fractions":fractions,"reglettes":reglettes}
 if __name__=="__main__":
     for nom in sys.argv[1:] or FILMS: asyncio.run(FILMS[nom]())

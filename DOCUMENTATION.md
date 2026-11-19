@@ -85,13 +85,17 @@ elle fonctionne aussi sans JavaScript (tout est alors visible et immobile) et re
 (rien ne bouge, les films attendent un clic sur leur bouton lecture). `outils/signer.py` copie `index.html`,
 `icone.svg`, `_headers` et le dossier `vitrine/` dans `_site/`.
 
+Sur un téléphone, la barre du haut ne flotte pas : elle reste en haut de la page et part avec elle (demande de Franck
+du 19 novembre 2026). Le film d'ouverture joint une fiche PDF d'exemple, faite pour la démonstration
+(`outils/vitrine/exemples/`).
+
 Les films et les images montrent la **vraie application**, ouverte dans sa classe de démonstration
 (`Glacis.html?classe-demo` : prénoms fictifs, lundi 9 novembre 2026, rien d'enregistré). **Aucune image n'est retouchée
 ni générée** ; seul un point bleu est ajouté pour montrer où l'on clique. Pour les refaire après une nouvelle version
 (Chromium de Playwright, `ffmpeg` et Pillow nécessaires ; `CHROME=…` pour un Chromium particulier) :
 
 ```
-python outils/vitrine/filmer.py            # les six films, image par image (environ 4 min chacun)
+python outils/vitrine/filmer.py            # les quatorze films, image par image (environ 4 min chacun)
 python outils/vitrine/captures.py          # les captures fixes et les dessins des tuiles des outils (icones.json)
 python outils/vitrine/ranger.py            # conversion, rangement dans vitrine/films et vitrine/images, tuiles écrites dans index.html
 ```

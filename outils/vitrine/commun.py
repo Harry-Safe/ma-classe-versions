@@ -5,9 +5,10 @@ TRAVAIL = pathlib.Path(__file__).resolve().parent / "_travail"          # images
 VITRINE = RACINE / "vitrine"                                            # ce que le site publie
 CHROME = os.environ.get("CHROME")                                       # chemin d'un Chromium particulier (facultatif)
 _page = next((RACINE / c / "Glacis.html" for c in ("stable", "essai") if (RACINE / c / "Glacis.html").is_file()), None)
+if os.environ.get("GLACIS_PAGE"): _page = pathlib.Path(os.environ["GLACIS_PAGE"]).resolve()   # une page construite ailleurs (avant publication)
 PAGE = _page.as_uri() if _page else None
 DEMO = PAGE and PAGE + "?classe-demo"                                   # classe de démonstration : prénoms fictifs, rien d'enregistré
-CACHE = "#demoRuban{display:none!important}.toast{display:none!important}"   # ruban de la démonstration et messages, hors champ
+CACHE = "#demoRuban{display:none!important}"                            # le ruban de la démonstration reste hors champ
 ARGS = ["--allow-file-access-from-files", "--force-color-profile=srgb"]
 
 def lancer(p):

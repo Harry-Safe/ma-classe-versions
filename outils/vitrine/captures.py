@@ -46,7 +46,7 @@ async def icones(pg):
 async def main():
     (TRAVAIL/"captures").mkdir(parents=True,exist_ok=True)
     async with async_playwright() as p:
-        todo=sys.argv[1:] or ["accueil","soir","semaine","appel","ops","geo","ecriture","outils","lignes","minuteur","icones"]
+        todo=sys.argv[1:] or ["accueil","soir","semaine","icones"]        # les autres (appel, ops, geo…) restent disponibles à la demande
         f={"accueil":rien,"semaine":semaine,"appel":appel,"ops":ops,"geo":geo,"ecriture":ecriture,"outils":outils,"lignes":lignes,"minuteur":minuteur,"icones":icones}
         for n in todo:
             if n=="soir": await prise(p,"soir",rien,url=DEMO+"=1&t=2026-11-09T16:45")
