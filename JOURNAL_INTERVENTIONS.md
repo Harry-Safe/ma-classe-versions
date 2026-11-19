@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-19 — Claude — Vitrine refaite publiée sur glacis-classe.fr (réunion de `claude/vitrine-2`)
+
+- **Demande / Autorisation** : Franck, 10 h 27 : « Publie la vitrine. »
+- **Contrôle préalable** : `main` distant à `7b0c5ee` (journal de l'essai 6.0.0-beta.13), contenu dans `claude/vitrine-2` (`25a292b`) : avance rapide, sans forçage ; aucune pull request ; aucune action en cours (dernière : `44493706315`, réussie).
+- **Réalisation** : réunion de la refonte (entrée suivante) et de cette entrée ; aucune page, fiche, coquille ni paquet de l'application modifié : l'essai 6.0.0-beta.13 et Échecs 1.1.0 restent tels quels.
+- **Validation** : contrôles de la page : entrée suivante. Action et déploiement : complétés après l'envoi.
+- **Livraison / état** : envoi sur `main`.
+
 ## 2026-11-19 — Claude — Vitrine refaite selon les remarques de Franck : quatorze nouveaux films (`claude/vitrine-2`, site non publié)
 
 - **Demande / Autorisation** : Franck, 8 h 16 : « A refaire : la partie "Les tableaux" (casser un paquet, puis refaire un paquet de 10 ; une règle sortie et un trait tracé ; Lignages à la place d'Écriture ; soustraction par dégroupement avec la représentation, sans explication) ; rituels : les problèmes, manipuler, visualiser, corriger ; la première partie, "un truc plus Whaou", par exemple l'intégration d'un fichier dans le cahier journal ; la personnalisation de l'accueil ; l'assistant ; l'appel et la cantine plutôt que le tirage au sort ; les outils à mettre en avant, en montrant qu'on peut les réduire : Minuteur, balance des nombres, droite graduée, fraction et cuisenaire » ; 8 h 20 : « Je trouve aussi trop présent l'onglet flottant sur la version mobile », « Celui pour télécharger ». Aucune phrase de publication du site : branche et aperçu privé.
