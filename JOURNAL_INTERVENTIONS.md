@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-19 — Claude — Page « introuvable » (`404.html`) : un vrai 404 pour les adresses inconnues
+
+- **Demande / Autorisation** : captures des statistiques Cloudflare envoyées par Franck à 18 h 58, dans la suite de « Fais 2 et 4 » (sécurité du site).
+- **Constat** : un analyseur de vulnérabilités (« TLM-Audit-Scanner/2.0 », une adresse aux Pays-Bas, 4 491 requêtes le 18 novembre) a cherché des fichiers secrets (`/live/.env`, `/web.config`, `/cache/laravel.log`…) : réponse **200**, car sans `404.html` Cloudflare Pages renvoie la page d'accueil pour toute adresse inconnue. Rien n'a fuité (le site ne contient aucun de ces fichiers), mais l'application, qui attend un 404 pour `appli/latest.json` tant qu'aucune version stable n'existe (essai 6.0.0-beta.14, case des essais décochée), recevait la page d'accueil à la place.
+- **Réalisation** : `404.html` (page sobre aux couleurs de Glacis, sans script, `noindex`), copiée par `outils/signer.py`.
+- **Livraison / état** : voir le commit de `main` et son action.
+
 ## 2026-11-19 — Claude — Sécurité du site : HTTPS durci (zone Cloudflare) et en-têtes de sécurité (`_headers`)
 
 - **Demande / Autorisation** : Franck, 18 h 49 : « Fais 2 et 4 » (réglages HTTPS de la zone, en-têtes de la page), après le bilan de sécurité du site ; DMARC (point 3) laissé de côté : Franck veut pouvoir envoyer des courriels depuis le domaine.
