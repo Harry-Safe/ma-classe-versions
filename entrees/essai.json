@@ -1,23 +1,22 @@
 {
-  "version": "6.0.0-beta.13",
+  "version": "6.0.0-beta.14",
   "date": "2026-11-19",
-  "titre": "Essai : Retouches : piles lisibles, dégroupement, enregistrement plus tolérant",
+  "titre": "Essai : La version stable d'abord, mise à jour d'un clic à l'accueil",
   "notes": [
-    "Le « Piano de lecture » est retiré des outils. Il n'est plus créé d'office et disparaît de la grille ; ses images restent dans le dossier de la classe (« reglages/piano » et « reglages/outils »). Un outil-image se recrée en une minute avec « + Ajouter un outil ». La touche P ne fait plus rien.",
-    "« Soustraction par dégroupement » : c'est le nouveau nom de la soustraction par cassage, dans les Opérations.",
-    "Illustration des opérations : des piles qui se lisent. Les plaques de cent et les gros cubes de mille sont décalés en escalier, avec une ombre : on voit qu'il y en a plusieurs l'une sur l'autre. Une pièce déjà enlevée ne laisse plus voir celles du dessous.",
-    "Enregistrement dans le dossier plus tolérant. Quand le dossier est momentanément occupé (synchronisation Google Drive ou OneDrive, antivirus), Glacis réessaie de lui-même avant d'afficher « Impossible d'enregistrer dans le dossier », ne l'affiche qu'une fois, puis retente plus tard sans rien demander. Deux enregistrements rapprochés ne se croisent plus sur le même fichier."
+    "La version stable d'abord. Glacis ne cherche plus que les versions stables. Pour recevoir aussi les versions d'essai, cochez « Proposer aussi les versions d'essai (à tester) » dans Réglages › Mises à jour : le choix est gardé dans le dossier de la classe. Même case cochée, une version stable plus récente passe toujours en premier. Le Store des applis suit la même case.",
+    "Nouvelle version proposée dès l'écran d'accueil. Quand une nouvelle version est disponible, l'écran d'accueil l'annonce avant « Commencer » : « Installer maintenant » l'installe sans autre question et relance Glacis, « Plus tard » la laisse de côté. Rien ne s'installe pendant la classe.",
+    "Personne ne reste sur les versions d'essai. Dès qu'une version stable sort, elle est proposée à tous les postes, y compris à ceux qui ont installé une version d'essai depuis le site."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Glacis.html",
-      "taille": 6984826,
-      "sha256": "93c231b7f5d329591c8d3d2ac2a421085a0673865f6166b26d671ff6f19638f1"
+      "taille": 6990761,
+      "sha256": "60961b19675753ad96f1402afdeda5e151388c7a45aef9e92914316296f011d1"
     },
     "remplacant": {
       "url": "essai/Glacis - Remplaçant.html",
-      "taille": 6984826,
-      "sha256": "93c231b7f5d329591c8d3d2ac2a421085a0673865f6166b26d671ff6f19638f1"
+      "taille": 6990761,
+      "sha256": "60961b19675753ad96f1402afdeda5e151388c7a45aef9e92914316296f011d1"
     }
   }
 }

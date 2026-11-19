@@ -17,7 +17,7 @@ Chaîne de signature (lot C de l'audit de sécurité, 13 novembre 2026) :
     python outils/signer-appli.py              # publication (secret TAURI_SIGNING_PRIVATE_KEY)
     python outils/signer-appli.py --a-blanc    # branches claude/fabrication-* : clé jetable, rien n'est écrit
 """
-import base64, hashlib, json, os, re, subprocess, sys, tempfile
+import base64, hashlib, json, os, re, shutil, subprocess, sys, tempfile
 from pathlib import Path
 from cryptography.exceptions import InvalidSignature
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PublicKey
@@ -132,6 +132,21 @@ def a_blanc(tauri):
     print("chaîne de signature à blanc : bonne")
 
 
+def essai_suit_stable():
+    """Après la signature : quand l'application stable est au moins aussi récente que celle d'essai, appli/essai/latest.json
+    annonce l'installateur stable (même fiche signée). Une application d'essai installée jusqu'à la 6.0.0-beta.13 ne lit
+    que ce fichier : elle passe ainsi à la version stable dès sa sortie (voir l'en-tête de outils/signer.py)."""
+    st, es = SITE / "latest.json", SITE / "essai" / "latest.json"
+    if not st.exists(): return
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from signer import cle
+    v = json.loads(st.read_text(encoding="utf-8"))["version"]
+    w = json.loads(es.read_text(encoding="utf-8"))["version"] if es.exists() else None
+    if w is not None and cle(w) > cle(v): return
+    es.parent.mkdir(exist_ok=True); shutil.copyfile(st, es)
+    print(f"appli/essai/latest.json : annonce la version stable {v}" + (f" (essai {w} dépassé)" if w else ""))
+
+
 def main():
     tauri = outil()
     if "--a-blanc" in sys.argv: return a_blanc(tauri)
@@ -139,6 +154,7 @@ def main():
     if not os.environ.get("TAURI_SIGNING_PRIVATE_KEY"): sys.exit("secret TAURI_SIGNING_PRIVATE_KEY absent : l'application ne peut pas être publiée")
     env = {**os.environ, "TAURI_SIGNING_PRIVATE_KEY_PASSWORD": ""}
     for fiche, canal in fiches(): signer(fiche, tauri, env, cles_acceptees(canal))
+    essai_suit_stable()
 
 
 if __name__ == "__main__":

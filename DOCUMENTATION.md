@@ -167,12 +167,17 @@ Déclenchée par **tout envoi sur `main`** (et à la main) :
 1. Python 3.12 + `cryptography`, `cffi`, `pycparser` aux versions et empreintes de `outils/exigences.txt` ;
 2. `outils/signer.py` : pour chaque `entrees/*.json`, vérifie que chaque fichier existe et a la taille et l'empreinte
    annoncées (sinon **échec, rien n'est publié**), assemble et signe `versions.json` avec le secret **`MAJ_CLE_PRIVEE`**
-   (clé Ed25519 brute, 32 octets en base64), copie les canaux, `index.html` et `appli/` dans `_site/` ; puis
+   (clé Ed25519 brute, 32 octets en base64), copie les canaux, `index.html` et `appli/` dans `_site/` ; **l'essai suit
+   la stable** (19 novembre 2026) : quand la version stable est au moins aussi récente que la version d'essai, le canal
+   `essai` de `versions.json` (et celui de chaque appli de `applis.json`) annonce la version stable, pour que les essais
+   installés jusqu'à la 6.0.0-beta.13, qui ne lisent que le canal d'essai, reçoivent la stable dès sa sortie ; puis
    `fabriquer-appli.py --placer` range les installateurs fabriqués à côté de leur `latest.json` ;
 3. Node 20, `npm ci --ignore-scripts` dans `outils/signature/` (la clé n'est pas encore dans l'environnement), puis
    `outils/signer-appli.py` (si `appli/latest.json` existe) : signe chaque installateur avec le secret
    **`TAURI_SIGNING_PRIVATE_KEY`** (sans mot de passe), revérifie la signature avec la clé publique de l'application ;
    échoue si le secret ou l'installateur manquent, ou si l'application refuserait la signature (**rien n'est publié**) ;
+   même règle ensuite pour l'application : `_site/appli/essai/latest.json` reprend la fiche signée de la version stable
+   quand celle-ci est au moins aussi récente (« appli/essai/latest.json : annonce la version stable X ») ;
 4. déploiement GitHub Pages (`_site/`). Le journal de l'action affiche « versions.json signé : essai X, stable Y ».
 
 Une branche autre que `main` ne déclenche **rien**, sauf `claude/fabrication-*` : l'installateur y est fabriqué et

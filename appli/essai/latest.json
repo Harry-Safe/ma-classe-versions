@@ -1,11 +1,11 @@
 {
-  "version": "6.0.0-beta.13",
-  "notes": "Le « Piano de lecture » est retiré des outils. Il n'est plus créé d'office et disparaît de la grille ; ses images restent dans le dossier de la classe (« reglages/piano » et « reglages/outils »). Un outil-image se recrée en une minute avec « + Ajouter un outil ». La touche P ne fait plus rien.\n« Soustraction par dégroupement » : c'est le nouveau nom de la soustraction par cassage, dans les Opérations.\nIllustration des opérations : des piles qui se lisent. Les plaques de cent et les gros cubes de mille sont décalés en escalier, avec une ombre : on voit qu'il y en a plusieurs l'une sur l'autre. Une pièce déjà enlevée ne laisse plus voir celles du dessous.\nEnregistrement dans le dossier plus tolérant. Quand le dossier est momentanément occupé (synchronisation Google Drive ou OneDrive, antivirus), Glacis réessaie de lui-même avant d'afficher « Impossible d'enregistrer dans le dossier », ne l'affiche qu'une fois, puis retente plus tard sans rien demander. Deux enregistrements rapprochés ne se croisent plus sur le même fichier.",
-  "pub_date": "2026-11-19T09:08:31Z",
+  "version": "6.0.0-beta.14",
+  "notes": "La version stable d'abord. Glacis ne cherche plus que les versions stables. Pour recevoir aussi les versions d'essai, cochez « Proposer aussi les versions d'essai (à tester) » dans Réglages › Mises à jour : le choix est gardé dans le dossier de la classe. Même case cochée, une version stable plus récente passe toujours en premier. Le Store des applis suit la même case.\nNouvelle version proposée dès l'écran d'accueil. Quand une nouvelle version est disponible, l'écran d'accueil l'annonce avant « Commencer » : « Installer maintenant » l'installe sans autre question et relance Glacis, « Plus tard » la laisse de côté. Rien ne s'installe pendant la classe.\nPersonne ne reste sur les versions d'essai. Dès qu'une version stable sort, elle est proposée à tous les postes, y compris à ceux qui ont installé une version d'essai depuis le site.",
+  "pub_date": "2026-11-19T11:36:40Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.13_x64-setup-essai.exe"
+      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.14_x64-setup-essai.exe"
     }
   }
 }

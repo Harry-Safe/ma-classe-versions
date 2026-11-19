@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-19 — Claude — Essai 6.0.0-beta.14 publié ; l'essai suit la stable (`outils/signer.py`, `outils/signer-appli.py`)
+
+- **Demande / Autorisation** : Franck, 11 h 28 : « Empêche la recherche de mise à jour d'essai sauf en cochant une case. Trouve un moyen pour que ce soit toujours la version stable qui soit priorisée » ; 12 h 10 : « L'objectif étant aussi que ceux qui ont actuellement la version essai prise sur le site puisse avoir directement la stable quand elle sort et qu'un collègue ne reste pas coincé avec les versions d'essai ». Publication d'essai : autorisation permanente (`AGENTS.md` de `Ma-classe`).
+- **Contrôle préalable** : `main` distant à `933de75` (journal de la vitrine), avance rapide de `publication` ; aucune action en cours.
+- **Réalisation** : pages et application 6.0.0-beta.14 sur le canal d'essai (`build/publier-version.py`, `build/publier-appli.py --canal essai`, commit source `d8f637a` de `essai`). **L'essai suit la stable** : `signer.py` (fonction `cle`, ordre des versions de l'application ; `essai_suit_stable`) annonce la version stable sur le canal d'essai de `versions.json` et de chaque appli de `applis.json` quand elle est au moins aussi récente ; `signer-appli.py` fait de même pour `_site/appli/essai/latest.json` après la signature. Sans version stable (aujourd'hui), rien ne change. But : les essais 6.0.0-beta.12 et 13 ne lisent que le canal d'essai ; ils recevront la 6.0 dès sa sortie. `DOCUMENTATION.md` § publication.
+- **Validation** : `signer.py` lancé sur une copie du dépôt avec une clé jetable : sans stable, « versions.json signé : essai 6.0.0-beta.13 » inchangé ; avec une stable 6.0.0 simulée, canal d'essai = 6.0.0 (`stable/Glacis.html`) et appli Échecs simulée 9.0.0 sur ses deux canaux ; `essai_suit_stable` de `signer-appli.py` : rien sans stable, fiche stable recopiée quand elle est plus récente, essai 6.1.0-beta.1 plus récent gardé ; ordre des versions vérifié (6.0.0 > 6.0.0-rc.1 > 6.0.0-beta.13 > 6.0.0-beta.2, 6.0 = 6.0.0). Côté `Ma-classe` : suite complète 106 sur 106 sur la page numérotée.
+- **Livraison / état** : voir l'entrée suivante du journal de `Ma-classe` pour l'action et le déploiement.
+
 ## 2026-11-19 — Claude — Vitrine refaite publiée sur glacis-classe.fr (réunion de `claude/vitrine-2`)
 
 - **Demande / Autorisation** : Franck, 10 h 27 : « Publie la vitrine. »
