@@ -2,6 +2,15 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-19 — Claude — Page de présentation : tuiles des outils en vectoriel (`claude/site-vitrine`, rien de publié)
+
+- **Demande / Autorisation** : Franck, 0 h 59 : « Je valide. Petit détail, le détourage des icônes qui apparaissent à la section outil n'est pas très propre. » Pas de phrase de publication : `main` et le site inchangés.
+- **Contrôle préalable** : `claude/site-vitrine` à `360821a` ; `main` à `490ea60` ; aucune pull request.
+- **Cause** : les tuiles étaient des photos prises dans la fenêtre Outils ; leurs coins gardaient le fond crème opaque de la fenêtre, d'où un liseré clair autour de l'arrondi sur le fond du site.
+- **Réalisation** : `captures.py icones` relève dans le menu Outils le nom, les deux couleurs et le dessin SVG de chaque tuile (aucun identifiant, contrôlé) ; `ranger.py` les écrit dans `index.html` (repères `<!--TUILES-->`), redessinées avec les règles de tuile de Glacis (dégradé éclairci à 85 %, arrondi 23 %, liserés, reflets, ombre teintée ; mélanges de couleurs précalculés) ; chiffres des tuiles dans la police Glacis Lecture, comme dans l'application ; 17 images `vitrine/images/outil-*.webp` retirées. `numeration.mp4` refait à l'identique par la fabrique du dépôt (même scénario, relu sur planche).
+- **Validation** : capture des tuiles à 3 fois la résolution, bords nets sans liseré ; contrôles de la page repassés (aucun « ERR », aucune erreur JavaScript, seule réponse en erreur `appli/latest.json`, attendue).
+- **Livraison / état** : poussé sur `claude/site-vitrine` ; aperçu privé mis à jour.
+
 ## 2026-11-19 — Claude — Maquette de la nouvelle page de présentation, animée, avec de vraies images de Glacis (`claude/site-vitrine`, rien de publié)
 
 - **Demande / Autorisation** : Franck, 19 novembre, 0 h 21 : « J'aimerais juste qu'on revoit cette vitrine qu'est le site pour que les visiteurs aient un réel aperçu, voir des animations pour présenter l'appli. Un peu à la manière des présentations sur Apple. » Aucune phrase de publication : maquette sur une branche, `main` et le site inchangés.

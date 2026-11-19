@@ -1,5 +1,5 @@
 """Captures fixes de l'application (classe de démonstration) et tuiles des outils. Usage : python outils/vitrine/captures.py [noms]"""
-import asyncio, sys
+import asyncio, re, sys
 from playwright.async_api import async_playwright
 from commun import *
 W,H,D=1440,810,2
@@ -32,12 +32,17 @@ async def outils(pg): await pg.evaluate("Outils.ouvrir(),0"); await pg.wait_for_
 async def lignes(pg): await pg.evaluate("Tableau.ouvrir('lignes'),0"); await pg.wait_for_timeout(1200)
 async def minuteur(pg): await pg.evaluate("Minuteur.ouvrir(),0"); await pg.wait_for_timeout(1000)
 async def icones(pg):
+    """Tuiles des outils : relevées dans le menu Outils (nom, couleurs du fond, dessin SVG de outils/icones-illustrees.js),
+    pas photographiées ; la page les redessine avec les mêmes règles que Glacis (voir ranger.py)."""
+    import json
     await pg.evaluate("Outils.ouvrir(),0"); await pg.wait_for_timeout(1500)
-    noms=await pg.evaluate("[...document.querySelectorAll('#p-outils [data-o]')].map(b=>[b.dataset.o,b.textContent.trim()])")
-    print("ICONES",noms)
-    for o,n in noms:
-        e=pg.locator(f'#p-outils [data-o="{o}"] .outIllu').first
-        if await e.count(): await e.screenshot(path=str(TRAVAIL/"captures"/f"ico-{o}.png"),omit_background=True)
+    r=await pg.evaluate("""[...document.querySelectorAll('#p-outils [data-o]')].map(b=>{const t=b.querySelector('.outIllu');if(!t)return null;
+      return {o:b.dataset.o,nom:b.querySelector('b').textContent.trim(),g1:t.style.getPropertyValue('--g1').trim(),g2:t.style.getPropertyValue('--g2').trim(),
+      dessin:t.querySelector('svg').innerHTML}}).filter(Boolean)""")
+    assert r and all(x["g1"] and x["g2"] and x["dessin"] for x in r), "tuiles des outils introuvables dans le menu Outils"
+    assert not any(re.search(r'\bid=|url\(#', x["dessin"]) for x in r), "un dessin porte un identifiant : il ne peut pas être inséré tel quel"
+    (TRAVAIL/"captures"/"icones.json").write_text(json.dumps(r,ensure_ascii=False,indent=1),encoding="utf-8")
+    print("ICONES",len(r),[x["o"] for x in r])
 async def main():
     (TRAVAIL/"captures").mkdir(parents=True,exist_ok=True)
     async with async_playwright() as p:

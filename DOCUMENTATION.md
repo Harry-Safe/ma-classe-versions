@@ -66,6 +66,7 @@ journal de l'action) et la page de présentation propose l'installateur d'essai.
 | `applis/paquets/<id>-<version>.zip` | idem | paquet d'une appli (sans son dossier `donnees`) ; une version publiée ne change plus |
 | `index.html`, `icone.svg` | à la main | page de présentation de Glacis (vitrine animée, § 1 bis) et lien vers l'installateur Windows (`#telecharger`) : la version publiée, sinon la version d'essai |
 | `vitrine/films/`, `vitrine/images/` | `outils/vitrine/` (§ 1 bis) | films MP4 et images WebP de la page, pris dans la **vraie application** (classe de démonstration, prénoms fictifs) |
+| tuiles des outils (dans `index.html`, entre `<!--TUILES-->` et `<!--/TUILES-->`) | `outils/vitrine/ranger.py` | dessins SVG relevés dans le menu Outils de l'application (`outils/icones-illustrees.js`), redessinés par les règles de tuile de Glacis : jamais photographiés (les coins garderaient le fond de la fenêtre) |
 | `vitrine/polices/` | copie de `vendor/polices/` du dépôt source | polices de la page (Glacis Lecture, Marelle) et leurs licences OFL |
 | `outils/vitrine/` | — | fabrique des films et des images de la page (§ 1 bis) ; `_travail/` est ignoré par Git |
 | `outils/signer.py` | — | vérifie les fichiers annoncés, signe `versions.json` et le catalogue du Store `applis.json` (Ed25519, même clé), prépare `_site/` |
@@ -91,8 +92,8 @@ ni générée** ; seul un point bleu est ajouté pour montrer où l'on clique. P
 
 ```
 python outils/vitrine/filmer.py            # les six films, image par image (environ 4 min chacun)
-python outils/vitrine/captures.py          # les captures fixes et les tuiles des outils
-python outils/vitrine/ranger.py            # conversion et rangement dans vitrine/films et vitrine/images
+python outils/vitrine/captures.py          # les captures fixes et les dessins des tuiles des outils (icones.json)
+python outils/vitrine/ranger.py            # conversion, rangement dans vitrine/films et vitrine/images, tuiles écrites dans index.html
 ```
 
 `filmer.py` pilote l'horloge de la page (30 images par seconde, minuteries, `requestAnimationFrame` et animations CSS

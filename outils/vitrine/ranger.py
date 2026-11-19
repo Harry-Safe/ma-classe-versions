@@ -24,8 +24,22 @@ Image.open(fs[-1]).convert("RGB").save(I/"eleves.webp",quality=80,method=6)
 # image de partage (1200 x 630) : l'accueil de Glacis sur le fond du site
 a=Image.open(T/"captures"/"accueil.png").convert("RGB").resize((1120,630),Image.LANCZOS)
 p=Image.new("RGB",(1200,630),"#e6edfb"); p.paste(a,(40,0)); p.save(I/"partage.jpg",quality=84,optimize=True)
-for f in sorted((T/"captures").glob("ico-*.png")):
-    Image.open(f).convert("RGBA").resize((144,144),Image.LANCZOS).save(I/f"outil-{f.stem[4:].lower()}.webp",quality=88,method=6)
+# tuiles des outils : dessins relevés dans Glacis (captures.py icones), écrits dans index.html entre <!--TUILES--> et <!--/TUILES-->
+import json, html, re
+def melange(a, b, k):                                            # color-mix(in srgb, a k, b) : précalculé pour tous les navigateurs
+    a, b = (tuple(int(c[i:i + 2], 16) for i in (1, 3, 5)) for c in (a, b))
+    return "#" + "".join(f"{round(x * k + y * (1 - k)):02x}" for x, y in zip(a, b))
+ic = T/"captures"/"icones.json"
+if ic.exists():
+    tuiles = json.loads(ic.read_text(encoding="utf-8"))
+    li = "".join(f'\n        <li><span class="tuile" style="--h:{melange(t["g1"], "#ffffff", .85)};--g2:{t["g2"]};--go:{melange(t["g2"], "#202b37", .4)}">'
+                 f'<svg viewBox="0 0 64 64" aria-hidden="true">{t["dessin"]}</svg></span>{html.escape(t["nom"])}</li>' for t in tuiles)
+    page = D.parent/"index.html"; s = page.read_text(encoding="utf-8")
+    s, n = re.subn(r"<!--TUILES-->.*?<!--/TUILES-->", lambda m: "<!--TUILES-->" + li + "\n      <!--/TUILES-->", s, flags=re.S)
+    assert n == 1, "repères <!--TUILES--> absents de index.html"
+    page.write_text(s, encoding="utf-8")
+    for f in I.glob("outil-*.webp"): f.unlink()                 # anciennes tuiles photographiées
+    print("tuiles des outils :", len(tuiles))
 tot=0
 for f in sorted(D.rglob("*")):
     if f.is_file(): tot+=f.stat().st_size

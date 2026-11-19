@@ -8,8 +8,8 @@ généré ; seul un point bleu montre où l'on clique.
 |---|---|
 | `commun.py` | où est la page de Glacis (`stable/Glacis.html`, sinon `essai/Glacis.html`), dossier de travail |
 | `filmer.py` | le moteur (horloge pilotée, 30 images par seconde) et les six scénarios : `journee`, `rituels`, `numeration`, `balance`, `monnaie`, `reglettes` |
-| `captures.py` | captures fixes (`accueil`, `soir`, `semaine`, `ops`, `geo`, `ecriture`…) et tuiles des outils (`icones`) |
-| `ranger.py` | conversion (MP4, WebP) et rangement dans `vitrine/films/` et `vitrine/images/` |
+| `captures.py` | captures fixes (`accueil`, `soir`, `semaine`, `ops`, `geo`, `ecriture`…) ; `icones` relève dans le menu Outils le nom, les couleurs et le dessin SVG de chaque tuile (`_travail/captures/icones.json`) |
+| `ranger.py` | conversion (MP4, WebP) et rangement dans `vitrine/films/` et `vitrine/images/` ; écrit les tuiles des outils dans `index.html` (entre `<!--TUILES-->` et `<!--/TUILES-->`), en vectoriel, avec les règles de tuile de Glacis |
 
 ```
 python outils/vitrine/filmer.py [noms]     # sans nom : les six films
