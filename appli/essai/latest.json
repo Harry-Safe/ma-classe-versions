@@ -1,11 +1,11 @@
 {
-  "version": "6.0.0-beta.12",
-  "notes": "Ma classe s'appelle désormais « Glacis – Ma classe ». Nouveau nom à l'accueil, dans la fenêtre et dans À propos, nouvelle icône (un G d'écolier sur une feuille de cahier). Rien ne change dans les écrans ni dans vos habitudes.\nNouvel écran d'accueil : une feuille de cahier vernie, comme l'icône, sur le fond du site glacis-classe.fr ; « Ma classe » écrit en cursive.\nGlacis est une nouvelle application. Elle s'installe à côté de « Ma classe » ; au premier lancement, choisissez le même dossier de la classe : élèves, emploi du temps, cahier journal, documents et réglages y sont déjà. Seuls quelques réglages propres à l'ordinateur (place des fenêtres, mode léger, nom du poste) sont à refaire. « Ma classe » peut ensuite être désinstallée.\nNouvelle adresse : glacis-classe.fr. Les mises à jour, le Store des applis et la page de présentation y sont réunis.\nFichiers renommés : la page s'appelle « Glacis.html » (« Glacis - Remplaçant.html » pour les remplacements), l'installateur « Glacis_… ». Le dossier proposé s'appelle « Glacis » ; un dossier « Ma classe » existant se choisit tel quel.\nMises à jour plus sûres : l'application n'accepte que les installateurs de Glacis.\nVersions d'essai suivies d'office : une version d'essai de Glacis propose les essais suivants sans réglage (Réglages › Mises à jour › Versions proposées reste modifiable).\nStore : seule l'appli Échecs est reprise.",
-  "pub_date": "2026-11-18T22:46:51Z",
+  "version": "6.0.0-beta.13",
+  "notes": "Le « Piano de lecture » est retiré des outils. Il n'est plus créé d'office et disparaît de la grille ; ses images restent dans le dossier de la classe (« reglages/piano » et « reglages/outils »). Un outil-image se recrée en une minute avec « + Ajouter un outil ». La touche P ne fait plus rien.\n« Soustraction par dégroupement » : c'est le nouveau nom de la soustraction par cassage, dans les Opérations.\nIllustration des opérations : des piles qui se lisent. Les plaques de cent et les gros cubes de mille sont décalés en escalier, avec une ombre : on voit qu'il y en a plusieurs l'une sur l'autre. Une pièce déjà enlevée ne laisse plus voir celles du dessous.\nEnregistrement dans le dossier plus tolérant. Quand le dossier est momentanément occupé (synchronisation Google Drive ou OneDrive, antivirus), Glacis réessaie de lui-même avant d'afficher « Impossible d'enregistrer dans le dossier », ne l'affiche qu'une fois, puis retente plus tard sans rien demander. Deux enregistrements rapprochés ne se croisent plus sur le même fichier.",
+  "pub_date": "2026-11-19T09:08:31Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.12_x64-setup-essai.exe"
+      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.13_x64-setup-essai.exe"
     }
   }
 }

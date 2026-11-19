@@ -1,27 +1,23 @@
 {
-  "version": "6.0.0-beta.12",
-  "date": "2026-11-18",
-  "titre": "Essai : Glacis – Ma classe",
+  "version": "6.0.0-beta.13",
+  "date": "2026-11-19",
+  "titre": "Essai : Retouches : piles lisibles, dégroupement, enregistrement plus tolérant",
   "notes": [
-    "Ma classe s'appelle désormais « Glacis – Ma classe ». Nouveau nom à l'accueil, dans la fenêtre et dans À propos, nouvelle icône (un G d'écolier sur une feuille de cahier). Rien ne change dans les écrans ni dans vos habitudes.",
-    "Nouvel écran d'accueil : une feuille de cahier vernie, comme l'icône, sur le fond du site glacis-classe.fr ; « Ma classe » écrit en cursive.",
-    "Glacis est une nouvelle application. Elle s'installe à côté de « Ma classe » ; au premier lancement, choisissez le même dossier de la classe : élèves, emploi du temps, cahier journal, documents et réglages y sont déjà. Seuls quelques réglages propres à l'ordinateur (place des fenêtres, mode léger, nom du poste) sont à refaire. « Ma classe » peut ensuite être désinstallée.",
-    "Nouvelle adresse : glacis-classe.fr. Les mises à jour, le Store des applis et la page de présentation y sont réunis.",
-    "Fichiers renommés : la page s'appelle « Glacis.html » (« Glacis - Remplaçant.html » pour les remplacements), l'installateur « Glacis_… ». Le dossier proposé s'appelle « Glacis » ; un dossier « Ma classe » existant se choisit tel quel.",
-    "Mises à jour plus sûres : l'application n'accepte que les installateurs de Glacis.",
-    "Versions d'essai suivies d'office : une version d'essai de Glacis propose les essais suivants sans réglage (Réglages › Mises à jour › Versions proposées reste modifiable).",
-    "Store : seule l'appli Échecs est reprise."
+    "Le « Piano de lecture » est retiré des outils. Il n'est plus créé d'office et disparaît de la grille ; ses images restent dans le dossier de la classe (« reglages/piano » et « reglages/outils »). Un outil-image se recrée en une minute avec « + Ajouter un outil ». La touche P ne fait plus rien.",
+    "« Soustraction par dégroupement » : c'est le nouveau nom de la soustraction par cassage, dans les Opérations.",
+    "Illustration des opérations : des piles qui se lisent. Les plaques de cent et les gros cubes de mille sont décalés en escalier, avec une ombre : on voit qu'il y en a plusieurs l'une sur l'autre. Une pièce déjà enlevée ne laisse plus voir celles du dessous.",
+    "Enregistrement dans le dossier plus tolérant. Quand le dossier est momentanément occupé (synchronisation Google Drive ou OneDrive, antivirus), Glacis réessaie de lui-même avant d'afficher « Impossible d'enregistrer dans le dossier », ne l'affiche qu'une fois, puis retente plus tard sans rien demander. Deux enregistrements rapprochés ne se croisent plus sur le même fichier."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Glacis.html",
-      "taille": 6989752,
-      "sha256": "318940407ecd693415b0ca69e9ae19024760dd57f7d0f25d9bcf9249c8521f90"
+      "taille": 6984826,
+      "sha256": "93c231b7f5d329591c8d3d2ac2a421085a0673865f6166b26d671ff6f19638f1"
     },
     "remplacant": {
       "url": "essai/Glacis - Remplaçant.html",
-      "taille": 6989752,
-      "sha256": "318940407ecd693415b0ca69e9ae19024760dd57f7d0f25d9bcf9249c8521f90"
+      "taille": 6984826,
+      "sha256": "93c231b7f5d329591c8d3d2ac2a421085a0673865f6166b26d671ff6f19638f1"
     }
   }
 }
