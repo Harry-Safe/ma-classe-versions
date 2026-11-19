@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-19 — Claude — Nouvelle page de présentation publiée sur glacis-classe.fr (réunion de `claude/site-vitrine`)
+
+- **Demande / Autorisation** : Franck, 1 h 04 : « Publie » (après « Je valide » à 0 h 59, sur la maquette et ses tuiles corrigées).
+- **Contrôle préalable** : `main` distant à `490ea60`, contenu dans `claude/site-vitrine` (`7670552`) : avance rapide, sans forçage ; aucune pull request ; aucune action en cours (dernière : `44415823662`, réussie).
+- **Réalisation** : réunion des deux commits de la maquette (page, films, captures, polices, fabrique `outils/vitrine/`, copie de `vitrine/` par `outils/signer.py`) et de cette entrée ; aucune page, fiche, coquille ni paquet de l'application modifié : l'essai 6.0.0-beta.12 et Échecs 1.1.0 restent tels quels.
+- **Validation** : voir les deux entrées suivantes (contrôles de la page, répétition à blanc de `signer.py`). Action et déploiement : voir l'entrée de suivi.
+- **Livraison / état** : envoi sur `main`.
+
 ## 2026-11-19 — Claude — Page de présentation : tuiles des outils en vectoriel (`claude/site-vitrine`, rien de publié)
 
 - **Demande / Autorisation** : Franck, 0 h 59 : « Je valide. Petit détail, le détourage des icônes qui apparaissent à la section outil n'est pas très propre. » Pas de phrase de publication : `main` et le site inchangés.
