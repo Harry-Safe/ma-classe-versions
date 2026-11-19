@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-19 — Claude — Essai 6.0.0-beta.13 publié (pages et application)
+
+- **Demande / Autorisation** : Franck, 8 h 16 : quatre retouches du logiciel (Piano de lecture retiré, soustraction par dégroupement, piles lisibles dans l'illustration des opérations, erreur d'enregistrement dans les rituels) ; publication sur le canal d'essai : règle permanente.
+- **Contrôle préalable** : `main` à `6394de5`, aucune pull request, aucune action en cours ; dépôt source : `essai` à `2bd678f`, contenant l'essai publié précédent (garde de `publier-version.py` passée sans `--forcer`).
+- **Réalisation** : `build/publier-version.py` et `build/publier-appli.py --canal essai` depuis le dépôt source : `essai/Glacis.html`, `essai/Glacis - Remplaçant.html`, `entrees/essai.json`, `entrees/essai.source`, `appli/essai/latest.json` ; coquille inchangée ; la page de présentation n'est pas touchée (sa refonte est sur `claude/vitrine-2`).
+- **Validation** : action `44493706315` réussie : « versions.json signé : essai 6.0.0-beta.13 », « applis.json signé : echecs 1.1.0 (essai) », « Glacis_6.0.0-beta.13_x64-setup-essai.exe signé, signature vérifiée comme dans l'application », « Uploaded 6 files (31 already uploaded) », « Deployment complete ». Cloudflare (connecteur) : déploiement de production `71c2c2cc`, commit `edc5f49`, « deploy success », alias `glacis-classe.fr` et `www.glacis-classe.fr`. Non relu de l'extérieur. Tests de l'application : journal du dépôt source (104 scénarios verts sur 106 dans la suite, les deux autres corrigés et repassés seuls).
+- **Livraison / état** : `main` `edc5f49` ; essai proposé d'office aux postes qui suivent les essais.
+
 ## 2026-11-19 — Claude — Nouvelle page de présentation publiée sur glacis-classe.fr (réunion de `claude/site-vitrine`)
 
 - **Demande / Autorisation** : Franck, 1 h 04 : « Publie » (après « Je valide » à 0 h 59, sur la maquette et ses tuiles corrigées).
