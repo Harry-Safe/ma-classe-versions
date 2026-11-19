@@ -39,6 +39,19 @@ def essai_suit_stable(canaux, quoi):
     return canaux
 
 
+def entetes():
+    """_headers avec les empreintes des scripts écrits dans index.html à la place de __SCRIPTS_EN_LIGNE__ : la politique de
+    contenu de la page de présentation n'autorise que ces scripts-là, et suit d'elle-même chaque modification de la page."""
+    page = (ICI / "index.html").read_text(encoding="utf-8")
+    scripts = re.findall(r"<script>(.*?)</script>", page, re.S)
+    if re.search(r"<script(?![^>]*\bsrc=)[^>]+>", page): sys.exit("index.html : script en ligne avec attributs, non pris en compte par la politique de contenu")
+    if re.search(r"\son[a-z]+\s*=", re.sub(r"<script>.*?</script>", "", page, flags=re.S)): sys.exit("index.html : gestionnaire d'événement dans une balise, refusé par la politique de contenu")
+    emp = " ".join("'sha256-" + base64.b64encode(hashlib.sha256(x.encode("utf-8")).digest()).decode() + "'" for x in scripts)
+    texte = (ICI / "_headers").read_text(encoding="utf-8")
+    print(f"_headers : {len(scripts)} script(s) en ligne autorisé(s) par empreinte")
+    return texte.replace("__SCRIPTS_EN_LIGNE__", emp)
+
+
 def verifier_fichier(origine, x):
     p = ICI / x["url"]
     if not p.is_file(): sys.exit(f"{origine} : fichier absent {x['url']}")
@@ -88,8 +101,10 @@ def main():
              "signature": base64.b64encode(k.sign(contenu.encode("utf-8"))).decode()}
     shutil.rmtree(SITE, ignore_errors=True); SITE.mkdir()
     for c in dossiers: shutil.copytree(ICI / c, SITE / c)
-    for nom in ("index.html", "icone.svg", "_headers"):          # page de présentation, son icône, en-têtes de Cloudflare Pages
+    for nom in ("index.html", "icone.svg"):                      # page de présentation et son icône
         if (ICI / nom).is_file(): shutil.copyfile(ICI / nom, SITE / nom)
+    if (ICI / "_headers").is_file():                              # en-têtes de Cloudflare Pages, avec la politique de contenu
+        (SITE / "_headers").write_text(entetes(), encoding="utf-8")
     if (ICI / "vitrine").is_dir(): shutil.copytree(ICI / "vitrine", SITE / "vitrine")   # images, films et polices de la page de présentation
     if (ICI / "appli").is_dir(): shutil.copytree(ICI / "appli", SITE / "appli")   # application Windows (latest.json + installateur signé)
     (SITE / "versions.json").write_text(json.dumps(fiche, ensure_ascii=False), encoding="utf-8")

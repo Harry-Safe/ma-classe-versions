@@ -1,4 +1,18 @@
 # Site glacis-classe.fr (Cloudflare Pages). La page et l application lisent les fiches et les fichiers depuis une autre
 # origine (page ouverte en file://, application Windows) : lecture permise de partout, comme le fait Pages par defaut.
+# Securite (19 novembre 2026) : pas d affichage dans un cadre d un autre site, aucune permission d appareil ; la page de
+# presentation n execute que ses propres scripts (empreintes calculees par outils/signer.py a la place de
+# __SCRIPTS_EN_LIGNE__) et la mesure d audience de Cloudflare. HSTS et HTTPS force : reglages de la zone Cloudflare.
 /*
   Access-Control-Allow-Origin: *
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), usb=(), payment=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
+
+/
+  Content-Security-Policy: default-src 'self'; script-src 'self' __SCRIPTS_EN_LIGNE__ https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+
+/index.html
+  Content-Security-Policy: default-src 'self'; script-src 'self' __SCRIPTS_EN_LIGNE__ https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests

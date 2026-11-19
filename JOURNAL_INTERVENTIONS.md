@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-19 — Claude — Sécurité du site : HTTPS durci (zone Cloudflare) et en-têtes de sécurité (`_headers`)
+
+- **Demande / Autorisation** : Franck, 18 h 49 : « Fais 2 et 4 » (réglages HTTPS de la zone, en-têtes de la page), après le bilan de sécurité du site ; DMARC (point 3) laissé de côté : Franck veut pouvoir envoyer des courriels depuis le domaine.
+- **Contrôle préalable** : `main` à `9fc79ad` ; zone `glacis-classe.fr` (offre gratuite) : TLS minimal 1.0, HTTPS non forcé, HSTS absent, SSL « Full » ; DNSSEC actif ; analyse URL Scanner de Cloudflare : aucun verdict, aucun cookie.
+- **Réalisation** : zone (API, 18 h 50) : TLS minimal 1.2, « Always Use HTTPS », SSL « Full (strict) », HSTS 6 mois avec sous-domaines (sans preload) et nosniff. `_headers` : `X-Frame-Options: DENY`, `Permissions-Policy`, `Cross-Origin-Opener-Policy`, `Referrer-Policy`, `nosniff` partout ; politique de contenu sur `/` et `/index.html` (scripts de la page par empreinte, mesure d'audience Cloudflare, rien d'autre) ; `outils/signer.py` (`entetes()`) calcule les empreintes à chaque publication et refuse un script en ligne avec attributs ou un gestionnaire d'événement dans une balise.
+- **Validation** : après les réglages de zone, URL Scanner : 200, TLS 1.3, `max-age=15552000; includeSubDomains`. `signer.py` sur une copie avec une clé jetable : 2 scripts autorisés par empreinte ; page servie localement avec la politique de contenu dans Chromium (1366 et 390 px) : aucune violation, polices chargées, 15 films présents (lecture identique sans la politique).
+- **Livraison / état** : voir le commit suivant de `main` et son action.
+
 ## 2026-11-19 — Claude — Essai 6.0.0-beta.14 publié ; l'essai suit la stable (`outils/signer.py`, `outils/signer-appli.py`)
 
 - **Demande / Autorisation** : Franck, 11 h 28 : « Empêche la recherche de mise à jour d'essai sauf en cochant une case. Trouve un moyen pour que ce soit toujours la version stable qui soit priorisée » ; 12 h 10 : « L'objectif étant aussi que ceux qui ont actuellement la version essai prise sur le site puisse avoir directement la stable quand elle sort et qu'un collègue ne reste pas coincé avec les versions d'essai ». Publication d'essai : autorisation permanente (`AGENTS.md` de `Ma-classe`).

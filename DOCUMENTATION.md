@@ -170,7 +170,8 @@ Déclenchée par **tout envoi sur `main`** (et à la main) :
    (clé Ed25519 brute, 32 octets en base64), copie les canaux, `index.html` et `appli/` dans `_site/` ; **l'essai suit
    la stable** (19 novembre 2026) : quand la version stable est au moins aussi récente que la version d'essai, le canal
    `essai` de `versions.json` (et celui de chaque appli de `applis.json`) annonce la version stable, pour que les essais
-   installés jusqu'à la 6.0.0-beta.13, qui ne lisent que le canal d'essai, reçoivent la stable dès sa sortie ; puis
+   installés jusqu'à la 6.0.0-beta.13, qui ne lisent que le canal d'essai, reçoivent la stable dès sa sortie ; `_headers` est
+   écrit avec les empreintes des scripts de `index.html` (politique de contenu de la page de présentation) ; puis
    `fabriquer-appli.py --placer` range les installateurs fabriqués à côté de leur `latest.json` ;
 3. Node 20, `npm ci --ignore-scripts` dans `outils/signature/` (la clé n'est pas encore dans l'environnement), puis
    `outils/signer-appli.py` (si `appli/latest.json` existe) : signe chaque installateur avec le secret
