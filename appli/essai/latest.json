@@ -1,11 +1,11 @@
 {
-  "version": "6.0.0-beta.24",
-  "notes": "Un thème de Noël livré avec Glacis : « Village sous la neige ». Il se choisit dans Réglages › Apparence › Thème, à côté de Glacis : village aux fenêtres allumées, sapins enneigés, bonhomme de neige, mobiles de flocons sur l'écran d'accueil. Il se masque si on n'en veut pas. On peut toujours importer ses propres fichiers de thèmes.",
-  "pub_date": "2026-11-20T21:20:40Z",
+  "version": "6.0.0-beta.25",
+  "notes": "Trois nouveaux thèmes livrés avec Glacis : « Saint-Nicolas », « Noël au coin du feu » et « Hiver ». Ils se choisissent dans Réglages › Apparence › Thème, dans l'ordre du calendrier : le marché de Saint-Nicolas avec l'âne et les pains d'épices, le salon de Noël au coin du feu (sapin, cheminée, chat endormi), puis le lac gelé de l'hiver avec son renard et son rouge-gorge. Chacun se masque d'un clic si on n'en veut pas.",
+  "pub_date": "2026-11-20T22:31:54Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.24_x64-setup-essai.exe"
+      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.25_x64-setup-essai.exe"
     }
   }
 }

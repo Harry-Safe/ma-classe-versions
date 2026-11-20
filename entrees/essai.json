@@ -1,20 +1,20 @@
 {
-  "version": "6.0.0-beta.24",
+  "version": "6.0.0-beta.25",
   "date": "2026-11-20",
-  "titre": "Essai : Thème de Noël livré avec Glacis",
+  "titre": "Essai : Thèmes de saison livrés avec Glacis",
   "notes": [
-    "Un thème de Noël livré avec Glacis : « Village sous la neige ». Il se choisit dans Réglages › Apparence › Thème, à côté de Glacis : village aux fenêtres allumées, sapins enneigés, bonhomme de neige, mobiles de flocons sur l'écran d'accueil. Il se masque si on n'en veut pas. On peut toujours importer ses propres fichiers de thèmes."
+    "Trois nouveaux thèmes livrés avec Glacis : « Saint-Nicolas », « Noël au coin du feu » et « Hiver ». Ils se choisissent dans Réglages › Apparence › Thème, dans l'ordre du calendrier : le marché de Saint-Nicolas avec l'âne et les pains d'épices, le salon de Noël au coin du feu (sapin, cheminée, chat endormi), puis le lac gelé de l'hiver avec son renard et son rouge-gorge. Chacun se masque d'un clic si on n'en veut pas."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Glacis.html",
-      "taille": 7530849,
-      "sha256": "82867f029e045e9723c0ab0eff65e08f1d8cc8b2ccce4de81da7b65b09ef6ffc"
+      "taille": 7638790,
+      "sha256": "994a642f1eb8b46652483bf4c8214cb94ccf7c31640ed73873b976e2ba4b4237"
     },
     "remplacant": {
       "url": "essai/Glacis - Remplaçant.html",
-      "taille": 7530849,
-      "sha256": "82867f029e045e9723c0ab0eff65e08f1d8cc8b2ccce4de81da7b65b09ef6ffc"
+      "taille": 7638790,
+      "sha256": "994a642f1eb8b46652483bf4c8214cb94ccf7c31640ed73873b976e2ba4b4237"
     }
   }
 }
