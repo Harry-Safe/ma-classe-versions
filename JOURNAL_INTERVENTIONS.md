@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-20 — Claude — Essai 6.0.0-beta.16 publié (applis intégrées et boîte à outils)
+
+- **Demande / Autorisation** : lot 4 des demandes de Franck du 19 novembre (23 h 46), « Vas-y » le 20 novembre (7 h 52) ; publication sur le canal d'essai : règle permanente.
+- **Contrôle préalable** : `main` à `aef99f5` ; dépôt source : `essai` à `8015dd0`, garde de publication satisfaite.
+- **Réalisation** : `build/publier-version.py --canal essai` et `build/publier-appli.py --canal essai` du dépôt source (`essai/Glacis.html`, `essai/Glacis - Remplaçant.html`, `entrees/essai.json`, `entrees/essai.source`, `appli/essai/latest.json`) ; commit `ba30cb6`, envoyé sur `main` par avance rapide. Le dossier `applis/` n'est pas modifié : Glacis n'a plus de Store à partir de cet essai (les applis sont dans la page), le catalogue `applis.json` reste servi pour les versions antérieures.
+- **Validation** : action `44697934620` réussie : « versions.json signé : essai 6.0.0-beta.16 », « applis.json signé : echecs 1.1.0 (essai) », « Glacis_6.0.0-beta.16_x64-setup-essai.exe signé, signature vérifiée comme dans l'application », « Deployment complete » ; Cloudflare Pages : déploiement `e4414b5d`, production, commit `ba30cb6`, succès. Les fichiers du site n'ont pas été relus un à un.
+- **Livraison / état** : publié sur glacis-classe.fr, canal d'essai seulement ; canal stable inchangé.
+
 ## 2026-11-20 — Claude — Essai 6.0.0-beta.15 publié (Préparer, emploi du temps et cours double)
 
 - **Demande / Autorisation** : lots 1 à 3 des demandes de Franck du 19 novembre (23 h 46), « un par un puis un test unique » ; publication sur le canal d'essai : règle permanente.
