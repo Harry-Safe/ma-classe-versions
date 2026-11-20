@@ -1,11 +1,11 @@
 {
-  "version": "6.0.0-beta.23",
-  "notes": "Classe de démonstration : l'écran d'accueil peut rester affiché. Ouverte avec « &depart » dans son adresse, la classe de démonstration attend « Commencer », comme une vraie classe. Cela sert aux films de la page de présentation de Glacis ; rien ne change pour vous.",
-  "pub_date": "2026-11-20T19:05:38Z",
+  "version": "6.0.0-beta.24",
+  "notes": "Un thème de Noël livré avec Glacis : « Village sous la neige ». Il se choisit dans Réglages › Apparence › Thème, à côté de Glacis : village aux fenêtres allumées, sapins enneigés, bonhomme de neige, mobiles de flocons sur l'écran d'accueil. Il se masque si on n'en veut pas. On peut toujours importer ses propres fichiers de thèmes.",
+  "pub_date": "2026-11-20T21:20:40Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.23_x64-setup-essai.exe"
+      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.24_x64-setup-essai.exe"
     }
   }
 }
