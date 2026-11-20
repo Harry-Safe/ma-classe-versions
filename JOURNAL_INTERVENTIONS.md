@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-20 — Claude — Essai 6.0.0-beta.22 publié (canevas commun des applis, Labo des signes)
+
+- **Demande / Autorisation** : Franck, 20 novembre, 17 h 35 (Labo des signes dans Glacis, même canevas pour toutes les applis), 17 h 41 (aucune voix de synthèse) et 17 h 56 (« L'option A est la plus intuitive. Je valide ! ») ; publication sur le canal d'essai : règle permanente.
+- **Contrôle préalable** : `main` à `21a7a1f` ; dépôt source : `essai` à `62c3a07`, garde de publication satisfaite (l'essai 6.0.0-beta.21, `c038463`, est contenu).
+- **Réalisation** : `build/publier-version.py --canal essai` et `build/publier-appli.py --canal essai` du dépôt source ; commit `eda8d7c`, envoyé sur `main` par avance rapide.
+- **Validation** : action `44793109457` réussie : « versions.json signé : essai 6.0.0-beta.22 », « applis.json signé : echecs 1.1.0 (essai) » (catalogue de l'ancien Store, inchangé), « Glacis_6.0.0-beta.22_x64-setup-essai.exe signé, signature vérifiée comme dans l'application », « Deployment complete » ; Cloudflare Pages : déploiement `979870e6`, production, commit `eda8d7c`, succès.
+- **Livraison / état** : publié sur glacis-classe.fr, canal d'essai seulement ; canal stable inchangé.
+
 ## 2026-11-20 — Claude — Essai 6.0.0-beta.21 publié (thèmes plus sûrs)
 
 - **Demande / Autorisation** : Franck, 20 novembre, 18 h 11 (« Oui corrige d'abord » : défauts du moteur de thèmes) ; publication sur le canal d'essai : règle permanente.
