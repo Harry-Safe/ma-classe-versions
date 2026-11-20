@@ -1,23 +1,22 @@
 {
-  "version": "6.0.0-beta.16",
+  "version": "6.0.0-beta.17",
   "date": "2026-11-20",
-  "titre": "Essai : Applis intégrées et boîte à outils",
+  "titre": "Essai : Démarrage sur tablette, Explorer simplifié, boîte à outils à gauche",
   "notes": [
-    "Les applis sont dans Glacis, dans toutes les versions. Le Store disparaît : l'onglet « Applis » d'Explorer existe aussi dans la page ouverte dans un navigateur, sur l'iPad et dans l'édition Remplaçant. L'appli Échecs y est livrée avec Glacis ; elle s'ouvre comme un tableau, son nom dans la barre de menus. Sans dossier connecté, elle garde ses parties dans le navigateur.",
-    "Une appli ouverte reste ouverte. Sa tuile reste sous « Explorer » dans la barre de navigation tant que vous ne la quittez pas : allez aux Tableaux ou aux Rituels, un clic sur la tuile y revient, rien n'est perdu. Plusieurs applis peuvent rester ouvertes ; « Quitter » (ou un clic droit sur la tuile) en ferme une. Les outils et les fonctions ouverts ne s'ajoutent plus d'eux-mêmes à la barre.",
-    "Boîte à outils. La grille des outils n'est plus une fonction de la barre de navigation : c'est la « Boîte à outils », ouverte par son bouton dans la barre de menus (sur tous les écrans) ou par la touche O. L'épingle la garde ouverte quand on y prend un outil. Les outils restent aussi dans Explorer.",
-    "Masquer des outils ou des applis dans Explorer. « Choisir les outils affichés » (ou « les applis ») montre tout : décochez ce que vous ne voulez pas voir, recochez-le pour le retrouver ; un clic droit sur une icône propose aussi « Masquer dans Explorer ». « Nouvel outil » est proposé dans l'onglet Outils."
+    "« Commencer » ne reste plus sans effet. Sur tablette et sur téléphone, le bouton de l'écran d'accueil pouvait ne rien faire. Le démarrage est durci : un appui au doigt démarre même si son clic n'arrive pas ou si autre chose couvre le bouton, un stockage du navigateur qui ne répond pas ne retient plus l'accueil, et si quelque chose empêche Glacis de démarrer, l'écran d'accueil le dit sous les boutons (message à noter) au lieu de rester muet.",
+    "Explorer plus simple. L'onglet « Fonctions » disparaît : Élèves, Préparer, Résultats et ce que vous retirez de la barre de navigation se retrouvent dans l'onglet « Applis », après les applis.",
+    "La boîte à outils sous la main partout. Elle s'ouvre par une languette au bord gauche de l'écran, sous l'ampoule de l'assistant, sur tous les écrans, Tableaux et Rituels compris (et toujours par la touche O). Le bouton de la barre du haut disparaît."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Glacis.html",
-      "taille": 7190798,
-      "sha256": "b40dcc3a2f9ea04d1016366aac37833ac1529eee66c952707b2387feeffdd0f8"
+      "taille": 7197437,
+      "sha256": "fa934244fbcb99142ecb8b024210b9806e42217a091684e5262fb07b7bc629b5"
     },
     "remplacant": {
       "url": "essai/Glacis - Remplaçant.html",
-      "taille": 7190798,
-      "sha256": "b40dcc3a2f9ea04d1016366aac37833ac1529eee66c952707b2387feeffdd0f8"
+      "taille": 7197437,
+      "sha256": "fa934244fbcb99142ecb8b024210b9806e42217a091684e5262fb07b7bc629b5"
     }
   }
 }
