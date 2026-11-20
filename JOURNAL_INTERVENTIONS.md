@@ -2,14 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
-## 2026-11-20 — Claude — Page de présentation : nouvelle ouverture (branche `claude/ouverture-vitrine`, pas encore en ligne)
+## 2026-11-20 — Claude — Page de présentation : nouvelle ouverture (tableau blanc, voile, film « tout au même endroit »)
 
-- **Demande / Autorisation** : Franck a validé la maquette (« Nickel l'intro », puis « Nickel » pour le film « tout au même endroit ») et demandé « fais ces étapes » ; la mise en ligne attend sa phrase (un envoi sur `main` publie le site).
+- **Demande / Autorisation** : Franck a validé la maquette (« Nickel l'intro », puis « Nickel » pour le film « tout au même endroit ») et demandé « fais ces étapes » ; mise en ligne : « Publie » (Franck, 20 novembre, 21 h 06).
 - **Contrôle préalable** : `main` à `a8c6a31` (essai 6.0.0-beta.23 publié) ; branche créée depuis `main`, puis replacée dessus.
 - **Réalisation** : en haut de `index.html`, l'ouverture remplace le film `document` : un tableau blanc dessiné (cadre, auget, feutres), un voile de verre qui descend du haut et s'y plaque, puis l'écran d'accueil de Glacis s'y dépose et le film `ouverture` démarre (style et script `.ouv`, noms préfixés `ouv` ; légende « glacis » puis « tout au même endroit » ; « Revoir » ; bouton lecture/pause ; mouvements réduits : rien ne bouge ; sans script : le film seul avec ses commandes). L'ancien écran du haut et son mouvement au défilement sont retirés. `filmer.py` : scénario `ouverture` (classe de démonstration avec `&depart`, navigation épinglée, appel, problème, numération, minuteur réduit, Atelier, Préparer, Accueil) et adresse propre à un film ; `ranger.py` : affiche de `ouverture` = sa première image, films nommés rangés seuls ; `DOCUMENTATION.md` § 1 bis et `outils/vitrine/LISEZ-MOI.md` (quinze films ; `document` gardé de côté, hors de la page).
 - **Fichiers** : `index.html`, `vitrine/films/ouverture.mp4` et `.webp`, `outils/vitrine/filmer.py`, `ranger.py`, `LISEZ-MOI.md`, `DOCUMENTATION.md`.
 - **Validation** : film tourné depuis `essai/Glacis.html` (6.0.0-beta.23 publié) : 681 images, 22,7 s, aucune erreur de page ; planche relue (prénoms fictifs, aucun message d'erreur). Page servie en local avec la politique de contenu du site (empreintes des scripts calculées comme `outils/signer.py`) : aucun refus ; contrôles de `signer.py` (script avec attributs, gestionnaire en ligne) : rien. Lecture réelle dans Chrome à 1440, 1366 et 390 px : voile, écran d'accueil, film, fin avec bouton lecture ; mouvements réduits et sans script vérifiés. Seule erreur : `appli/latest.json` absent en local (fabriqué par l'action).
-- **Livraison / état** : poussé sur `claude/ouverture-vitrine` seulement ; **rien n'est en ligne**.
+- **Livraison / état** : `claude/ouverture-vitrine` envoyée sur `main` par avance rapide ; résultat de l'action dans l'entrée suivante.
 
 ## 2026-11-20 — Claude — Essai 6.0.0-beta.23 publié (classe de démonstration avec l'écran d'accueil gardé)
 
