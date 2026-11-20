@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-20 — Claude — Essai 6.0.0-beta.17 publié (démarrage sur tablette, Explorer simplifié, boîte à outils à gauche)
+
+- **Demande / Autorisation** : Franck, 20 novembre, 9 h 37 (« Glacis HTML bloque sur le bouton commencer ») et 9 h 42 ; publication sur le canal d'essai : règle permanente.
+- **Contrôle préalable** : `main` à `9e51713` ; dépôt source : `essai` à `13adfb1`, garde de publication satisfaite.
+- **Réalisation** : `build/publier-version.py --canal essai` et `build/publier-appli.py --canal essai` du dépôt source ; commit `d85c155`, envoyé sur `main` par avance rapide.
+- **Validation** : action `44713263546` réussie : « versions.json signé : essai 6.0.0-beta.17 », « applis.json signé : echecs 1.1.0 (essai) », « Glacis_6.0.0-beta.17_x64-setup-essai.exe signé, signature vérifiée comme dans l'application », « Deployment complete » ; Cloudflare Pages : déploiement `ca7decd1`, production, commit `d85c155`, succès. Le blocage signalé sur l'iPad et sur Android n'a pas été reproduit : cet essai porte des parades et un message à l'accueil, pas une correction prouvée.
+- **Livraison / état** : publié sur glacis-classe.fr, canal d'essai seulement ; canal stable inchangé.
+
 ## 2026-11-20 — Claude — Essai 6.0.0-beta.16 publié (applis intégrées et boîte à outils)
 
 - **Demande / Autorisation** : lot 4 des demandes de Franck du 19 novembre (23 h 46), « Vas-y » le 20 novembre (7 h 52) ; publication sur le canal d'essai : règle permanente.
