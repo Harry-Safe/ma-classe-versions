@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-20 — Claude — Essai 6.0.0-beta.23 publié (classe de démonstration avec l'écran d'accueil gardé)
+
+- **Demande / Autorisation** : Franck, 20 novembre, 19 h 29 : « fais ces étapes » (option `&depart` dans Glacis, film d'ouverture refait avec les outils du site, ouverture intégrée à la page) ; publication sur le canal d'essai : règle permanente. La nouvelle ouverture de la page reste sur la branche `claude/ouverture-vitrine` (mise en ligne sur sa phrase).
+- **Contrôle préalable** : `main` à `74b4383` ; dépôt source : `essai` à `b9bf9d1`, garde de publication satisfaite (l'essai 6.0.0-beta.22 est contenu).
+- **Réalisation** : `build/publier-version.py --canal essai` et `build/publier-appli.py --canal essai` du dépôt source ; commit `f4c0ec2`, envoyé sur `main` par avance rapide (la page de présentation n'y change pas).
+- **Validation** : action `44798926250` réussie : « versions.json signé : essai 6.0.0-beta.23 », « applis.json signé », installateur `Glacis_6.0.0-beta.23_x64-setup-essai.exe` fabriqué et signé, « Deployment complete » ; déploiement non relu par le connecteur Cloudflare.
+- **Livraison / état** : publié sur glacis-classe.fr, canal d'essai seulement ; canal stable inchangé.
+
 ## 2026-11-20 — Claude — Essai 6.0.0-beta.22 publié (canevas commun des applis, Labo des signes)
 
 - **Demande / Autorisation** : Franck, 20 novembre, 17 h 35 (Labo des signes dans Glacis, même canevas pour toutes les applis), 17 h 41 (aucune voix de synthèse) et 17 h 56 (« L'option A est la plus intuitive. Je valide ! ») ; publication sur le canal d'essai : règle permanente.
