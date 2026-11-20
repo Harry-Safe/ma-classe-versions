@@ -77,7 +77,6 @@
     .barre nav{display:none}
     .barre{position:absolute;top:8px;background:none;border-color:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;padding-inline:4px}
     .barre .bouton{background:none;color:var(--bleu);box-shadow:none;padding:8px 6px}
-    .tete{padding-top:84px}
   }
 
   .bouton{display:inline-flex;align-items:center;gap:.5em;padding:14px 28px;border-radius:999px;border:0;cursor:pointer;
@@ -93,8 +92,7 @@
   .pastille{display:inline-block;padding:6px 14px;border-radius:999px;font-size:.88rem;font-weight:700;color:var(--bleu);background:var(--teinte);border:1px solid var(--trait)}
 
   /* ---------- en-tête ---------- */
-  .tete{padding:118px 0 0;text-align:center}
-  .tete .icone{width:104px;height:104px;margin:0 auto 18px;filter:drop-shadow(0 14px 22px rgba(47,79,168,.3))}
+  .tete{padding:clamp(56px,8vw,96px) 0 0;text-align:center}
   h1{line-height:1;font-size:clamp(1.5rem,2.6vw,1.9rem);font-weight:700;letter-spacing:-.01em;display:flex;flex-direction:column;align-items:center}
   h1 .cursive{font-family:"Marelle",cursive;font-weight:400;color:var(--bleu);font-size:1.45em;line-height:1.7;margin-top:.28em}
   .accroche{font-size:clamp(2.5rem,7.2vw,5.4rem);font-weight:700;line-height:1.02;letter-spacing:-.03em;margin:22px auto 0;max-width:13em;text-wrap:balance}
@@ -116,14 +114,96 @@
     transform:translateX(-70%);opacity:0}
   .ecran.vu::after{animation:glacis 1.7s .15s var(--elan) both}
   @keyframes glacis{0%{transform:translateX(-70%);opacity:0}25%{opacity:1}100%{transform:translateX(70%);opacity:0}}
-  .tete .ecran{transform-origin:50% 0;will-change:transform;
-    transform:rotateX(calc(var(--t,0)*15deg)) scale(calc(1 - var(--t,0)*.11)) translateY(calc(var(--t,0)*26px))}
   .pause{position:absolute;right:12px;bottom:12px;z-index:2;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.8);cursor:pointer;
     background:rgba(31,45,85,.42);color:#fff;display:grid;place-items:center;opacity:0;transition:opacity .25s;
     -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
   .pause svg{width:16px;height:16px}
   .ecran:hover .pause,.pause:focus-visible,.pause[aria-pressed=true]{opacity:1}
   @media (hover:none){.pause{opacity:.85}}
+
+  /* ---------- l'ouverture : un tableau blanc, un voile de verre qui s'y pose (le glacis), puis Glacis lui-même ----------
+     Le tableau et le voile sont dessinés ici (CSS, SVG) ; tout ce qui apparaît sur le voile est le film « ouverture », pris
+     dans la vraie application (outils/vitrine/filmer.py). La scène mesure 1648 × 1000 points ; le script la met à l'échelle.
+     Sans script : tout est posé, immobile, le film garde les commandes du navigateur. Mouvements réduits : rien ne bouge,
+     le film attend un clic sur son bouton lecture. */
+  .ouv{padding:84px 16px 0;display:flex;flex-direction:column;align-items:center}
+  .ouvCadre{position:relative;width:min(1240px,calc(100vw - 32px),calc((100vh - 176px) * 1.648));aspect-ratio:1648/1000}
+  @supports (height:100svh){.ouvCadre{width:min(1240px,calc(100vw - 32px),calc((100svh - 176px) * 1.648))}}
+  .ouvPlan{position:absolute;left:0;top:0;width:1648px;height:1000px;transform-origin:0 0;perspective:2600px;perspective-origin:824px 430px}
+  .js .ouvCadre:not(.joue):not(.fini) .ouvPlan{visibility:hidden}
+  html:not(.js) .ouvCadre{aspect-ratio:auto}   /* sans script : le film seul, à la largeur de la page */
+  html:not(.js) .ouvPlan{position:static;width:auto;height:auto}
+  html:not(.js) .ouvAlu,html:not(.js) .ouvSurface,html:not(.js) .ouvAuget{display:none}
+  html:not(.js) .ouvVerre{position:relative;left:auto;top:auto;width:100%;height:auto;aspect-ratio:16/9}
+  .ouvAlu{position:absolute;left:0;top:0;width:1648px;height:948px;border-radius:18px;
+    background:linear-gradient(180deg,#fbfcfd,#d9dde3 46%,#c8cdd4 54%,#eef0f3);
+    box-shadow:inset 0 1px 0 #fff,inset 0 -2px 0 rgba(0,0,0,.08),0 30px 60px -30px rgba(31,45,85,.45),0 8px 18px -10px rgba(31,45,85,.25)}
+  .ouvCoin{position:absolute;width:44px;height:44px;border-radius:12px;background:linear-gradient(145deg,#c4c9d1,#9aa1ab);box-shadow:inset 0 1px 0 rgba(255,255,255,.6)}
+  .ouvSurface{position:absolute;left:24px;top:24px;width:1600px;height:900px;border-radius:5px;overflow:hidden;
+    background:radial-gradient(70% 95% at 20% 12%,#fff 0%,rgba(255,255,255,0) 62%),linear-gradient(168deg,#f5f7fa,#e4e9ef);
+    box-shadow:inset 0 2px 7px rgba(31,45,85,.2),inset 0 0 0 1px rgba(31,45,85,.08)}
+  .ouvBrillance{position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(108deg,transparent 54%,rgba(255,255,255,.8) 60%,rgba(255,255,255,.3) 64%,transparent 71%),
+               linear-gradient(108deg,transparent 73%,rgba(255,255,255,.55) 75%,transparent 78%)}
+  .ouvOmbre{position:absolute;left:16px;top:9px;width:1568px;height:882px;border-radius:22px;opacity:0}
+  .ouvOmbre.loin{box-shadow:0 60px 110px -24px rgba(31,45,85,.62)}
+  .ouvOmbre.pres{opacity:1;box-shadow:0 16px 32px -14px rgba(31,45,85,.42),0 2px 5px rgba(31,45,85,.12)}
+  .ouvAuget{position:absolute;left:0;top:0;width:1648px;height:1000px;pointer-events:none}
+  /* le voile : une feuille de verre au format de l'écran de l'appli (16/9) */
+  .ouvVerre{position:absolute;left:40px;top:33px;width:1568px;height:882px;border-radius:22px;overflow:hidden;
+    background:linear-gradient(115deg,transparent 18%,rgba(255,255,255,.4) 23%,transparent 31%,transparent 60%,rgba(255,255,255,.3) 64%,transparent 69%),
+      linear-gradient(160deg,rgba(226,239,255,.32),rgba(206,226,250,.2) 55%,rgba(190,220,255,.3));
+    box-shadow:inset 0 2px 0 #fff,inset 0 -3px 0 rgba(255,255,255,.95),inset 0 -6px 10px -4px rgba(120,190,225,.55),inset 0 0 0 2px rgba(110,165,195,.55),inset 0 0 0 5px rgba(255,255,255,.4),inset 0 0 36px rgba(140,195,235,.38)}
+  .ouvAppli{position:absolute;inset:0;background:url(vitrine/films/ouverture.webp) center/cover no-repeat}   /* la première image du film, derrière lui : jamais de trou */
+  .ouvAppli video{display:block;width:100%;height:100%;object-fit:cover}
+  .ouvBord{position:absolute;inset:0;border-radius:22px;pointer-events:none;box-shadow:inset 0 1.5px 0 rgba(255,255,255,.95),inset 0 0 0 1.5px rgba(255,255,255,.6),inset 0 0 0 2.5px rgba(110,165,195,.25)}
+  .ouvReflet{position:absolute;inset:-30% -70%;pointer-events:none;opacity:0;transform:translateX(-70%);
+    background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.7) 49%,rgba(159,216,255,.35) 52%,transparent 58%)}
+  .ouvArete{position:absolute;inset:0;border-radius:22px;pointer-events:none;opacity:0;box-shadow:inset 0 0 0 2px #fff,inset 0 0 34px rgba(159,216,255,.75)}
+  .ouvPause{position:absolute;right:1.6%;bottom:9.5%;z-index:2;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.8);cursor:pointer;
+    background:rgba(31,45,85,.45);color:#fff;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .25s;
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  .ouvPause svg{width:16px;height:16px}
+  .ouvCadre.film .ouvPause,.ouvCadre.arret .ouvPause{pointer-events:auto}
+  .ouvCadre.film:hover .ouvPause,.ouvCadre.film .ouvPause:focus-visible,.ouvCadre.arret .ouvPause{opacity:1}
+  @media (hover:none){.ouvCadre.film .ouvPause{opacity:.85}}
+  .ouvApres{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 22px;margin-top:22px;max-width:1000px;text-align:center}
+  .ouvLegendes{display:grid}
+  .ouvLegendes p{grid-area:1/1;font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--doux);text-wrap:balance;transition:opacity .7s,translate .7s var(--elan)}
+  .js .ouvLegendes .l2{opacity:0;translate:0 8px}
+  .ouvCadre.suite ~ .ouvApres .l1,.ouvCadre.arret ~ .ouvApres .l1{opacity:0;translate:0 -8px}
+  .ouvCadre.suite ~ .ouvApres .l2,.ouvCadre.arret ~ .ouvApres .l2{opacity:1;translate:0 0}
+  html:not(.js) .ouvLegendes .l1,html:not(.js) .ouvRejouer{display:none}
+  .ouvRejouer{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--trait);cursor:pointer;
+    font:inherit;font-size:.95rem;font-weight:700;color:var(--bleu);background:var(--verre-fort)}
+  .ouvRejouer svg{width:18px;height:18px}
+  @keyframes ouvVient{from{opacity:0;translate:0 18px}}
+  /* le voile descend du haut en flottant devant le tableau, s'arrête en face, puis se plaque sur la surface */
+  @keyframes ouvPose{
+    0%{opacity:0;transform:translate3d(0,-112%,170px) rotateX(5deg);animation-timing-function:cubic-bezier(.22,.6,.3,1)}
+    7%{opacity:1}
+    64%{opacity:1;transform:translate3d(0,0,170px) rotateX(0deg);animation-timing-function:cubic-bezier(.55,0,.35,1)}
+    86%{transform:translate3d(0,0,-7px)}
+    100%{opacity:1;transform:none}}
+  @keyframes ouvOmbre{
+    0%{opacity:0;transform:translateY(-112%);animation-timing-function:cubic-bezier(.22,.6,.3,1)}
+    10%{opacity:.8}
+    64%{opacity:.8;transform:translateY(48px) scale(1.05);animation-timing-function:cubic-bezier(.55,0,.35,1)}
+    100%{opacity:0;transform:none}}
+  @keyframes ouvFondu{from{opacity:0}}
+  @keyframes ouvEclat{0%{transform:translateX(-70%);opacity:0}25%{opacity:1}100%{transform:translateX(70%);opacity:0}}
+  @keyframes ouvEclair{0%{opacity:0}30%{opacity:1}100%{opacity:0}}
+  /* l'écran de Glacis se dépose sur le voile : d'abord translucide (le tableau se devine dessous), puis toute sa couleur */
+  @keyframes ouvPrend{0%{opacity:0}60%{opacity:.8}100%{opacity:1}}
+  .joue .ouvPlan{animation:ouvVient .7s var(--elan) both}
+  .joue .ouvVerre{animation:ouvPose 2.3s .8s both}
+  .joue .ouvVerre.posee{animation:none}   /* posé : sans animation, l'image est redessinée nette */
+  .joue .ouvOmbre.loin{animation:ouvOmbre 2.3s .8s both}
+  .joue .ouvOmbre.pres{animation:ouvFondu .6s 2.5s ease-out both}
+  .joue .ouvReflet{animation:ouvEclat 1.5s 2.9s var(--elan) both}
+  .joue .ouvArete{animation:ouvEclair 1s 2.85s ease-out both}
+  .joue .ouvAppli{animation:ouvPrend 1.8s 3.2s ease-in-out both}
+  .joue ~ .ouvApres{animation:ouvFondu .8s 3.4s ease-out both}
 
   /* ---------- sections ---------- */
   section{padding:clamp(84px,12vw,150px) 0 0}
@@ -258,7 +338,7 @@
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
     .js [data-r],.js .tuiles li{opacity:1;transform:none;transition:none}
-    .tete .ecran{transform:none}
+    .ouvLegendes p{transition:none}
     .ecran.vu::after,.js .vue.ici,.pilules button i{animation:none}
     .pile > img,.pile > video{transition:none;transform:none}
   }
@@ -284,10 +364,62 @@
 
 <main id="haut">
 
+  <!-- ============ Ouverture : le tableau blanc, le voile (le glacis), puis Glacis lui-même ============ -->
+  <div class="ouv">
+    <div class="ouvCadre" id="ouvCadre">
+      <div class="ouvPlan" id="ouvPlan">
+        <div class="ouvAlu" aria-hidden="true"><i class="ouvCoin" style="left:-6px;top:-6px"></i><i class="ouvCoin" style="right:-6px;top:-6px"></i><i class="ouvCoin" style="left:-6px;bottom:-6px"></i><i class="ouvCoin" style="right:-6px;bottom:-6px"></i></div>
+        <div class="ouvSurface" aria-hidden="true"><div class="ouvBrillance"></div><div class="ouvOmbre loin"></div><div class="ouvOmbre pres"></div></div>
+        <svg class="ouvAuget" viewBox="0 0 1648 1000" aria-hidden="true">
+          <defs>
+            <filter id="ouvFlou" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur stdDeviation="8"/></filter>
+            <linearGradient id="ouvLev" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbfcfd"/><stop offset=".45" stop-color="#d3d8de"/><stop offset=".55" stop-color="#bfc5cd"/><stop offset="1" stop-color="#e5e8ec"/></linearGradient>
+            <linearGradient id="ouvFondAuget" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfd4db"/><stop offset="1" stop-color="#e9ecf0"/></linearGradient>
+            <linearGradient id="ouvCorps" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#e9ecf0"/><stop offset="1" stop-color="#b9c0c9"/></linearGradient>
+            <linearGradient id="ouvCb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5f8be6"/><stop offset="1" stop-color="#1f4fb5"/></linearGradient>
+            <linearGradient id="ouvCr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f07a64"/><stop offset="1" stop-color="#c63a28"/></linearGradient>
+            <linearGradient id="ouvCv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6cc28a"/><stop offset="1" stop-color="#2d8a52"/></linearGradient>
+            <linearGradient id="ouvBrosse" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5d79c9"/><stop offset="1" stop-color="#2f4fa8"/></linearGradient>
+          </defs>
+          <rect x="70" y="980" width="1508" height="14" rx="7" fill="rgba(31,45,85,.22)" filter="url(#ouvFlou)"/>
+          <path d="M66 934H1582L1594 950H54Z" fill="url(#ouvFondAuget)"/>
+          <rect x="1110" y="925" width="160" height="17" rx="8.5" fill="url(#ouvCorps)"/><rect x="1150" y="926" width="60" height="15" fill="#2f5fc8" opacity=".85"/>
+          <rect x="1252" y="923.5" width="52" height="20" rx="7" fill="url(#ouvCb)"/><rect x="1262" y="922" width="6" height="23" rx="2" fill="#1a3f94"/>
+          <rect x="1330" y="926" width="160" height="17" rx="8.5" fill="url(#ouvCorps)"/><rect x="1370" y="927" width="60" height="15" fill="#d8432f" opacity=".85"/>
+          <rect x="1472" y="924.5" width="52" height="20" rx="7" fill="url(#ouvCr)"/><rect x="1482" y="923" width="6" height="23" rx="2" fill="#9e2b1d"/>
+          <rect x="980" y="927" width="104" height="16" rx="8" fill="url(#ouvCv)" transform="rotate(-2 1030 935)"/>
+          <rect x="200" y="896" width="190" height="34" rx="11" fill="url(#ouvBrosse)"/>
+          <rect x="215" y="899" width="160" height="6" rx="3" fill="#fff" opacity=".35"/>
+          <rect x="194" y="928" width="202" height="16" rx="4" fill="#3b3f47"/>
+          <rect x="194" y="940" width="202" height="5" rx="2" fill="#7c828d"/>
+          <rect x="54" y="946" width="1540" height="28" rx="5" fill="url(#ouvLev)"/>
+          <rect x="56" y="947" width="1536" height="2" fill="#fff" opacity=".9"/>
+          <rect x="40" y="932" width="22" height="44" rx="6" fill="#a3aab4"/><rect x="1586" y="932" width="22" height="44" rx="6" fill="#a3aab4"/>
+        </svg>
+        <div class="ouvVerre" id="ouvVerre">
+          <div class="ouvAppli" id="ouvAppli">
+            <video id="ouvFilm" controls muted playsinline preload="auto" disablepictureinpicture width="1600" height="900" poster="vitrine/films/ouverture.webp"
+                   aria-label="Un tableau blanc ; une fine feuille de verre descend s'y poser, et Glacis s'y dépose. Sur l'écran d'accueil, un clic sur « Commencer » ouvre l'Accueil. Puis, coup sur coup : l'appel, un problème des rituels, le tableau de numération, le minuteur de la boîte à outils lancé puis réduit, l'Atelier et Préparer, avant de revenir à l'Accueil.">
+              <source src="vitrine/films/ouverture.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="ouvBord"></div><div class="ouvReflet"></div><div class="ouvArete"></div>
+        </div>
+      </div>
+      <button class="ouvPause" id="ouvPause" type="button" aria-label="Lire ou mettre en pause l'animation"></button>
+    </div>
+    <div class="ouvApres">
+      <div class="ouvLegendes" aria-live="polite">
+        <p class="l1">En peinture, un <b>glacis</b> est une fine couche transparente posée sur le tableau. <b>Celui-ci se pose sur le vôtre.</b></p>
+        <p class="l2">L'appel, les rituels, les tableaux, les outils, l'Atelier, la préparation&nbsp;: <b>tout est au même endroit, sur un seul écran.</b></p>
+      </div>
+      <button class="ouvRejouer" id="ouvRejouer" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4.5v3.8h3.8"/></svg>Revoir</button>
+    </div>
+  </div>
+
   <!-- ============ En-tête ============ -->
   <div class="tete">
     <div class="contenu">
-      <img class="icone" src="icone.svg" alt="Icône de Glacis : un G bleu sur une feuille de cahier" width="104" height="104">
       <h1>Glacis <span class="cache">–</span><span class="cursive">Ma classe</span></h1>
       <p class="accroche">Votre journée de classe, <em>prête d'un clic.</em></p>
       <p class="chapo">Joignez une fiche à une séance&nbsp;: le moment venu, elle s'ouvre au tableau d'un seul clic. La journée, les rituels, les tableaux et les outils sont réunis sur un écran, <b>sans connexion</b>.</p>
@@ -299,16 +431,6 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
       </div>
       <p class="sous">Gratuit<i>·</i>Logiciel libre<i>·</i>Sans compte</p>
-
-      <div class="scene">
-        <figure class="ecran" data-ecran>
-          <video controls muted loop playsinline preload="none" width="1600" height="900" poster="vitrine/films/document.webp" data-film
-                 aria-label="Dans Préparer, une fiche PDF est jointe à la séance de maths ; sur l'Accueil, à l'heure de la séance, un clic l'ouvre au tableau.">
-            <source src="vitrine/films/document.mp4" type="video/mp4">
-          </video>
-        </figure>
-        <p class="legende">Dans Préparer, une fiche est jointe à la séance de maths. À 10&nbsp;h&nbsp;30, elle attend sur l'Accueil&nbsp;: un clic, elle est au tableau.</p>
-      </div>
     </div>
   </div>
 
@@ -663,18 +785,6 @@
   voir(tous("[data-r],[data-ecran],[data-tuiles]"), (e, io) => { if (e.isIntersecting){ e.target.classList.add("vu"); io.unobserve(e.target); } }, {threshold:.18, rootMargin:"0px 0px -6% 0px"});
   tous("[data-tuiles] li").forEach((li, i) => li.style.setProperty("--i", i));
 
-  /* l'écran du haut se redresse pendant qu'on descend */
-  const heros = document.querySelector(".tete .ecran");
-  if (heros && !calme){
-    let attente = false;
-    const poser = () => { attente = false;
-      const r = heros.getBoundingClientRect(), h = innerHeight;
-      const t = Math.min(1, Math.max(0, (r.top - h * .16) / (h * .62)));
-      heros.style.setProperty("--t", t.toFixed(4)); };
-    addEventListener("scroll", () => { if (!attente){ attente = true; requestAnimationFrame(poser); } }, {passive:true});
-    addEventListener("resize", poser); poser();
-  }
-
   /* films : ils ne jouent que visibles ; bouton pause sur chacun */
   const PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></svg>';
   const LIRE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.500v13a1 1 0 0 0 1.500.900l10.500-6.500a1 1 0 0 0 0-1.700L9.500 4.600A1 1 0 0 0 8 5.500z"/></svg>';
@@ -731,6 +841,41 @@
   /* la barre du haut : le chapitre qu'on lit */
   const liens = tous(".barre nav a"), cibles = liens.map(a => document.querySelector(a.getAttribute("href")));
   voir(cibles.filter(Boolean), e => { if (e.isIntersecting) liens.forEach(a => a.classList.toggle("ici", a.getAttribute("href") === "#" + e.target.id)); }, {rootMargin:"-40% 0px -55% 0px"});
+})();
+/* L'ouverture : le tableau, le voile qui s'y pose, puis le film de Glacis qui s'y dépose (voir le style « .ouv »). */
+(() => {
+  const cadre = document.getElementById("ouvCadre"); if (!cadre) return;
+  const plan = document.getElementById("ouvPlan"), verre = document.getElementById("ouvVerre"), appli = document.getElementById("ouvAppli");
+  const film = document.getElementById("ouvFilm"), bouton = document.getElementById("ouvPause");
+  const calme = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></svg>';
+  const LIRE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.500v13a1 1 0 0 0 1.500.900l10.500-6.500a1 1 0 0 0 0-1.700L9.500 4.600A1 1 0 0 0 8 5.500z"/></svg>';
+  film.controls = false;                                  /* sans script, les commandes du navigateur restent */
+  const ajuste = () => { plan.style.transform = "scale(" + (cadre.clientWidth / 1648) + ")"; };
+  new ResizeObserver(ajuste).observe(cadre); ajuste();
+  const etat = (enCours) => { cadre.classList.toggle("film", enCours); cadre.classList.toggle("arret", !enCours); bouton.innerHTML = enCours ? PAUSE : LIRE; };
+  const lire = () => { etat(true); const p = film.play(); if (p) p.catch(() => etat(false)); };   /* lecture refusée : le bouton attend un clic */
+  let minuteries = [];
+  const posee = () => verre.classList.add("posee");
+  const suite = () => {                                   /* le voile posé, l'écran déposé : rendu normal (image nette), le film démarre */
+    if (!cadre.classList.contains("joue")) return;
+    minuteries.forEach(clearTimeout); posee(); cadre.classList.replace("joue", "fini"); lire();
+  };
+  verre.addEventListener("animationend", e => { if (e.target === verre && e.animationName === "ouvPose") posee(); });
+  appli.addEventListener("animationend", e => { if (e.target === appli && e.animationName === "ouvPrend") suite(); });
+  film.addEventListener("timeupdate", () => cadre.classList.toggle("suite", film.currentTime > 3));   /* la légende du film arrive avec l'Accueil */
+  film.addEventListener("ended", () => etat(false));
+  const jouer = () => {
+    film.pause(); try { film.currentTime = 0; } catch {}
+    verre.classList.remove("posee"); cadre.classList.remove("joue", "fini", "film", "arret", "suite"); void cadre.offsetWidth;
+    minuteries.forEach(clearTimeout);
+    if (calme){ cadre.classList.add("fini"); etat(false); return; }   /* mouvements réduits : rien ne bouge, le film attend un clic */
+    cadre.classList.add("joue");
+    minuteries = [setTimeout(posee, 3300), setTimeout(suite, 5200)];   /* filet : la suite vient même si un évènement manque */
+  };
+  bouton.addEventListener("click", () => { if (film.paused){ if (film.ended) film.currentTime = 0; lire(); } else { film.pause(); etat(false); } });
+  document.getElementById("ouvRejouer").addEventListener("click", jouer);
+  (document.fonts ? Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 1500))]) : Promise.resolve()).then(jouer);
 })();
 </script>
 </body>

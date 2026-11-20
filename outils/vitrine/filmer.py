@@ -1,7 +1,7 @@
 """Filme la vraie application, image par image, dans sa classe de démonstration (prénoms fictifs).
 L'horloge de la page est pilotée (30 images par seconde) : le film est fluide quel que soit le poste qui le fabrique.
-Usage : python outils/vitrine/filmer.py [document accueil appel assistant problemes numeration geometrie lignages operations
-        minuteur balancenb droite fractions reglettes]   (voir LISEZ-MOI.md ; BROUILLON=1 : une image sur dix)"""
+Usage : python outils/vitrine/filmer.py [ouverture document accueil appel assistant problemes numeration geometrie lignages
+        operations minuteur balancenb droite fractions reglettes]   (voir LISEZ-MOI.md ; BROUILLON=1 : une image sur dix)"""
 import sys, os
 import asyncio, pathlib, shutil, subprocess, datetime, math
 from playwright.async_api import async_playwright
@@ -18,7 +18,7 @@ AVANCE="""(dt)=>{for(const a of document.getAnimations()){try{if(a.playState==='
  const fin=a.effect&&a.effect.getComputedTiming().endTime;const t=(a.currentTime||0)+dt;
  if(Number.isFinite(fin)&&t>=fin){a.finish();}else a.currentTime=t;}catch(e){}}}"""
 class Film:
-    def __init__(s,nom,w=1280,h=720,dsf=1.5): s.nom=nom;s.w=w;s.h=h;s.dsf=dsf;s.n=0;s.clip=None;s.x=w*.5;s.y=h*.6
+    def __init__(s,nom,w=1280,h=720,dsf=1.5,url=None): s.nom=nom;s.w=w;s.h=h;s.dsf=dsf;s.n=0;s.clip=None;s.x=w*.5;s.y=h*.6;s.url=url
     async def __aenter__(s):
         s.p=await async_playwright().start()
         s.b=await lancer(s.p)
@@ -26,7 +26,7 @@ class Film:
         s.pg=await s.c.new_page(); s.errs=[]
         s.pg.on("pageerror",lambda e:s.errs.append(str(e)))
         await s.pg.clock.install()
-        await s.pg.goto(DEMO); await s.pg.wait_for_timeout(2500)
+        await s.pg.goto(s.url or DEMO); await s.pg.wait_for_timeout(2500)
         await s.pg.add_style_tag(content=CACHE)
         await s.pg.evaluate(CURSEUR)
         s.dir=TRAVAIL/"images"/s.nom
@@ -110,6 +110,35 @@ def encoder(nom,larg=1600,crf=27):
 # ---------- les scénarios ----------
 ICI=pathlib.Path(__file__).resolve().parent
 FICHE=ICI/"exemples"/"Compléments à 10.pdf"            # fiche d'exemple faite pour la démonstration (exemples/fiche.html)
+
+async def ouverture():
+    """Le film d'ouverture : l'écran d'accueil (la classe de démonstration l'attend avec « &depart », Glacis 6.0.0-beta.23
+    et suivants), « Commencer », puis tout au même endroit, dans l'ordre d'une matinée : l'appel, un problème des rituels,
+    le tableau de numération, le minuteur de la boîte à outils lancé puis réduit (il continue de tourner), l'Atelier,
+    Préparer, et retour à l'Accueil. La navigation est épinglée (réglage du poste) : le nom de chaque fonction est écrit
+    sous sa tuile. Sur la page, ce film se dépose sur le voile qui recouvre le tableau blanc (index.html, .ouv)."""
+    async with Film("ouverture", url=DEMO + "&depart") as f:
+        await f.js("(g=>{let x=g;Math.random=()=>(x=(x*1664525+1013904223)%4294967296)/4294967296})(7),"
+                   "(Navigation.epinglee()||Navigation.basculerEpingle()),Tableau.regler(t=>t.type='maths'),0")
+        if await f.js("demarre"): raise SystemExit("ouverture : la page démarre seule (Glacis 6.0.0-beta.23 ou plus récent nécessaire)")
+        f.x,f.y=880,640
+        await f.attendre(800)                                              # l'écran d'accueil, immobile : raccord avec le voile
+        await f.clic("#btnStart",ms=800,apres=1000)                        # « Commencer » : l'Accueil
+        await f.clic("#chipPresents",ms=600,apres=800)                     # l'appel, depuis la barre du haut
+        await f.clic("#p-appel .tag:has-text('Chloé')",ms=450,apres=350)
+        await f.clic("#apVal",ms=450,apres=300)
+        await f.clic('#p-appel button[title="Fermer"]',ms=450,apres=250)
+        await f.clic('#side [data-act="rituels"]',ms=550,apres=350)        # les rituels : un problème du jour
+        await f.clic('[data-o="pb"]',ms=450,apres=1100)
+        await f.clic('#side [data-act="tableau"]',ms=550,apres=1000)       # les tableaux : la numération
+        await f.clic("#boPoignee",ms=550,apres=450)                        # la boîte à outils : le minuteur
+        await f.clic('#p-outils [data-o="minuteur"]',ms=450,apres=450)
+        await f.clic("#mnGo",ms=400,apres=600)
+        await f.clic("#p-minuteur .pRed",ms=400,apres=400)                 # réduit, il continue de tourner
+        await f.clic('#side [data-act="atelier"]',ms=550,apres=1000)       # l'Atelier
+        await f.clic('#side [data-act="preparer"]',ms=500,apres=900)       # Préparer
+        await f.clic('#side [data-act="journee"]',ms=550,apres=1500)       # retour à l'Accueil
+    encoder("ouverture")
 
 async def document():
     """Un document joint à une activité dans Préparer : il s'ouvre d'un clic, au bon moment, sur l'Accueil."""
@@ -333,6 +362,6 @@ async def reglettes():
         await _reduire(f,"#p-reglettes"); await f.attendre(1200)
     encoder("reglettes")
 
-FILMS={"document":document,"accueil":accueil,"appel":appel,"assistant":assistant,"problemes":problemes,"numeration":numeration,"geometrie":geometrie,"lignages":lignages,"operations":operations,"minuteur":minuteur,"balancenb":balancenb,"droite":droite,"fractions":fractions,"reglettes":reglettes}
+FILMS={"ouverture":ouverture,"document":document,"accueil":accueil,"appel":appel,"assistant":assistant,"problemes":problemes,"numeration":numeration,"geometrie":geometrie,"lignages":lignages,"operations":operations,"minuteur":minuteur,"balancenb":balancenb,"droite":droite,"fractions":fractions,"reglettes":reglettes}
 if __name__=="__main__":
     for nom in sys.argv[1:] or FILMS: asyncio.run(FILMS[nom]())

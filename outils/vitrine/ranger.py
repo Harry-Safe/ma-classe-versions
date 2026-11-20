@@ -4,8 +4,9 @@ from PIL import Image
 from commun import TRAVAIL, VITRINE as D
 F=D/"films"; I=D/"images"; F.mkdir(parents=True,exist_ok=True); I.mkdir(parents=True,exist_ok=True)
 T=TRAVAIL
-# l'affiche de chaque film : l'image prise à cette fraction de sa durée (0 : début, 1 : fin)
-AFF={"document":.98,"accueil":.98,"appel":.42,"assistant":.98,"problemes":.98,"numeration":.4,"geometrie":.98,"lignages":.45,"operations":.98,
+# l'affiche de chaque film : l'image prise à cette fraction de sa durée (0 : début, 1 : fin) ; ouverture : sa première image,
+# car elle sert aussi de fond sous le film quand il se dépose sur le voile (index.html, .ouvAppli)
+AFF={"ouverture":0,"document":.98,"accueil":.98,"appel":.42,"assistant":.98,"problemes":.98,"numeration":.4,"geometrie":.98,"lignages":.45,"operations":.98,
      "minuteur":.5,"balancenb":.78,"droite":.74,"fractions":.78,"reglettes":.82}
 choix=sys.argv[1:]
 for f in list(F.glob("*.mp4"))+list(F.glob("*.webp")):                # films retirés de la page
@@ -19,6 +20,9 @@ for nom,part in AFF.items():
     im=im.resize((1600,round(1600*im.height/im.width/2)*2),Image.LANCZOS); im.save(F/f"{nom}.webp",quality=80,method=6)
     print(nom,(F/f"{nom}.mp4").stat().st_size//1024,"Ko")
 FIXES={"accueil":"accueil","semaine":"semaine","soir":"soir"}
+if choix:                                                              # des films nommés : les captures fixes et les tuiles ne bougent pas
+    for f in sorted(F.glob("*")): print(f.name,f.stat().st_size//1024,"Ko")
+    sys.exit(0)
 for f in I.glob("*.webp"):                                             # images retirées de la page
     if f.stem not in FIXES.values(): f.unlink()
 for src,dst in FIXES.items():
