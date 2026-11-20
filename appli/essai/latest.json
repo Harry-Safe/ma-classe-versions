@@ -1,11 +1,11 @@
 {
-  "version": "6.0.0-beta.19",
-  "notes": "L'écran d'accueil dit toujours ce qui se passe. « Chargement de Glacis… » s'affiche sous les boutons tant que le programme arrive (avec les secondes s'il tarde) ; si le fichier n'est arrivé qu'en partie, ou si l'aperçu d'une application ne fait pas tourner les programmes (JavaScript coupé), un message le dit et propose d'ouvrir le fichier dans Safari, Chrome ou Edge, ou d'utiliser glacis-classe.fr.\nGlacis démarre plus tôt. Le lecteur de PDF, rangé dans la page, est maintenant lu après le programme : l'écran d'accueil est prêt sans l'attendre.",
-  "pub_date": "2026-11-20T12:56:04Z",
+  "version": "6.0.0-beta.20",
+  "notes": "Applis : un seul en-tête. Une appli ouverte (les Échecs) occupe tout son cadre avec son propre en-tête : la ligne que Glacis ajoutait au-dessus disparaît. Les applis ouvertes s'affichent en onglets dans la barre du haut, suivies d'Explorer, de Recharger, de Bord à bord et d'une croix rouge pour quitter l'appli. En bord à bord, une petite capsule à côté de l'heure permet de revenir ou de quitter.\nLa boîte à outils devient un tiroir. Sa languette « Outils » (son logo et son nom), accrochée au bord gauche sous l'ampoule de l'assistant, est la poignée d'un tiroir : touchez-la (ou appuyez sur O), ou tirez-la vers la droite, et les outils sortent du bord de l'écran. Le tiroir se replie dès qu'un outil est pris, quand on touche ailleurs, ou quand on repousse la poignée vers le bord ; l'épingle le garde ouvert.",
+  "pub_date": "2026-11-20T14:43:25Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.19_x64-setup-essai.exe"
+      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.20_x64-setup-essai.exe"
     }
   }
 }

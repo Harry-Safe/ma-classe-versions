@@ -1,21 +1,21 @@
 {
-  "version": "6.0.0-beta.19",
+  "version": "6.0.0-beta.20",
   "date": "2026-11-20",
-  "titre": "Essai : Accueil : chargement et aperçus de fichier",
+  "titre": "Essai : Applis à en-tête unique, boîte à outils en tiroir",
   "notes": [
-    "L'écran d'accueil dit toujours ce qui se passe. « Chargement de Glacis… » s'affiche sous les boutons tant que le programme arrive (avec les secondes s'il tarde) ; si le fichier n'est arrivé qu'en partie, ou si l'aperçu d'une application ne fait pas tourner les programmes (JavaScript coupé), un message le dit et propose d'ouvrir le fichier dans Safari, Chrome ou Edge, ou d'utiliser glacis-classe.fr.",
-    "Glacis démarre plus tôt. Le lecteur de PDF, rangé dans la page, est maintenant lu après le programme : l'écran d'accueil est prêt sans l'attendre."
+    "Applis : un seul en-tête. Une appli ouverte (les Échecs) occupe tout son cadre avec son propre en-tête : la ligne que Glacis ajoutait au-dessus disparaît. Les applis ouvertes s'affichent en onglets dans la barre du haut, suivies d'Explorer, de Recharger, de Bord à bord et d'une croix rouge pour quitter l'appli. En bord à bord, une petite capsule à côté de l'heure permet de revenir ou de quitter.",
+    "La boîte à outils devient un tiroir. Sa languette « Outils » (son logo et son nom), accrochée au bord gauche sous l'ampoule de l'assistant, est la poignée d'un tiroir : touchez-la (ou appuyez sur O), ou tirez-la vers la droite, et les outils sortent du bord de l'écran. Le tiroir se replie dès qu'un outil est pris, quand on touche ailleurs, ou quand on repousse la poignée vers le bord ; l'épingle le garde ouvert."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Glacis.html",
-      "taille": 7275815,
-      "sha256": "28b44595b4f3eef0e37f830326ea07398351e3678458c54bfaf79cd4afeb3c42"
+      "taille": 7284725,
+      "sha256": "ac42eeab0ded5582e19389eca8924cdd1985d11750f8f4718c4ca74d8669eac4"
     },
     "remplacant": {
       "url": "essai/Glacis - Remplaçant.html",
-      "taille": 7275815,
-      "sha256": "28b44595b4f3eef0e37f830326ea07398351e3678458c54bfaf79cd4afeb3c42"
+      "taille": 7284725,
+      "sha256": "ac42eeab0ded5582e19389eca8924cdd1985d11750f8f4718c4ca74d8669eac4"
     }
   }
 }
