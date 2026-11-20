@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-20 — Claude — Essai 6.0.0-beta.15 publié (Préparer, emploi du temps et cours double)
+
+- **Demande / Autorisation** : lots 1 à 3 des demandes de Franck du 19 novembre (23 h 46), « un par un puis un test unique » ; publication sur le canal d'essai : règle permanente.
+- **Contrôle préalable** : `main` à `85e79a3` ; dépôt source : `essai` à `3aba99b`, garde de publication satisfaite.
+- **Réalisation** : `build/publier-version.py --canal essai` et `build/publier-appli.py --canal essai` du dépôt source (`essai/Glacis.html`, `essai/Glacis - Remplaçant.html`, `entrees/essai.json`, `entrees/essai.source`, `appli/essai/latest.json`) ; commit `34cc120`, envoyé sur `main` par avance rapide.
+- **Validation** : action `44689933653` réussie : « versions.json signé : essai 6.0.0-beta.15 », « applis.json signé : echecs 1.1.0 (essai) », « Glacis_6.0.0-beta.15_x64-setup-essai.exe signé », « signature vérifiée comme dans l'application », « Deployment complete » ; Cloudflare Pages : déploiement `11bb1f7e`, production, commit `34cc120`, succès.
+- **Livraison / état** : publié sur glacis-classe.fr, canal d'essai seulement ; canal stable inchangé.
+
 ## 2026-11-19 — Claude — Page « introuvable » (`404.html`) : un vrai 404 pour les adresses inconnues
 
 - **Demande / Autorisation** : captures des statistiques Cloudflare envoyées par Franck à 18 h 58, dans la suite de « Fais 2 et 4 » (sécurité du site).
