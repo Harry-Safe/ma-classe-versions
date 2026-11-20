@@ -1,11 +1,11 @@
 {
-  "version": "6.0.0-beta.18",
-  "notes": "L'Atelier arrive dans Glacis. Nouvelle fonction dans la barre de navigation, au-dessus de Préparer : on y compose des fiches d'exercices à taille réelle, en A5 ou en A4. On pose et on règle par glisser-déposer du texte, des consignes numérotées, des lignes Seyès (on touche une ligne pour y écrire un modèle foncé, très clair ou en pointillés), une droite graduée, un tableau des nombres, un tableau de numération, une balance, des figures, un quadrillage, des images (fichier, copier-coller, glisser-déposer) et de petites icônes qui s'aimantent aux consignes. Une grille discrète cale tout sur les carreaux (elle ne s'imprime pas). Plusieurs pages, impression ou PDF, avec en A5 « 2 par feuille A4 » : la même fiche en double ou les pages à la suite.\nMes fiches et la banque. « Enregistrer » range la fiche dans « Mes fiches » (dossier de la classe) : elle reste modifiable. La banque propose des fiches par niveau, en A5 et en A4 : on en ouvre une copie, la banque ne change pas.\nLa boîte à outils a son logo. Sa languette du bord gauche montre désormais sa petite caisse rouge, bien distincte de l'ampoule de l'assistant.\n« Commencer » sans effet : la cause est traitée. Sur certains appareils, le stockage du navigateur ne répondait pas et l'écran d'accueil restait sans bouton actif ; Glacis ne l'attend plus au-delà de quelques secondes, nulle part.\nTableaux : le bouton « Imprimer » de la barre du haut reprend la taille du bouton d'enregistrement.",
-  "pub_date": "2026-11-20T11:26:02Z",
+  "version": "6.0.0-beta.19",
+  "notes": "L'écran d'accueil dit toujours ce qui se passe. « Chargement de Glacis… » s'affiche sous les boutons tant que le programme arrive (avec les secondes s'il tarde) ; si le fichier n'est arrivé qu'en partie, ou si l'aperçu d'une application ne fait pas tourner les programmes (JavaScript coupé), un message le dit et propose d'ouvrir le fichier dans Safari, Chrome ou Edge, ou d'utiliser glacis-classe.fr.\nGlacis démarre plus tôt. Le lecteur de PDF, rangé dans la page, est maintenant lu après le programme : l'écran d'accueil est prêt sans l'attendre.",
+  "pub_date": "2026-11-20T12:56:04Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.18_x64-setup-essai.exe"
+      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.19_x64-setup-essai.exe"
     }
   }
 }
