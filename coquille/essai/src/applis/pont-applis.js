@@ -9,14 +9,22 @@
        await MaClasse.ecrire("voix/a.webm", blob);                        // sous-dossiers créés au besoin
    Hors de Glacis (page ouverte seule), le script est absent ou MaClasse.pret vaut false : l'appli garde
    alors son propre enregistrement. Toutes les fonctions rendent une promesse. Guide : docs/APPLIS.md.
+   Version 2 (20 novembre 2026, canevas commun des applis) : l'appli déclare son en-tête, que Glacis pose dans sa barre
+   de menus, et écoute les clics qui la concernent :
+       await MaClasse.barre({modes:[{id:"jouer", nom:"Jouer", icone:"lectureMedia"}], mode:"jouer", reglages:"Règles du jeu", aide:null});
+       MaClasse.sur("mode", d => …d.id…);  MaClasse.sur("reglages", d => …d.x…);  MaClasse.sur("aide", d => …);
+   (le canevas de l'atelier des applis, _canevas/canevas.js, le fait pour elle).
    ===================================================================== */
 (() => {
   if (window.MaClasse) return;
-  const dansCadre = window.parent !== window, attente = new Map();
+  const dansCadre = window.parent !== window, attente = new Map(), ecoutes = new Map();
   let n = 0;
   addEventListener("message", ev => {
     const m = ev.data;
-    if (ev.source !== window.parent || !m || m.pont !== "ma-classe" || !attente.has(m.reponse)) return;
+    if (ev.source !== window.parent || !m || m.pont !== "ma-classe") return;
+    /* un événement de Glacis (clic dans sa barre de menus) : à ceux qui l'écoutent */
+    if (typeof m.evenement === "string"){ (ecoutes.get(m.evenement) || []).forEach(f => { try { f(m.donnees || {}); } catch (e) { console.error(e); } }); return; }
+    if (!attente.has(m.reponse)) return;
     const a = attente.get(m.reponse); attente.delete(m.reponse); clearTimeout(a.t);
     m.ok ? a.ok(m.resultat) : a.ko(new Error(m.resultat));
   });
@@ -27,7 +35,7 @@
     window.parent.postMessage({pont:"ma-classe", n:id, op, ...donnees}, "*");
   });
   const api = window.MaClasse = {
-    version:1,
+    version:2,
     appli:null,                       // {id, nom} une fois le pont établi
     /* vrai quand Glacis répond et que son dossier est connecté */
     pret:dansCadre ? appeler("bonjour", {}, 3000).then(r => { api.appli = r.appli; api.maClasse = r.maClasse; return !!r.dossier; }, () => false) : Promise.resolve(false),
@@ -39,5 +47,7 @@
     lister:(chemin = "") => appeler("lister", {chemin}),                         // [{nom, dossier}]
     supprimer:chemin => appeler("supprimer", {chemin}),                          // vrai si supprimé, faux si absent
     fermer:() => appeler("fermer"),                                              // revient au panneau des applis
+    barre:d => appeler("barre", {barre:d}),                                      // en-tête : modes, mode, réglages, aide
+    sur(nom, f){ if (typeof f === "function") ecoutes.set(nom, [...(ecoutes.get(nom) || []), f]); },  // « mode », « reglages », « aide »
   };
 })();

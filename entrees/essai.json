@@ -1,22 +1,23 @@
 {
-  "version": "6.0.0-beta.21",
+  "version": "6.0.0-beta.22",
   "date": "2026-11-20",
-  "titre": "Essai : Thèmes plus sûrs",
+  "titre": "Essai : Canevas commun des applis, Labo des signes",
   "notes": [
-    "Thèmes plus sûrs. Un thème importé ne peut plus dérégler Glacis : chaque dessin posé reçoit ses propres noms internes, si bien qu'un dessin ne prend plus la place d'un élément de l'appli (la date, par exemple) et qu'un décor répété garde ses dégradés partout.",
-    "Thèmes : les replis respectent le décor. À l'impression, ni fond ni décor du thème ; en projection contrastée, plus de décor sous le texte des cartes ; en mode léger et quand l'ordinateur demande moins d'animations, les illustrations de l'accueil ne défilent plus.",
-    "Thèmes : ce qui s'importe. Un thème importé peut reprendre le fond doux et les lignes de cahier du thème Glacis ; les décors de la date et des icônes de la journée ne disparaissent plus au fil des heures ; un fichier qui vise des zones qui n'existent plus (barre du haut, ancienne colonne) le signale à l'import."
+    "Les applis ont toutes le même canevas. Une appli ouverte n'a plus d'en-tête à elle : son nom et son icône sont dans la barre du haut (un clic ouvre son menu : à propos, réglages, aide, applis ouvertes, recharger, quitter), ses modes y sont en onglets (comme ceux des tableaux), puis l'écrou des réglages, l'aide, bord à bord et la croix rouge. En haut de l'appli, une ligne d'options, comme celle des Tableaux : à gauche ce qu'on choisit et ce qu'on affiche (pastilles), à droite les actions.",
+    "Échecs 1.2.0 passe à ce canevas : « Jouer » et « Composer » dans la barre, les règles du jeu derrière l'écrou, la situation, l'affichage et « Retourner l'échiquier » dans la ligne d'options.",
+    "Nouvelle appli : le Labo des signes. Que fait un signe ? Trois activités pour le comprendre avec des tours de cubes : Prédis (avant de voir, la tour d'arrivée sera-t-elle plus grande, plus petite ou pareille ?), Signe mystère (quel signe a agi : + ou − ?) et La balance (peut-on écrire = ? le signe = devient une balance qui penche ou reste droite). Tours de cubes, barres ou nombres seuls ; jusqu'à 5 ou 10 ; pièges (+ 0, − 0, tout enlever, impossible, 1 fois). Au CP, « fois » s'écrit en mot (3 fois 2, c'est 2 + 2 + 2) ; au CE1, le signe × apparaît.",
+    "Plus de voix de l'ordinateur. Le bouton « Lire » des Problèmes (Rituels) disparaît : l'adulte lit l'énoncé à la classe."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Glacis.html",
-      "taille": 7288268,
-      "sha256": "4f4b1df57afd4c25656e96cbc233e2ea1b4973823c39489936128a8aef0f9124"
+      "taille": 7485477,
+      "sha256": "6bf14a25e03308dc20668c7acc9d1b425e2ae190e31edf6a3246298ec66bbae8"
     },
     "remplacant": {
       "url": "essai/Glacis - Remplaçant.html",
-      "taille": 7288268,
-      "sha256": "4f4b1df57afd4c25656e96cbc233e2ea1b4973823c39489936128a8aef0f9124"
+      "taille": 7485477,
+      "sha256": "6bf14a25e03308dc20668c7acc9d1b425e2ae190e31edf6a3246298ec66bbae8"
     }
   }
 }
