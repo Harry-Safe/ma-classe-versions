@@ -88,10 +88,10 @@ elle fonctionne aussi sans JavaScript (tout est alors visible et immobile) et re
 Sur un téléphone, la barre du haut ne flotte pas : elle reste en haut de la page et part avec elle (demande de Franck
 du 19 novembre 2026).
 
-**L'ouverture** (Franck, 20 novembre 2026) : un tableau blanc de classe, un voile de verre qui descend du haut et s'y
-plaque (le glacis), puis Glacis s'y dépose et le film « ouverture » démarre : l'écran d'accueil, « Commencer », puis tout
+**L'ouverture** (Franck, 20 novembre 2026) : un tableau blanc de classe, un voile de tissu très fin (le glacis) qui tombe
+en ondulant et s'y dépose (calculé en direct en WebGL ; sans WebGL, un voile simple descend), puis Glacis s'y imprime et le film « ouverture » démarre : l'écran d'accueil, « Commencer », puis tout
 au même endroit (appel, rituels, tableaux, boîte à outils, Atelier, Préparer). Le tableau et le voile sont **dessinés dans
-la page** (CSS et SVG, style `.ouv`) ; tout ce qui apparaît sur le voile vient du film, pris dans la vraie application.
+la page** (CSS, SVG et WebGL, style et script `.ouv`) ; tout ce qui apparaît sur le voile vient du film, pris dans la vraie application.
 Le film ouvre la classe de démonstration avec `&depart` (l'écran d'accueil attend « Commencer »), ce que Glacis sait
 faire depuis l'essai 6.0.0-beta.23. Sans script : le film seul, avec les commandes du navigateur ; mouvements réduits :
 rien ne bouge, il attend un clic. L'ancien film d'ouverture (`document` : une fiche PDF d'exemple jointe à une séance,

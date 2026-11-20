@@ -120,20 +120,17 @@
   .ecran:hover .pause,.pause:focus-visible,.pause[aria-pressed=true]{opacity:1}
   @media (hover:none){.pause{opacity:.85}}
 
-  /* ---------- l'ouverture : un tableau blanc, un voile de verre qui s'y pose (le glacis), puis Glacis lui-même ----------
-     Le tableau et le voile sont dessinés ici (CSS, SVG) ; tout ce qui apparaît sur le voile est le film « ouverture », pris
-     dans la vraie application (outils/vitrine/filmer.py). La scène mesure 1648 × 1000 points ; le script la met à l'échelle.
-     Sans script : tout est posé, immobile, le film garde les commandes du navigateur. Mouvements réduits : rien ne bouge,
-     le film attend un clic sur son bouton lecture. */
+  /* ---------- l'ouverture : un tableau blanc, un voile de tissu très fin (le glacis) qui tombe en ondulant et s'y dépose,
+       puis Glacis s'y imprime et le film « ouverture » démarre. Le tableau est dessiné ici (CSS, SVG), le voile calculé en
+       direct (WebGL, script plus bas) ; tout ce qui apparaît ensuite est le film, pris dans la vraie application
+       (outils/vitrine/filmer.py). La scène mesure 1648 × 1000 points ; le script la met à l'échelle. Sans WebGL : un voile
+       simple descend. Sans script : le film seul, avec les commandes du navigateur. Mouvements réduits : le voile est déjà
+       posé, le film attend un clic. ---------- */
   .ouv{padding:84px 16px 0;display:flex;flex-direction:column;align-items:center}
   .ouvCadre{position:relative;width:min(1240px,calc(100vw - 32px),calc((100vh - 176px) * 1.648));aspect-ratio:1648/1000}
   @supports (height:100svh){.ouvCadre{width:min(1240px,calc(100vw - 32px),calc((100svh - 176px) * 1.648))}}
-  .ouvPlan{position:absolute;left:0;top:0;width:1648px;height:1000px;transform-origin:0 0;perspective:2600px;perspective-origin:824px 430px}
+  .ouvPlan{position:absolute;left:0;top:0;width:1648px;height:1000px;transform-origin:0 0}
   .js .ouvCadre:not(.joue):not(.fini) .ouvPlan{visibility:hidden}
-  html:not(.js) .ouvCadre{aspect-ratio:auto}   /* sans script : le film seul, à la largeur de la page */
-  html:not(.js) .ouvPlan{position:static;width:auto;height:auto}
-  html:not(.js) .ouvAlu,html:not(.js) .ouvSurface,html:not(.js) .ouvAuget{display:none}
-  html:not(.js) .ouvVerre{position:relative;left:auto;top:auto;width:100%;height:auto;aspect-ratio:16/9}
   .ouvAlu{position:absolute;left:0;top:0;width:1648px;height:948px;border-radius:18px;
     background:linear-gradient(180deg,#fbfcfd,#d9dde3 46%,#c8cdd4 54%,#eef0f3);
     box-shadow:inset 0 1px 0 #fff,inset 0 -2px 0 rgba(0,0,0,.08),0 30px 60px -30px rgba(31,45,85,.45),0 8px 18px -10px rgba(31,45,85,.25)}
@@ -144,21 +141,18 @@
   .ouvBrillance{position:absolute;inset:0;pointer-events:none;
     background:linear-gradient(108deg,transparent 54%,rgba(255,255,255,.8) 60%,rgba(255,255,255,.3) 64%,transparent 71%),
                linear-gradient(108deg,transparent 73%,rgba(255,255,255,.55) 75%,transparent 78%)}
-  .ouvOmbre{position:absolute;left:16px;top:9px;width:1568px;height:882px;border-radius:22px;opacity:0}
-  .ouvOmbre.loin{box-shadow:0 60px 110px -24px rgba(31,45,85,.62)}
-  .ouvOmbre.pres{opacity:1;box-shadow:0 16px 32px -14px rgba(31,45,85,.42),0 2px 5px rgba(31,45,85,.12)}
   .ouvAuget{position:absolute;left:0;top:0;width:1648px;height:1000px;pointer-events:none}
-  /* le voile : une feuille de verre au format de l'écran de l'appli (16/9) */
-  .ouvVerre{position:absolute;left:40px;top:33px;width:1568px;height:882px;border-radius:22px;overflow:hidden;
-    background:linear-gradient(115deg,transparent 18%,rgba(255,255,255,.4) 23%,transparent 31%,transparent 60%,rgba(255,255,255,.3) 64%,transparent 69%),
-      linear-gradient(160deg,rgba(226,239,255,.32),rgba(206,226,250,.2) 55%,rgba(190,220,255,.3));
-    box-shadow:inset 0 2px 0 #fff,inset 0 -3px 0 rgba(255,255,255,.95),inset 0 -6px 10px -4px rgba(120,190,225,.55),inset 0 0 0 2px rgba(110,165,195,.55),inset 0 0 0 5px rgba(255,255,255,.4),inset 0 0 36px rgba(140,195,235,.38)}
-  .ouvAppli{position:absolute;inset:0;background:url(vitrine/films/ouverture.webp) center/cover no-repeat}   /* la première image du film, derrière lui : jamais de trou */
-  .ouvAppli video{display:block;width:100%;height:100%;object-fit:cover}
-  .ouvBord{position:absolute;inset:0;border-radius:22px;pointer-events:none;box-shadow:inset 0 1.5px 0 rgba(255,255,255,.95),inset 0 0 0 1.5px rgba(255,255,255,.6),inset 0 0 0 2.5px rgba(110,165,195,.25)}
-  .ouvReflet{position:absolute;inset:-30% -70%;pointer-events:none;opacity:0;transform:translateX(-70%);
-    background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.7) 49%,rgba(159,216,255,.35) 52%,transparent 58%)}
-  .ouvArete{position:absolute;inset:0;border-radius:22px;pointer-events:none;opacity:0;box-shadow:inset 0 0 0 2px #fff,inset 0 0 34px rgba(159,216,255,.75)}
+  /* le voile : calculé en direct (WebGL) dans ce canevas, qui déborde au-dessus du tableau pour qu'on le voie arriver */
+  .ouvVoile{position:absolute;left:0;top:-260px;width:1648px;height:1260px;pointer-events:none}
+  /* sans WebGL : un voile simple, qui descend et se pose */
+  .ouvSecours{position:absolute;left:34px;top:27px;width:1580px;height:894px;border-radius:10px;display:none;
+    background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(236,243,255,.4));box-shadow:inset 0 0 0 3px rgba(255,255,255,.7),0 14px 30px -16px rgba(31,45,85,.3)}
+  .sansGL .ouvSecours{display:block}
+  /* l'écran de Glacis, qui s'imprime sur le voile posé */
+  .ouvEcran{position:absolute;left:40px;top:33px;width:1568px;height:882px;border-radius:12px;overflow:hidden;opacity:0;
+    background:url(vitrine/films/ouverture.webp) center/cover no-repeat;box-shadow:0 0 0 1px rgba(255,255,255,.5)}
+  .fini .ouvEcran,html:not(.js) .ouvEcran{opacity:1}
+  .ouvEcran video{display:block;width:100%;height:100%;object-fit:cover}
   .ouvPause{position:absolute;right:1.6%;bottom:9.5%;z-index:2;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.8);cursor:pointer;
     background:rgba(31,45,85,.45);color:#fff;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .25s;
     -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
@@ -169,40 +163,27 @@
   .ouvApres{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 22px;margin-top:22px;max-width:1000px;text-align:center}
   .ouvLegendes{display:grid}
   .ouvLegendes p{grid-area:1/1;font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--doux);text-wrap:balance;transition:opacity .7s,translate .7s var(--elan)}
+  .ouvLegendes b{color:var(--encre)}
   .js .ouvLegendes .l2{opacity:0;translate:0 8px}
-  .ouvCadre.suite ~ .ouvApres .l1,.ouvCadre.arret ~ .ouvApres .l1{opacity:0;translate:0 -8px}
   .ouvCadre.suite ~ .ouvApres .l2,.ouvCadre.arret ~ .ouvApres .l2{opacity:1;translate:0 0}
-  html:not(.js) .ouvLegendes .l1,html:not(.js) .ouvRejouer{display:none}
   .ouvRejouer{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--trait);cursor:pointer;
     font:inherit;font-size:.95rem;font-weight:700;color:var(--bleu);background:var(--verre-fort)}
   .ouvRejouer svg{width:18px;height:18px}
   @keyframes ouvVient{from{opacity:0;translate:0 18px}}
-  /* le voile descend du haut en flottant devant le tableau, s'arrête en face, puis se plaque sur la surface */
-  @keyframes ouvPose{
-    0%{opacity:0;transform:translate3d(0,-112%,170px) rotateX(5deg);animation-timing-function:cubic-bezier(.22,.6,.3,1)}
-    7%{opacity:1}
-    64%{opacity:1;transform:translate3d(0,0,170px) rotateX(0deg);animation-timing-function:cubic-bezier(.55,0,.35,1)}
-    86%{transform:translate3d(0,0,-7px)}
-    100%{opacity:1;transform:none}}
-  @keyframes ouvOmbre{
-    0%{opacity:0;transform:translateY(-112%);animation-timing-function:cubic-bezier(.22,.6,.3,1)}
-    10%{opacity:.8}
-    64%{opacity:.8;transform:translateY(48px) scale(1.05);animation-timing-function:cubic-bezier(.55,0,.35,1)}
-    100%{opacity:0;transform:none}}
   @keyframes ouvFondu{from{opacity:0}}
-  @keyframes ouvEclat{0%{transform:translateX(-70%);opacity:0}25%{opacity:1}100%{transform:translateX(70%);opacity:0}}
-  @keyframes ouvEclair{0%{opacity:0}30%{opacity:1}100%{opacity:0}}
-  /* l'écran de Glacis se dépose sur le voile : d'abord translucide (le tableau se devine dessous), puis toute sa couleur */
+  @keyframes ouvSecours{0%{opacity:0;transform:translateY(-105%)}15%{opacity:1}100%{opacity:1;transform:none}}
+  /* l'écran de Glacis s'imprime sur le voile : d'abord translucide (on devine le tableau), puis toute sa couleur */
   @keyframes ouvPrend{0%{opacity:0}60%{opacity:.8}100%{opacity:1}}
   .joue .ouvPlan{animation:ouvVient .7s var(--elan) both}
-  .joue .ouvVerre{animation:ouvPose 2.3s .8s both}
-  .joue .ouvVerre.posee{animation:none}   /* posé : sans animation, l'image est redessinée nette */
-  .joue .ouvOmbre.loin{animation:ouvOmbre 2.3s .8s both}
-  .joue .ouvOmbre.pres{animation:ouvFondu .6s 2.5s ease-out both}
-  .joue .ouvReflet{animation:ouvEclat 1.5s 2.9s var(--elan) both}
-  .joue .ouvArete{animation:ouvEclair 1s 2.85s ease-out both}
-  .joue .ouvAppli{animation:ouvPrend 1.8s 3.2s ease-in-out both}
-  .joue ~ .ouvApres{animation:ouvFondu .8s 3.4s ease-out both}
+  .joue .ouvSecours{animation:ouvSecours 2.6s .8s cubic-bezier(.25,.7,.3,1) both}
+  .joue .ouvEcran{animation:ouvPrend 1.8s 4s ease-in-out both}
+  .joue ~ .ouvApres{animation:ouvFondu .8s 3.6s ease-out both}
+
+  html:not(.js) .ouvCadre{aspect-ratio:auto}   /* sans script : le film seul, à la largeur de la page */
+  html:not(.js) .ouvPlan{position:static;width:auto;height:auto}
+  html:not(.js) .ouvAlu,html:not(.js) .ouvSurface,html:not(.js) .ouvAuget,html:not(.js) .ouvVoile{display:none}
+  html:not(.js) .ouvRejouer{display:none}
+  html:not(.js) .ouvEcran{position:relative;left:auto;top:auto;width:100%;height:auto;aspect-ratio:16/9}
 
   /* ---------- sections ---------- */
   section{padding:clamp(84px,12vw,150px) 0 0}
@@ -367,7 +348,7 @@
     <div class="ouvCadre" id="ouvCadre">
       <div class="ouvPlan" id="ouvPlan">
         <div class="ouvAlu" aria-hidden="true"><i class="ouvCoin" style="left:-6px;top:-6px"></i><i class="ouvCoin" style="right:-6px;top:-6px"></i><i class="ouvCoin" style="left:-6px;bottom:-6px"></i><i class="ouvCoin" style="right:-6px;bottom:-6px"></i></div>
-        <div class="ouvSurface" aria-hidden="true"><div class="ouvBrillance"></div><div class="ouvOmbre loin"></div><div class="ouvOmbre pres"></div></div>
+        <div class="ouvSurface" aria-hidden="true"><div class="ouvBrillance"></div></div>
         <svg class="ouvAuget" viewBox="0 0 1648 1000" aria-hidden="true">
           <defs>
             <filter id="ouvFlou" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur stdDeviation="8"/></filter>
@@ -394,21 +375,19 @@
           <rect x="56" y="947" width="1536" height="2" fill="#fff" opacity=".9"/>
           <rect x="40" y="932" width="22" height="44" rx="6" fill="#a3aab4"/><rect x="1586" y="932" width="22" height="44" rx="6" fill="#a3aab4"/>
         </svg>
-        <div class="ouvVerre" id="ouvVerre">
-          <div class="ouvAppli" id="ouvAppli">
-            <video id="ouvFilm" controls muted playsinline preload="auto" disablepictureinpicture width="1600" height="900" poster="vitrine/films/ouverture.webp"
-                   aria-label="Un tableau blanc ; une fine feuille de verre descend s'y poser, et Glacis s'y dépose. Sur l'écran d'accueil, un clic sur « Commencer » ouvre l'Accueil. Puis, coup sur coup : l'appel, un problème des rituels, le tableau de numération, le minuteur de la boîte à outils lancé puis réduit, l'Atelier et Préparer, avant de revenir à l'Accueil.">
-              <source src="vitrine/films/ouverture.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="ouvBord"></div><div class="ouvReflet"></div><div class="ouvArete"></div>
+        <div class="ouvSecours" aria-hidden="true"></div>
+        <canvas class="ouvVoile" id="ouvVoile" aria-hidden="true"></canvas>
+        <div class="ouvEcran" id="ouvEcran">
+          <video id="ouvFilm" controls muted playsinline preload="auto" disablepictureinpicture width="1600" height="900" poster="vitrine/films/ouverture.webp"
+                 aria-label="Un tableau blanc ; un voile très fin tombe en ondulant et s'y dépose, puis Glacis s'y imprime. Sur l'écran d'accueil, un clic sur « Commencer » ouvre l'Accueil. Puis, coup sur coup : l'appel, un problème des rituels, le tableau de numération, le minuteur de la boîte à outils lancé puis réduit, l'Atelier et Préparer, avant de revenir à l'Accueil.">
+            <source src="vitrine/films/ouverture.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
       <button class="ouvPause" id="ouvPause" type="button" aria-label="Lire ou mettre en pause l'animation"></button>
     </div>
     <div class="ouvApres">
       <div class="ouvLegendes" aria-live="polite">
-        <p class="l1">En peinture, un <b>glacis</b> est une fine couche transparente posée sur le tableau. <b>Celui-ci se pose sur le vôtre.</b></p>
         <p class="l2">L'appel, les rituels, les tableaux, les outils, l'Atelier, la préparation&nbsp;: <b>tout est au même endroit, sur un seul écran.</b></p>
       </div>
       <button class="ouvRejouer" id="ouvRejouer" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4.5v3.8h3.8"/></svg>Revoir</button>
@@ -419,7 +398,7 @@
   <div class="tete">
     <div class="contenu">
       <h1>Glacis <span class="cache">–</span><span class="cursive">Ma classe</span></h1>
-      <p class="accroche">Votre journée de classe, <em>prête d'un clic.</em></p>
+      <p class="accroche">Tout ce qu’il faut au&nbsp;tableau, <em>en un&nbsp;Glacis.</em></p>
       <p class="chapo">Joignez une fiche à une séance&nbsp;: le moment venu, elle s'ouvre au tableau d'un seul clic. La journée, les rituels, les tableaux et les outils sont réunis sur un écran, <b>sans connexion</b>.</p>
       <div class="actions">
         <a class="bouton" href="#telecharger">
@@ -840,39 +819,140 @@
   const liens = tous(".barre nav a"), cibles = liens.map(a => document.querySelector(a.getAttribute("href")));
   voir(cibles.filter(Boolean), e => { if (e.isIntersecting) liens.forEach(a => a.classList.toggle("ici", a.getAttribute("href") === "#" + e.target.id)); }, {rootMargin:"-40% 0px -55% 0px"});
 })();
-/* L'ouverture : le tableau, le voile qui s'y pose, puis le film de Glacis qui s'y dépose (voir le style « .ouv »). */
+/* L'ouverture (voir le style « .ouv »). */
+/* Le voile : une grille de 64 × 36 mailles que la carte graphique déforme à chaque image. Pas de simulation physique :
+   une descente d'ensemble, des vagues qui courent vers l'ourlet, des plis verticaux, une bulle d'air au centre qui se
+   dégonfle en dernier ; les bords se collent au tableau les premiers. La lumière vient d'en haut à gauche ; le tissu est
+   plus dense là où il penche (comme un vrai voile) ; une ombre portée suit sa hauteur. */
+const Voile = (canevas) => {
+  const gl = canevas.getContext("webgl", {premultipliedAlpha: true, antialias: true, alpha: true});
+  if (!gl) return null;
+  const SOMMETS = `
+attribute vec2 aUV;
+uniform float uS, uT, uOmbre;
+uniform vec4 uRect;   // voile posé : gauche, haut, largeur, hauteur (points de la scène)
+uniform vec3 uVue;    // haut du canevas, largeur, hauteur
+varying vec3 vN; varying float vZ; varying vec2 vUV;
+float sortie(float x){ x = clamp(x, 0., 1.); return 1. - pow(1. - x, 3.); }
+vec3 pose(vec2 uv){
+  float s = uS, t = uT, u = uv.x, v = uv.y;
+  float desc = 1. - sortie(s / .62);                                   // descente d'ensemble : 1 -> 0
+  float z0 = 300. * (1. - smoothstep(0., .8, s));                      // il arrive de devant le tableau
+  float amp = 1. - smoothstep(.3, 1., s);                              // les mouvements s'éteignent
+  float bord = min(min(u, 1. - u), min(v, 1. - v));
+  float colle = mix(1., smoothstep(0., .16, bord), smoothstep(.55, .85, s));   // les bords se collent d'abord
+  vec2 c = vec2(u - .5, (v - .52) * 1.2);
+  float bulle = 170. * exp(-dot(c, c) * 6.) * (1. - smoothstep(.6, 1., s)) * smoothstep(0., .18, bord);
+  float vague = 40. * amp * sin(6.2832 * (.9 * v - 1. * t)) * (.3 + .7 * v);                 // une longue ondulation vers l'ourlet
+  float plis = amp * (50. * sin(6.2832 * (2.6 * u + .25 * sin(1.3 * t + 1.6 * v)))           // de grands plis verticaux
+                    + 12. * sin(6.2832 * (5.4 * u + .8 * v - .4 * t))) * (.4 + .6 * v);
+  float ourlet = 170. * (1. - smoothstep(0., .7, s)) * v * v;          // pendant la chute, le bas du voile flotte en avant
+  float z = z0 + (bulle + vague + plis + ourlet) * colle;
+  float x = uRect.x + u * uRect.z + 24. * amp * sin(6.2832 * (.55 * v + .42 * t)) * v * colle;
+  float y = uRect.y + v * uRect.w - desc * uRect.w * 1.14 - 54. * amp * v * v;
+  return vec3(x, y, z);
+}
+void main(){
+  vec3 p = pose(aUV);
+  vec3 n = normalize(cross(pose(aUV + vec2(.004, 0.)) - p, pose(aUV + vec2(0., .004)) - p));
+  if (n.z < 0.) n = -n;
+  vN = n; vZ = p.z; vUV = aUV;
+  vec3 q = uOmbre > .5 ? vec3(p.x + p.z * .09 + (uOmbre - 3.) * 5., p.y + p.z * .16 + (uOmbre - 3.) * 5., 0.) : p;   // l'ombre tombe sur le tableau (trois passes décalées : bord adouci)
+  float k = 2600. / (2600. - q.z);
+  vec2 e = vec2(824., 430.) + (q.xy - vec2(824., 430.)) * k;
+  gl_Position = vec4(e.x / uVue.y * 2. - 1., 1. - (e.y - uVue.x) / uVue.z * 2., 0., 1.);
+}`;
+  const PIXELS = `
+precision mediump float;
+uniform float uOmbreF, uVoit;   // (l'ombre a son propre nom ici : la précision diffère de celle des sommets)
+varying vec3 vN; varying float vZ; varying vec2 vUV;
+void main(){
+  if (uOmbreF > .5){ float a = .045 * smoothstep(0., 90., vZ) * (1. - smoothstep(160., 380., vZ)) * uVoit; gl_FragColor = vec4(vec3(.12, .18, .33) * a, a); return; }   // de loin, presque pas d'ombre
+  vec3 n = normalize(vN), L = normalize(vec3(-.5, -.65, .55));
+  float d = dot(n, L);                                     // à plat : 0,557
+  float brille = pow(max(reflect(-L, n).z, 0.), 24.) * .4;
+  vec3 c = mix(vec3(.75, .8, .9), vec3(1.), clamp(.82 + 2.2 * (d - .557), 0., 1.)) + brille * .8;
+  float bord = min(min(vUV.x, 1. - vUV.x), min(vUV.y, 1. - vUV.y));
+  float ourlet = 1. - smoothstep(0., .007, bord);
+  c = mix(c, vec3(.84, .89, .97), ourlet * .6);            // l'ourlet, un peu plus dense
+  float a = clamp(.2 + 1.35 * (1. - n.z) + .35 * ourlet, 0., .66) * uVoit;
+  gl_FragColor = vec4(min(c, 1.) * a, a);
+}`;
+  const shader = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
+  const prog = gl.createProgram();
+  gl.attachShader(prog, shader(gl.VERTEX_SHADER, SOMMETS)); gl.attachShader(prog, shader(gl.FRAGMENT_SHADER, PIXELS));
+  gl.linkProgram(prog); if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
+  gl.useProgram(prog);
+  const N = 64, M = 36, uv = [], ind = [];
+  for (let j = 0; j <= M; j++) for (let i = 0; i <= N; i++) uv.push(i / N, j / M);
+  for (let j = 0; j < M; j++) for (let i = 0; i < N; i++){ const a = j * (N + 1) + i, b = a + 1, c = a + N + 1, d = c + 1; ind.push(a, c, b, b, c, d); }
+  gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer()); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(uv), gl.STATIC_DRAW);
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, gl.createBuffer()); gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(ind), gl.STATIC_DRAW);
+  const aUV = gl.getAttribLocation(prog, "aUV"); gl.enableVertexAttribArray(aUV); gl.vertexAttribPointer(aUV, 2, gl.FLOAT, false, 0, 0);
+  const U = {}; for (const nom of ["uS", "uT", "uOmbre", "uOmbreF", "uRect", "uVue", "uVoit"]) U[nom] = gl.getUniformLocation(prog, nom);
+  gl.uniform4f(U.uRect, 34, 27, 1580, 894);       // le voile posé déborde de 6 points autour de l'écran de Glacis
+  gl.uniform3f(U.uVue, -260, 1648, 1260);         // le canevas : 260 points au-dessus du tableau, 1648 × 1260
+  gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA); gl.clearColor(0, 0, 0, 0);
+  return {
+    dessiner(s, t){
+      gl.viewport(0, 0, canevas.width, canevas.height); gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.uniform1f(U.uS, s); gl.uniform1f(U.uT, t); gl.uniform1f(U.uVoit, Math.min(1, s / .06));
+      gl.uniform1f(U.uOmbreF, 1);
+      for (const o of [1, 2, 3]){ gl.uniform1f(U.uOmbre, o * 2 - 1); gl.drawElements(gl.TRIANGLES, ind.length, gl.UNSIGNED_SHORT, 0); }   // uOmbre = 1, 3, 5 : décalages de -10, 0 et +10 points
+      gl.uniform1f(U.uOmbre, 0); gl.uniform1f(U.uOmbreF, 0); gl.drawElements(gl.TRIANGLES, ind.length, gl.UNSIGNED_SHORT, 0);
+    }
+  };
+};
+
 (() => {
   const cadre = document.getElementById("ouvCadre"); if (!cadre) return;
-  const plan = document.getElementById("ouvPlan"), verre = document.getElementById("ouvVerre"), appli = document.getElementById("ouvAppli");
-  const film = document.getElementById("ouvFilm"), bouton = document.getElementById("ouvPause");
+  const plan = document.getElementById("ouvPlan"), ecran = document.getElementById("ouvEcran");
+  const canevas = document.getElementById("ouvVoile"), film = document.getElementById("ouvFilm"), bouton = document.getElementById("ouvPause");
   const calme = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></svg>';
-  const LIRE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.500v13a1 1 0 0 0 1.500.900l10.500-6.500a1 1 0 0 0 0-1.700L9.500 4.600A1 1 0 0 0 8 5.500z"/></svg>';
-  film.controls = false;                                  /* sans script, les commandes du navigateur restent */
-  const ajuste = () => { plan.style.transform = "scale(" + (cadre.clientWidth / 1648) + ")"; };
-  new ResizeObserver(ajuste).observe(cadre); ajuste();
-  const etat = (enCours) => { cadre.classList.toggle("film", enCours); cadre.classList.toggle("arret", !enCours); bouton.innerHTML = enCours ? PAUSE : LIRE; };
-  const lire = () => { etat(true); const p = film.play(); if (p) p.catch(() => etat(false)); };   /* lecture refusée : le bouton attend un clic */
-  let minuteries = [];
-  const posee = () => verre.classList.add("posee");
-  const suite = () => {                                   /* le voile posé, l'écran déposé : rendu normal (image nette), le film démarre */
-    if (!cadre.classList.contains("joue")) return;
-    minuteries.forEach(clearTimeout); posee(); cadre.classList.replace("joue", "fini"); lire();
+  const LIRE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.9l10.5-6.5a1 1 0 0 0 0-1.7L9.5 4.6A1 1 0 0 0 8 5.5z"/></svg>';
+  film.controls = false;                                  // sans script, les commandes du navigateur restent
+  let voile = null;
+  try { voile = Voile(canevas); } catch (e) { console.warn(e); }
+  if (!voile){ cadre.classList.add("sansGL"); canevas.hidden = true; }
+  const DEBUT = 800, DUREE = 3000;                        // le voile tombe de 0,8 s à 3,8 s
+  let depart = 0, image = 0, minuteries = [];
+  const dessiner = (s, t) => { if (voile) voile.dessiner(s, t); };
+  const ajuste = () => {
+    const k = cadre.clientWidth / 1648, r = Math.min(devicePixelRatio || 1, 2);
+    plan.style.transform = "scale(" + k + ")";
+    canevas.width = Math.max(1, Math.round(1648 * k * r)); canevas.height = Math.max(1, Math.round(1260 * k * r));
+    if (!cadre.classList.contains("joue")) dessiner(cadre.classList.contains("fini") ? 1 : 0, 0);
   };
-  verre.addEventListener("animationend", e => { if (e.target === verre && e.animationName === "ouvPose") posee(); });
-  appli.addEventListener("animationend", e => { if (e.target === appli && e.animationName === "ouvPrend") suite(); });
-  film.addEventListener("timeupdate", () => cadre.classList.toggle("suite", film.currentTime > 3));   /* la légende du film arrive avec l'Accueil */
+  new ResizeObserver(ajuste).observe(cadre);
+  const boucle = (maintenant) => {
+    const ms = maintenant - depart - DEBUT, s = Math.min(1, Math.max(0, ms / DUREE));
+    dessiner(s, Math.max(0, ms) / 1000);
+    if (s < 1 && cadre.classList.contains("joue")) image = requestAnimationFrame(boucle);
+  };
+  const etat = (enCours) => { cadre.classList.toggle("film", enCours); cadre.classList.toggle("arret", !enCours); bouton.innerHTML = enCours ? PAUSE : LIRE; };
+  const lire = () => { etat(true); const p = film.play(); if (p) p.catch(() => etat(false)); };
+  const suite = () => {                                   // le voile posé, Glacis imprimé dessus : le film démarre
+    if (!cadre.classList.contains("joue")) return;
+    minuteries.forEach(clearTimeout); cancelAnimationFrame(image);
+    cadre.classList.replace("joue", "fini"); dessiner(1, 0); lire();
+  };
+  ecran.addEventListener("animationend", e => { if (e.target === ecran && e.animationName === "ouvPrend") suite(); });
+  film.addEventListener("timeupdate", () => cadre.classList.toggle("suite", film.currentTime > 3));
   film.addEventListener("ended", () => etat(false));
   const jouer = () => {
-    film.pause(); try { film.currentTime = 0; } catch {}
-    verre.classList.remove("posee"); cadre.classList.remove("joue", "fini", "film", "arret", "suite"); void cadre.offsetWidth;
-    minuteries.forEach(clearTimeout);
-    if (calme){ cadre.classList.add("fini"); etat(false); return; }   /* mouvements réduits : rien ne bouge, le film attend un clic */
+    film.pause(); try { film.currentTime = 0; } catch (e) {}
+    minuteries.forEach(clearTimeout); cancelAnimationFrame(image);
+    cadre.classList.remove("joue", "fini", "film", "arret", "suite"); void cadre.offsetWidth;
+    if (calme){ cadre.classList.add("fini"); dessiner(1, 0); etat(false); return; }   // mouvements réduits : le voile est déjà posé
     cadre.classList.add("joue");
-    minuteries = [setTimeout(posee, 3300), setTimeout(suite, 5200)];   /* filet : la suite vient même si un évènement manque */
+    depart = performance.now(); image = requestAnimationFrame(boucle);
+    minuteries = [setTimeout(suite, 6100)];               // filet : la suite vient même si un évènement manque
   };
   bouton.addEventListener("click", () => { if (film.paused){ if (film.ended) film.currentTime = 0; lire(); } else { film.pause(); etat(false); } });
   document.getElementById("ouvRejouer").addEventListener("click", jouer);
+  ajuste();
   (document.fonts ? Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 1500))]) : Promise.resolve()).then(jouer);
 })();
 </script>

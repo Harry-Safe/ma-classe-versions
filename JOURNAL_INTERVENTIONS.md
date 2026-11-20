@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-20 — Claude — Page de présentation : voile de tissu et nouvelle accroche
+
+- **Demande / Autorisation** : Franck, 20 novembre, 23 h 17 (« un voile transparent (comme un drap) qui se dépose sur le tableau blanc »), 23 h 25 (accroche « Tout ce qu'il faut au tableau, en un Glacis. »), 23 h 28 (retirer l'explication du glacis : « comme quand on explique une blague ») ; mise en ligne : « Publie » (23 h 29), après maquette.
+- **Contrôle préalable** : `main` à `2846692` (essai 6.0.0-beta.24 publié) ; branche `claude/ouverture-voile` depuis `main`.
+- **Réalisation** : `index.html` : la plaque de verre laisse place à un voile de tissu calculé en direct (WebGL : grille de 64 × 36 mailles, descente, grands plis, ondulation vers l'ourlet, bulle d'air qui se dégonfle, bords collés d'abord, ombre portée légère ; sans WebGL, un voile simple descend ; mouvements réduits : voile déjà posé) ; l'écran de Glacis s'y imprime puis le film `ouverture` démarre (inchangé) ; légende de définition du glacis retirée ; accroche « Tout ce qu'il faut au tableau, en un Glacis. » ; `DOCUMENTATION.md` § 1 bis.
+- **Validation** : page servie en local avec la politique de contenu du site (empreintes calculées comme `outils/signer.py`) : aucun refus, aucune erreur ; Chrome (rendu WebGL logiciel) à 1440 px : voile, écran d'accueil puis film ; mouvements réduits : voile posé, film en attente ; sans script : le film seul avec ses commandes. Maquette validée par étapes (images fixes du voile à chaque étape de sa chute).
+- **Livraison / état** : envoyée sur `main` ; résultat de l'action dans l'entrée suivante.
+
 ## 2026-11-20 — Claude — Essai 6.0.0-beta.24 publié (thème de Noël livré avec Glacis)
 
 - **Demande / Autorisation** : Franck, 20 novembre, 21 h 42 (« Intégré à l'appli mais laisse la possibilité de mettre des fichiers à importer ») ; publication sur le canal d'essai : règle permanente.
