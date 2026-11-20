@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-20 — Claude — Essai 6.0.0-beta.19 publié (accueil : chargement et aperçus de fichier)
+
+- **Demande / Autorisation** : Franck, 20 novembre, 13 h 10 (écran d'accueil figé dans l'aperçu de l'iPad) ; publication sur le canal d'essai : règle permanente.
+- **Contrôle préalable** : `main` à `092d4c4` ; dépôt source : `essai` à `d42b609`, garde de publication satisfaite.
+- **Réalisation** : `build/publier-version.py --canal essai` et `build/publier-appli.py --canal essai` du dépôt source ; commit `647fe1c`, envoyé sur `main` par avance rapide.
+- **Validation** : action `44739928125` réussie : « versions.json signé : essai 6.0.0-beta.19 », « applis.json signé : echecs 1.1.0 (essai) », « Glacis_6.0.0-beta.19_x64-setup-essai.exe signé, signature vérifiée comme dans l'application », « Deployment complete » ; Cloudflare Pages : déploiement `f2a0b66d`, production, commit `647fe1c`, succès.
+- **Livraison / état** : publié sur glacis-classe.fr, canal d'essai seulement ; canal stable inchangé.
+
 ## 2026-11-20 — Claude — Essai 6.0.0-beta.18 publié (l'Atelier, logo de la boîte à outils)
 
 - **Demande / Autorisation** : Franck, 20 novembre, 11 h 23 (« Je n'ai pas vu l'atelier avec son logo intégré », « La boîte à outils doit avoir un logo et une languette bien différenciée ») ; publication sur le canal d'essai : règle permanente.
