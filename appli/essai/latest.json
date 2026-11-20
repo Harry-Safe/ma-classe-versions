@@ -1,11 +1,11 @@
 {
-  "version": "6.0.0-beta.17",
-  "notes": "« Commencer » ne reste plus sans effet. Sur tablette et sur téléphone, le bouton de l'écran d'accueil pouvait ne rien faire. Le démarrage est durci : un appui au doigt démarre même si son clic n'arrive pas ou si autre chose couvre le bouton, un stockage du navigateur qui ne répond pas ne retient plus l'accueil, et si quelque chose empêche Glacis de démarrer, l'écran d'accueil le dit sous les boutons (message à noter) au lieu de rester muet.\nExplorer plus simple. L'onglet « Fonctions » disparaît : Élèves, Préparer, Résultats et ce que vous retirez de la barre de navigation se retrouvent dans l'onglet « Applis », après les applis.\nLa boîte à outils sous la main partout. Elle s'ouvre par une languette au bord gauche de l'écran, sous l'ampoule de l'assistant, sur tous les écrans, Tableaux et Rituels compris (et toujours par la touche O). Le bouton de la barre du haut disparaît.",
-  "pub_date": "2026-11-20T09:44:21Z",
+  "version": "6.0.0-beta.18",
+  "notes": "L'Atelier arrive dans Glacis. Nouvelle fonction dans la barre de navigation, au-dessus de Préparer : on y compose des fiches d'exercices à taille réelle, en A5 ou en A4. On pose et on règle par glisser-déposer du texte, des consignes numérotées, des lignes Seyès (on touche une ligne pour y écrire un modèle foncé, très clair ou en pointillés), une droite graduée, un tableau des nombres, un tableau de numération, une balance, des figures, un quadrillage, des images (fichier, copier-coller, glisser-déposer) et de petites icônes qui s'aimantent aux consignes. Une grille discrète cale tout sur les carreaux (elle ne s'imprime pas). Plusieurs pages, impression ou PDF, avec en A5 « 2 par feuille A4 » : la même fiche en double ou les pages à la suite.\nMes fiches et la banque. « Enregistrer » range la fiche dans « Mes fiches » (dossier de la classe) : elle reste modifiable. La banque propose des fiches par niveau, en A5 et en A4 : on en ouvre une copie, la banque ne change pas.\nLa boîte à outils a son logo. Sa languette du bord gauche montre désormais sa petite caisse rouge, bien distincte de l'ampoule de l'assistant.\n« Commencer » sans effet : la cause est traitée. Sur certains appareils, le stockage du navigateur ne répondait pas et l'écran d'accueil restait sans bouton actif ; Glacis ne l'attend plus au-delà de quelques secondes, nulle part.\nTableaux : le bouton « Imprimer » de la barre du haut reprend la taille du bouton d'enregistrement.",
+  "pub_date": "2026-11-20T11:26:02Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.17_x64-setup-essai.exe"
+      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.18_x64-setup-essai.exe"
     }
   }
 }
