@@ -1,11 +1,11 @@
 {
-  "version": "6.0.0-beta.20",
-  "notes": "Applis : un seul en-tête. Une appli ouverte (les Échecs) occupe tout son cadre avec son propre en-tête : la ligne que Glacis ajoutait au-dessus disparaît. Les applis ouvertes s'affichent en onglets dans la barre du haut, suivies d'Explorer, de Recharger, de Bord à bord et d'une croix rouge pour quitter l'appli. En bord à bord, une petite capsule à côté de l'heure permet de revenir ou de quitter.\nLa boîte à outils devient un tiroir. Sa languette « Outils » (son logo et son nom), accrochée au bord gauche sous l'ampoule de l'assistant, est la poignée d'un tiroir : touchez-la (ou appuyez sur O), ou tirez-la vers la droite, et les outils sortent du bord de l'écran. Le tiroir se replie dès qu'un outil est pris, quand on touche ailleurs, ou quand on repousse la poignée vers le bord ; l'épingle le garde ouvert.",
-  "pub_date": "2026-11-20T14:43:25Z",
+  "version": "6.0.0-beta.21",
+  "notes": "Thèmes plus sûrs. Un thème importé ne peut plus dérégler Glacis : chaque dessin posé reçoit ses propres noms internes, si bien qu'un dessin ne prend plus la place d'un élément de l'appli (la date, par exemple) et qu'un décor répété garde ses dégradés partout.\nThèmes : les replis respectent le décor. À l'impression, ni fond ni décor du thème ; en projection contrastée, plus de décor sous le texte des cartes ; en mode léger et quand l'ordinateur demande moins d'animations, les illustrations de l'accueil ne défilent plus.\nThèmes : ce qui s'importe. Un thème importé peut reprendre le fond doux et les lignes de cahier du thème Glacis ; les décors de la date et des icônes de la journée ne disparaissent plus au fil des heures ; un fichier qui vise des zones qui n'existent plus (barre du haut, ancienne colonne) le signale à l'import.",
+  "pub_date": "2026-11-20T17:48:39Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.20_x64-setup-essai.exe"
+      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.21_x64-setup-essai.exe"
     }
   }
 }

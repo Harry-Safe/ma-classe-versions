@@ -1,21 +1,22 @@
 {
-  "version": "6.0.0-beta.20",
+  "version": "6.0.0-beta.21",
   "date": "2026-11-20",
-  "titre": "Essai : Applis à en-tête unique, boîte à outils en tiroir",
+  "titre": "Essai : Thèmes plus sûrs",
   "notes": [
-    "Applis : un seul en-tête. Une appli ouverte (les Échecs) occupe tout son cadre avec son propre en-tête : la ligne que Glacis ajoutait au-dessus disparaît. Les applis ouvertes s'affichent en onglets dans la barre du haut, suivies d'Explorer, de Recharger, de Bord à bord et d'une croix rouge pour quitter l'appli. En bord à bord, une petite capsule à côté de l'heure permet de revenir ou de quitter.",
-    "La boîte à outils devient un tiroir. Sa languette « Outils » (son logo et son nom), accrochée au bord gauche sous l'ampoule de l'assistant, est la poignée d'un tiroir : touchez-la (ou appuyez sur O), ou tirez-la vers la droite, et les outils sortent du bord de l'écran. Le tiroir se replie dès qu'un outil est pris, quand on touche ailleurs, ou quand on repousse la poignée vers le bord ; l'épingle le garde ouvert."
+    "Thèmes plus sûrs. Un thème importé ne peut plus dérégler Glacis : chaque dessin posé reçoit ses propres noms internes, si bien qu'un dessin ne prend plus la place d'un élément de l'appli (la date, par exemple) et qu'un décor répété garde ses dégradés partout.",
+    "Thèmes : les replis respectent le décor. À l'impression, ni fond ni décor du thème ; en projection contrastée, plus de décor sous le texte des cartes ; en mode léger et quand l'ordinateur demande moins d'animations, les illustrations de l'accueil ne défilent plus.",
+    "Thèmes : ce qui s'importe. Un thème importé peut reprendre le fond doux et les lignes de cahier du thème Glacis ; les décors de la date et des icônes de la journée ne disparaissent plus au fil des heures ; un fichier qui vise des zones qui n'existent plus (barre du haut, ancienne colonne) le signale à l'import."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Glacis.html",
-      "taille": 7284725,
-      "sha256": "ac42eeab0ded5582e19389eca8924cdd1985d11750f8f4718c4ca74d8669eac4"
+      "taille": 7288268,
+      "sha256": "4f4b1df57afd4c25656e96cbc233e2ea1b4973823c39489936128a8aef0f9124"
     },
     "remplacant": {
       "url": "essai/Glacis - Remplaçant.html",
-      "taille": 7284725,
-      "sha256": "ac42eeab0ded5582e19389eca8924cdd1985d11750f8f4718c4ca74d8669eac4"
+      "taille": 7288268,
+      "sha256": "4f4b1df57afd4c25656e96cbc233e2ea1b4973823c39489936128a8aef0f9124"
     }
   }
 }
