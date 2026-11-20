@@ -1,27 +1,23 @@
 {
-  "version": "6.0.0-beta.15",
+  "version": "6.0.0-beta.16",
   "date": "2026-11-20",
-  "titre": "Essai : Préparer, emploi du temps et cours double : heures, chronobiologie, colonnes par niveau",
+  "titre": "Essai : Applis intégrées et boîte à outils",
   "notes": [
-    "Horaires tapés au clavier sans être coupés. Dans Préparer, le panneau d'une activité (et celui des récréations) n'enregistre plus l'heure au premier chiffre : on tape « 40 » d'un trait ; l'heure s'enregistre en quittant les champs Début et Fin, ou par Entrée.",
-    "« En ce moment » écrit sur les lignes du cahier. Le titre, l'horaire, les détails et les messages de la carte se posent sur les lignes Seyès du fond, quelle que soit la taille du widget.",
-    "Un filet avant Élèves dans la barre de navigation : Élèves, Préparer et Résultats (et ce qui est gardé dans le dock) forment un groupe, comme Accueil, Rituels et Tableaux.",
-    "Horaires officiels vérifiés : « Questionner le monde » compte aussi en sciences. Avec la grille du CP de 2026 (sciences et technologie 1 h 10, histoire, géographie, EMC 1 h 20), une activité « Questionner le monde » comptait entièrement en histoire-géographie ; elle compte désormais d'après son titre (« Sciences », « Le vivant »… ou « Histoire », « L'espace et le temps »…), sinon pour moitié dans chaque domaine. Le panneau de l'activité permet de choisir (« Compte en »). La comparaison aux horaires officiels a une ligne « Total de la semaine » (24 h) ; une activité en même temps (∥) n'est plus comptée en plus en cours double.",
-    "Calque de chronobiologie (Préparer › Emploi du temps et La semaine, bouton « Chronobiologie ») : une jauge le long de chaque jour montre la vigilance des élèves par demi-heure (forte, moyenne, faible) avec ce qu'il vaut mieux y placer, selon l'âge moyen de la classe et le jour de la semaine (lundi moins bon, jeudi après-midi et vendredi matin meilleurs) ; une pastille devant chaque activité dans « Le jour ». Désactivé par défaut.",
-    "Une colonne par niveau dans l'emploi du temps (cours double ou triple). « + Colonne », en haut à gauche de la grille, ajoute ou retire un niveau (Glacis propose les réglages utiles de la classe) ; chaque colonne a son « + » pour ajouter une activité de ce niveau à la fin du jour ; un clic dans une colonne crée une activité de ce niveau ; une activité glissée dans une autre colonne change de niveau.",
-    "Accueil plus lisible quand plusieurs niveaux travaillent en même temps. « En ce moment » montre une colonne par niveau, côte à côte (niveau, qui est avec l'enseignant, activité en grand, horaire, suite) sous le titre « CP · CE1 » ; le widget Journée range les activités du moment par niveau, une colonne chacun, sans couper les titres au premier mot.",
-    "Imprimer un tableau ou l'enregistrer en PDF. Nouveau bouton dans la barre de menus des Tableaux, à côté de l'enregistrement de la séance : le tableau affiché s'imprime seul, sur une page A4 paysage, tel qu'à l'écran (cases, dessins, éléments posés). Pour un PDF, choisir « Enregistrer au format PDF » dans la fenêtre d'impression."
+    "Les applis sont dans Glacis, dans toutes les versions. Le Store disparaît : l'onglet « Applis » d'Explorer existe aussi dans la page ouverte dans un navigateur, sur l'iPad et dans l'édition Remplaçant. L'appli Échecs y est livrée avec Glacis ; elle s'ouvre comme un tableau, son nom dans la barre de menus. Sans dossier connecté, elle garde ses parties dans le navigateur.",
+    "Une appli ouverte reste ouverte. Sa tuile reste sous « Explorer » dans la barre de navigation tant que vous ne la quittez pas : allez aux Tableaux ou aux Rituels, un clic sur la tuile y revient, rien n'est perdu. Plusieurs applis peuvent rester ouvertes ; « Quitter » (ou un clic droit sur la tuile) en ferme une. Les outils et les fonctions ouverts ne s'ajoutent plus d'eux-mêmes à la barre.",
+    "Boîte à outils. La grille des outils n'est plus une fonction de la barre de navigation : c'est la « Boîte à outils », ouverte par son bouton dans la barre de menus (sur tous les écrans) ou par la touche O. L'épingle la garde ouverte quand on y prend un outil. Les outils restent aussi dans Explorer.",
+    "Masquer des outils ou des applis dans Explorer. « Choisir les outils affichés » (ou « les applis ») montre tout : décochez ce que vous ne voulez pas voir, recochez-le pour le retrouver ; un clic droit sur une icône propose aussi « Masquer dans Explorer ». « Nouvel outil » est proposé dans l'onglet Outils."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Glacis.html",
-      "taille": 7028211,
-      "sha256": "a2f61afc21bf83d5d27194e9958c2169c9f24075de153bbec18f032adb85aef4"
+      "taille": 7190798,
+      "sha256": "b40dcc3a2f9ea04d1016366aac37833ac1529eee66c952707b2387feeffdd0f8"
     },
     "remplacant": {
       "url": "essai/Glacis - Remplaçant.html",
-      "taille": 7028211,
-      "sha256": "a2f61afc21bf83d5d27194e9958c2169c9f24075de153bbec18f032adb85aef4"
+      "taille": 7190798,
+      "sha256": "b40dcc3a2f9ea04d1016366aac37833ac1529eee66c952707b2387feeffdd0f8"
     }
   }
 }
