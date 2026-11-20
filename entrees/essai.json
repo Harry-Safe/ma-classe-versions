@@ -1,23 +1,20 @@
 {
-  "version": "6.0.0-beta.22",
+  "version": "6.0.0-beta.23",
   "date": "2026-11-20",
-  "titre": "Essai : Canevas commun des applis, Labo des signes",
+  "titre": "Essai : Classe de démonstration : écran d'accueil gardé",
   "notes": [
-    "Les applis ont toutes le même canevas. Une appli ouverte n'a plus d'en-tête à elle : son nom et son icône sont dans la barre du haut (un clic ouvre son menu : à propos, réglages, aide, applis ouvertes, recharger, quitter), ses modes y sont en onglets (comme ceux des tableaux), puis l'écrou des réglages, l'aide, bord à bord et la croix rouge. En haut de l'appli, une ligne d'options, comme celle des Tableaux : à gauche ce qu'on choisit et ce qu'on affiche (pastilles), à droite les actions.",
-    "Échecs 1.2.0 passe à ce canevas : « Jouer » et « Composer » dans la barre, les règles du jeu derrière l'écrou, la situation, l'affichage et « Retourner l'échiquier » dans la ligne d'options.",
-    "Nouvelle appli : le Labo des signes. Que fait un signe ? Trois activités pour le comprendre avec des tours de cubes : Prédis (avant de voir, la tour d'arrivée sera-t-elle plus grande, plus petite ou pareille ?), Signe mystère (quel signe a agi : + ou − ?) et La balance (peut-on écrire = ? le signe = devient une balance qui penche ou reste droite). Tours de cubes, barres ou nombres seuls ; jusqu'à 5 ou 10 ; pièges (+ 0, − 0, tout enlever, impossible, 1 fois). Au CP, « fois » s'écrit en mot (3 fois 2, c'est 2 + 2 + 2) ; au CE1, le signe × apparaît.",
-    "Plus de voix de l'ordinateur. Le bouton « Lire » des Problèmes (Rituels) disparaît : l'adulte lit l'énoncé à la classe."
+    "Classe de démonstration : l'écran d'accueil peut rester affiché. Ouverte avec « &depart » dans son adresse, la classe de démonstration attend « Commencer », comme une vraie classe. Cela sert aux films de la page de présentation de Glacis ; rien ne change pour vous."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Glacis.html",
-      "taille": 7485477,
-      "sha256": "6bf14a25e03308dc20668c7acc9d1b425e2ae190e31edf6a3246298ec66bbae8"
+      "taille": 7485914,
+      "sha256": "5f5361a1213baf1c9cf93db69b1b34b2a2016132f88bbc97083b2531431e080b"
     },
     "remplacant": {
       "url": "essai/Glacis - Remplaçant.html",
-      "taille": 7485477,
-      "sha256": "6bf14a25e03308dc20668c7acc9d1b425e2ae190e31edf6a3246298ec66bbae8"
+      "taille": 7485914,
+      "sha256": "5f5361a1213baf1c9cf93db69b1b34b2a2016132f88bbc97083b2531431e080b"
     }
   }
 }

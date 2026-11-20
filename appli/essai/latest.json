@@ -1,11 +1,11 @@
 {
-  "version": "6.0.0-beta.22",
-  "notes": "Les applis ont toutes le même canevas. Une appli ouverte n'a plus d'en-tête à elle : son nom et son icône sont dans la barre du haut (un clic ouvre son menu : à propos, réglages, aide, applis ouvertes, recharger, quitter), ses modes y sont en onglets (comme ceux des tableaux), puis l'écrou des réglages, l'aide, bord à bord et la croix rouge. En haut de l'appli, une ligne d'options, comme celle des Tableaux : à gauche ce qu'on choisit et ce qu'on affiche (pastilles), à droite les actions.\nÉchecs 1.2.0 passe à ce canevas : « Jouer » et « Composer » dans la barre, les règles du jeu derrière l'écrou, la situation, l'affichage et « Retourner l'échiquier » dans la ligne d'options.\nNouvelle appli : le Labo des signes. Que fait un signe ? Trois activités pour le comprendre avec des tours de cubes : Prédis (avant de voir, la tour d'arrivée sera-t-elle plus grande, plus petite ou pareille ?), Signe mystère (quel signe a agi : + ou − ?) et La balance (peut-on écrire = ? le signe = devient une balance qui penche ou reste droite). Tours de cubes, barres ou nombres seuls ; jusqu'à 5 ou 10 ; pièges (+ 0, − 0, tout enlever, impossible, 1 fois). Au CP, « fois » s'écrit en mot (3 fois 2, c'est 2 + 2 + 2) ; au CE1, le signe × apparaît.\nPlus de voix de l'ordinateur. Le bouton « Lire » des Problèmes (Rituels) disparaît : l'adulte lit l'énoncé à la classe.",
-  "pub_date": "2026-11-20T18:28:26Z",
+  "version": "6.0.0-beta.23",
+  "notes": "Classe de démonstration : l'écran d'accueil peut rester affiché. Ouverte avec « &depart » dans son adresse, la classe de démonstration attend « Commencer », comme une vraie classe. Cela sert aux films de la page de présentation de Glacis ; rien ne change pour vous.",
+  "pub_date": "2026-11-20T19:05:38Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.22_x64-setup-essai.exe"
+      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.23_x64-setup-essai.exe"
     }
   }
 }
