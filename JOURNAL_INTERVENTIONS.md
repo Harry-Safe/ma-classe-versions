@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-20 — Claude — Essai 6.0.0-beta.25 publié (thèmes de saison livrés avec Glacis)
+
+- **Demande / Autorisation** : Franck, 20 novembre, 22 h 57 (« Incorpore les dans l'appli » : « Saint-Nicolas », « Noël au coin du feu », « Hiver ») ; publication sur le canal d'essai : règle permanente.
+- **Contrôle préalable** : `main` à `9589625` (page de présentation, autre conversation), copie locale avancée sans conflit ; dépôt source : `essai` à `e9d3f2f`, garde de publication satisfaite (l'essai 6.0.0-beta.24 est contenu).
+- **Réalisation** : `build/publier-version.py --canal essai` et `build/publier-appli.py --canal essai` du dépôt source ; commit `ae9f206`, envoyé sur `main` par avance rapide.
+- **Validation** : action `44829726233` réussie : « versions.json signé : essai 6.0.0-beta.25 », « applis.json signé », « signature vérifiée comme dans l'application », « Deployment complete » ; Cloudflare Pages : déploiement `28458d54`, production, `ae9f206`, succès.
+- **Livraison / état** : publié sur glacis-classe.fr, canal d'essai seulement ; canal stable inchangé.
+
 ## 2026-11-20 — Claude — Page de présentation : voile de tissu et nouvelle accroche
 
 - **Demande / Autorisation** : Franck, 20 novembre, 23 h 17 (« un voile transparent (comme un drap) qui se dépose sur le tableau blanc »), 23 h 25 (accroche « Tout ce qu'il faut au tableau, en un Glacis. »), 23 h 28 (retirer l'explication du glacis : « comme quand on explique une blague ») ; mise en ligne : « Publie » (23 h 29), après maquette.
