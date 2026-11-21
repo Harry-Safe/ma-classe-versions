@@ -1,20 +1,20 @@
 {
-  "version": "6.0.0-beta.27",
+  "version": "6.0.0-beta.28",
   "date": "2026-11-21",
-  "titre": "Essai : Thèmes de saison peints à l'aquarelle",
+  "titre": "Essai : Thème d'automne",
   "notes": [
-    "Les thèmes de saison sont peints à l'aquarelle. « Saint-Nicolas », « Village sous la neige », « Noël au coin du feu » et « Hiver » prennent un vrai air d'album illustré : couleurs posées en couches transparentes, trait d'encre fin, ciel et papier d'aquarelle. Le décor est préparé une seule fois quand on choisit le thème, puis il ne coûte plus rien ; en mode léger, il reste plus simple."
+    "Nouveau thème « Automne », peint à l'aquarelle. Un après-midi doré en lisière de forêt : grand chêne roux, bouleaux dorés, tas de feuilles, hérisson et cèpes ; une guirlande de feuilles sur l'écran d'accueil. Il se choisit dans Réglages › Apparence › Thème, en tête de la liste des thèmes de saison."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Glacis.html",
-      "taille": 8704607,
-      "sha256": "3e1fc0152e2a323ce339556ac4dc652ef51f5057fce18c77eb0bb40979778a1d"
+      "taille": 8960879,
+      "sha256": "2db21c353be35abf319506a3c981e0894a88759b5d71a16e250d6344ce399575"
     },
     "remplacant": {
       "url": "essai/Glacis - Remplaçant.html",
-      "taille": 8704607,
-      "sha256": "3e1fc0152e2a323ce339556ac4dc652ef51f5057fce18c77eb0bb40979778a1d"
+      "taille": 8960879,
+      "sha256": "2db21c353be35abf319506a3c981e0894a88759b5d71a16e250d6344ce399575"
     }
   }
 }

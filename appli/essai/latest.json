@@ -1,11 +1,11 @@
 {
-  "version": "6.0.0-beta.27",
-  "notes": "Les thèmes de saison sont peints à l'aquarelle. « Saint-Nicolas », « Village sous la neige », « Noël au coin du feu » et « Hiver » prennent un vrai air d'album illustré : couleurs posées en couches transparentes, trait d'encre fin, ciel et papier d'aquarelle. Le décor est préparé une seule fois quand on choisit le thème, puis il ne coûte plus rien ; en mode léger, il reste plus simple.",
-  "pub_date": "2026-11-21T09:37:57Z",
+  "version": "6.0.0-beta.28",
+  "notes": "Nouveau thème « Automne », peint à l'aquarelle. Un après-midi doré en lisière de forêt : grand chêne roux, bouleaux dorés, tas de feuilles, hérisson et cèpes ; une guirlande de feuilles sur l'écran d'accueil. Il se choisit dans Réglages › Apparence › Thème, en tête de la liste des thèmes de saison.",
+  "pub_date": "2026-11-21T10:36:16Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.27_x64-setup-essai.exe"
+      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.28_x64-setup-essai.exe"
     }
   }
 }
