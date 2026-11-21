@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-21 — Claude — Essai 6.0.0-beta.26 publié (raccourcis modifiables, couleurs des paquets, impression agrandie)
+
+- **Demande / Autorisation** : Franck, 20 novembre, 23 h 26 (raccourcis clavier modifiables dans les Réglages, paquets qui gardent les couleurs de leurs éléments, zone imprimable des tableaux maximisée) ; publication sur le canal d'essai : règle permanente.
+- **Contrôle préalable** : `main` à `18f00fd` (essai 6.0.0-beta.25 publié, autre conversation), copie locale à jour ; dépôt source : `essai` à `c4941ab`, garde de publication satisfaite (l'essai 6.0.0-beta.25, `e9d3f2f`, est contenu).
+- **Réalisation** : `build/publier-version.py --canal essai` et `build/publier-appli.py --canal essai` du dépôt source ; commit `a01d67c`, envoyé sur `main` par avance rapide.
+- **Validation** : action `44841931539` réussie : « versions.json signé : essai 6.0.0-beta.26 », « applis.json signé : echecs 1.1.0 (essai) », « Glacis_6.0.0-beta.26_x64-setup-essai.exe signé, signature vérifiée comme dans l'application », « Deployment complete » (déploiement `4b2bb0c3` de Cloudflare Pages, lu dans le journal de l'action ; non relu par le connecteur Cloudflare).
+- **Livraison / état** : publié sur glacis-classe.fr, canal d'essai seulement ; canal stable inchangé.
+
 ## 2026-11-20 — Claude — Essai 6.0.0-beta.25 publié (thèmes de saison livrés avec Glacis)
 
 - **Demande / Autorisation** : Franck, 20 novembre, 22 h 57 (« Incorpore les dans l'appli » : « Saint-Nicolas », « Noël au coin du feu », « Hiver ») ; publication sur le canal d'essai : règle permanente.
