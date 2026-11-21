@@ -235,6 +235,9 @@ seule la coquille s'ajoute au contenu public. Elle ne contient que la **clé pub
 
 ## 4. Règles
 
+0. **Site gelé** (décision de Franck du 21 novembre 2026, `SITE-GELE.md`) : glacis-classe.fr reste tel quel ; les
+   essais suivants ne sont plus publiés ici. Tant que `SITE-GELE.md` existe, l'action échoue sur `main` avant toute
+   fabrication, signature ou mise en ligne. Dégel : retirer ce fichier, seulement sur une phrase de Franck.
 1. **Publier seulement avec l'accord explicite de Franck**, pour le canal qu'il a demandé (« en essai » ≠ « publie »).
    Un envoi sur `main` **est** une publication.
 2. Un essai ne modifie **que** `essai/`, `entrees/essai.json`, `appli/essai/`, `coquille/essai/` et, pour une appli du Store, la

@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-21 — Claude — Site gelé : plus aucun essai publié sur glacis-classe.fr
+
+- **Demande / Autorisation** : Franck, 21 novembre, 13 h 43 : « je ne veux plus que les prochains essais apparaissent sur le site internet : on le gèle tel quel. »
+- **Contrôle préalable** : `main` à `c2909dd` (journal de la page publiée `77600f3`) ; dernière action 44902155795 réussie (`77600f3`), aucune action en cours ; aucune pull request ouverte. Dépôt source : essai 6.0.0-beta.29 réuni dans `essai`, pas publié ; il ne le sera pas.
+- **Réalisation** : `SITE-GELE.md` (décision, état figé, règle de dégel) ; `.github/workflows/publier.yml` : étape « Site gelé ? » en tête du travail Windows (sur `main`) et du travail de publication : si `SITE-GELE.md` existe, échec avant toute fabrication, signature ou mise en ligne ; `AGENTS.md` et `DOCUMENTATION.md` § 4 (règle 0).
+- **Validation** : relecture et contrôle du diff ; `publier.yml` relu par un analyseur YAML ; aucun test fonctionnel. Envoi marqué `[skip ci]` : aucune action lancée, le site n'est pas redéployé.
+- **Livraison / état** : envoyé sur `main` par avance rapide ; glacis-classe.fr inchangé (production `77600f3`).
+
 ## 2026-11-21 — Claude — Page de présentation publiée : accroche en deux temps, chiffres vérifiés, boucles, applis, questions
 
 - **Demande / Autorisation** : Franck, 21 novembre, 13 h 01 : « on choisit l'accroche en deux temps. Vérifie les chiffres, et mets en ligne ».

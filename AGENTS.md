@@ -15,6 +15,7 @@ les sources de l’application et les consignes complètes sont dans le dépôt 
 
 ## Intervention et publication
 
+- **Site gelé depuis le 21 novembre 2026** (décision de Franck) : lire `SITE-GELE.md`. Aucun essai ni aucune page n’est publié sur glacis-classe.fr tant que ce fichier existe ; l’action échoue volontairement sur `main`. Ne jamais retirer ce fichier ni contourner la garde sans une phrase explicite de Franck demandant le dégel.
 - Vérifier l’état Git local et distant, les branches et les travaux en cours ; travailler sur une branche d’essai depuis `origin/main`, préserver les changements des autres intervenants.
 - Consigner le contrôle préalable, les changements, les validations et l’état de livraison dans `JOURNAL_INTERVENTIONS.md` ; aucune donnée réelle d’élève ni secret.
 - Un envoi sur `main` publie le site : ne le faire qu’avec l’autorisation explicite de Franck. Une modification de documentation ne vaut pas autorisation de publication.
