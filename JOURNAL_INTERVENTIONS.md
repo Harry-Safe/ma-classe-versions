@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-21 — Claude — Essai 6.0.0-beta.27 publié (thèmes de saison peints à l'aquarelle)
+
+- **Demande / Autorisation** : Franck, 21 novembre, 9 h 51 (« Refais les thèmes puis implémente les tous nativement à Glacis ») ; publication sur le canal d'essai : règle permanente.
+- **Contrôle préalable** : `main` à `420ee11` (titre de la page de présentation, autre conversation), copie locale avancée sans conflit ; dépôt source : `essai` à `5f29e95`, garde de publication satisfaite (l'essai 6.0.0-beta.26 est contenu).
+- **Réalisation** : `build/publier-version.py --canal essai` et `build/publier-appli.py --canal essai` du dépôt source ; commit `4d55ee0`, envoyé sur `main` par avance rapide.
+- **Validation** : action `44890505781` réussie : « versions.json signé : essai 6.0.0-beta.27 », « applis.json signé », « signature vérifiée comme dans l'application », « Deployment complete » ; Cloudflare Pages : déploiement `b1e64ffb`, production, `4d55ee0`, succès.
+- **Livraison / état** : publié sur glacis-classe.fr, canal d'essai seulement ; canal stable inchangé.
+
 ## 2026-11-21 — Claude — Page de présentation : « Conçu par un enseignant, pour la classe. »
 
 - **Demande / Autorisation** : Franck, 21 novembre, 9 h 47 : « "Conçu en classe" ce qui est faux et peut attribuer les droits à l'éducation nationale. Modifie vite en "Conçu par un enseignant, pour la classe." »
