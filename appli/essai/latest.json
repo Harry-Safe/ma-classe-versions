@@ -1,11 +1,11 @@
 {
-  "version": "6.0.0-beta.26",
-  "notes": "Les raccourcis clavier se changent. Réglages › Aide et raccourcis : un clic sur une touche, puis la nouvelle lettre. Si la lettre servait déjà, les deux actions échangent leurs touches ; Suppr retire la touche, Échap annule ; « Revenir aux touches d'origine » remet tout. La nouvelle touche s'affiche aussi dans la barre de navigation.\nNumération : un paquet garde les couleurs de ses éléments. 8 unités orange et 2 rouges font une dizaine de 8 cases orange puis 2 rouges, dans l'ordre où elles étaient ; dix dizaines de couleurs font une centaine rayée, dix centaines un gros cube aux mêmes couleurs ; « Casser » rend à chacun sa couleur. Réglage dans les Réglages de la Numération (décoché : le paquet prend la couleur de son rang, comme avant).\nNumération : nouvel outil « Colorier ». Dans le dock : choisissez une couleur au-dessus de l'outil, puis cliquez sur des éléments, glissez dessus ou tracez une zone autour ; avec des éléments déjà sélectionnés, un clic sur une couleur les colorie. « D'origine » rend la couleur du rang.\nImprimer un tableau : la page est remplie. Seul ce qui est posé sur le tableau s'imprime, agrandi pour remplir la page, en paysage ou en portrait selon sa forme (une feuille A4 du tableau avec lignages s'imprime en portrait, à pleine page) ; marges réduites ; les poignées de la Géométrie ne s'impriment plus.",
-  "pub_date": "2026-11-21T00:09:28Z",
+  "version": "6.0.0-beta.27",
+  "notes": "Les thèmes de saison sont peints à l'aquarelle. « Saint-Nicolas », « Village sous la neige », « Noël au coin du feu » et « Hiver » prennent un vrai air d'album illustré : couleurs posées en couches transparentes, trait d'encre fin, ciel et papier d'aquarelle. Le décor est préparé une seule fois quand on choisit le thème, puis il ne coûte plus rien ; en mode léger, il reste plus simple.",
+  "pub_date": "2026-11-21T09:37:57Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "",
-      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.26_x64-setup-essai.exe"
+      "url": "https://glacis-classe.fr/appli/essai/Glacis_6.0.0-beta.27_x64-setup-essai.exe"
     }
   }
 }

@@ -1,23 +1,20 @@
 {
-  "version": "6.0.0-beta.26",
+  "version": "6.0.0-beta.27",
   "date": "2026-11-21",
-  "titre": "Essai : Raccourcis modifiables, couleurs des paquets, impression agrandie",
+  "titre": "Essai : Thèmes de saison peints à l'aquarelle",
   "notes": [
-    "Les raccourcis clavier se changent. Réglages › Aide et raccourcis : un clic sur une touche, puis la nouvelle lettre. Si la lettre servait déjà, les deux actions échangent leurs touches ; Suppr retire la touche, Échap annule ; « Revenir aux touches d'origine » remet tout. La nouvelle touche s'affiche aussi dans la barre de navigation.",
-    "Numération : un paquet garde les couleurs de ses éléments. 8 unités orange et 2 rouges font une dizaine de 8 cases orange puis 2 rouges, dans l'ordre où elles étaient ; dix dizaines de couleurs font une centaine rayée, dix centaines un gros cube aux mêmes couleurs ; « Casser » rend à chacun sa couleur. Réglage dans les Réglages de la Numération (décoché : le paquet prend la couleur de son rang, comme avant).",
-    "Numération : nouvel outil « Colorier ». Dans le dock : choisissez une couleur au-dessus de l'outil, puis cliquez sur des éléments, glissez dessus ou tracez une zone autour ; avec des éléments déjà sélectionnés, un clic sur une couleur les colorie. « D'origine » rend la couleur du rang.",
-    "Imprimer un tableau : la page est remplie. Seul ce qui est posé sur le tableau s'imprime, agrandi pour remplir la page, en paysage ou en portrait selon sa forme (une feuille A4 du tableau avec lignages s'imprime en portrait, à pleine page) ; marges réduites ; les poignées de la Géométrie ne s'impriment plus."
+    "Les thèmes de saison sont peints à l'aquarelle. « Saint-Nicolas », « Village sous la neige », « Noël au coin du feu » et « Hiver » prennent un vrai air d'album illustré : couleurs posées en couches transparentes, trait d'encre fin, ciel et papier d'aquarelle. Le décor est préparé une seule fois quand on choisit le thème, puis il ne coûte plus rien ; en mode léger, il reste plus simple."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Glacis.html",
-      "taille": 7666091,
-      "sha256": "9f99420b5c26ad7a6128c259f11d30ea13cb6d503618f22745ce4a0ea8d619a5"
+      "taille": 8704607,
+      "sha256": "3e1fc0152e2a323ce339556ac4dc652ef51f5057fce18c77eb0bb40979778a1d"
     },
     "remplacant": {
       "url": "essai/Glacis - Remplaçant.html",
-      "taille": 7666091,
-      "sha256": "9f99420b5c26ad7a6128c259f11d30ea13cb6d503618f22745ce4a0ea8d619a5"
+      "taille": 8704607,
+      "sha256": "3e1fc0152e2a323ce339556ac4dc652ef51f5057fce18c77eb0bb40979778a1d"
     }
   }
 }
