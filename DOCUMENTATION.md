@@ -97,6 +97,21 @@ faire depuis l'essai 6.0.0-beta.23. Sans script : le film seul, avec les command
 rien ne bouge, il attend un clic. L'ancien film d'ouverture (`document` : une fiche PDF d'exemple jointe à une séance,
 `outils/vitrine/exemples/`) est gardé de côté, hors de la page.
 
+**Maquette du 21 novembre 2026 (branche `claude/vitrine-maquette`, non publiée)** : l'accroche « Tout ce qu'il faut au
+tableau, en un Glacis. » s'écrit au tableau juste avant que le voile tombe (variante « en deux temps » : `data-accroche="deux"`),
+la brosse et l'auget passent devant le voile ; un bandeau **en chiffres** sous l'en-tête ; les outils en **boucles
+courtes** (`outils/vitrine/boucles.py`, découpées dans les films, rangées dans `vitrine/boucles/`) ; une section
+**les applis** (applis rangées dans Glacis).
+
+**Les chiffres suivent chaque publication** (Franck, 21 novembre 2026 : quand la version stable sortira, on ne parle que
+d'elle et de son poids). `outils/chiffres.py`, lancé par l'action après le rangement des installateurs, réécrit dans
+`_site/index.html` les valeurs entre les repères `C:version`, `C:poids`, `C:outils`, `C:rituels` et les cartes entre les
+repères `APPLIS` : version et poids de l'installateur du canal publié (la version stable dès que `entrees/stable.json`
+existe, sinon l'essai), outils, rituels et applis lus dans `vitrine/donnees/<canal>.json`. Ce fichier doit être écrit avec
+la page par la publication du dépôt source (à faire : `build/publier-version.py`, compté dans la page construite) ; absent
+ou d'une autre version, les valeurs de `index.html` restent et l'action le signale. Les repères sont hors des scripts :
+les empreintes de la politique de contenu ne changent pas (le script le vérifie).
+
 Les films et les images montrent la **vraie application**, ouverte dans sa classe de démonstration
 (`Glacis.html?classe-demo` : prénoms fictifs, lundi 9 novembre 2026, rien d'enregistré). **Aucune image n'est retouchée
 ni générée** ; seul un point bleu est ajouté pour montrer où l'on clique. Pour les refaire après une nouvelle version

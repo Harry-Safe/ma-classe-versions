@@ -141,7 +141,19 @@
   .ouvBrillance{position:absolute;inset:0;pointer-events:none;
     background:linear-gradient(108deg,transparent 54%,rgba(255,255,255,.8) 60%,rgba(255,255,255,.3) 64%,transparent 71%),
                linear-gradient(108deg,transparent 73%,rgba(255,255,255,.55) 75%,transparent 78%)}
-  .ouvAuget{position:absolute;left:0;top:0;width:1648px;height:1000px;pointer-events:none}
+  .ouvAuget{position:absolute;left:0;top:0;width:1648px;height:1000px;pointer-events:none}   /* devant le voile et l'écran : la brosse est posée devant le tableau */
+  /* l'accroche, au tableau, juste avant que le voile tombe ; deux couches : sous le voile (on la devine à travers), et
+     au-dessus (variante « en deux temps » : « en un Glacis. » arrive quand le voile se pose) */
+  .ouvAccroche{position:absolute;left:24px;top:24px;width:1600px;height:900px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:0 110px 30px;text-align:center;font-size:116px;font-weight:700;line-height:1.05;letter-spacing:-.03em;color:var(--encre);pointer-events:none;
+    transition:opacity .6s}
+  .ouvAccroche span{display:block;opacity:0;translate:0 28px;transition:opacity .9s var(--elan),translate .9s var(--elan)}
+  .ouvAccroche .a2{color:var(--bleu)}
+  .ouvAccroche.dessus .a1{visibility:hidden}
+  .ouvCadre.a1 .ouvAccroche:not(.dessus) .a1,
+  .ouvCadre.a2:not([data-accroche=deux]) .ouvAccroche:not(.dessus) .a2,
+  .ouvCadre.a2[data-accroche=deux] .ouvAccroche.dessus .a2{opacity:1;translate:0 0}
+  .ouvCadre.a3 .ouvAccroche,.ouvCadre.fini .ouvAccroche,html:not(.js) .ouvAccroche{opacity:0}   /* elle s'efface avant que Glacis s'imprime */
   /* le voile : calculé en direct (WebGL) dans ce canevas, qui déborde au-dessus du tableau pour qu'on le voie arriver */
   .ouvVoile{position:absolute;left:0;top:-260px;width:1648px;height:1260px;pointer-events:none}
   /* sans WebGL : un voile simple, qui descend et se pose */
@@ -175,13 +187,13 @@
   /* l'écran de Glacis s'imprime sur le voile : d'abord translucide (on devine le tableau), puis toute sa couleur */
   @keyframes ouvPrend{0%{opacity:0}60%{opacity:.8}100%{opacity:1}}
   .joue .ouvPlan{animation:ouvVient .7s var(--elan) both}
-  .joue .ouvSecours{animation:ouvSecours 2.6s .8s cubic-bezier(.25,.7,.3,1) both}
-  .joue .ouvEcran{animation:ouvPrend 1.8s 4s ease-in-out both}
-  .joue ~ .ouvApres{animation:ouvFondu .8s 3.6s ease-out both}
+  .joue .ouvSecours{animation:ouvSecours 2.6s var(--debut,.8s) cubic-bezier(.25,.7,.3,1) both}
+  .joue .ouvEcran{animation:ouvPrend 1.8s var(--prend,4s) ease-in-out both}
+  .joue ~ .ouvApres{animation:ouvFondu .8s calc(var(--debut,.8s) + 2.8s) ease-out both}
 
   html:not(.js) .ouvCadre{aspect-ratio:auto}   /* sans script : le film seul, à la largeur de la page */
   html:not(.js) .ouvPlan{position:static;width:auto;height:auto}
-  html:not(.js) .ouvAlu,html:not(.js) .ouvSurface,html:not(.js) .ouvAuget,html:not(.js) .ouvVoile{display:none}
+  html:not(.js) .ouvAlu,html:not(.js) .ouvSurface,html:not(.js) .ouvAuget,html:not(.js) .ouvVoile,html:not(.js) .ouvAccroche{display:none}
   html:not(.js) .ouvRejouer{display:none}
   html:not(.js) .ouvEcran{position:relative;left:auto;top:auto;width:100%;height:auto;aspect-ratio:16/9}
 
@@ -272,6 +284,36 @@
   .js .tuiles li{opacity:0;transform:scale(.6);transition:opacity .5s var(--elan),transform .7s cubic-bezier(.3,1.5,.5,1);transition-delay:calc(var(--i,0)*45ms)}
   .js .tuiles.vu li{opacity:1;transform:none}
 
+  /* ---------- en chiffres : un bandeau de verre sous l'en-tête. Les nombres entre leurs repères « C:nom » sont réécrits
+       à chaque publication (outils/chiffres.py), d'après la version publiée : la version stable dès qu'elle existe. ---------- */
+  .chiffres{padding-top:clamp(56px,8vw,96px)}
+  .nombres{list-style:none;padding:26px 12px;display:grid;grid-template-columns:repeat(4,1fr);border-radius:var(--rxl);
+    background:var(--verre);border:1px solid var(--bord);box-shadow:var(--ombre);-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4)}
+  .nombres li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:8px 14px}
+  .nombres li + li{border-left:1px solid var(--trait)}
+  .nombres b{font-size:clamp(2.6rem,5.4vw,4rem);line-height:1;letter-spacing:-.035em;color:var(--bleu);font-variant-numeric:tabular-nums}
+  .nombres b small{font-size:.42em;letter-spacing:0;margin-left:.12em}
+  .nombres li > span{color:var(--doux);font-size:1rem;line-height:1.3;max-width:12em}
+  .chiffres .note{margin-top:14px;text-align:center;font-size:.88rem;color:var(--doux)}
+  @media (max-width:760px){.nombres{grid-template-columns:repeat(2,1fr);row-gap:18px}.nombres li:nth-child(3){border-left:0}}
+
+  /* ---------- les outils en boucles courtes : un geste par écran, en boucle, avec sa pause ---------- */
+  .boucles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px;text-align:left}
+  .boucle{margin:0}
+  .boucle.large{grid-column:1 / -1}
+  .boucle figcaption{margin-top:14px;color:var(--doux);font-size:1rem;padding-inline:4px}
+  .boucle figcaption b{display:block;font-size:1.15rem;margin-bottom:2px}
+  @media (max-width:900px){.boucles{grid-template-columns:1fr}}
+
+  /* ---------- les applis : une carte par appli rangée dans Glacis (écrites à chaque publication par outils/chiffres.py) ---------- */
+  .applis{list-style:none;padding:0;margin:40px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;max-width:900px;text-align:left}
+  .appli{display:grid;grid-template-columns:76px 1fr;gap:6px 18px;align-items:start;padding:22px 24px 24px;border-radius:var(--rxl);
+    background:var(--verre);border:1px solid var(--bord);box-shadow:var(--ombre);-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4)}
+  .appli img{grid-row:span 3;width:76px;height:76px;border-radius:23%;box-shadow:0 .5rem 1rem -.45rem var(--c,#2f4fa8)}
+  .appli h3{font-size:1.3rem;margin-top:2px}
+  .appli .cat{font-size:.88rem;font-weight:700;color:var(--c,var(--bleu))}
+  .appli p{color:var(--doux);font-size:.98rem;margin-top:4px}
+
   /* ---------- vos données : cartes de verre ---------- */
   .cartes{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:44px}
   .carte{grid-column:span 2;padding:26px 26px 28px;border-radius:var(--rxl);background:var(--verre);border:1px solid var(--bord);box-shadow:var(--ombre);
@@ -317,6 +359,7 @@
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
     .js [data-r],.js .tuiles li{opacity:1;transform:none;transition:none}
+    .ouvAccroche span{transition:none}
     .ouvLegendes p{transition:none}
     .ecran.vu::after,.js .vue.ici,.pilules button i{animation:none}
     .pile > img,.pile > video{transition:none;transform:none}
@@ -345,10 +388,20 @@
 
   <!-- ============ Ouverture : le tableau blanc, le voile (le glacis), puis Glacis lui-même ============ -->
   <div class="ouv">
-    <div class="ouvCadre" id="ouvCadre">
+    <div class="ouvCadre" id="ouvCadre" data-accroche="avant">
       <div class="ouvPlan" id="ouvPlan">
         <div class="ouvAlu" aria-hidden="true"><i class="ouvCoin" style="left:-6px;top:-6px"></i><i class="ouvCoin" style="right:-6px;top:-6px"></i><i class="ouvCoin" style="left:-6px;bottom:-6px"></i><i class="ouvCoin" style="right:-6px;bottom:-6px"></i></div>
         <div class="ouvSurface" aria-hidden="true"><div class="ouvBrillance"></div></div>
+        <p class="ouvAccroche" aria-hidden="true"><span class="a1">Tout ce qu’il faut au&nbsp;tableau,</span><span class="a2">en un&nbsp;Glacis.</span></p>
+        <div class="ouvSecours" aria-hidden="true"></div>
+        <canvas class="ouvVoile" id="ouvVoile" aria-hidden="true"></canvas>
+        <p class="ouvAccroche dessus" aria-hidden="true"><span class="a1">Tout ce qu’il faut au&nbsp;tableau,</span><span class="a2">en un&nbsp;Glacis.</span></p>
+        <div class="ouvEcran" id="ouvEcran">
+          <video id="ouvFilm" controls muted playsinline preload="auto" disablepictureinpicture width="1600" height="900" poster="vitrine/films/ouverture.webp"
+                 aria-label="Un tableau blanc ; un voile très fin tombe en ondulant et s'y dépose, puis Glacis s'y imprime. Sur l'écran d'accueil, un clic sur « Commencer » ouvre l'Accueil. Puis, coup sur coup : l'appel, un problème des rituels, le tableau de numération, le minuteur de la boîte à outils lancé puis réduit, l'Atelier et Préparer, avant de revenir à l'Accueil.">
+            <source src="vitrine/films/ouverture.mp4" type="video/mp4">
+          </video>
+        </div>
         <svg class="ouvAuget" viewBox="0 0 1648 1000" aria-hidden="true">
           <defs>
             <filter id="ouvFlou" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur stdDeviation="8"/></filter>
@@ -375,14 +428,6 @@
           <rect x="56" y="947" width="1536" height="2" fill="#fff" opacity=".9"/>
           <rect x="40" y="932" width="22" height="44" rx="6" fill="#a3aab4"/><rect x="1586" y="932" width="22" height="44" rx="6" fill="#a3aab4"/>
         </svg>
-        <div class="ouvSecours" aria-hidden="true"></div>
-        <canvas class="ouvVoile" id="ouvVoile" aria-hidden="true"></canvas>
-        <div class="ouvEcran" id="ouvEcran">
-          <video id="ouvFilm" controls muted playsinline preload="auto" disablepictureinpicture width="1600" height="900" poster="vitrine/films/ouverture.webp"
-                 aria-label="Un tableau blanc ; un voile très fin tombe en ondulant et s'y dépose, puis Glacis s'y imprime. Sur l'écran d'accueil, un clic sur « Commencer » ouvre l'Accueil. Puis, coup sur coup : l'appel, un problème des rituels, le tableau de numération, le minuteur de la boîte à outils lancé puis réduit, l'Atelier et Préparer, avant de revenir à l'Accueil.">
-            <source src="vitrine/films/ouverture.mp4" type="video/mp4">
-          </video>
-        </div>
       </div>
       <button class="ouvPause" id="ouvPause" type="button" aria-label="Lire ou mettre en pause l'animation"></button>
     </div>
@@ -410,6 +455,19 @@
       <p class="sous">Gratuit<i>·</i>Logiciel libre<i>·</i>Sans compte</p>
     </div>
   </div>
+
+  <!-- ============ En chiffres (réécrits à chaque publication : outils/chiffres.py) ============ -->
+  <section class="chiffres" aria-label="Glacis en chiffres">
+    <div class="contenu">
+      <ul class="nombres" data-r>
+        <li><b data-compte><!--C:outils-->17<!--/C--></b><span>outils à manipuler au tableau</span></li>
+        <li><b data-compte><!--C:rituels-->6<!--/C--></b><span>rituels prêts à lancer</span></li>
+        <li><b><span data-compte><!--C:poids-->3,7<!--/C--></span><small>Mo</small></b><span>à installer, et c'est tout</span></li>
+        <li><b data-compte>0</b><span>donnée d'élève envoyée en ligne</span></li>
+      </ul>
+      <p class="note">Chiffres de la version <!--C:version-->6.0 · essai 28<!--/C-->.</p>
+    </div>
+  </section>
 
   <!-- ============ La journée ============ -->
   <section id="journee">
@@ -566,61 +624,43 @@
       <h2 data-r>Ils se manipulent comme les vrais.</h2>
       <p class="chapo" data-r>Un poids accroché fait pencher la balance, les réglettes s'aimantent bout à bout. Chaque outil se réduit en bas de l'écran et se rouvre d'un clic, là où vous l'aviez laissé.</p>
 
-      <div data-onglets>
-        <div class="pilules" role="tablist" aria-label="Cinq outils en mouvement" data-r>
-          <button role="tab" aria-selected="true" aria-controls="u-min" id="p-min">Minuteur<i></i></button>
-          <button role="tab" aria-selected="false" aria-controls="u-bal" id="p-bal" tabindex="-1">Balance des nombres<i></i></button>
-          <button role="tab" aria-selected="false" aria-controls="u-dro" id="p-dro" tabindex="-1">Droite graduée<i></i></button>
-          <button role="tab" aria-selected="false" aria-controls="u-fra" id="p-fra" tabindex="-1">Fractions<i></i></button>
-          <button role="tab" aria-selected="false" aria-controls="u-reg" id="p-reg" tabindex="-1">Réglettes<i></i></button>
-        </div>
-        <div class="vues" data-r>
-          <figure class="vue ici" role="tabpanel" id="u-min" aria-labelledby="p-min">
-            <div class="ecran" data-ecran>
-              <video controls muted playsinline preload="none" width="1600" height="900" poster="vitrine/films/minuteur.webp" data-film
-                 aria-label="Le minuteur : cinq minutes sont lancées, la fenêtre est réduite en bas de l'écran, puis rouverte ; le décompte a continué.">
-            <source src="vitrine/films/minuteur.mp4" type="video/mp4">
-          </video>
-            </div>
-            <figcaption><b>Le minuteur.</b>Une durée, ou la fin de l'activité en cours. Réduit, il continue de tourner en bas de l'écran&nbsp;; un clic le rouvre.</figcaption>
-          </figure>
-          <figure class="vue" role="tabpanel" id="u-bal" aria-labelledby="p-bal">
-            <div class="ecran">
-              <video controls muted playsinline preload="none" width="1600" height="900" poster="vitrine/films/balancenb.webp" data-film
-                 aria-label="La balance des nombres : un poids sur le 6 à gauche, un sur le 2 et un sur le 4 à droite, le fléau revient à l'horizontale.">
-            <source src="vitrine/films/balancenb.mp4" type="video/mp4">
-          </video>
-            </div>
-            <figcaption><b>La balance des nombres.</b>Un poids sur le 6 d'un côté, sur le 2 et le 4 de l'autre&nbsp;: le fléau penche, hésite, puis s'équilibre. 6&nbsp;=&nbsp;2&nbsp;+&nbsp;4.</figcaption>
-          </figure>
-          <figure class="vue" role="tabpanel" id="u-dro" aria-labelledby="p-dro">
-            <div class="ecran">
-              <video controls muted playsinline preload="none" width="1600" height="900" poster="vitrine/films/droite.webp" data-film
-                 aria-label="La droite graduée : un bond de 4 à 10, puis un bond de 10 à 13.">
-            <source src="vitrine/films/droite.mp4" type="video/mp4">
-          </video>
-            </div>
-            <figcaption><b>La droite graduée.</b>Des bonds d'une graduation à l'autre, des nombres à cacher, un pion à déplacer, un zoom entre deux nombres.</figcaption>
-          </figure>
-          <figure class="vue" role="tabpanel" id="u-fra" aria-labelledby="p-fra">
-            <div class="ecran">
-              <video controls muted playsinline preload="none" width="1600" height="900" poster="vitrine/films/fractions.webp" data-film
-                 aria-label="Les fractions : trois quarts en bande, puis en disque, puis deux fractions comparées l'une sous l'autre.">
-            <source src="vitrine/films/fractions.mp4" type="video/mp4">
-          </video>
-            </div>
-            <figcaption><b>Les fractions.</b>En bande, en disque, sur une droite ou dans une grille. Deux fractions se comparent l'une sous l'autre.</figcaption>
-          </figure>
-          <figure class="vue" role="tabpanel" id="u-reg" aria-labelledby="p-reg">
-            <div class="ecran">
-              <video controls muted playsinline preload="none" width="1600" height="900" poster="vitrine/films/reglettes.webp" data-film
-                 aria-label="Les réglettes Cuisenaire : un train de 6 et 4 posé sous la réglette de 10, puis l'escalier de 1 à 10.">
-            <source src="vitrine/films/reglettes.mp4" type="video/mp4">
-          </video>
-            </div>
-            <figcaption><b>Les réglettes Cuisenaire.</b>6 et 4 font 10&nbsp;: les réglettes s'aimantent en trains, se comparent, et l'escalier se monte d'un clic.</figcaption>
-          </figure>
-        </div>
+      <div class="boucles">
+        <figure class="boucle" data-r>
+          <div class="ecran" data-ecran>
+            <video muted loop playsinline preload="none" width="960" height="540" poster="vitrine/boucles/balancenb.webp" data-film
+                   aria-label="La balance des nombres : un poids sur le 2, puis sur le 4, et le fléau revient à l'horizontale.">
+              <source src="vitrine/boucles/balancenb.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><b>Ça penche, puis ça s'équilibre.</b>La balance des nombres&nbsp;: 6&nbsp;=&nbsp;2&nbsp;+&nbsp;4.</figcaption>
+        </figure>
+        <figure class="boucle" data-r>
+          <div class="ecran" data-ecran>
+            <video muted loop playsinline preload="none" width="960" height="540" poster="vitrine/boucles/reglettes.webp" data-film
+                   aria-label="Les réglettes Cuisenaire : la réglette de 10, puis 6 et 4 aimantées dessous ; le calcul 6 + 4 = 10 s'écrit.">
+              <source src="vitrine/boucles/reglettes.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><b>Elles s'aimantent bout à bout.</b>Les réglettes&nbsp;: 6 et 4, sous la réglette de 10.</figcaption>
+        </figure>
+        <figure class="boucle" data-r>
+          <div class="ecran" data-ecran>
+            <video muted loop playsinline preload="none" width="960" height="540" poster="vitrine/boucles/fractions.webp" data-film
+                   aria-label="Les fractions : trois quarts en bande, puis en disque, puis deux quarts.">
+              <source src="vitrine/boucles/fractions.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><b>Une fraction, trois façons de la voir.</b>Trois quarts en bande, puis en disque.</figcaption>
+        </figure>
+        <figure class="boucle large" data-r>
+          <div class="ecran" data-ecran>
+            <video muted loop playsinline preload="none" width="1200" height="352" poster="vitrine/boucles/droite.webp" data-film
+                   aria-label="La droite graduée : un bond de 4 à 10 (plus 6), puis un bond de 10 à 13 (plus 3).">
+              <source src="vitrine/boucles/droite.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><b>Des bonds sur la droite graduée.</b>De 4 à 10, puis de 10 à 13&nbsp;: le pion fait le bond, l'écart s'écrit au-dessus.</figcaption>
+        </figure>
       </div>
 
       <ul class="tuiles" data-tuiles aria-label="Tous les outils de Glacis"><!--TUILES-->
@@ -642,6 +682,16 @@
         <li><span class="tuile" style="--h:#ff8e81;--g2:#de4639;--go:#6c3638"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12 53 48H11Z" fill="#fffdf9" fill-opacity=".25" stroke="#fffdf9" stroke-width="3.6" stroke-linejoin="round"></path><circle cx="32" cy="12" r="7.6" fill="#fffdf9"></circle><circle cx="32" cy="12" r="5.2" fill="#7048c2"></circle><circle cx="53" cy="48" r="7.6" fill="#fffdf9"></circle><circle cx="53" cy="48" r="5.2" fill="#2a8f51"></circle><circle cx="11" cy="48" r="7.6" fill="#fffdf9"></circle><circle cx="11" cy="48" r="5.2" fill="#f6902c"></circle><text x="32" y="42" font-size="11" font-weight="800" text-anchor="middle" fill="#fffdf9">+ =</text></svg></span>Triangle des opérations</li>
         <li><span class="tuile" style="--h:#fff7ea;--g2:#efd7ae;--go:#737067"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="7" y="9.5" width="10" height="8" rx="1.8" fill="#f4efe3" stroke="#b9ad96" stroke-width="1"></rect><rect x="7" y="18.9" width="20" height="8" rx="1.8" fill="#d9262f"></rect><rect x="7" y="28.3" width="30" height="8" rx="1.8" fill="#62bd46"></rect><rect x="7" y="37.7" width="40" height="8" rx="1.8" fill="#d863a6"></rect><rect x="7" y="47.1" width="50" height="8" rx="1.8" fill="#f6cd2c"></rect></svg></span>Réglettes Cuisenaire</li>
       <!--/TUILES--></ul>
+    </div>
+  </section>
+
+  <!-- ============ Les applis (cartes écrites à chaque publication : outils/chiffres.py) ============ -->
+  <section id="applis">
+    <div class="contenu centre">
+      <p class="ecrit" data-r>les applis</p>
+      <h2 data-r>Des applis, déjà dedans.</h2>
+      <p class="chapo" data-r>Des applis complètes pour les élèves, rangées dans Glacis et ouvertes d'un clic depuis Explorer. Elles enregistrent leur travail dans le dossier de la classe, sans connexion.</p>
+      <ul class="applis" data-r><!--APPLIS--><!--/APPLIS--></ul>
     </div>
   </section>
 
@@ -682,9 +732,9 @@
           <p>Le réseau de l'école tombe ? La classe continue. Glacis fonctionne entièrement hors ligne, une fois installé.</p>
         </div>
         <div class="carte" data-r>
-          <p class="chiffre">3<small>Mo</small></p>
+          <p class="chiffre"><!--C:poids-->3,7<!--/C--><small>Mo</small></p>
           <h3>Léger, même sur un vieux PC.</h3>
-          <p>L'installateur pèse environ 3 Mo. Un mode léger coupe les effets sur les postes anciens.</p>
+          <p>L'installateur pèse <!--C:poids-->3,7<!--/C-->&nbsp;Mo. Un mode léger coupe les effets sur les postes anciens.</p>
         </div>
         <div class="carte" data-r style="--i:1">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12.500" rx="2"/><path d="M8 20h8M12 16.500V20M8 12c1.500-3 3-3 4.200-.800s2.300 1.700 3.800-1.700"/></svg>
@@ -815,6 +865,18 @@
     tous("video", z).forEach(v => v.addEventListener("loadedmetadata", () => { if (auto && visible && v === film(i)) lancer(); }));
   });
 
+  /* en chiffres : chaque nombre compte jusqu'à sa valeur quand le bandeau arrive */
+  if (!calme) tous(".nombres").forEach(z => {
+    const els = tous("[data-compte]", z).map(e => { const t = e.textContent.trim(), d = (t.split(",")[1] || "").length;
+      return {e, t, d, v: parseFloat(t.replace(",", "."))}; }).filter(x => isFinite(x.v) && x.v > 0);
+    voir([z], (en, io) => { if (!en.isIntersecting) return; io.disconnect();
+      const t0 = performance.now(), D = 1300;
+      const pas = t => { const k = Math.min(1, (t - t0) / D), f = 1 - Math.pow(1 - k, 3);
+        els.forEach(x => x.e.textContent = k < 1 ? (x.v * f).toFixed(x.d).replace(".", ",") : x.t);
+        if (k < 1) requestAnimationFrame(pas); };
+      requestAnimationFrame(pas); }, {threshold:.5});
+  });
+
   /* la barre du haut : le chapitre qu'on lit */
   const liens = tous(".barre nav a"), cibles = liens.map(a => document.querySelector(a.getAttribute("href")));
   voir(cibles.filter(Boolean), e => { if (e.isIntersecting) liens.forEach(a => a.classList.toggle("ici", a.getAttribute("href") === "#" + e.target.id)); }, {rootMargin:"-40% 0px -55% 0px"});
@@ -916,7 +978,10 @@ void main(){
   let voile = null;
   try { voile = Voile(canevas); } catch (e) { console.warn(e); }
   if (!voile){ cadre.classList.add("sansGL"); canevas.hidden = true; }
-  const DEBUT = 800, DUREE = 3000;                        // le voile tombe de 0,8 s à 3,8 s
+  /* l'accroche s'écrit d'abord au tableau (« Tout ce qu'il faut au tableau, » puis « en un Glacis. »), puis le voile
+     tombe (DEBUT, pendant DUREE) ; variante data-accroche="deux" : « en un Glacis. » arrive quand le voile se pose */
+  const DUREE = 3000;
+  let DEBUT = 2300;
   let depart = 0, image = 0, minuteries = [];
   const dessiner = (s, t) => { if (voile) voile.dessiner(s, t); };
   const ajuste = () => {
@@ -944,11 +1009,18 @@ void main(){
   const jouer = () => {
     film.pause(); try { film.currentTime = 0; } catch (e) {}
     minuteries.forEach(clearTimeout); cancelAnimationFrame(image);
-    cadre.classList.remove("joue", "fini", "film", "arret", "suite"); void cadre.offsetWidth;
+    cadre.classList.remove("joue", "fini", "film", "arret", "suite", "a1", "a2", "a3"); void cadre.offsetWidth;
     if (calme){ cadre.classList.add("fini"); dessiner(1, 0); etat(false); return; }   // mouvements réduits : le voile est déjà posé
+    const deux = cadre.dataset.accroche === "deux";
+    DEBUT = deux ? 1500 : 2300;                           // le voile tombe de DEBUT à DEBUT + DUREE
+    const PREND = deux ? DEBUT + DUREE + 1300 : DEBUT + DUREE + 300;   // Glacis s'imprime sur le voile posé
+    cadre.style.setProperty("--debut", DEBUT + "ms"); cadre.style.setProperty("--prend", PREND + "ms");
     cadre.classList.add("joue");
     depart = performance.now(); image = requestAnimationFrame(boucle);
-    minuteries = [setTimeout(suite, 6100)];               // filet : la suite vient même si un évènement manque
+    minuteries = [setTimeout(() => cadre.classList.add("a1"), 300),
+                  setTimeout(() => cadre.classList.add("a2"), deux ? DEBUT + DUREE - 600 : 1250),
+                  setTimeout(() => cadre.classList.add("a3"), PREND - 650),
+                  setTimeout(suite, PREND + 2100)];       // filet : la suite vient même si un évènement manque
   };
   bouton.addEventListener("click", () => { if (film.paused){ if (film.ended) film.currentTime = 0; lire(); } else { film.pause(); etat(false); } });
   document.getElementById("ouvRejouer").addEventListener("click", jouer);

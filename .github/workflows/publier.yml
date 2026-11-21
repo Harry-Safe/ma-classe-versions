@@ -143,6 +143,8 @@ jobs:
           path: paquets
       - name: Ranger les installateurs fabriqués
         run: python outils/fabriquer-appli.py --placer paquets
+      - name: Chiffres de la page de présentation (version publiée, poids de l'installateur, outils, applis)
+        run: python outils/chiffres.py
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         if: hashFiles('appli/latest.json', 'appli/essai/latest.json') != ''
         with:
