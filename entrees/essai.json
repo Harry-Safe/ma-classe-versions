@@ -1,20 +1,23 @@
 {
-  "version": "6.0.0-beta.25",
-  "date": "2026-11-20",
-  "titre": "Essai : Thèmes de saison livrés avec Glacis",
+  "version": "6.0.0-beta.26",
+  "date": "2026-11-21",
+  "titre": "Essai : Raccourcis modifiables, couleurs des paquets, impression agrandie",
   "notes": [
-    "Trois nouveaux thèmes livrés avec Glacis : « Saint-Nicolas », « Noël au coin du feu » et « Hiver ». Ils se choisissent dans Réglages › Apparence › Thème, dans l'ordre du calendrier : le marché de Saint-Nicolas avec l'âne et les pains d'épices, le salon de Noël au coin du feu (sapin, cheminée, chat endormi), puis le lac gelé de l'hiver avec son renard et son rouge-gorge. Chacun se masque d'un clic si on n'en veut pas."
+    "Les raccourcis clavier se changent. Réglages › Aide et raccourcis : un clic sur une touche, puis la nouvelle lettre. Si la lettre servait déjà, les deux actions échangent leurs touches ; Suppr retire la touche, Échap annule ; « Revenir aux touches d'origine » remet tout. La nouvelle touche s'affiche aussi dans la barre de navigation.",
+    "Numération : un paquet garde les couleurs de ses éléments. 8 unités orange et 2 rouges font une dizaine de 8 cases orange puis 2 rouges, dans l'ordre où elles étaient ; dix dizaines de couleurs font une centaine rayée, dix centaines un gros cube aux mêmes couleurs ; « Casser » rend à chacun sa couleur. Réglage dans les Réglages de la Numération (décoché : le paquet prend la couleur de son rang, comme avant).",
+    "Numération : nouvel outil « Colorier ». Dans le dock : choisissez une couleur au-dessus de l'outil, puis cliquez sur des éléments, glissez dessus ou tracez une zone autour ; avec des éléments déjà sélectionnés, un clic sur une couleur les colorie. « D'origine » rend la couleur du rang.",
+    "Imprimer un tableau : la page est remplie. Seul ce qui est posé sur le tableau s'imprime, agrandi pour remplir la page, en paysage ou en portrait selon sa forme (une feuille A4 du tableau avec lignages s'imprime en portrait, à pleine page) ; marges réduites ; les poignées de la Géométrie ne s'impriment plus."
   ],
   "fichiers": {
     "classe": {
       "url": "essai/Glacis.html",
-      "taille": 7638790,
-      "sha256": "994a642f1eb8b46652483bf4c8214cb94ccf7c31640ed73873b976e2ba4b4237"
+      "taille": 7666091,
+      "sha256": "9f99420b5c26ad7a6128c259f11d30ea13cb6d503618f22745ce4a0ea8d619a5"
     },
     "remplacant": {
       "url": "essai/Glacis - Remplaçant.html",
-      "taille": 7638790,
-      "sha256": "994a642f1eb8b46652483bf4c8214cb94ccf7c31640ed73873b976e2ba4b4237"
+      "taille": 7666091,
+      "sha256": "9f99420b5c26ad7a6128c259f11d30ea13cb6d503618f22745ce4a0ea8d619a5"
     }
   }
 }
