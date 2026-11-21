@@ -399,7 +399,7 @@
 
   <!-- ============ Ouverture : le tableau blanc, le voile (le glacis), puis Glacis lui-même ============ -->
   <div class="ouv">
-    <div class="ouvCadre" id="ouvCadre" data-accroche="avant">
+    <div class="ouvCadre" id="ouvCadre" data-accroche="deux">
       <div class="ouvPlan" id="ouvPlan">
         <div class="ouvAlu" aria-hidden="true"><i class="ouvCoin" style="left:-6px;top:-6px"></i><i class="ouvCoin" style="right:-6px;top:-6px"></i><i class="ouvCoin" style="left:-6px;bottom:-6px"></i><i class="ouvCoin" style="right:-6px;bottom:-6px"></i></div>
         <div class="ouvSurface" aria-hidden="true"><div class="ouvBrillance"></div></div>
@@ -472,7 +472,7 @@
   <section class="chiffres" aria-label="Glacis en chiffres">
     <div class="contenu">
       <ul class="nombres" data-r>
-        <li><b data-compte><!--C:outils-->17<!--/C--></b><span>outils à manipuler au tableau</span></li>
+        <li><b data-compte><!--C:outils-->17<!--/C--></b><span>outils à sortir au tableau</span></li>
         <li><b data-compte><!--C:rituels-->6<!--/C--></b><span>rituels prêts à lancer</span></li>
         <li><b><span data-compte><!--C:poids-->3,7<!--/C--></span><small>Mo</small></b><span>à installer, et c'est tout</span></li>
         <li><b data-compte>0</b><span>donnée d'élève envoyée en ligne</span></li>
@@ -709,7 +709,7 @@
   </section>
 
   <!-- ============ Les applis (cartes écrites à chaque publication : outils/chiffres.py) ============ -->
-  <section id="applis">
+  <section id="applis" hidden>
     <div class="contenu centre">
       <p class="ecrit" data-r>les applis</p>
       <h2 data-r>Des applis, déjà dedans.</h2>
@@ -818,7 +818,7 @@
         </details>
         <details data-r>
           <summary>Pour quels niveaux&nbsp;?</summary>
-          <p>De la GS au CM2&nbsp;: les rituels et les outils se règlent sur le niveau de la classe.</p>
+          <p>De la GS au CM2&nbsp;: les rituels et le tableau de numération se règlent sur le niveau de la classe.</p>
         </details>
         <details data-r>
           <summary>Et sur Mac, Linux ou iPad&nbsp;?</summary>
@@ -1038,8 +1038,9 @@ void main(){
   let voile = null;
   try { voile = Voile(canevas); } catch (e) { console.warn(e); }
   if (!voile){ cadre.classList.add("sansGL"); canevas.hidden = true; }
-  /* l'accroche s'écrit d'abord au tableau (« Tout ce qu'il faut au tableau, » puis « en un Glacis. »), puis le voile
-     tombe (DEBUT, pendant DUREE) ; variante data-accroche="deux" : « en un Glacis. » arrive quand le voile se pose */
+  /* l'accroche au tableau : « Tout ce qu'il faut au tableau, » s'écrit, le voile tombe (DEBUT, pendant DUREE), et
+     « en un Glacis. » arrive quand il se pose (data-accroche="deux", choix de Franck du 21 novembre 2026) ; avec
+     data-accroche="avant", les deux lignes s'écrivent avant que le voile tombe */
   const DUREE = 3000;
   let DEBUT = 2300;
   let depart = 0, image = 0, minuteries = [];

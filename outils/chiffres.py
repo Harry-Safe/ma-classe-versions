@@ -8,10 +8,11 @@ Sources, pour le canal retenu :
   · version : entrees/<canal>.json ;
   · poids de l'installateur Windows : _site/appli/<sous-dossier>/*.exe, rangé par « Ranger les installateurs fabriqués »
     (lancer ce script APRÈS cette étape) ; affiché en Mo comme Windows le montre (1 Mo = 1 048 576 octets) ;
-  · outils, rituels, applis : vitrine/donnees/<canal>.json, écrit avec la page par la publication du dépôt source
-    ({"version", "outils", "rituels", "applis": [{id, nom, version, description, couleur, categorie, icone (SVG)}]}).
-Une source absente ou d'une autre version : la valeur déjà écrite dans index.html reste, avec un avertissement
-(l'action continue : la page reste en ligne).
+  · outils, rituels, applis : comptés dans la page publiée elle-même (entrees/<canal>.json, fichier « classe ») :
+    les applis rangées dans Glacis sont lues dans APPLIS_INTEGREES ; les outils (OUTILS) et les rituels (RITUELS) sont
+    comptés en ouvrant une copie de la page dans Chrome sans fenêtre (google-chrome des machines de GitHub, ou CHROME=…).
+Une source illisible : la valeur déjà écrite dans index.html reste, avec un avertissement (l'action continue : la page
+reste en ligne). La section « les applis » reste cachée tant qu'aucune appli n'est rangée dans la page.
 
 Le lien de téléchargement (repères TELECHARGER) et l'empreinte SHA-256 de l'installateur (repères EMPREINTE) sont écrits
 aussi dans la page : sans script (robots, assistants qui lisent la page), on voit le vrai lien, pas « Bientôt disponible ».
@@ -23,7 +24,7 @@ script le vérifie.
 
 Usage : python outils/chiffres.py [--site _site] [--montrer]   (--montrer : affiche les valeurs sans rien écrire)
 """
-import argparse, base64, hashlib, html, json, re, sys
+import argparse, base64, hashlib, html, json, os, re, shutil, subprocess, sys, tempfile
 from pathlib import Path
 
 ICI = Path(__file__).resolve().parent.parent
@@ -45,7 +46,7 @@ def nombre(x, decimales=0):
 
 
 def carte_appli(a):
-    icone = "data:image/svg+xml;base64," + base64.b64encode(a["icone"].encode("utf-8")).decode()
+    icone = a["icone"] if str(a.get("icone", "")).startswith("data:image/") else "data:image/svg+xml;base64," + base64.b64encode(str(a.get("icone", "")).encode("utf-8")).decode()
     c = a.get("couleur") or "#2f4fa8"
     if not re.fullmatch(r"#[0-9a-fA-F]{3,8}", c): c = "#2f4fa8"
     e = lambda t: html.escape(str(t or ""), quote=True)
@@ -66,15 +67,48 @@ def valeurs(site):
         if url.rsplit("/", 1)[-1] == exe[-1].name: v["lien"] = url
         else: avertir(f"{fiche.name} n'annonce pas {exe[-1].name} : lien de téléchargement inchangé")
     else: avertir(f"aucun installateur dans {site.name}/appli/{SOUS[canal]} : poids et lien inchangés")
-    f = ICI / "vitrine" / "donnees" / f"{canal}.json"
-    d = json.loads(f.read_text(encoding="utf-8")) if f.is_file() else None
-    if d is None: avertir(f"vitrine/donnees/{canal}.json absent : outils, rituels et applis inchangés")
-    elif d.get("version") != entree["version"]: avertir(f"vitrine/donnees/{canal}.json est celui de la {d.get('version')}, pas de la {entree['version']} : outils, rituels et applis inchangés")
-    else:
-        for k in ("outils", "rituels"):
-            if isinstance(d.get(k), int) and d[k] > 0: v[k] = str(d[k])
-        if isinstance(d.get("applis"), list): v["applis"] = d["applis"]
+    page = ICI / entree["fichiers"]["classe"]["url"]
+    v["applis"] = applis(page)
+    v.update(compter(page))
     return v
+
+
+def applis(page):
+    """Les applis rangées dans la page : le tableau APPLIS_INTEGREES (écrit par build/construire.py du dépôt source)."""
+    s = page.read_text(encoding="utf-8")
+    m = re.search(r"const APPLIS_INTEGREES = (?:/\*.*?\*/)?", s)
+    if not m: return []
+    try: liste, _ = json.JSONDecoder().raw_decode(s[m.end():])
+    except ValueError: avertir("APPLIS_INTEGREES illisible : applis inchangées"); return []
+    sortie = []
+    for a in liste:
+        try: cat = json.loads(a.get("fiche") or "{}").get("categorie", "")
+        except ValueError: cat = ""
+        sortie.append({"id": a.get("id"), "nom": a.get("nom"), "version": a.get("version"), "description": a.get("description"),
+                       "couleur": a.get("couleur"), "categorie": cat, "icone": a.get("icone", "")})
+    return sortie
+
+
+def compter(page):
+    """Outils et rituels : comptés par la page elle-même, ouverte dans Chrome sans fenêtre (une copie, avec quelques lignes
+    ajoutées à la fin qui écrivent les comptes dans la page)."""
+    chrome = os.environ.get("CHROME") or shutil.which("google-chrome") or shutil.which("chromium") or shutil.which("chromium-browser")
+    if not chrome: avertir("Chrome introuvable : outils et rituels inchangés"); return {}
+    sonde = ('<script>document.body.insertAdjacentHTML("beforeend", "<pre id=glacis-chiffres>" + JSON.stringify({'
+             'outils: typeof OUTILS !== "undefined" ? OUTILS.length : 0, rituels: typeof RITUELS !== "undefined" ? RITUELS.length : 0'
+             '}) + "</pre>")</script>')
+    s = page.read_text(encoding="utf-8")
+    i = s.rfind("</body>")
+    with tempfile.TemporaryDirectory() as t:
+        copie = Path(t) / "page.html"; copie.write_text(s[:i] + sonde + s[i:] if i >= 0 else s + sonde, encoding="utf-8")
+        try:
+            r = subprocess.run([chrome, "--headless=new", "--no-sandbox", "--disable-gpu", "--no-first-run", f"--user-data-dir={t}/profil",
+                                "--virtual-time-budget=8000", "--dump-dom", copie.as_uri()], capture_output=True, text=True, timeout=120)
+        except (OSError, subprocess.TimeoutExpired) as e: avertir(f"Chrome : {e} ; outils et rituels inchangés"); return {}
+    m = re.search(r'<pre id="glacis-chiffres">(.*?)</pre>', r.stdout)
+    if not m: avertir("comptes absents de la page ouverte dans Chrome : outils et rituels inchangés"); return {}
+    d = json.loads(html.unescape(m.group(1)))
+    return {k: str(d[k]) for k in ("outils", "rituels") if isinstance(d.get(k), int) and d[k] > 0}
 
 
 def main():
@@ -101,9 +135,11 @@ def main():
         bloc("TELECHARGER", f'<a class="bouton" href="{html.escape(v["lien"], quote=True)}">Télécharger Glacis {html.escape(v["version"])} pour Windows</a>'
              + ('<span class="pastille essai">Version d\'essai</span>' if v["canal"] == "essai" else ""))
         bloc("EMPREINTE", f'Glacis {html.escape(v["version"])} · {v["poids"]}&nbsp;Mo · empreinte SHA-256&nbsp;: <code>{v["sha256"]}</code>')
-    if "applis" in v:
+    if v["applis"]:
         s, n = re.subn(r"<!--APPLIS-->.*?<!--/APPLIS-->", lambda m: "<!--APPLIS-->" + "".join(map(carte_appli, v["applis"])) + "\n      <!--/APPLIS-->", s, flags=re.S)
         if n != 1: sys.exit("index.html : repères <!--APPLIS--> absents ou en double")
+        s, n = re.subn(r'<section id="applis" hidden>', '<section id="applis">', s)
+        if n != 1: sys.exit('index.html : <section id="applis" hidden> absent')
     if re.findall(r"<script>(.*?)</script>", s, re.S) != scripts: sys.exit("chiffres : un script de la page a changé (politique de contenu)")
     page.write_text(s, encoding="utf-8")
     print(f"{page.relative_to(ICI) if page.is_relative_to(ICI) else page} : chiffres de la version {v['version']} ({v['canal']}) écrits")

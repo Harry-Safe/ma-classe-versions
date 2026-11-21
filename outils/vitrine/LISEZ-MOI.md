@@ -11,6 +11,7 @@ généré ; seul un point bleu montre où l'on clique.
 | `exemples/` | la fiche PDF jointe dans le film d'ouverture (« Compléments à 10 », faite pour la démonstration : `fiche.html` l'a produite) |
 | `captures.py` | captures fixes (`accueil`, `soir`, `semaine`, `ops`, `geo`, `ecriture`…) ; `icones` relève dans le menu Outils le nom, les couleurs et le dessin SVG de chaque tuile (`_travail/captures/icones.json`) |
 | `ranger.py` | conversion (MP4, WebP) et rangement dans `vitrine/films/` et `vitrine/images/` ; écrit les tuiles des outils dans `index.html` (entre `<!--TUILES-->` et `<!--/TUILES-->`), en vectoriel, avec les règles de tuile de Glacis |
+| `boucles.py` | boucles courtes des outils (section « les outils ») : un geste découpé dans un film de `vitrine/films/`, recadré sur l'outil, fondu couleur papier ; écrit `vitrine/boucles/<nom>.mp4` et son affiche `<nom>.webp` |
 
 ```
 python outils/vitrine/filmer.py [noms]     # sans nom : les quinze films (environ une heure)

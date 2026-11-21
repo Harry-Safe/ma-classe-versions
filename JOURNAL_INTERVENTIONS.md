@@ -2,6 +2,15 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-21 — Claude — Page de présentation publiée : accroche en deux temps, chiffres vérifiés, boucles, applis, questions
+
+- **Demande / Autorisation** : Franck, 21 novembre, 13 h 01 : « on choisit l'accroche en deux temps. Vérifie les chiffres, et mets en ligne ».
+- **Contrôle préalable** : `main` à `91d2fce` (inchangé depuis la maquette) ; branche `claude/vitrine-maquette` (`1ba490c`) partie de `main`, envoi en avance rapide.
+- **Chiffres vérifiés** sur la page publiée (essai 6.0.0-beta.28, `essai/Glacis.html`) : 17 outils (`OUTILS`), 6 rituels (`RITUELS` et liste de l'écran Rituels : calcul mental, Flash Maths, explorer un nombre, lecture flash, mot et phrase du jour, problèmes), 2 applis rangées dans la page (`APPLIS_INTEGREES` : Échecs 1.2.0, Labo des signes 1.0.0) ; installateur de l'essai 28 : 3 837 Kio d'après le journal de fabrication, soit 3,7 Mo comme Windows l'affiche ; aucune donnée d'élève envoyée en ligne. Libellé corrigé : « outils à sortir au tableau » (minuteur, chronomètre et calendrier ne se manipulent pas) ; réponse « Pour quels niveaux ? » ramenée à ce qui est sûr (rituels et tableau de numération). Les chiffres ne viennent plus d'un fichier à écrire par le dépôt source : `outils/chiffres.py` compte outils et rituels en ouvrant la page publiée dans Chrome sans fenêtre et lit les applis dans la page (`vitrine/donnees/` retiré) ; section « les applis » cachée tant qu'aucune appli.
+- **Réalisation** : `data-accroche="deux"` par défaut ; `DOCUMENTATION.md` § 1 bis et `outils/vitrine/LISEZ-MOI.md` (boucles.py) à jour.
+- **Validation** : `outils/chiffres.py` sur une copie du site avec le Chromium de Playwright (17 et 6 comptés dans la page, 2 applis, lien et empreinte écrits ; Chrome absent ou en échec : avertissement, valeurs gardées) ; page servie avec la politique de contenu de `_headers` : 1440 × 900 et 1366 × 768 (accroche en deux temps, voile, film), mouvements réduits, sans script (vrai lien de téléchargement) ; aucune erreur hors le 404 attendu de `appli/latest.json`.
+- **Livraison / état** : envoyée sur `main` ; résultat de l'action dans l'entrée suivante.
+
 ## 2026-11-21 — Claude — Maquette du site : accroche au tableau, chiffres, boucles des outils, applis (non publiée)
 
 - **Demande / Autorisation** : Franck, 21 novembre, 12 h 33 : maquette inspirée de la page de l'iPad Air, sans comparaison des éditions ; « lors de la sortie de la version stable on ne parle que d'elle et de son poids et […] toutes les données soient mises à jour avec la publication » ; « le voile recouvre le dessus de la brosse » ; 12 h 35 : voir l'accroche « juste avant l'animation du voile qui tombe ». Aucune publication demandée.
