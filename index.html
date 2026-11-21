@@ -341,6 +341,12 @@
   .feuille h2{font-size:clamp(1.9rem,4.4vw,2.9rem);margin-inline:auto}
   .feuille .cursive{font-family:"Marelle",cursive;color:var(--bleu);font-size:1.9rem;line-height:1.7;margin-top:.5em}
   .feuille .bouton{margin-top:22px}
+  .feuille .config{font-size:.95rem;color:var(--doux);margin-top:18px;line-height:1.6}
+  .feuille .config i{font-style:normal;margin:0 .5em;opacity:.5}
+  .feuille .empreinte{font-size:.78rem;color:var(--doux);margin-top:12px;overflow-wrap:anywhere}
+  .feuille .empreinte:empty{display:none}
+  .feuille .empreinte code{font-size:.95em}
+  .feuille .essai{margin:14px 0 0 10px}
   .feuille .note{font-size:.92rem;color:var(--doux);max-width:36em;margin:22px auto 0;background:rgba(255,253,247,.86);border-radius:14px;padding:10px 14px}
   @media (max-width:560px){.feuille{padding:44px 20px 36px 44px;background-image:linear-gradient(to right,transparent 26px,rgba(224,107,122,.7) 26px,rgba(224,107,122,.7) 28px,transparent 28px),repeating-linear-gradient(to bottom,transparent 0 31px,rgba(143,168,232,.55) 31px 33px),repeating-linear-gradient(to bottom,transparent 0 7px,rgba(143,168,232,.2) 7px 8px)}}
   details{max-width:760px;margin:18px auto 0;border-radius:var(--rl);background:var(--verre);border:1px solid var(--bord);padding:4px 22px}
@@ -350,6 +356,11 @@
   details[open] summary::after{transform:rotate(-135deg)}
   details p,details ul{color:var(--doux);padding-bottom:6px}
   details ul{padding-left:1.2rem;display:grid;gap:6px;margin:8px 0 14px}
+
+  /* ---------- questions ---------- */
+  .faq{margin-top:34px;text-align:left}
+  .faq details{margin-top:12px}
+  .faq details p{padding-bottom:16px;max-width:40em}
 
   /* ---------- auteur, licence ---------- */
   .libre{max-width:760px;margin-inline:auto}
@@ -398,8 +409,9 @@
         <p class="ouvAccroche dessus" aria-hidden="true"><span class="a1">Tout ce qu’il faut au&nbsp;tableau,</span><span class="a2">en un&nbsp;Glacis.</span></p>
         <div class="ouvEcran" id="ouvEcran">
           <video id="ouvFilm" controls muted playsinline preload="auto" disablepictureinpicture width="1600" height="900" poster="vitrine/films/ouverture.webp"
-                 aria-label="Un tableau blanc ; un voile très fin tombe en ondulant et s'y dépose, puis Glacis s'y imprime. Sur l'écran d'accueil, un clic sur « Commencer » ouvre l'Accueil. Puis, coup sur coup : l'appel, un problème des rituels, le tableau de numération, le minuteur de la boîte à outils lancé puis réduit, l'Atelier et Préparer, avant de revenir à l'Accueil.">
+                 aria-label="Sur un tableau blanc s'écrit « Tout ce qu'il faut au tableau, en un Glacis. » ; un voile très fin tombe en ondulant et s'y dépose, puis Glacis s'y imprime. Sur l'écran d'accueil, un clic sur « Commencer » ouvre l'Accueil. Puis, coup sur coup : l'appel, un problème des rituels, le tableau de numération, le minuteur de la boîte à outils lancé puis réduit, l'Atelier et Préparer, avant de revenir à l'Accueil.">
             <source src="vitrine/films/ouverture.mp4" type="video/mp4">
+            Sur un tableau blanc s'écrit « Tout ce qu'il faut au tableau, en un Glacis. » ; un voile très fin tombe en ondulant et s'y dépose, puis Glacis s'y imprime. Sur l'écran d'accueil, un clic sur « Commencer » ouvre l'Accueil. Puis, coup sur coup : l'appel, un problème des rituels, le tableau de numération, le minuteur de la boîte à outils lancé puis réduit, l'Atelier et Préparer, avant de revenir à l'Accueil.
           </video>
         </div>
         <svg class="ouvAuget" viewBox="0 0 1648 1000" aria-hidden="true">
@@ -442,7 +454,7 @@
   <!-- ============ En-tête ============ -->
   <div class="tete">
     <div class="contenu">
-      <h1>Glacis <span class="cache">–</span><span class="cursive">Ma classe</span></h1>
+      <h1>Glacis <span class="cache">– </span><span class="cursive">Ma classe</span></h1>
       <p class="accroche">Tout ce qu’il faut au&nbsp;tableau, <em>en un&nbsp;Glacis.</em></p>
       <p class="chapo">Joignez une fiche à une séance&nbsp;: le moment venu, elle s'ouvre au tableau d'un seul clic. La journée, les rituels, les tableaux et les outils sont réunis sur un écran, <b>sans connexion</b>.</p>
       <div class="actions">
@@ -491,6 +503,7 @@
             <figure class="ecran"><video controls muted loop playsinline preload="none" width="1600" height="900" poster="vitrine/films/appel.webp" data-film
                  aria-label="L'appel : un prénom est noté absent, l'appel est validé ; puis la cantine, préremplie, est vérifiée et enregistrée.">
             <source src="vitrine/films/appel.mp4" type="video/mp4">
+            L'appel : un prénom est noté absent, l'appel est validé ; puis la cantine, préremplie, est vérifiée et enregistrée.
           </video></figure>
           </article>
           <article class="pas">
@@ -535,6 +548,7 @@
         <video controls muted loop playsinline preload="none" width="1600" height="900" poster="vitrine/films/accueil.webp" data-film
                  aria-label="L'Accueil passe en modification : une carte change de taille, une horloge et la date sont ajoutées, puis échangées de place.">
             <source src="vitrine/films/accueil.mp4" type="video/mp4">
+            L'Accueil passe en modification : une carte change de taille, une horloge et la date sont ajoutées, puis échangées de place.
           </video>
       </figure>
     </div>
@@ -556,6 +570,7 @@
         <video controls muted loop playsinline preload="none" width="1600" height="900" poster="vitrine/films/problemes.webp" data-film
                  aria-label="Le rituel Problèmes : trois voitures sont mises de côté, le schéma en barres apparaît, s'illustre, puis la correction s'affiche.">
             <source src="vitrine/films/problemes.mp4" type="video/mp4">
+            Le rituel Problèmes : trois voitures sont mises de côté, le schéma en barres apparaît, s'illustre, puis la correction s'affiche.
           </video>
       </figure>
     </div>
@@ -581,6 +596,7 @@
               <video controls muted playsinline preload="none" width="1600" height="900" poster="vitrine/films/numeration.webp" data-film
                  aria-label="Le tableau Numération : une dizaine est cassée en dix unités, puis les dix unités sont entourées et refont une dizaine.">
             <source src="vitrine/films/numeration.mp4" type="video/mp4">
+            Le tableau Numération : une dizaine est cassée en dix unités, puis les dix unités sont entourées et refont une dizaine.
           </video>
             </div>
             <figcaption><b>Casser une dizaine, refaire un paquet de dix.</b>Un clic casse la dizaine en dix unités. On entoure dix unités d'un trait&nbsp;: elles filent une à une et reforment une dizaine.</figcaption>
@@ -590,6 +606,7 @@
               <video controls muted playsinline preload="none" width="1600" height="900" poster="vitrine/films/geometrie.webp" data-film
                  aria-label="Le tableau Géométrie : une règle de 15 centimètres est sortie, déplacée, puis un trait bleu est tracé le long de son bord.">
             <source src="vitrine/films/geometrie.mp4" type="video/mp4">
+            Le tableau Géométrie : une règle de 15 centimètres est sortie, déplacée, puis un trait bleu est tracé le long de son bord.
           </video>
             </div>
             <figcaption><b>Sortir la règle, tracer un trait.</b>La règle, l'équerre et le compas se posent, se déplacent et se tournent. Le crayon suit le bord de l'instrument, comme sur le cahier.</figcaption>
@@ -599,6 +616,7 @@
               <video controls muted playsinline preload="none" width="1600" height="900" poster="vitrine/films/operations.webp" data-film
                  aria-label="Une soustraction posée, 342 moins 165, par dégroupement : les plaques, les barres et les cubes suivent chaque étape.">
             <source src="vitrine/films/operations.mp4" type="video/mp4">
+            Une soustraction posée, 342 moins 165, par dégroupement : les plaques, les barres et les cubes suivent chaque étape.
           </video>
             </div>
             <figcaption><b>La soustraction par dégroupement, matériel à l'appui.</b>À chaque étape, les plaques, les barres et les cubes montrent ce qui se passe&nbsp;: une dizaine dégroupée en dix unités, ce qu'on enlève, ce qui reste.</figcaption>
@@ -608,6 +626,7 @@
               <video controls muted playsinline preload="none" width="1600" height="900" poster="vitrine/films/lignages.webp" data-film
                  aria-label="Le tableau Lignages : la réglure Seyès s'agrandit, puis le support passe du tableau au cahier et à la feuille.">
             <source src="vitrine/films/lignages.mp4" type="video/mp4">
+            Le tableau Lignages : la réglure Seyès s'agrandit, puis le support passe du tableau au cahier et à la feuille.
           </video>
             </div>
             <figcaption><b>Un lignage Seyès, à la bonne taille.</b>La réglure s'agrandit pour être lue du fond de la classe. Le support suit ce que les élèves ont sous les yeux&nbsp;: le tableau, le cahier, la feuille.</figcaption>
@@ -630,6 +649,7 @@
             <video muted loop playsinline preload="none" width="960" height="540" poster="vitrine/boucles/balancenb.webp" data-film
                    aria-label="La balance des nombres : un poids sur le 2, puis sur le 4, et le fléau revient à l'horizontale.">
               <source src="vitrine/boucles/balancenb.mp4" type="video/mp4">
+              La balance des nombres : un poids sur le 2, puis sur le 4, et le fléau revient à l'horizontale.
             </video>
           </div>
           <figcaption><b>Ça penche, puis ça s'équilibre.</b>La balance des nombres&nbsp;: 6&nbsp;=&nbsp;2&nbsp;+&nbsp;4.</figcaption>
@@ -639,6 +659,7 @@
             <video muted loop playsinline preload="none" width="960" height="540" poster="vitrine/boucles/reglettes.webp" data-film
                    aria-label="Les réglettes Cuisenaire : la réglette de 10, puis 6 et 4 aimantées dessous ; le calcul 6 + 4 = 10 s'écrit.">
               <source src="vitrine/boucles/reglettes.mp4" type="video/mp4">
+              Les réglettes Cuisenaire : la réglette de 10, puis 6 et 4 aimantées dessous ; le calcul 6 + 4 = 10 s'écrit.
             </video>
           </div>
           <figcaption><b>Elles s'aimantent bout à bout.</b>Les réglettes&nbsp;: 6 et 4, sous la réglette de 10.</figcaption>
@@ -648,6 +669,7 @@
             <video muted loop playsinline preload="none" width="960" height="540" poster="vitrine/boucles/fractions.webp" data-film
                    aria-label="Les fractions : trois quarts en bande, puis en disque, puis deux quarts.">
               <source src="vitrine/boucles/fractions.mp4" type="video/mp4">
+              Les fractions : trois quarts en bande, puis en disque, puis deux quarts.
             </video>
           </div>
           <figcaption><b>Une fraction, trois façons de la voir.</b>Trois quarts en bande, puis en disque.</figcaption>
@@ -657,6 +679,7 @@
             <video muted loop playsinline preload="none" width="1200" height="352" poster="vitrine/boucles/droite.webp" data-film
                    aria-label="La droite graduée : un bond de 4 à 10 (plus 6), puis un bond de 10 à 13 (plus 3).">
               <source src="vitrine/boucles/droite.mp4" type="video/mp4">
+              La droite graduée : un bond de 4 à 10 (plus 6), puis un bond de 10 à 13 (plus 3).
             </video>
           </div>
           <figcaption><b>Des bonds sur la droite graduée.</b>De 4 à 10, puis de 10 à 13&nbsp;: le pion fait le bond, l'écart s'écrit au-dessus.</figcaption>
@@ -708,6 +731,7 @@
         <video controls muted loop playsinline preload="none" width="1600" height="900" poster="vitrine/films/assistant.webp" data-film
                  aria-label="L'assistant s'ouvre au survol, propose les tutoriels du tableau Numération, puis en déroule un pas à pas.">
             <source src="vitrine/films/assistant.mp4" type="video/mp4">
+            L'assistant s'ouvre au survol, propose les tutoriels du tableau Numération, puis en déroule un pas à pas.
           </video>
       </figure>
     </div>
@@ -757,8 +781,10 @@
         <img src="icone.svg" alt="" width="92" height="92">
         <h2>Installer Glacis</h2>
         <p class="cursive">sur Windows</p>
-        <p id="appliLien"><span class="pastille">Bientôt disponible</span></p>
-        <p class="note">Installation sans droits d'administrateur. L'installateur n'est pas signé par Microsoft&nbsp;: si Windows affiche «&nbsp;Windows a protégé votre ordinateur&nbsp;», choisissez «&nbsp;Informations complémentaires&nbsp;» puis «&nbsp;Exécuter quand même&nbsp;». Ensuite, Glacis se met à jour de lui-même (Réglages › Mises à jour).</p>
+        <p id="appliLien"><!--TELECHARGER--><span class="pastille">Bientôt disponible</span><!--/TELECHARGER--></p>
+        <p class="config">Windows&nbsp;10 ou&nbsp;11 (64&nbsp;bits)<i>·</i>sans droits d'administrateur<br>écran ou vidéoprojecteur de 1366&nbsp;×&nbsp;768 au&nbsp;moins<i>·</i>macOS et Linux&nbsp;: à&nbsp;l'étude</p>
+        <p class="note">Windows peut afficher «&nbsp;Windows a protégé votre ordinateur&nbsp;»&nbsp;: c'est l'avertissement habituel pour un logiciel qui n'a pas de certificat payant de Microsoft. Choisissez «&nbsp;Informations complémentaires&nbsp;» puis «&nbsp;Exécuter quand même&nbsp;». Ensuite, Glacis se met à jour de lui-même (Réglages › Mises à jour), et chaque mise à jour est signée&nbsp;: Glacis refuse un fichier dont la signature ne correspond pas.</p>
+        <p class="empreinte"><!--EMPREINTE--><!--/EMPREINTE--></p>
       </div>
       <details data-r>
         <summary>Vous utilisiez «&nbsp;Ma classe&nbsp;»&nbsp;?</summary>
@@ -769,6 +795,40 @@
           <li>Vous pouvez ensuite désinstaller «&nbsp;Ma classe&nbsp;».</li>
         </ul>
       </details>
+    </div>
+  </section>
+
+  <!-- ============ Questions ============ -->
+  <section id="questions">
+    <div class="contenu centre">
+      <p class="ecrit" data-r>questions</p>
+      <h2 data-r>Les questions qu'on se pose.</h2>
+      <div class="faq">
+        <details data-r>
+          <summary>Faut-il Internet&nbsp;?</summary>
+          <p>Non. Une fois installé, Glacis fonctionne hors ligne. Internet ne sert qu'à recevoir les mises à jour, quand il y en a.</p>
+        </details>
+        <details data-r>
+          <summary>Où sont enregistrées les données des élèves&nbsp;?</summary>
+          <p>Dans un dossier de votre ordinateur, que vous choisissez au premier lancement&nbsp;; un dossier synchronisé convient aussi. Rien n'est envoyé en ligne et il n'y a pas de compte à créer.</p>
+        </details>
+        <details data-r>
+          <summary>Ça marche avec un écran interactif&nbsp;?</summary>
+          <p>Oui. En mode TBI, on écrit au stylet par-dessus ce qui est affiché. Sans écran interactif, tout se pilote à la souris, depuis le fond de la classe.</p>
+        </details>
+        <details data-r>
+          <summary>Pour quels niveaux&nbsp;?</summary>
+          <p>De la GS au CM2&nbsp;: les rituels et les outils se règlent sur le niveau de la classe.</p>
+        </details>
+        <details data-r>
+          <summary>Et sur Mac, Linux ou iPad&nbsp;?</summary>
+          <p>Pour l'instant, Glacis s'installe sur Windows 10 ou 11. Des versions pour macOS et Linux sont à l'étude.</p>
+        </details>
+        <details data-r>
+          <summary>Combien ça coûte&nbsp;?</summary>
+          <p>Rien. Glacis est gratuit et libre (licence GNU GPL 3), sans publicité ni abonnement.</p>
+        </details>
+      </div>
     </div>
   </section>
 

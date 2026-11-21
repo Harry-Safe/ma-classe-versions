@@ -13,13 +13,17 @@ Sources, pour le canal retenu :
 Une source absente ou d'une autre version : la valeur déjà écrite dans index.html reste, avec un avertissement
 (l'action continue : la page reste en ligne).
 
-Repères dans index.html : <!--C:nom-->valeur<!--/C--> (nom : version, poids, outils, rituels) et <!--APPLIS-->…<!--/APPLIS-->.
+Le lien de téléchargement (repères TELECHARGER) et l'empreinte SHA-256 de l'installateur (repères EMPREINTE) sont écrits
+aussi dans la page : sans script (robots, assistants qui lisent la page), on voit le vrai lien, pas « Bientôt disponible ».
+
+Repères dans index.html : <!--C:nom-->valeur<!--/C--> (nom : version, poids, outils, rituels), <!--APPLIS-->…<!--/APPLIS-->,
+<!--TELECHARGER-->…<!--/TELECHARGER--> et <!--EMPREINTE-->…<!--/EMPREINTE-->.
 Ils sont hors des scripts : les empreintes de la politique de contenu (_headers, outils/signer.py) ne changent pas, et ce
 script le vérifie.
 
 Usage : python outils/chiffres.py [--site _site] [--montrer]   (--montrer : affiche les valeurs sans rien écrire)
 """
-import argparse, base64, html, json, re, sys
+import argparse, base64, hashlib, html, json, re, sys
 from pathlib import Path
 
 ICI = Path(__file__).resolve().parent.parent
@@ -54,8 +58,14 @@ def valeurs(site):
     entree = json.loads((ICI / "entrees" / f"{canal}.json").read_text(encoding="utf-8"))
     v = {"canal": canal, "version": court(entree["version"])}
     exe = sorted((site / "appli" / SOUS[canal]).glob("*.exe")) if (site / "appli").is_dir() else []
-    if exe: v["poids"] = nombre(exe[-1].stat().st_size / 1048576, 1)
-    else: avertir(f"aucun installateur dans {site.name}/appli/{SOUS[canal]} : poids inchangé")
+    fiche = site / "appli" / SOUS[canal] / "latest.json"
+    if exe:
+        v["poids"] = nombre(exe[-1].stat().st_size / 1048576, 1)
+        v["sha256"] = hashlib.sha256(exe[-1].read_bytes()).hexdigest()
+        url = json.loads(fiche.read_text(encoding="utf-8"))["platforms"]["windows-x86_64"]["url"] if fiche.is_file() else ""
+        if url.rsplit("/", 1)[-1] == exe[-1].name: v["lien"] = url
+        else: avertir(f"{fiche.name} n'annonce pas {exe[-1].name} : lien de téléchargement inchangé")
+    else: avertir(f"aucun installateur dans {site.name}/appli/{SOUS[canal]} : poids et lien inchangés")
     f = ICI / "vitrine" / "donnees" / f"{canal}.json"
     d = json.loads(f.read_text(encoding="utf-8")) if f.is_file() else None
     if d is None: avertir(f"vitrine/donnees/{canal}.json absent : outils, rituels et applis inchangés")
@@ -73,7 +83,7 @@ def main():
     site = (ICI / a.site) if not Path(a.site).is_absolute() else Path(a.site)
     page = site / "index.html"
     v = valeurs(site)
-    print("chiffres :", ", ".join(f"{k} = {len(x) if k == 'applis' else x}" for k, x in v.items()))
+    print("chiffres :", ", ".join(f"{k} = {len(x) if k == 'applis' else x[:16] if k == 'sha256' else x}" for k, x in v.items()))
     if a.montrer: return
     s = page.read_text(encoding="utf-8")
     scripts = re.findall(r"<script>(.*?)</script>", s, re.S)
@@ -83,6 +93,14 @@ def main():
         return f"<!--C:{m.group(1)}-->{html.escape(v[m.group(1)])}<!--/C-->"
     s = re.sub(r"<!--C:(\w+)-->(.*?)<!--/C-->", remplacer, s, flags=re.S)
     if inconnus - {"poids", "outils", "rituels"}: sys.exit(f"index.html : repères inconnus {sorted(inconnus)}")
+    def bloc(nom, contenu):
+        nonlocal s
+        s, n = re.subn(f"<!--{nom}-->.*?<!--/{nom}-->", lambda m: f"<!--{nom}-->{contenu}<!--/{nom}-->", s, flags=re.S)
+        if n != 1: sys.exit(f"index.html : repères <!--{nom}--> absents ou en double")
+    if "lien" in v:
+        bloc("TELECHARGER", f'<a class="bouton" href="{html.escape(v["lien"], quote=True)}">Télécharger Glacis {html.escape(v["version"])} pour Windows</a>'
+             + ('<span class="pastille essai">Version d\'essai</span>' if v["canal"] == "essai" else ""))
+        bloc("EMPREINTE", f'Glacis {html.escape(v["version"])} · {v["poids"]}&nbsp;Mo · empreinte SHA-256&nbsp;: <code>{v["sha256"]}</code>')
     if "applis" in v:
         s, n = re.subn(r"<!--APPLIS-->.*?<!--/APPLIS-->", lambda m: "<!--APPLIS-->" + "".join(map(carte_appli, v["applis"])) + "\n      <!--/APPLIS-->", s, flags=re.S)
         if n != 1: sys.exit("index.html : repères <!--APPLIS--> absents ou en double")
