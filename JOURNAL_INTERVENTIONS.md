@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-21 — Claude — Page de présentation : « Conçu par un enseignant, pour la classe. »
+
+- **Demande / Autorisation** : Franck, 21 novembre, 9 h 47 : « "Conçu en classe" ce qui est faux et peut attribuer les droits à l'éducation nationale. Modifie vite en "Conçu par un enseignant, pour la classe." »
+- **Contrôle préalable** : `main` à `7752a57` (essai 6.0.0-beta.26 publié) ; branche `claude/credit-fin` depuis `main`.
+- **Réalisation** : `index.html`, titre de la section « un logiciel libre » : « Conçu en classe, par un enseignant. » devient « Conçu par un enseignant, pour la classe. » Aucune autre occurrence dans le dépôt.
+- **Validation** : relecture et contrôle du diff (une ligne, aucun script touché, empreintes inchangées).
+- **Livraison / état** : publiée sur `main` (`6cc10d3`) ; action 44886560804 réussie (« Deployment complete ») ; Cloudflare Pages : déploiement de production `6cc10d3`, succès.
+
 ## 2026-11-21 — Claude — Essai 6.0.0-beta.26 publié (raccourcis modifiables, couleurs des paquets, impression agrandie)
 
 - **Demande / Autorisation** : Franck, 20 novembre, 23 h 26 (raccourcis clavier modifiables dans les Réglages, paquets qui gardent les couleurs de leurs éléments, zone imprimable des tableaux maximisée) ; publication sur le canal d'essai : règle permanente.
