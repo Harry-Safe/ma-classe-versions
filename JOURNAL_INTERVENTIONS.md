@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-22 — Claude — Icônes PNG et ICO pour les moteurs de recherche (dégel ponctuel)
+
+- **Demande / Autorisation** : Franck, 22 h 23 : « Publie l'icone » (icône absente du résultat Google).
+- **Réalisation** : `icone-192.png` et `favicon.ico` (16, 32, 48 px) tirés de `icone.svg` (rsvg-convert) ; déclarés dans `index.html` (l'icône Apple pointe sur le PNG) ; ajoutés à la liste des fichiers copiés par `outils/signer.py`.
+- **Validation** : relecture du diff ; aucun test fonctionnel.
+- **Livraison / état** : dégel ponctuel (`SITE-GELE.md` retiré dans cet envoi, remis après la mise en ligne).
+
 ## 2026-11-22 — Claude — Mentions légales, données et gratuité sur la page de présentation (dégel ponctuel)
 
 - **Demande / Autorisation** : Franck, 17 h 43 : « Publie et change le "combien ça coute ?" qui peut porter à confuson. Trouves une formulation plus appropriée et directe » (après la relecture du site par un autre assistant).

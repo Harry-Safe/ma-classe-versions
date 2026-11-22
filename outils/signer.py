@@ -101,7 +101,7 @@ def main():
              "signature": base64.b64encode(k.sign(contenu.encode("utf-8"))).decode()}
     shutil.rmtree(SITE, ignore_errors=True); SITE.mkdir()
     for c in dossiers: shutil.copytree(ICI / c, SITE / c)
-    for nom in ("index.html", "icone.svg", "404.html", "robots.txt", "sitemap.xml"):   # page de présentation, son icône, page « introuvable », fichiers pour les moteurs de recherche
+    for nom in ("index.html", "icone.svg", "404.html", "robots.txt", "sitemap.xml", "favicon.ico", "icone-192.png"):   # page de présentation, son icône, page « introuvable », fichiers pour les moteurs de recherche
         # 404.html : sans elle, Pages renvoie la page d'accueil (code 200) pour toute adresse inconnue ; l'application
         # attend un vrai 404 quand une fiche n'existe pas (appli/latest.json tant qu'aucune version stable n'est publiée)
         if (ICI / nom).is_file(): shutil.copyfile(ICI / nom, SITE / nom)
