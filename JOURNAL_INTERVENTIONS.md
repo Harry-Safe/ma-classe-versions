@@ -10,6 +10,7 @@ Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne s
 - **Validation** : relecture et contrôle du diff ; aucun test fonctionnel.
 - **Livraison / état** : branche `claude/marque-glacis` poussée, **non envoyée sur `main`** : la mise en ligne attend le dégel ou une phrase de Franck ; glacis-classe.fr inchangé.
 - **Publication** : Franck, 11 h 10 : « Publie la mention de marque ». Dégel ponctuel : `SITE-GELE.md` retiré dans l'envoi sur `main`, puis remis aussitôt après la mise en ligne (aucun nouvel essai : le canal d'essai reste 6.0.0-beta.28).
+- **Résultat** : action 45011178325 réussie sur `9cdf17f` (applications : fabrication réutilisée ; « versions.json signé », « applis.json signé », « signature vérifiée comme dans l'application », « Deployment complete ») ; `SITE-GELE.md` remis dans l'envoi suivant (`[skip ci]`). La page en ligne n'a pas pu être relue depuis cet environnement.
 
 ## 2026-11-21 — Claude — Site gelé : plus aucun essai publié sur glacis-classe.fr
 
