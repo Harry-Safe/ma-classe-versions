@@ -1,0 +1,6 @@
+# glacis-classe.fr : page de présentation de Glacis – Ma classe
+User-agent: *
+Allow: /
+Disallow: /appli/
+
+Sitemap: https://glacis-classe.fr/sitemap.xml

@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-22 — Claude — Fichiers pour les moteurs de recherche (dégel ponctuel)
+
+- **Demande / Autorisation** : Franck, 16 h 41 : « Publie les fichiers pour les moteurs de recherche ».
+- **Contrôle préalable** : `main` à `8eb45a5` (site regelé après la mention de marque) ; aucune autre branche active observée.
+- **Réalisation** : `robots.txt` (tout autorisé sauf `/appli/`, adresse du plan du site) ; `sitemap.xml` (page d'accueil) ; balise `canonical` dans `index.html` (adresse officielle, contre les doublons des prévisualisations `pages.dev`) ; `outils/signer.py` copie ces deux fichiers dans le site. Les aperçus de partage (Open Graph) existaient déjà.
+- **Validation** : relecture du diff ; `sitemap.xml` relu par un analyseur XML ; aucun script de la page touché.
+- **Livraison / état** : dégel ponctuel (`SITE-GELE.md` retiré dans cet envoi sur `main`, remis aussitôt après la mise en ligne) ; aucun nouvel essai.
+
 ## 2026-11-22 — Claude — Marque Glacis : mention sur la page de présentation et dans le README (non publiée)
 
 - **Demande / Autorisation** : Franck a déposé la marque GLACIS à l'INPI (22 novembre 2026, n° 5323435), puis, 10 h 55 : « procède aux changements utiles sur mon site, à ma licence GPL et au depot ». Pas de phrase de dégel : le site reste gelé.
