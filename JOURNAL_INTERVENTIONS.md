@@ -9,6 +9,7 @@ Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne s
 - **Réalisation** : `index.html`, section « Un logiciel libre » : paragraphe sur la marque ; pied de page : « Glacis™ – Ma classe, marque déposée » ; `README.md` : ligne « Marque ». Aucun script de la page touché (empreintes de la politique de contenu inchangées).
 - **Validation** : relecture et contrôle du diff ; aucun test fonctionnel.
 - **Livraison / état** : branche `claude/marque-glacis` poussée, **non envoyée sur `main`** : la mise en ligne attend le dégel ou une phrase de Franck ; glacis-classe.fr inchangé.
+- **Publication** : Franck, 11 h 10 : « Publie la mention de marque ». Dégel ponctuel : `SITE-GELE.md` retiré dans l'envoi sur `main`, puis remis aussitôt après la mise en ligne (aucun nouvel essai : le canal d'essai reste 6.0.0-beta.28).
 
 ## 2026-11-21 — Claude — Site gelé : plus aucun essai publié sur glacis-classe.fr
 
