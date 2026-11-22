@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-22 — Claude — Marque Glacis : mention sur la page de présentation et dans le README (non publiée)
+
+- **Demande / Autorisation** : Franck a déposé la marque GLACIS à l'INPI (22 novembre 2026, n° 5323435), puis, 10 h 55 : « procède aux changements utiles sur mon site, à ma licence GPL et au depot ». Pas de phrase de dégel : le site reste gelé.
+- **Contrôle préalable** : `main` à `2f53589` (garde du site gelé) ; aucune autre branche active observée.
+- **Réalisation** : `index.html`, section « Un logiciel libre » : paragraphe sur la marque ; pied de page : « Glacis™ – Ma classe, marque déposée » ; `README.md` : ligne « Marque ». Aucun script de la page touché (empreintes de la politique de contenu inchangées).
+- **Validation** : relecture et contrôle du diff ; aucun test fonctionnel.
+- **Livraison / état** : branche `claude/marque-glacis` poussée, **non envoyée sur `main`** : la mise en ligne attend le dégel ou une phrase de Franck ; glacis-classe.fr inchangé.
+
 ## 2026-11-21 — Claude — Site gelé : plus aucun essai publié sur glacis-classe.fr
 
 - **Demande / Autorisation** : Franck, 21 novembre, 13 h 43 : « je ne veux plus que les prochains essais apparaissent sur le site internet : on le gèle tel quel. »

@@ -26,5 +26,8 @@ vérifications, clés) : **[DOCUMENTATION.md](DOCUMENTATION.md)**.
   modifications sous la même licence. Aucune garantie. Composants tiers intégrés aux pages (pdf.js, polices Glacis
   Lecture — d'après Andika — et Marelle, OpenMoji, données des cartes, Tauri) : chacun sous sa propre licence, citée
   dans Réglages › À propos.
+- **Marque** : **Glacis™** est une marque déposée de Franck VARAULT (INPI, 22 novembre 2026, n° 5323435). La licence
+  ne donne aucun droit sur ce nom ni sur l'icône de Glacis : une version modifiée porte un autre nom et une autre
+  icône, et garde la mention de l'auteur (termes additionnels de l'article 7 de la licence, `MARQUE.md` du code source).
 - **Documentation** : licence CC BY-SA 4.0.
 - **Applis du Store** (`applis/`) : chacune sous sa propre licence, indiquée dans son paquet (Échecs : GPL-3.0-or-later).
