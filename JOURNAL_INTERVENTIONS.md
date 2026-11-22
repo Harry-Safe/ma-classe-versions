@@ -2,6 +2,14 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-22 — Claude — Mentions légales, données et gratuité sur la page de présentation (dégel ponctuel)
+
+- **Demande / Autorisation** : Franck, 17 h 43 : « Publie et change le "combien ça coute ?" qui peut porter à confuson. Trouves une formulation plus appropriée et directe » (après la relecture du site par un autre assistant).
+- **Contrôle préalable** : `main` à `9b75f13` (site regelé) ; aucune autre branche active observée. Coordonnées de l'hébergeur vérifiées sur le site de Cloudflare (101 Townsend St, San Francisco, +1 (650) 319-8930) ; formats du dossier vérifiés dans `docs/reference/DONNEES.md` du dépôt source (JSON, export Excel).
+- **Réalisation** : questions : « Combien ça coûte ? » devient « Glacis est-il gratuit ? » (oui, sans achat, abonnement, publicité ni version payante) ; nouvelle question « Et si Glacis s'arrêtait un jour ? » ; réponse sur les données complétée (fichiers ouverts lisibles sans Glacis, sauvegarde par copie du dossier) ; « Le code source sera publié avec la version 6.0 » ; section « Mentions légales et données personnelles » (éditeur, hébergeur, propriété intellectuelle, mesure d'audience sans cookie de suivi, contact) et lien dans le pied de page. Aucun script touché.
+- **Validation** : relecture du diff ; page relue par un analyseur HTML ; aucun test fonctionnel.
+- **Livraison / état** : dégel ponctuel (`SITE-GELE.md` retiré dans cet envoi sur `main`, remis aussitôt après la mise en ligne) ; aucun nouvel essai.
+
 ## 2026-11-22 — Claude — Fichiers pour les moteurs de recherche (dégel ponctuel)
 
 - **Demande / Autorisation** : Franck, 16 h 41 : « Publie les fichiers pour les moteurs de recherche ».
