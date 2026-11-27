@@ -42,7 +42,11 @@ fn morceaux(p: &Path) -> Result<Vec<String>, String> {
 
 /// Sous Windows, les noms ne tiennent pas compte des majuscules ; ailleurs, si.
 fn comparable(s: &str) -> String {
-    if cfg!(windows) { s.to_lowercase() } else { s.to_string() }
+    if cfg!(windows) {
+        s.to_lowercase()
+    } else {
+        s.to_string()
+    }
 }
 
 /// Le chemin `cible` est-il le dossier `racine` lui-même ? (comparaison du texte, après contrôle)
@@ -96,7 +100,11 @@ pub struct Numero {
 impl std::fmt::Display for Numero {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let n = self.n.iter().map(|x| x.to_string()).collect::<Vec<_>>().join(".");
-        if self.pre.is_empty() { write!(f, "{n}") } else { write!(f, "{n}-{}", self.pre.join(".")) }
+        if self.pre.is_empty() {
+            write!(f, "{n}")
+        } else {
+            write!(f, "{n}-{}", self.pre.join("."))
+        }
     }
 }
 
@@ -106,20 +114,38 @@ impl std::fmt::Display for Numero {
 /// application « Ma classe », un de ses installateurs, pourtant bien signé, est refusé.
 pub fn version_signee(commentaire: &str) -> Option<Numero> {
     let fichier = commentaire.split('\t').find_map(|x| x.strip_prefix("file:"))?;
-    if !fichier.starts_with("Glacis_") { return None; }
-    fichier.split('_').find_map(|x| if x.contains('.') && x.starts_with(|c: char| c.is_ascii_digit()) { numeros(x) } else { None })
+    if !fichier.starts_with("Glacis_") {
+        return None;
+    }
+    fichier.split('_').find_map(|x| {
+        if x.contains('.') && x.starts_with(|c: char| c.is_ascii_digit()) {
+            numeros(x)
+        } else {
+            None
+        }
+    })
 }
 
 /// « 5.2.33 » → [5, 2, 33] ; « 6.0.0-beta.3 » → [6, 0, 0] et ["beta", "3"] ; un numéro de build (« +42 ») est ignoré.
 pub fn numeros(v: &str) -> Option<Numero> {
     let v = v.trim().split('+').next()?;
-    let (base, pre) = match v.split_once('-') { Some((b, p)) => (b, Some(p)), None => (v, None) };
-    let n = base.split('.').map(|x| x.parse::<u64>().ok()).collect::<Option<Vec<_>>>()?;
+    let (base, pre) = match v.split_once('-') {
+        Some((b, p)) => (b, Some(p)),
+        None => (v, None),
+    };
+    let n = base
+        .split('.')
+        .map(|x| x.parse::<u64>().ok())
+        .collect::<Option<Vec<_>>>()?;
     let pre = match pre {
         None => vec![],
         Some(p) => {
             let p: Vec<String> = p.split('.').map(String::from).collect();
-            if p.iter().any(|x| x.is_empty() || !x.chars().all(|c| c.is_ascii_alphanumeric())) { return None; }
+            if p.iter()
+                .any(|x| x.is_empty() || !x.chars().all(|c| c.is_ascii_alphanumeric()))
+            {
+                return None;
+            }
             p
         }
     };
@@ -161,6 +187,26 @@ pub fn plus_ancienne(a: &Numero, b: &Numero) -> bool {
     false
 }
 
+/// « E: » seul (la page retire la barre finale : dossier retenu à la racine d'une clé USB) vaut « E:/ » ;
+/// tout autre chemin reste tel quel.
+pub fn avec_barre_de_lecteur(chemin: &str) -> String {
+    let lecteur = chemin.len() == 2 && chemin.ends_with(':') && chemin.as_bytes()[0].is_ascii_alphabetic();
+    if lecteur {
+        format!("{chemin}/")
+    } else {
+        chemin.to_string()
+    }
+}
+
+/// Numéro de version d'un installateur que la page annonce : chiffres et points, et un suffixe d'essai
+/// (« 6.0.0-beta.3 ») ; rien qui puisse sortir du dossier temporaire dont il sert à nommer le fichier.
+pub fn version_installable(version: &str) -> bool {
+    numeros(version).is_some()
+        && version
+            .chars()
+            .all(|c| c.is_ascii_alphanumeric() || c == '.' || c == '-')
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -179,12 +225,27 @@ mod tests {
         let d = tmp("base");
         let r = d.join("Glacis");
         assert!(dans_racine(&r, &r).is_ok(), "la racine elle-même");
-        assert!(dans_racine(&r, &r.join("reglages/preferences.json")).is_ok(), "fichier à créer");
-        assert!(dans_racine(&r, &r.join("nouveau/sous/dossier/x.json")).is_ok(), "dossiers à créer");
+        assert!(
+            dans_racine(&r, &r.join("reglages/preferences.json")).is_ok(),
+            "fichier à créer"
+        );
+        assert!(
+            dans_racine(&r, &r.join("nouveau/sous/dossier/x.json")).is_ok(),
+            "dossiers à créer"
+        );
         assert!(dans_racine(&r, &d.join("ailleurs/secret.txt")).is_err(), "voisin");
-        assert!(dans_racine(&r, &d.join("Glacis/../ailleurs/secret.txt")).is_err(), "remontée « .. »");
-        assert!(dans_racine(&r, &d.join("Glacis/./reglages")).is_ok(), "« . » au milieu : sans effet (Rust et Windows l'ignorent)");
-        assert!(dans_racine(&r, &d.join("Glacis 2/x")).is_err(), "nom qui commence pareil");
+        assert!(
+            dans_racine(&r, &d.join("Glacis/../ailleurs/secret.txt")).is_err(),
+            "remontée « .. »"
+        );
+        assert!(
+            dans_racine(&r, &d.join("Glacis/./reglages")).is_ok(),
+            "« . » au milieu : sans effet (Rust et Windows l'ignorent)"
+        );
+        assert!(
+            dans_racine(&r, &d.join("Glacis 2/x")).is_err(),
+            "nom qui commence pareil"
+        );
         assert!(dans_racine(&r, &d).is_err(), "parent");
         assert!(dans_racine(&r, Path::new("reglages/x.json")).is_err(), "chemin relatif");
         assert!(dans_racine(&r, Path::new("/etc/passwd")).is_err(), "système");
@@ -217,23 +278,48 @@ mod tests {
         let d = tmp("lien");
         let r = d.join("Glacis");
         std::os::unix::fs::symlink(d.join("ailleurs"), r.join("raccourci")).unwrap();
-        assert!(dans_racine(&r, &r.join("raccourci/secret.txt")).is_err(), "lien vers un fichier existant");
-        assert!(dans_racine(&r, &r.join("raccourci/nouveau.txt")).is_err(), "lien vers un dossier, fichier à créer");
+        assert!(
+            dans_racine(&r, &r.join("raccourci/secret.txt")).is_err(),
+            "lien vers un fichier existant"
+        );
+        assert!(
+            dans_racine(&r, &r.join("raccourci/nouveau.txt")).is_err(),
+            "lien vers un dossier, fichier à créer"
+        );
         std::os::unix::fs::symlink(r.join("reglages"), r.join("interne")).unwrap();
-        assert!(dans_racine(&r, &r.join("interne/x.json")).is_ok(), "lien qui reste dedans");
+        assert!(
+            dans_racine(&r, &r.join("interne/x.json")).is_ok(),
+            "lien qui reste dedans"
+        );
         let _ = fs::remove_dir_all(&d);
     }
 
     #[test]
     fn versions() {
         let v = |s: &str| numeros(s).unwrap();
-        assert_eq!(version_signee("timestamp:1731500000\tfile:Glacis_5.2.33_x64-setup-essai.exe"), Some(v("5.2.33")));
-        assert_eq!(version_signee("timestamp:1731500000\tfile:Glacis_5.2.0_x64-setup.exe"), Some(v("5.2.0")));
-        assert_eq!(version_signee("timestamp:1731500000\tfile:Glacis_6.0.0-beta.1_x64-setup-essai.exe"), Some(v("6.0.0-beta.1")));
-        assert_eq!(version_signee("timestamp:1731500000\tfile:Ma-classe_6.0.0_x64-setup.exe"), None, "installateur de l'ancienne application");
+        assert_eq!(
+            version_signee("timestamp:1731500000\tfile:Glacis_5.2.33_x64-setup-essai.exe"),
+            Some(v("5.2.33"))
+        );
+        assert_eq!(
+            version_signee("timestamp:1731500000\tfile:Glacis_5.2.0_x64-setup.exe"),
+            Some(v("5.2.0"))
+        );
+        assert_eq!(
+            version_signee("timestamp:1731500000\tfile:Glacis_6.0.0-beta.1_x64-setup-essai.exe"),
+            Some(v("6.0.0-beta.1"))
+        );
+        assert_eq!(
+            version_signee("timestamp:1731500000\tfile:Ma-classe_6.0.0_x64-setup.exe"),
+            None,
+            "installateur de l'ancienne application"
+        );
         assert_eq!(version_signee("timestamp:1731500000"), None);
         assert_eq!(numeros("5.2.33").map(|x| x.n), Some(vec![5, 2, 33]));
-        assert_eq!(numeros("6.0.0-beta.3").map(|x| (x.n, x.pre)), Some((vec![6, 0, 0], vec!["beta".to_string(), "3".to_string()])));
+        assert_eq!(
+            numeros("6.0.0-beta.3").map(|x| (x.n, x.pre)),
+            Some((vec![6, 0, 0], vec!["beta".to_string(), "3".to_string()]))
+        );
         assert_eq!(numeros("6.0.0-beta.3").unwrap().to_string(), "6.0.0-beta.3");
         assert_eq!(numeros("6.0.0-"), None);
         assert_eq!(numeros("6.0.0-be/ta"), None);
@@ -242,7 +328,15 @@ mod tests {
         assert!(!plus_ancienne(&v("5.3"), &v("5.2.33")));
         assert!(plus_ancienne(&v("5.2"), &v("5.2.1")));
         // pré-versions : 5.2.51 < 6.0.0-beta.2 < 6.0.0-beta.10 < 6.0.0-rc.1 < 6.0.0 < 6.0.1 < 6.1.0-beta.1
-        let ordre = ["5.2.51", "6.0.0-beta.2", "6.0.0-beta.10", "6.0.0-rc.1", "6.0.0", "6.0.1", "6.1.0-beta.1"];
+        let ordre = [
+            "5.2.51",
+            "6.0.0-beta.2",
+            "6.0.0-beta.10",
+            "6.0.0-rc.1",
+            "6.0.0",
+            "6.0.1",
+            "6.1.0-beta.1",
+        ];
         for (i, a) in ordre.iter().enumerate() {
             for (j, b) in ordre.iter().enumerate() {
                 assert_eq!(plus_ancienne(&v(a), &v(b)), i < j, "{a} / {b}");
@@ -250,5 +344,36 @@ mod tests {
         }
         assert!(plus_ancienne(&v("6.0.0-beta"), &v("6.0.0-beta.1")));
         assert!(!plus_ancienne(&v("6.0"), &v("6.0.0")));
+    }
+
+    #[test]
+    fn lecteur_seul_recoit_sa_barre() {
+        assert_eq!(avec_barre_de_lecteur("E:"), "E:/");
+        assert_eq!(avec_barre_de_lecteur("c:"), "c:/");
+        // tout le reste est rendu tel quel
+        assert_eq!(avec_barre_de_lecteur("E:/Glacis"), "E:/Glacis");
+        assert_eq!(avec_barre_de_lecteur("E:/"), "E:/");
+        assert_eq!(avec_barre_de_lecteur("1:"), "1:");
+        assert_eq!(avec_barre_de_lecteur("ab"), "ab");
+        assert_eq!(avec_barre_de_lecteur(""), "");
+        assert_eq!(avec_barre_de_lecteur(":"), ":");
+    }
+
+    #[test]
+    fn versions_d_installateur_acceptees() {
+        assert!(version_installable("5.2.33"));
+        assert!(version_installable("6.0.0"));
+        assert!(version_installable("6.0.0-beta.3"));
+    }
+
+    #[test]
+    fn versions_d_installateur_refusees() {
+        assert!(!version_installable(""));
+        assert!(!version_installable("beta"));
+        assert!(!version_installable("../6.0.0"));
+        assert!(!version_installable("6.0.0/../../x"));
+        assert!(!version_installable("6.0.0\\x"));
+        assert!(!version_installable("6.0.0 "));
+        assert!(!version_installable("6.0.0;calc"));
     }
 }

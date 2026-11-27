@@ -23,19 +23,26 @@
 //! retenu (src/chemins.rs) : même un code glissé dans la page ne pourrait rien toucher d'autre sur l'ordinateur ; le
 //! dossier lui-même n'est jamais supprimé ni recréé, et un installateur plus ancien que l'application est refusé.
 
+mod appli;
 mod chemins;
 
+use base64::{engine::general_purpose::STANDARD, Engine};
+use minisign_verify::{PublicKey, Signature};
 use percent_encoding::percent_decode_str;
 use serde::Serialize;
-use std::{fs, io::ErrorKind, path::{Path, PathBuf}, sync::Mutex, time::UNIX_EPOCH};
+use std::{
+    fs,
+    io::ErrorKind,
+    path::{Path, PathBuf},
+    sync::Mutex,
+    time::UNIX_EPOCH,
+};
 use tauri::{
     ipc::{InvokeBody, Request, Response},
     AppHandle, Manager, Url, WebviewUrl, WebviewWindow, WebviewWindowBuilder,
 };
 use tauri_plugin_dialog::DialogExt;
 use tauri_plugin_opener::OpenerExt;
-use base64::{engine::general_purpose::STANDARD, Engine};
-use minisign_verify::{PublicKey, Signature};
 
 fn texte<E: std::fmt::Display>(e: E) -> String {
     e.to_string()
@@ -75,8 +82,7 @@ fn retenir(app: &AppHandle, chemin: &str) -> Result<(), String> {
 /// Le chemin demandé par la page, s'il est dans le dossier retenu ; sinon une erreur (rien n'est fait).
 /// « E: » seul (la page retire la barre finale : dossier retenu à la racine d'une clé USB) vaut « E:/ ».
 fn permis(app: &AppHandle, chemin: &str) -> Result<PathBuf, String> {
-    let lecteur = chemin.len() == 2 && chemin.ends_with(':') && chemin.as_bytes()[0].is_ascii_alphabetic();
-    let c = if lecteur { format!("{chemin}/") } else { chemin.to_string() };
+    let c = chemins::avec_barre_de_lecteur(chemin);
     chemins::dans_racine(&racine(app)?, Path::new(&c))
 }
 
@@ -88,7 +94,10 @@ fn lister(app: AppHandle, chemin: String) -> Result<Vec<Entree>, String> {
     for e in fs::read_dir(&p).map_err(texte)? {
         let e = e.map_err(texte)?;
         let dossier = e.path().is_dir();
-        v.push(Entree { nom: e.file_name().to_string_lossy().into_owned(), dossier });
+        v.push(Entree {
+            nom: e.file_name().to_string_lossy().into_owned(),
+            dossier,
+        });
     }
     Ok(v)
 }
@@ -104,7 +113,11 @@ fn infos(app: AppHandle, chemin: String) -> Option<Infos> {
         .and_then(|t| t.duration_since(UNIX_EPOCH).ok())
         .map(|d| d.as_millis() as u64)
         .unwrap_or(0);
-    Some(Infos { dossier: m.is_dir(), taille: m.len(), modif })
+    Some(Infos {
+        dossier: m.is_dir(),
+        taille: m.len(),
+        modif,
+    })
 }
 
 /// Octets d'un fichier (rendus tels quels à la page, sans conversion).
@@ -130,7 +143,10 @@ fn ecrire(app: AppHandle, request: Request<'_>) -> Result<(), String> {
     if chemins::est_racine(&racine(&app)?, &p) {
         return Err("le dossier « Glacis » n'est pas un fichier".into());
     }
-    let nom = p.file_name().map(|n| n.to_string_lossy().into_owned()).unwrap_or_default();
+    let nom = p
+        .file_name()
+        .map(|n| n.to_string_lossy().into_owned())
+        .unwrap_or_default();
     let tmp = p.with_file_name(format!(".{nom}.ecriture"));
     fs::write(&tmp, octets).map_err(texte)?;
     if let Err(e) = fs::rename(&tmp, &p) {
@@ -157,7 +173,11 @@ fn supprimer(app: AppHandle, chemin: String, recursif: bool) -> Result<(), Strin
         return Err("le dossier « Glacis » lui-même ne se supprime pas".into());
     }
     let r = if p.is_dir() {
-        if recursif { fs::remove_dir_all(&p) } else { fs::remove_dir(&p) }
+        if recursif {
+            fs::remove_dir_all(&p)
+        } else {
+            fs::remove_dir(&p)
+        }
     } else {
         fs::remove_file(&p)
     };
@@ -184,7 +204,10 @@ fn dossier_retenu(app: AppHandle) -> Option<String> {
 async fn choisir_dossier(app: AppHandle) -> Result<Option<String>, String> {
     let a = app.clone();
     let choix = tauri::async_runtime::spawn_blocking(move || {
-        a.dialog().file().set_title("Choisir le dossier « Glacis »").blocking_pick_folder()
+        a.dialog()
+            .file()
+            .set_title("Choisir le dossier « Glacis »")
+            .blocking_pick_folder()
     })
     .await
     .map_err(texte)?;
@@ -226,7 +249,11 @@ fn plein_ecran(window: WebviewWindow, etat: Option<bool>) -> Result<bool, String
 
 fn adresse_web(url: &str) -> Result<Url, String> {
     let u: Url = url.parse().map_err(texte)?;
-    if matches!(u.scheme(), "http" | "https") { Ok(u) } else { Err("adresse refusée".into()) }
+    if appli::schema_web_permis(u.scheme()) {
+        Ok(u)
+    } else {
+        Err("adresse refusée".into())
+    }
 }
 
 /// Un site dans le navigateur de l'ordinateur (comptes Google, téléchargements).
@@ -240,13 +267,7 @@ fn ouvrir_url(app: AppHandle, url: String) -> Result<(), String> {
 #[tauri::command]
 async fn ouvrir_site(app: AppHandle, url: String, titre: String) -> Result<(), String> {
     let u = adresse_web(&url)?;
-    let hote: String = u
-        .host_str()
-        .unwrap_or("site")
-        .chars()
-        .map(|c| if c.is_ascii_alphanumeric() { c } else { '-' })
-        .collect();
-    let label = format!("site-{hote}");
+    let label = appli::etiquette_fenetre_site(u.host_str());
     if let Some(w) = app.get_webview_window(&label) {
         let _ = w.unminimize();
         return w.set_focus().map_err(texte);
@@ -283,37 +304,6 @@ fn reponse_appli(statut: u16, type_: &str, corps: Vec<u8>) -> tauri::http::Respo
         .unwrap_or_else(|_| tauri::http::Response::new(Vec::new()))
 }
 
-fn type_fichier(p: &Path) -> &'static str {
-    let ext = p.extension().map(|e| e.to_string_lossy().to_lowercase()).unwrap_or_default();
-    match ext.as_str() {
-        "html" | "htm" => "text/html; charset=utf-8",
-        "js" | "mjs" => "text/javascript; charset=utf-8",
-        "css" => "text/css; charset=utf-8",
-        "json" => "application/json; charset=utf-8",
-        "txt" | "md" => "text/plain; charset=utf-8",
-        "svg" => "image/svg+xml",
-        "png" => "image/png",
-        "jpg" | "jpeg" => "image/jpeg",
-        "gif" => "image/gif",
-        "webp" => "image/webp",
-        "avif" => "image/avif",
-        "ico" => "image/x-icon",
-        "mp3" => "audio/mpeg",
-        "wav" => "audio/wav",
-        "ogg" | "oga" => "audio/ogg",
-        "m4a" => "audio/mp4",
-        "webm" => "audio/webm",
-        "mp4" => "video/mp4",
-        "woff" => "font/woff",
-        "woff2" => "font/woff2",
-        "ttf" => "font/ttf",
-        "otf" => "font/otf",
-        "pdf" => "application/pdf",
-        "wasm" => "application/wasm",
-        _ => "application/octet-stream",
-    }
-}
-
 /// Adresse appli://localhost/<appli>/<fichier> : un fichier du dossier « Glacis/Applis ».
 /// Refusés : « . » et « .. », lecteurs (« C: »), fichiers cachés, le dossier « donnees » d'une appli, et tout
 /// ce qui sortirait du dossier « Applis » (vérifié sur le chemin réel, liens compris).
@@ -327,12 +317,11 @@ fn servir_appli(app: &AppHandle, uri_chemin: &str) -> tauri::http::Response<Vec<
         return reponse_appli(404, TEXTE, "Dossier « Glacis » introuvable".into());
     };
     let racine = PathBuf::from(dossier).join("Applis");
-    let parts: Vec<&str> = chemin.split('/').filter(|s| !s.is_empty()).collect();
+    let parts = appli::parties_du_chemin(&chemin);
     if parts.is_empty() {
         return reponse_appli(404, TEXTE, "Appli introuvable".into());
     }
-    let refuse = parts.iter().any(|x| *x == "." || *x == ".." || x.starts_with('.') || x.contains('\\') || x.contains(':'));
-    if refuse || (parts.len() > 1 && parts[1].eq_ignore_ascii_case("donnees")) {
+    if appli::acces_refuse(&parts) {
         return reponse_appli(403, TEXTE, "Accès refusé".into());
     }
     let mut p = racine.clone();
@@ -344,7 +333,7 @@ fn servir_appli(app: &AppHandle, uri_chemin: &str) -> tauri::http::Response<Vec<
     }
     match (fs::canonicalize(&racine), fs::canonicalize(&p)) {
         (Ok(r), Ok(c)) if c.starts_with(&r) && c.is_file() => match fs::read(&c) {
-            Ok(o) => reponse_appli(200, type_fichier(&c), o),
+            Ok(o) => reponse_appli(200, appli::type_fichier(&c), o),
             Err(_) => reponse_appli(404, TEXTE, "Fichier illisible".into()),
         },
         _ => reponse_appli(404, TEXTE, "Fichier introuvable".into()),
@@ -359,7 +348,11 @@ fn texte_b64(s: &str) -> Result<String, String> {
 }
 
 fn entete(request: &Request<'_>, nom: &str) -> Result<String, String> {
-    let brut = request.headers().get(nom).and_then(|v| v.to_str().ok()).ok_or(format!("{nom} manquant"))?;
+    let brut = request
+        .headers()
+        .get(nom)
+        .and_then(|v| v.to_str().ok())
+        .ok_or(format!("{nom} manquant"))?;
     Ok(percent_decode_str(brut).decode_utf8().map_err(texte)?.into_owned())
 }
 
@@ -371,7 +364,7 @@ fn installer_paquet(app: AppHandle, request: Request<'_>) -> Result<(), String> 
     let signature = entete(&request, "signature")?;
     let version = entete(&request, "version")?;
     // chiffres et points, et un suffixe d'essai (« 6.0.0-beta.3 ») : rien qui puisse sortir du dossier temporaire
-    if chemins::numeros(&version).is_none() || !version.chars().all(|c| c.is_ascii_alphanumeric() || c == '.' || c == '-') {
+    if !chemins::version_installable(&version) {
         return Err("numéro de version invalide".into());
     }
     let InvokeBody::Raw(octets) = request.body() else {
@@ -379,16 +372,24 @@ fn installer_paquet(app: AppHandle, request: Request<'_>) -> Result<(), String> 
     };
     let cle = PublicKey::decode(&texte_b64(CLE_MAJ)?).map_err(texte)?;
     let sig = Signature::decode(&texte_b64(&signature)?).map_err(texte)?;
-    cle.verify(octets, &sig, true).map_err(|e| format!("signature refusée ({e}) : installateur non installé"))?;
+    cle.verify(octets, &sig, true)
+        .map_err(|e| format!("signature refusée ({e}) : installateur non installé"))?;
     // la version vient du commentaire signé (nom du fichier signé), pas de ce que dit la page : pas de retour en arrière
-    let signee = chemins::version_signee(sig.trusted_comment()).ok_or("installateur sans numéro de version signé : non installé")?;
+    let signee = chemins::version_signee(sig.trusted_comment())
+        .ok_or("installateur sans numéro de version signé : non installé")?;
     let courante = chemins::numeros(&app.package_info().version.to_string()).unwrap_or_default();
     if chemins::plus_ancienne(&signee, &courante) {
-        return Err(format!("installateur plus ancien ({signee}) que l'application ({}) : non installé", app.package_info().version));
+        return Err(format!(
+            "installateur plus ancien ({signee}) que l'application ({}) : non installé",
+            app.package_info().version
+        ));
     }
     let p = std::env::temp_dir().join(format!("Glacis_{version}_x64-setup.exe"));
     fs::write(&p, octets).map_err(texte)?;
-    std::process::Command::new(&p).args(["/P", "/UPDATE", "/R"]).spawn().map_err(texte)?;
+    std::process::Command::new(&p)
+        .args(["/P", "/UPDATE", "/R"])
+        .spawn()
+        .map_err(texte)?;
     app.exit(0);
     Ok(())
 }
@@ -406,10 +407,24 @@ pub fn run() {
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_opener::init())
         // applis du dossier « Glacis/Applis » (module Applis de la page)
-        .register_uri_scheme_protocol("appli", |ctx, requete| servir_appli(ctx.app_handle(), requete.uri().path()))
+        .register_uri_scheme_protocol("appli", |ctx, requete| {
+            servir_appli(ctx.app_handle(), requete.uri().path())
+        })
         .invoke_handler(tauri::generate_handler![
-            lister, infos, lire, ecrire, creer_dossier, supprimer, choisir_dossier, dossier_retenu, reprendre_dossier, plein_ecran,
-            ouvrir_url, ouvrir_site, installer_paquet, licences_rust
+            lister,
+            infos,
+            lire,
+            ecrire,
+            creer_dossier,
+            supprimer,
+            choisir_dossier,
+            dossier_retenu,
+            reprendre_dossier,
+            plein_ecran,
+            ouvrir_url,
+            ouvrir_site,
+            installer_paquet,
+            licences_rust
         ])
         .run(tauri::generate_context!())
         .expect("impossible de lancer Glacis");

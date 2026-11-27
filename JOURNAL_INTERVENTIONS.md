@@ -2,6 +2,13 @@
 
 Les entrées récentes sont en tête. Une entrée sur une branche d’essai ne signifie pas que le site a été publié.
 
+## 2026-11-27 — Claude — Bêta 6.0.0-beta.30 sur le canal d'essai de l'application (dégel ponctuel)
+
+- **Demande / Autorisation** : Franck, 17 h 25 : « Je veux avoir la maj sur le canal d'essai de l'application (je n'y ai actuellement pas accès depuis mon appli). Laisse le site gelé tel qu'il est. » ; choix confirmé : dégel ponctuel, page de présentation inchangée, regel aussitôt.
+- **Réalisation** : pages d'essai, `versions.json`, `latest.json` et installateur d'essai de la bêta 6.0.0-beta.30 (fenêtres harmonisées) ; `index.html` et tout ce qui sert à la présentation du site : inchangés. Source : dépôt privé, `essai` au commit `53ae9ac`.
+- **Validation** : suite complète du dépôt source (127 scénarios, « Tout est bon. », un scénario réussi à la relance).
+- **Livraison / état** : `SITE-GELE.md` retiré dans cet envoi, remis après la mise en ligne.
+
 ## 2026-11-22 — Claude — Icônes PNG et ICO pour les moteurs de recherche (dégel ponctuel)
 
 - **Demande / Autorisation** : Franck, 22 h 23 : « Publie l'icone » (icône absente du résultat Google).
